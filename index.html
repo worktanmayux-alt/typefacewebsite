@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ PRIMARY META ═══ -->
+<title>Get.Set.Typeface — Find the Perfect Typeface for Any Product</title>
+<meta name="description" content="Discover the perfect typeface for your website or app. 50+ curated font recommendations per category — SaaS, fintech, editorial, luxury, gaming and more. Updated daily.">
+<meta name="keywords" content="typeface finder, font recommendations, typography tool, web fonts, SaaS fonts, fintech fonts, editorial fonts, luxury fonts, font pairing, design tool">
+<meta name="author" content="Get.Set.Typeface">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://getset.typeface.design/">
+
+<!-- ═══ OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getset.typeface.design/">
+<meta property="og:title" content="Get.Set.Typeface — Find the Perfect Typeface for Any Product">
+<meta property="og:description" content="50+ curated font recommendations per category. SaaS, fintech, editorial, luxury, gaming & more. Updated every day at midnight.">
+<meta property="og:image" content="https://getset.typeface.design/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Get.Set.Typeface — Typography Intelligence Tool">
+<meta property="og:site_name" content="Get.Set.Typeface">
+<meta property="og:locale" content="en_US">
+
+<!-- ═══ TWITTER / X CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@gettypeface">
+<meta name="twitter:creator" content="@gettypeface">
+<meta name="twitter:title" content="Get.Set.Typeface — Find the Perfect Typeface for Any Product">
+<meta name="twitter:description" content="50+ curated font recommendations per category. SaaS, fintech, editorial, luxury, gaming & more. Updated daily at midnight.">
+<meta name="twitter:image" content="https://getset.typeface.design/og-image.png">
+<meta name="twitter:image:alt" content="Get.Set.Typeface — Typography Intelligence Tool">
+
+<!-- ═══ PWA / APP ═══ -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GSTypeface">
+<meta name="application-name" content="Get.Set.Typeface">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- ═══ FAVICON (inline SVG) ═══ -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23000'/><rect width='32' height='32' rx='7' fill='%23fff'/><text x='5' y='24' font-family='serif' font-size='22' font-weight='900' fill='%23000'>Gg</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23000'/><text x='20' y='130' font-family='serif' font-size='110' font-weight='900' fill='%23fff'>G</text></svg>">
+
+<!-- ═══ STRUCTURED DATA (Google Rich Results) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Get.Set.Typeface",
+  "url": "https://getset.typeface.design/",
+  "description": "Curated typeface recommendations for any website or app category. 50+ fonts per category with real-world examples, pairings, and daily picks.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "Get.Set.Typeface" }
+}
+</script>
+
+<!-- ═══ PWA MANIFEST ═══ -->
+<link rel="manifest" href="manifest.json">
+
+<!-- ═══ PRECONNECT ═══ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray: #D0D0D0;
+    --a1: #0e0e0e;
+    --a2: #161616;
+    --a3: #1e1e1e;
+    --a4: #2e2e2e;
+    --subtle: #a8a8a8;
+    --muted:  #727272;
+    --dim:    #484848;
+    --border: rgba(255,255,255,0.1);
+    --border-hover: rgba(255,255,255,0.22);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter Tight', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NOISE */
+  body::before {
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:9999;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity:.6;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    height:60px; padding:0 48px;
+    display:flex; align-items:center; justify-content:space-between;
+    background:rgba(0,0,0,0.9); backdrop-filter:blur(24px);
+    border-bottom:1px solid var(--border);
+  }
+  .logo {
+    font-family:'Inter Tight',sans-serif; font-weight:700; font-size:15px;
+    color:var(--white); text-decoration:none; letter-spacing:-0.3px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo-mark {
+    width:30px; height:30px; background:var(--white); color:var(--black);
+    border-radius:7px; display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:900; letter-spacing:-1px;
+  }
+  .nav-links { display:flex; align-items:center; gap:32px; list-style:none; }
+  .nav-links a {
+    font-size:13px; font-weight:500; color:var(--subtle);
+    text-decoration:none; letter-spacing:0.1px; transition:color 0.2s;
+  }
+  .nav-links a:hover { color:var(--white); }
+  .nav-pill {
+    font-size:11px; padding:3px 10px; background:var(--a3);
+    border:1px solid var(--border); border-radius:20px; color:var(--subtle); letter-spacing:0.5px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center;
+    padding:100px 24px 60px; position:relative; overflow:hidden;
+  }
+  .hero-glow {
+    position:absolute; bottom:-100px; left:50%; transform:translateX(-50%);
+    width:700px; height:350px;
+    background:radial-gradient(ellipse, rgba(255,255,255,0.025) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .eyebrow {
+    font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:28px;
+    opacity:0; animation:up 0.7s ease forwards 0.1s;
+  }
+  .hero-h1 {
+    font-family:'Inter Tight', sans-serif; font-size:clamp(40px,7vw,88px);
+    font-weight:500; line-height:1.0; letter-spacing:-3px;
+    color:var(--white); max-width:880px; margin-bottom:20px;
+    opacity:0; animation:up 0.8s ease forwards 0.2s;
+  }
+  .hero-h1 em {
+    font-style:italic; font-weight:400;
+    font-family:'Playfair Display',serif; color:var(--gray); letter-spacing:-3px;
+  }
+  .hero-sub {
+    font-size:17px; font-weight:400; color:var(--subtle); max-width:440px;
+    line-height:1.75; margin-bottom:52px;
+    opacity:0; animation:up 0.8s ease forwards 0.32s;
+  }
+
+  /* INPUT */
+  .input-module {
+    width:100%; max-width:520px; display:flex; flex-direction:column;
+    align-items:center; gap:14px;
+    opacity:0; animation:up 0.8s ease forwards 0.46s;
+  }
+  .input-shell {
+    width:100%; display:flex; overflow:hidden;
+    border:1px solid var(--border); border-radius:11px; background:var(--a2);
+    transition:border-color 0.3s, box-shadow 0.3s;
+  }
+  .input-shell:focus-within {
+    border-color:rgba(255,255,255,0.28);
+    box-shadow:0 0 0 3px rgba(255,255,255,0.04), 0 4px 40px rgba(255,255,255,0.02);
+  }
+  .cat-select {
+    flex:1; background:transparent; border:none; outline:none;
+    padding:15px 18px; font-family:'Inter Tight',sans-serif;
+    font-size:14px; font-weight:500; color:var(--white); cursor:pointer;
+    appearance:none; -webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23555' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 18px center; padding-right:42px;
+  }
+  .cat-select option { background:#111; color:var(--white); }
+  .go-btn {
+    background:var(--white); color:var(--black); border:none;
+    padding:15px 24px; font-family:'Inter Tight',sans-serif;
+    font-size:13px; font-weight:700; letter-spacing:0.2px; cursor:pointer;
+    white-space:nowrap; transition:background 0.2s, transform 0.15s;
+  }
+  .go-btn:hover { background:var(--gray); transform:scale(0.97); }
+  .go-btn:active { transform:scale(0.95); }
+  .input-note { font-size:11px; color:var(--muted); letter-spacing:0.3px; }
+
+  /* SCROLL */
+  .scroll-cue {
+    position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    opacity:0; animation:fadein 0.6s ease forwards 1.3s;
+  }
+  .scroll-cue span { font-size:9px; color:var(--muted); letter-spacing:2.5px; text-transform:uppercase; }
+
+  /* ── APP SHELL ── */
+
+  /* Daily Banner */
+  .daily-banner {
+    background:var(--a1); border-bottom:1px solid var(--border);
+    padding:10px 48px; display:flex; align-items:center;
+    justify-content:space-between; gap:16px;
+  }
+  .daily-left { display:flex; align-items:center; gap:12px; }
+  .daily-badge {
+    font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:#4ade80; background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.2);
+    padding:3px 9px; border-radius:4px;
+  }
+  .daily-text { font-size:12px; color:var(--subtle); }
+  .daily-text strong { color:var(--white); font-weight:600; }
+  .daily-countdown {
+    font-family:'Space Mono',monospace; font-size:11px; color:var(--muted);
+    letter-spacing:0.5px; display:flex; align-items:center; gap:6px;
+  }
+  .daily-countdown-val { color:var(--subtle); font-weight:700; }
+
+  /* Refresh Toast */
+  .refresh-toast {
+    position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--white); color:var(--black); border-radius:40px;
+    padding:12px 24px; font-size:13px; font-weight:700; letter-spacing:0.2px;
+    display:flex; align-items:center; gap:10px; z-index:9000;
+    box-shadow:0 8px 40px rgba(0,0,0,0.6); opacity:0; pointer-events:none;
+    transition:opacity 0.4s ease, transform 0.4s ease;
+  }
+  .refresh-toast.show { opacity:1; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+  .refresh-toast-dot { width:8px; height:8px; border-radius:50%; background:#22c55e; flex-shrink:0; }
+  .refresh-toast button {
+    background:var(--black); color:var(--white); border:none; border-radius:20px;
+    padding:5px 12px; font-size:11px; font-weight:700; cursor:pointer;
+    font-family:'Inter Tight',sans-serif; margin-left:4px;
+  }
+
+  /* App-style "Daily Picks" section */
+  .daily-picks {
+    padding:0 48px 0; display:none;
+  }
+  .daily-picks-header {
+    padding:44px 0 28px; display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid var(--border); margin-bottom:32px;
+  }
+  .daily-picks-label {
+    display:flex; align-items:center; gap:12px;
+  }
+  .daily-picks-dot { width:8px; height:8px; border-radius:50%; background:#4ade80; animation:livepulse 2s ease-in-out infinite; }
+  .daily-picks-title { font-size:13px; font-weight:700; color:var(--white); letter-spacing:-0.3px; }
+  .daily-picks-sub { font-size:11px; color:var(--muted); }
+  .daily-picks-date { font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); }
+
+  .daily-picks-row {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border); border-radius:14px;
+    overflow:hidden; margin-bottom:48px;
+  }
+  .daily-card {
+    background:var(--black); padding:24px 22px; display:flex; flex-direction:column;
+    gap:12px; transition:background 0.22s; cursor:pointer; position:relative; overflow:hidden;
+  }
+  .daily-card::before { content:''; position:absolute; inset:0; background:var(--a2); opacity:0; transition:opacity 0.22s; pointer-events:none; }
+  .daily-card:hover::before { opacity:1; }
+  .daily-card-top { display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1; }
+  .daily-card-num { font-family:'Space Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:1px; }
+  .daily-card-badge { font-size:9px; color:#4ade80; background:rgba(74,222,128,0.1); padding:2px 7px; border-radius:3px; font-weight:600; letter-spacing:0.5px; }
+  .daily-card-preview { font-size:44px; line-height:1; color:var(--white); letter-spacing:-2px; position:relative; z-index:1; transition:letter-spacing 0.4s; }
+  .daily-card:hover .daily-card-preview { letter-spacing:0; }
+  .daily-card-name { font-size:14px; font-weight:700; color:var(--white); position:relative; z-index:1; }
+  .daily-card-desc { font-size:12px; color:var(--subtle); line-height:1.6; position:relative; z-index:1; }
+  .daily-card-btn {
+    align-self:flex-start; font-size:10px; font-weight:700; letter-spacing:0.3px;
+    color:var(--white); border:1px solid var(--border); border-radius:5px;
+    padding:5px 11px; background:transparent; cursor:pointer;
+    font-family:'Inter Tight',sans-serif; transition:background 0.2s, border-color 0.2s, color 0.2s;
+    position:relative; z-index:1;
+  }
+  .daily-card-btn:hover { background:var(--white); color:var(--black); border-color:var(--white); }
+
+  /* Updated footer */
+  footer {
+    border-top:1px solid var(--border); padding:24px 48px;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+  .scroll-line { width:1px; height:36px; background:linear-gradient(to bottom, var(--a4), transparent); animation:pulse 2.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.25} 50%{opacity:0.9} }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding:18px 0;
+  }
+  .marquee-track { display:flex; width:max-content; animation:ticker 50s linear infinite; gap:56px; }
+  .marquee-item {
+    font-size:11px; color:var(--muted); letter-spacing:2px; text-transform:uppercase;
+    font-weight:600; white-space:nowrap; display:flex; align-items:center; gap:56px;
+  }
+  .marquee-item::after { content:'·'; font-size:18px; color:var(--dim); }
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    padding:80px 48px 100px; display:flex; flex-direction:column;
+    align-items:center; text-align:center; gap:14px;
+  }
+  .empty-label { font-size:11px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; }
+  .empty-h2 {
+    font-family:'Inter Tight',sans-serif; font-size:28px; font-weight:600;
+    color:var(--white); letter-spacing:-1px;
+  }
+  .empty-sub { font-size:14px; color:var(--subtle); max-width:360px; line-height:1.7; margin-bottom:24px; }
+  .sample-grid {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    width:100%; max-width:1100px; background:var(--border);
+    border:1px solid var(--border); border-radius:14px; overflow:hidden;
+    margin-top:12px;
+  }
+  .sample-cell {
+    background:var(--black); padding:36px 28px 28px;
+    display:flex; flex-direction:column; gap:10px;
+    transition:background 0.25s;
+  }
+  .sample-cell:hover { background:var(--a2); }
+  .sample-glyph { font-size:52px; line-height:1; color:var(--white); letter-spacing:-2px; }
+  .sample-name { font-size:10px; color:var(--subtle); letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
+  .sample-eg { font-size:11px; color:var(--muted); }
+
+  /* ── RESULTS ── */
+  #results { padding:0 48px 100px; display:none; }
+  .results-header {
+    padding:56px 0 40px; display:flex; align-items:flex-end;
+    justify-content:space-between; border-bottom:1px solid var(--border); margin-bottom:44px;
+  }
+  .results-cat { font-size:10px; color:var(--muted); letter-spacing:2.5px; text-transform:uppercase; margin-bottom:10px; }
+  .results-h2 { font-family:'Inter Tight',sans-serif; font-size:32px; font-weight:600; letter-spacing:-1.5px; color:var(--white); }
+  .results-count { font-size:13px; color:var(--subtle); }
+
+  /* ── GRID & CARD ── */
+  .results-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+    border-radius:16px; overflow:hidden;
+  }
+  .card {
+    background:var(--black); padding:28px 24px 24px;
+    display:flex; flex-direction:column; position:relative;
+    overflow:hidden; transition:background 0.22s;
+  }
+  .card::before {
+    content:''; position:absolute; inset:0; background:var(--a2);
+    opacity:0; transition:opacity 0.22s; pointer-events:none;
+  }
+  .card:hover::before { opacity:1; }
+  .card-num {
+    font-family:'Space Mono',monospace; font-size:9px; color:var(--muted);
+    letter-spacing:1.5px; margin-bottom:18px; position:relative; z-index:1;
+  }
+  .card-preview {
+    font-size:48px; line-height:1; color:var(--white); letter-spacing:-2px;
+    margin-bottom:18px; min-height:52px; position:relative; z-index:1;
+    transition:letter-spacing 0.4s ease;
+  }
+  .card:hover .card-preview { letter-spacing:0px; }
+  .card-name { font-size:14px; font-weight:700; color:var(--white); margin-bottom:7px; position:relative; z-index:1; }
+  .card-desc { font-size:13px; color:var(--subtle); line-height:1.65; flex:1; margin-bottom:16px; position:relative; z-index:1; }
+  .card-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:16px; position:relative; z-index:1; }
+  .card-tag {
+    font-size:10px; padding:3px 8px; background:var(--a3);
+    border:1px solid var(--border); border-radius:4px; color:var(--subtle);
+    letter-spacing:0.4px; text-transform:uppercase; font-weight:600;
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .card:hover .card-tag { border-color:var(--border-hover); color:var(--gray); }
+  .card-foot {
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; border-top:1px solid var(--border);
+    position:relative; z-index:1; transition:border-color 0.2s;
+  }
+  .card:hover .card-foot { border-color:var(--border-hover); }
+  .card-site {
+    font-size:11px; color:var(--muted); text-decoration:none;
+    display:flex; align-items:center; gap:6px; transition:color 0.2s;
+  }
+  .card-site:hover { color:var(--white); }
+  .fav {
+    width:16px; height:16px; background:var(--a3); border-radius:3px;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:8px; font-weight:700; color:var(--subtle);
+  }
+  .card-btn {
+    font-size:11px; font-weight:700; color:var(--white); letter-spacing:0.3px;
+    padding:6px 12px; border:1px solid var(--border); border-radius:5px;
+    background:transparent; cursor:pointer; font-family:'Inter Tight',sans-serif;
+    transition:background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .card-btn:hover { background:var(--white); color:var(--black); border-color:var(--white); }
+
+  /* LOAD MORE */
+  .load-more-wrap { display:flex; justify-content:center; padding-top:44px; }
+  .load-more {
+    font-family:'Inter Tight',sans-serif; font-size:12px; font-weight:600;
+    letter-spacing:0.5px; color:var(--white); background:transparent;
+    border:1px solid var(--border); border-radius:8px; padding:13px 28px;
+    cursor:pointer; transition:background 0.2s, border-color 0.2s;
+  }
+  .load-more:hover { background:var(--a2); border-color:var(--border-hover); }
+
+  /* FOOTER */
+  /* (defined in App Shell section above) */
+  .footer-logo { font-size:13px; font-weight:700; color:var(--muted); letter-spacing:-0.2px; }
+  .footer-txt { font-size:11px; color:var(--muted); }
+  .footer-update { font-size:11px; color:var(--dim); display:flex; align-items:center; gap:6px; }
+  .footer-update-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; display:inline-block; animation:livepulse 2s ease-in-out infinite; }
+  @keyframes livepulse { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
+  .input-note { font-size:12px; color:var(--muted); letter-spacing:0.3px; }
+
+  /* ANIMS */
+  @keyframes up { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadein { from{opacity:0} to{opacity:1} }
+  .card-in { opacity:0; transform:translateY(18px); animation:up 0.45s ease forwards; }
+
+  /* ══════════════════════════════════
+     DETAIL MODAL
+  ══════════════════════════════════ */
+  .detail-overlay {
+    position:fixed; inset:0; z-index:500;
+    background:var(--black);
+    display:none; flex-direction:column;
+    overflow:hidden;
+  }
+  .detail-overlay.open { display:flex; }
+  .detail-overlay.entering { animation:slideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .detail-overlay.leaving  { animation:slideDown 0.35s cubic-bezier(0.7,0,1,0.6) forwards; }
+  @keyframes slideUp   { from{transform:translateY(100%);opacity:0} to{transform:translateY(0);opacity:1} }
+  @keyframes slideDown { from{transform:translateY(0);opacity:1}    to{transform:translateY(100%);opacity:0} }
+
+  /* DETAIL NAV */
+  .d-nav {
+    flex-shrink:0; height:60px; padding:0 48px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid var(--border);
+    background:rgba(0,0,0,0.95); backdrop-filter:blur(20px);
+    position:relative; z-index:10;
+  }
+  .d-back {
+    display:flex; align-items:center; gap:10px;
+    font-size:13px; font-weight:600; color:var(--subtle);
+    background:none; border:none; cursor:pointer;
+    font-family:'Inter Tight',sans-serif;
+    transition:color 0.2s; padding:0; letter-spacing:0.2px;
+  }
+  .d-back:hover { color:var(--white); }
+  .d-back-arrow {
+    width:28px; height:28px; border:1px solid var(--border);
+    border-radius:7px; display:flex; align-items:center; justify-content:center;
+    font-size:14px; transition:border-color 0.2s, background 0.2s;
+  }
+  .d-back:hover .d-back-arrow { border-color:var(--border-hover); background:var(--a2); }
+  .d-nav-right { display:flex; align-items:center; gap:12px; }
+  .d-nav-tag {
+    font-size:10px; padding:3px 10px; background:var(--a3);
+    border:1px solid var(--border); border-radius:20px;
+    color:var(--subtle); letter-spacing:0.8px; text-transform:uppercase; font-weight:600;
+  }
+  .d-get-btn {
+    font-family:'Inter Tight',sans-serif; font-size:12px; font-weight:700;
+    letter-spacing:0.3px; color:var(--black); background:var(--white);
+    border:none; border-radius:7px; padding:8px 16px; cursor:pointer;
+    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+    transition:background 0.2s, transform 0.15s;
+  }
+  .d-get-btn:hover { background:var(--gray); transform:scale(0.97); }
+
+  /* DETAIL BODY */
+  .d-body {
+    flex:1; overflow-y:auto; overflow-x:hidden;
+    scroll-behavior:smooth;
+  }
+  .d-body::-webkit-scrollbar { width:4px; }
+  .d-body::-webkit-scrollbar-track { background:transparent; }
+  .d-body::-webkit-scrollbar-thumb { background:var(--a4); border-radius:2px; }
+
+  /* HERO SPECIMEN */
+  .d-hero {
+    padding:64px 48px 0;
+    border-bottom:1px solid var(--border);
+    overflow:hidden; position:relative;
+  }
+  .d-hero-eyebrow {
+    font-size:10px; color:var(--subtle); letter-spacing:3px;
+    text-transform:uppercase; font-weight:600; margin-bottom:24px;
+    display:flex; align-items:center; gap:16px;
+  }
+  .d-hero-eyebrow::after { content:''; flex:1; height:1px; background:var(--border); }
+  .d-hero-name {
+    font-size:clamp(72px,12vw,160px); line-height:0.9;
+    letter-spacing:-6px; color:var(--white);
+    margin-bottom:0; padding-bottom:40px;
+    transition:letter-spacing 0.6s ease;
+  }
+  .d-hero-sub {
+    position:absolute; right:48px; bottom:48px;
+    font-size:12px; color:var(--subtle); text-align:right; line-height:1.8;
+    max-width:220px;
+  }
+
+  /* TWO-COL LAYOUT */
+  .d-layout {
+    display:grid; grid-template-columns:1fr 360px; gap:0;
+  }
+  .d-main { border-right:1px solid var(--border); padding-bottom:80px; }
+  .d-sidebar { padding-bottom:80px; }
+
+  /* SECTION */
+  .d-section {
+    padding:48px 48px 0;
+    border-bottom:1px solid var(--border);
+    margin-bottom:0;
+  }
+  .d-section:last-child { border-bottom:none; }
+  .d-section-label {
+    font-size:9px; font-weight:700; letter-spacing:3px; color:var(--subtle);
+    text-transform:uppercase; margin-bottom:28px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .d-section-label span { color:var(--muted); font-weight:400; font-size:9px; }
+
+  /* ALPHABET */
+  .d-alphabet {
+    display:grid; grid-template-columns:repeat(13,1fr); gap:0;
+    background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden;
+    margin-bottom:48px;
+  }
+  .d-glyph {
+    background:var(--black); aspect-ratio:1; display:flex; align-items:center;
+    justify-content:center; font-size:clamp(16px,2vw,28px); color:var(--white);
+    transition:background 0.2s, color 0.2s;
+    position:relative;
+  }
+  .d-glyph:hover { background:var(--a2); }
+  .d-glyph.dim { color:var(--a4); font-size:clamp(12px,1.4vw,20px); }
+
+  /* SIZE SCALE */
+  .d-scale { margin-bottom:48px; }
+  .d-scale-row {
+    display:flex; align-items:baseline; gap:16px; padding:10px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .d-scale-row:last-child { border-bottom:none; }
+  .d-scale-size { font-size:9px; color:var(--muted); font-family:'Space Mono',monospace; width:32px; flex-shrink:0; }
+  .d-scale-text { color:var(--white); line-height:1.2; }
+
+  /* WEIGHT STRIP */
+  .d-weights { display:flex; flex-direction:column; gap:0; margin-bottom:48px; }
+  .d-weight-row {
+    padding:14px 0; border-bottom:1px solid var(--border); display:flex;
+    align-items:baseline; gap:20px;
+  }
+  .d-weight-row:last-child { border-bottom:none; }
+  .d-weight-label { font-size:9px; color:var(--muted); font-family:'Space Mono',monospace; width:80px; flex-shrink:0; letter-spacing:0.5px; }
+  .d-weight-sample { font-size:22px; color:var(--white); line-height:1; letter-spacing:-0.5px; }
+
+  /* PARAGRAPH */
+  .d-para-wrap { margin-bottom:48px; }
+  .d-para-lg {
+    font-size:clamp(18px,2.5vw,28px); line-height:1.55; color:var(--white);
+    margin-bottom:24px; letter-spacing:-0.3px;
+  }
+  .d-para-sm {
+    font-size:14px; line-height:1.8; color:var(--subtle);
+    border-left:2px solid var(--border); padding-left:20px;
+  }
+
+  /* PULL QUOTE */
+  .d-quote {
+    padding:40px 48px 40px; border-bottom:1px solid var(--border);
+    background:var(--a1); position:relative; overflow:hidden;
+  }
+  .d-quote::before {
+    content:'"'; position:absolute; top:-20px; left:32px;
+    font-size:200px; color:var(--a2); line-height:1; pointer-events:none;
+  }
+  .d-quote-text {
+    font-size:clamp(22px,3vw,38px); line-height:1.3; color:var(--white);
+    letter-spacing:-1px; position:relative; z-index:1;
+    max-width:700px; margin-bottom:16px;
+  }
+  .d-quote-attr { font-size:12px; color:var(--subtle); letter-spacing:0.5px; }
+
+  /* NUMBERS */
+  .d-nums {
+    display:flex; gap:0; background:var(--border);
+    border:1px solid var(--border); border-radius:10px; overflow:hidden;
+    margin-bottom:48px;
+  }
+  .d-num-cell {
+    flex:1; background:var(--black); padding:24px 8px; text-align:center;
+    font-size:clamp(20px,3vw,40px); color:var(--white); line-height:1;
+    transition:background 0.2s; cursor:default;
+  }
+  .d-num-cell:hover { background:var(--a2); }
+
+  /* MOCKUPS */
+  .d-mockups { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:48px; }
+
+  /* Mockup 1 — Website Hero */
+  .mock-browser {
+    background:var(--a1); padding:0; overflow:hidden;
+  }
+  .mock-browser-bar {
+    background:var(--a2); height:36px; padding:0 16px;
+    display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border);
+  }
+  .mock-dot { width:10px; height:10px; border-radius:50%; }
+  .mock-dot.r { background:#ff5f57; }
+  .mock-dot.y { background:#febc2e; }
+  .mock-dot.g { background:#28c840; }
+  .mock-url-bar {
+    flex:1; max-width:280px; margin:0 auto; background:var(--a3);
+    border-radius:4px; height:20px; display:flex; align-items:center;
+    padding:0 10px; font-size:10px; color:var(--subtle);
+    font-family:'Space Mono',monospace; letter-spacing:0;
+  }
+  .mock-hero-inner {
+    padding:40px 40px 48px; text-align:center;
+  }
+  .mock-nav-links {
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:48px;
+  }
+  .mock-logo-text { font-size:15px; font-weight:700; color:var(--white); letter-spacing:-0.5px; }
+  .mock-nav-items { display:flex; gap:20px; }
+  .mock-nav-item { font-size:11px; color:var(--subtle); }
+  .mock-hero-tag { font-size:9px; color:var(--muted); letter-spacing:2.5px; text-transform:uppercase; margin-bottom:16px; }
+  .mock-hero-h1 { font-size:clamp(28px,4vw,52px); line-height:1.05; color:var(--white); letter-spacing:-2px; margin-bottom:16px; }
+  .mock-hero-p { font-size:13px; color:var(--subtle); line-height:1.7; max-width:380px; margin:0 auto 28px; }
+  .mock-cta-row { display:flex; gap:10px; justify-content:center; }
+  .mock-cta { font-size:11px; font-weight:700; padding:10px 20px; border-radius:6px; }
+  .mock-cta.primary { background:var(--white); color:var(--black); }
+  .mock-cta.secondary { background:transparent; color:var(--subtle); border:1px solid var(--border); }
+
+  /* Mockup 2 — Dashboard */
+  .mock-dashboard {
+    background:var(--a1); display:grid; grid-template-columns:200px 1fr;
+    min-height:220px; overflow:hidden;
+  }
+  .mock-sidebar {
+    background:var(--a2); border-right:1px solid var(--border);
+    padding:20px 16px; display:flex; flex-direction:column; gap:6px;
+  }
+  .mock-sidebar-logo { font-size:13px; font-weight:700; color:var(--white); margin-bottom:16px; letter-spacing:-0.5px; }
+  .mock-nav-link {
+    font-size:11px; padding:7px 10px; border-radius:5px; color:var(--subtle);
+    display:flex; align-items:center; gap:8px;
+  }
+  .mock-nav-link.active { background:var(--a3); color:var(--white); }
+  .mock-nav-dot { width:6px; height:6px; border-radius:50%; background:currentColor; opacity:0.5; }
+  .mock-main { padding:20px 24px; }
+  .mock-dash-title { font-size:16px; font-weight:700; color:var(--white); margin-bottom:4px; letter-spacing:-0.5px; }
+  .mock-dash-sub { font-size:10px; color:var(--subtle); margin-bottom:16px; }
+  .mock-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .mock-card {
+    background:var(--a2); border:1px solid var(--border); border-radius:7px;
+    padding:14px 12px;
+  }
+  .mock-card-label { font-size:9px; color:var(--subtle); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .mock-card-val { font-size:20px; color:var(--white); font-weight:700; letter-spacing:-0.5px; line-height:1; }
+  .mock-card-change { font-size:9px; color:#4ade80; margin-top:4px; }
+
+  /* Mockup 3 — Mobile */
+  .mock-mobile-wrap { background:var(--a1); padding:28px; display:flex; justify-content:center; }
+  .mock-phone {
+    width:220px; border:1px solid var(--a4); border-radius:28px;
+    overflow:hidden; background:var(--a2);
+  }
+  .mock-phone-status {
+    background:var(--black); height:28px; display:flex;
+    align-items:center; justify-content:space-between; padding:0 16px;
+    font-size:8px; color:var(--subtle); font-family:'Space Mono',monospace;
+  }
+  .mock-phone-notch { width:60px; height:12px; background:var(--black); border-radius:0 0 12px 12px; margin:0 auto; }
+  .mock-app-header {
+    padding:16px 16px 12px; border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .mock-app-title { font-size:16px; font-weight:700; color:var(--white); letter-spacing:-0.5px; }
+  .mock-app-body { padding:16px; display:flex; flex-direction:column; gap:10px; }
+  .mock-app-item {
+    background:var(--a3); border-radius:8px; padding:12px;
+    border:1px solid var(--border);
+  }
+  .mock-app-item-title { font-size:11px; font-weight:600; color:var(--white); margin-bottom:3px; }
+  .mock-app-item-sub { font-size:9px; color:var(--subtle); }
+  .mock-app-badge { font-size:8px; color:#4ade80; background:rgba(74,222,128,0.1); padding:2px 6px; border-radius:3px; display:inline-block; margin-top:4px; }
+
+  /* PAIRING SECTION */
+  .d-pairs { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:48px; }
+  .d-pair-card { background:var(--black); padding:28px 24px; transition:background 0.2s; }
+  .d-pair-card:hover { background:var(--a2); }
+  .d-pair-role { font-size:9px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; font-weight:600; margin-bottom:10px; }
+  .d-pair-names { font-size:18px; color:var(--white); margin-bottom:6px; letter-spacing:-0.5px; font-weight:700; }
+  .d-pair-desc { font-size:12px; color:var(--subtle); line-height:1.6; }
+  .d-pair-demo { margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
+  .d-pair-demo-h { font-size:20px; color:var(--white); line-height:1; letter-spacing:-0.5px; margin-bottom:6px; }
+  .d-pair-demo-p { font-size:11px; color:var(--subtle); line-height:1.6; }
+
+  /* SIDEBAR */
+  .d-side-section {
+    padding:36px 32px; border-bottom:1px solid var(--border);
+  }
+  .d-side-label {
+    font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--subtle);
+    font-weight:700; margin-bottom:20px;
+  }
+  .d-meta-grid { display:flex; flex-direction:column; gap:14px; }
+  .d-meta-row { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .d-meta-key { font-size:11px; color:var(--muted); flex-shrink:0; }
+  .d-meta-val { font-size:11px; color:var(--white); font-weight:600; text-align:right; }
+  .d-license-badge {
+    font-size:10px; padding:2px 8px; border-radius:4px; font-weight:600;
+    letter-spacing:0.3px;
+  }
+  .d-license-badge.free { background:rgba(74,222,128,0.12); color:#4ade80; border:1px solid rgba(74,222,128,0.2); }
+  .d-license-badge.premium { background:rgba(251,191,36,0.1); color:#fbbf24; border:1px solid rgba(251,191,36,0.2); }
+  .d-license-badge.variable { background:rgba(99,102,241,0.1); color:#818cf8; border:1px solid rgba(99,102,241,0.2); }
+  .d-usedby { display:flex; flex-wrap:wrap; gap:6px; }
+  .d-usedby-chip {
+    font-size:10px; padding:4px 10px; background:var(--a3);
+    border:1px solid var(--border); border-radius:5px; color:var(--subtle);
+    letter-spacing:0.2px; transition:border-color 0.2s, color 0.2s;
+  }
+  .d-usedby-chip:hover { border-color:var(--border-hover); color:var(--white); }
+  .d-cta-stack { display:flex; flex-direction:column; gap:8px; }
+  .d-cta-primary {
+    display:block; text-align:center; font-family:'Inter Tight',sans-serif;
+    font-size:13px; font-weight:700; letter-spacing:0.2px;
+    color:var(--black); background:var(--white); border:none;
+    border-radius:8px; padding:13px 20px; cursor:pointer;
+    text-decoration:none; transition:background 0.2s;
+  }
+  .d-cta-primary:hover { background:var(--gray); }
+  .d-cta-secondary {
+    display:block; text-align:center; font-family:'Inter Tight',sans-serif;
+    font-size:12px; font-weight:600; letter-spacing:0.2px;
+    color:var(--white); background:transparent;
+    border:1px solid var(--border); border-radius:8px; padding:12px 20px;
+    cursor:pointer; text-decoration:none; transition:background 0.2s, border-color 0.2s;
+  }
+  .d-cta-secondary:hover { background:var(--a2); border-color:var(--border-hover); }
+  .d-similar { display:flex; flex-direction:column; gap:1px; background:var(--border); border-radius:8px; overflow:hidden; }
+  .d-similar-item {
+    background:var(--black); padding:12px 16px; display:flex;
+    align-items:center; justify-content:space-between;
+    transition:background 0.2s; cursor:pointer;
+  }
+  .d-similar-item:hover { background:var(--a2); }
+  .d-similar-name { font-size:12px; color:var(--white); font-weight:600; }
+  .d-similar-src { font-size:10px; color:var(--muted); }
+  .d-similar-arrow { font-size:11px; color:var(--subtle); }
+
+  /* SPECIAL CHARS */
+  .d-specials { display:flex; flex-wrap:wrap; gap:0; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:48px; }
+  .d-special {
+    background:var(--black); width:52px; height:52px; display:flex;
+    align-items:center; justify-content:center; font-size:20px; color:var(--subtle);
+    transition:background 0.2s, color 0.2s; cursor:default;
+  }
+  .d-special:hover { background:var(--a2); color:var(--white); }
+
+  /* RESPONSIVE */
+  @media(max-width:960px) {
+    .d-layout { grid-template-columns:1fr; }
+    .d-main { border-right:none; border-bottom:1px solid var(--border); }
+    .d-sidebar { padding-bottom:40px; }
+    .d-hero { padding:40px 24px 0; }
+    .d-hero-sub { position:static; text-align:left; max-width:100%; margin-top:16px; padding-bottom:24px; }
+    .d-section { padding:36px 24px 0; }
+    .d-side-section { padding:28px 24px; }
+    .d-alphabet { grid-template-columns:repeat(9,1fr); }
+    .mock-dashboard { grid-template-columns:1fr; }
+    .mock-sidebar { display:none; }
+    .d-nav { padding:0 20px; }
+  }
+  @media(max-width:600px) {
+    .d-nav { padding:0 16px; }
+    .d-back span { display:none; }
+    .d-alphabet { grid-template-columns:repeat(7,1fr); }
+    .mock-mobile-wrap { display:none; }
+    .mock-cards { grid-template-columns:repeat(2,1fr); }
+  }
+
+  @media(max-width:960px) {
+    nav { padding:0 20px; }
+    .daily-banner { padding:10px 20px; flex-direction:column; gap:6px; align-items:flex-start; }
+    .hero { padding:90px 20px 60px; }
+    .hero-h1 { letter-spacing:-3px; }
+    #results { padding:0 20px 80px; }
+    .daily-picks { padding:0 20px; }
+    .results-grid { grid-template-columns:repeat(2,1fr); }
+    .daily-picks-row { grid-template-columns:repeat(2,1fr); }
+    .empty-state { padding:60px 20px; }
+    .sample-grid { grid-template-columns:repeat(2,1fr); }
+    footer { padding:24px 20px; flex-direction:column; gap:10px; text-align:center; }
+  }
+  @media(max-width:600px) {
+    .results-grid { grid-template-columns:1fr; }
+    .daily-picks-row { grid-template-columns:1fr; }
+    .nav-links { gap:18px; }
+    .nav-pill { display:none; }
+    .input-shell { flex-direction:column; }
+    .go-btn { border-radius:0 0 10px 10px; }
+    .results-header { flex-direction:column; align-items:flex-start; gap:6px; }
+    .hero-h1 { letter-spacing:-2px; }
+    .daily-countdown { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">G·T</div>
+    Get.Set.Typeface
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">About</a></li>
+    <li><a href="#">Library</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><button id="shareBtn" onclick="shareApp()" style="font-family:'Inter Tight',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3px;color:var(--black);background:var(--white);border:none;border-radius:6px;padding:7px 14px;cursor:pointer;transition:background 0.2s;">Share ↗</button></li>
+    <li><span class="nav-pill">Beta</span></li>
+  </ul>
+</nav>
+
+<!-- DAILY BANNER -->
+<div class="daily-banner" id="dailyBanner">
+  <div class="daily-left">
+    <span class="daily-badge">Daily Picks</span>
+    <span class="daily-text">Today's curated list — <strong id="dailyDate">—</strong> — refreshes at midnight</span>
+  </div>
+  <div class="daily-countdown">
+    Refreshes in <span class="daily-countdown-val" id="countdownVal">—</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="eyebrow">Typography Intelligence Tool</p>
+  <h1 class="hero-h1">Find the <em>perfect</em><br>typeface for<br>any product.</h1>
+  <p class="hero-sub">Select a category and get curated font recommendations with real-world usage examples.</p>
+
+  <div class="input-module">
+    <div class="input-shell">
+      <select class="cat-select" id="catSel">
+        <option value="" disabled selected>Select website / app category</option>
+        <optgroup label="Digital Products">
+          <option value="saas">SaaS / Productivity</option>
+          <option value="ai-tool">AI Tool / Tech</option>
+          <option value="mobile-app">Mobile App</option>
+          <option value="gaming">Gaming / Entertainment</option>
+        </optgroup>
+        <optgroup label="Commerce & Finance">
+          <option value="fintech">Fintech / Banking</option>
+          <option value="ecommerce">E-Commerce / Retail</option>
+          <option value="luxury">Luxury / Fashion</option>
+          <option value="real-estate">Real Estate / Architecture</option>
+        </optgroup>
+        <optgroup label="Content & Creative">
+          <option value="editorial">Editorial / Blog</option>
+          <option value="portfolio">Portfolio / Creative</option>
+          <option value="music">Music / Audio</option>
+          <option value="agency">Agency / Studio</option>
+        </optgroup>
+        <optgroup label="Other">
+          <option value="healthcare">Healthcare / Medical</option>
+          <option value="education">Education / E-Learning</option>
+          <option value="restaurant">Restaurant / Food</option>
+          <option value="travel">Travel / Hospitality</option>
+          <option value="sport">Sport / Fitness</option>
+          <option value="ngo">NGO / Non-Profit</option>
+          <option value="government">Government / Official</option>
+          <option value="startup">Startup / Landing Page</option>
+        </optgroup>
+      </select>
+      <button class="go-btn" onclick="showResults()">Get Recommendations →</button>
+    </div>
+    <p class="input-note">50+ curated recommendations per category — updated 2025</p>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+  <div class="hero-glow"></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Canela</span>
+    <span class="marquee-item">Söhne</span>
+    <span class="marquee-item">Neue Haas Grotesk</span>
+    <span class="marquee-item">Tiempos</span>
+    <span class="marquee-item">GT Walsheim</span>
+    <span class="marquee-item">Freight Display</span>
+    <span class="marquee-item">Graphik</span>
+    <span class="marquee-item">Styrene</span>
+    <span class="marquee-item">Aktiv Grotesk</span>
+    <span class="marquee-item">Domaine Display</span>
+    <span class="marquee-item">PP Neue Montreal</span>
+    <span class="marquee-item">GT Sectra</span>
+    <span class="marquee-item">Founders Grotesk</span>
+    <span class="marquee-item">Signifier</span>
+    <span class="marquee-item">Canela</span>
+    <span class="marquee-item">Söhne</span>
+    <span class="marquee-item">Neue Haas Grotesk</span>
+    <span class="marquee-item">Tiempos</span>
+    <span class="marquee-item">GT Walsheim</span>
+    <span class="marquee-item">Freight Display</span>
+    <span class="marquee-item">Graphik</span>
+    <span class="marquee-item">Styrene</span>
+    <span class="marquee-item">Aktiv Grotesk</span>
+    <span class="marquee-item">Domaine Display</span>
+    <span class="marquee-item">PP Neue Montreal</span>
+    <span class="marquee-item">GT Sectra</span>
+    <span class="marquee-item">Founders Grotesk</span>
+    <span class="marquee-item">Signifier</span>
+  </div>
+</div>
+
+<!-- DAILY PICKS SECTION -->
+<div class="daily-picks" id="dailyPicksSection">
+  <div class="daily-picks-header">
+    <div class="daily-picks-label">
+      <div class="daily-picks-dot"></div>
+      <div>
+        <div class="daily-picks-title">Today's Featured Typefaces</div>
+        <div class="daily-picks-sub">Hand-curated daily picks across all categories</div>
+      </div>
+    </div>
+    <div class="daily-picks-date" id="dailyPicksDate">—</div>
+  </div>
+  <div class="daily-picks-row" id="dailyPicksGrid"></div>
+</div>
+
+<!-- REFRESH TOAST -->
+<div class="refresh-toast" id="refreshToast">
+  <div class="refresh-toast-dot"></div>
+  <span>New typefaces available for today</span>
+  <button onclick="applyDailyRefresh()">Refresh now</button>
+</div>
+
+<!-- EMPTY STATE -->
+<div class="empty-state" id="emptyState">
+  <p class="empty-label">Explore the type spectrum</p>
+  <h2 class="empty-h2">Typography shapes perception.</h2>
+  <p class="empty-sub">Every great product starts with a typeface. Choose your category above to find yours.</p>
+  <div class="sample-grid">
+    <div class="sample-cell">
+      <div class="sample-glyph" style="font-family:'Playfair Display',serif;font-style:italic;">Aa</div>
+      <div class="sample-name">Serif</div>
+      <div class="sample-eg">Canela · Tiempos · Freight</div>
+    </div>
+    <div class="sample-cell">
+      <div class="sample-glyph" style="font-family:'Inter Tight',sans-serif;font-weight:700;">Aa</div>
+      <div class="sample-name">Grotesque</div>
+      <div class="sample-eg">Söhne · Graphik · Aktiv</div>
+    </div>
+    <div class="sample-cell">
+      <div class="sample-glyph" style="font-family:'Space Mono',monospace;">Aa</div>
+      <div class="sample-name">Monospace</div>
+      <div class="sample-eg">Replica · Geist Mono · IBM</div>
+    </div>
+    <div class="sample-cell">
+      <div class="sample-glyph" style="font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-3px;">Aa</div>
+      <div class="sample-name">Display</div>
+      <div class="sample-eg">Canela · GT Super · Hatton</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-header">
+    <div>
+      <p class="results-cat" id="rCat">—</p>
+      <h2 class="results-h2" id="rTitle">Recommended Typefaces</h2>
+    </div>
+    <span class="results-count" id="rCount">—</span>
+  </div>
+  <div class="results-grid" id="rGrid"></div>
+  <div class="load-more-wrap" id="loadMoreWrap" style="display:none;">
+    <button class="load-more" onclick="loadMore()">Load more typefaces</button>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Get.Set.Typeface</span>
+  <span class="footer-update">
+    <span class="footer-update-dot"></span>
+    <span id="footerUpdateTime">List updates daily at midnight</span>
+  </span>
+  <span class="footer-txt">© 2025 — Typography for Designers</span>
+</footer>
+
+<!-- ═══════════════════════════════════════
+     DETAIL OVERLAY
+════════════════════════════════════════ -->
+<div class="detail-overlay" id="detailOverlay">
+
+  <!-- Top Nav -->
+  <div class="d-nav">
+    <button class="d-back" onclick="closeDetail()">
+      <span class="d-back-arrow">←</span>
+      <span>Back to results</span>
+    </button>
+    <div class="d-nav-right">
+      <span class="d-nav-tag" id="dNavTag">—</span>
+      <a class="d-get-btn" id="dGetBtn" href="#" target="_blank" rel="noopener">
+        Get Typeface ↗
+      </a>
+    </div>
+  </div>
+
+  <!-- Scrollable Body -->
+  <div class="d-body" id="dBody">
+
+    <!-- Hero Specimen -->
+    <div class="d-hero" id="dHero">
+      <div class="d-hero-eyebrow" id="dEyebrow">Type Specimen</div>
+      <div class="d-hero-name" id="dHeroName">Typeface</div>
+      <div class="d-hero-sub" id="dHeroSub"></div>
+    </div>
+
+    <!-- Two-col layout -->
+    <div class="d-layout">
+
+      <!-- ── MAIN COLUMN ── -->
+      <div class="d-main">
+
+        <!-- Alphabet -->
+        <div class="d-section">
+          <div class="d-section-label">Alphabet <span>— uppercase + lowercase</span></div>
+          <div class="d-alphabet" id="dAlphabet"></div>
+        </div>
+
+        <!-- Size Scale -->
+        <div class="d-section">
+          <div class="d-section-label">Size Scale <span>— same text, different sizes</span></div>
+          <div class="d-scale" id="dScale"></div>
+        </div>
+
+        <!-- Weight Spectrum -->
+        <div class="d-section">
+          <div class="d-section-label">Weight Spectrum <span>— if variable/multi-weight</span></div>
+          <div class="d-weights" id="dWeights"></div>
+        </div>
+
+        <!-- Numbers -->
+        <div class="d-section">
+          <div class="d-section-label">Numerals <span>— 0–9 at display size</span></div>
+          <div class="d-nums" id="dNums"></div>
+        </div>
+
+        <!-- Special Characters -->
+        <div class="d-section">
+          <div class="d-section-label">Special Characters <span>— punctuation + symbols</span></div>
+          <div class="d-specials" id="dSpecials"></div>
+        </div>
+
+      </div><!-- /d-main col 1 -->
+
+      <!-- Sidebar breaks here for sections below on desktop -->
+      <!-- ── SIDEBAR ── -->
+      <div class="d-sidebar">
+
+        <!-- Metadata -->
+        <div class="d-side-section">
+          <div class="d-side-label">Type Specimen Info</div>
+          <div class="d-meta-grid" id="dMeta"></div>
+        </div>
+
+        <!-- CTA -->
+        <div class="d-side-section">
+          <div class="d-side-label">Get This Font</div>
+          <div class="d-cta-stack" id="dCtas"></div>
+        </div>
+
+        <!-- Used By -->
+        <div class="d-side-section">
+          <div class="d-side-label">Seen In The Wild</div>
+          <div class="d-usedby" id="dUsedBy"></div>
+        </div>
+
+        <!-- Similar Fonts -->
+        <div class="d-side-section">
+          <div class="d-side-label">Similar Typefaces</div>
+          <div class="d-similar" id="dSimilar"></div>
+        </div>
+
+      </div>
+    </div><!-- /d-layout -->
+
+    <!-- Full-width sections below two-col -->
+
+    <!-- Pull Quote -->
+    <div class="d-quote" id="dQuote">
+      <div class="d-quote-text" id="dQuoteText"></div>
+      <div class="d-quote-attr" id="dQuoteAttr"></div>
+    </div>
+
+    <!-- Paragraph Specimen -->
+    <div class="d-section" style="padding-bottom:48px;">
+      <div class="d-section-label">Paragraph Setting <span>— body + pull quote</span></div>
+      <div class="d-para-wrap">
+        <div class="d-para-lg" id="dParaLg"></div>
+        <div class="d-para-sm" id="dParaSm"></div>
+      </div>
+    </div>
+
+    <!-- Real-World Mockups -->
+    <div class="d-section" style="padding-bottom:48px;">
+      <div class="d-section-label">Real-World Mockups <span>— how it looks in product contexts</span></div>
+
+      <div class="d-mockups">
+
+        <!-- Mockup 1: Website Hero -->
+        <div class="mock-browser">
+          <div class="mock-browser-bar">
+            <div class="mock-dot r"></div>
+            <div class="mock-dot y"></div>
+            <div class="mock-dot g"></div>
+            <div class="mock-url-bar" id="dMockUrl">yourproduct.com</div>
+          </div>
+          <div class="mock-hero-inner">
+            <div class="mock-nav-links">
+              <div class="mock-logo-text" id="dMockLogo">Brand</div>
+              <div class="mock-nav-items">
+                <span class="mock-nav-item">Features</span>
+                <span class="mock-nav-item">Pricing</span>
+                <span class="mock-nav-item">Docs</span>
+              </div>
+            </div>
+            <div class="mock-hero-tag" id="dMockTag">New — v2.0 just shipped</div>
+            <div class="mock-hero-h1" id="dMockH1">Build something remarkable.</div>
+            <div class="mock-hero-p" id="dMockP">The fastest way to ship your next big idea. Used by 50,000+ teams worldwide.</div>
+            <div class="mock-cta-row">
+              <span class="mock-cta primary" id="dMockCta">Get started free</span>
+              <span class="mock-cta secondary">See the demo →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mockup 2: Dashboard -->
+        <div class="mock-dashboard">
+          <div class="mock-sidebar">
+            <div class="mock-sidebar-logo" id="dDashLogo">Studio</div>
+            <div class="mock-nav-link active"><span class="mock-nav-dot"></span>Overview</div>
+            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Analytics</div>
+            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Projects</div>
+            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Team</div>
+            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Settings</div>
+          </div>
+          <div class="mock-main">
+            <div class="mock-dash-title" id="dDashTitle">Good morning, Alex</div>
+            <div class="mock-dash-sub">Here's what's happening today.</div>
+            <div class="mock-cards">
+              <div class="mock-card">
+                <div class="mock-card-label" id="dDashL1">Revenue</div>
+                <div class="mock-card-val" id="dDashV1">$84,291</div>
+                <div class="mock-card-change">↑ 12.4% this month</div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-card-label">Active Users</div>
+                <div class="mock-card-val">14,822</div>
+                <div class="mock-card-change">↑ 3.1% this week</div>
+              </div>
+              <div class="mock-card">
+                <div class="mock-card-label">Conversion</div>
+                <div class="mock-card-val">4.7%</div>
+                <div class="mock-card-change">↑ 0.8% vs last week</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mockup 3: Mobile App -->
+        <div class="mock-mobile-wrap">
+          <div class="mock-phone">
+            <div class="mock-phone-status">
+              <span>9:41</span>
+              <span>●●●</span>
+            </div>
+            <div class="mock-app-header">
+              <div class="mock-app-title" id="dAppTitle">Explore</div>
+              <span style="font-size:18px;color:var(--subtle)">⊕</span>
+            </div>
+            <div class="mock-app-body">
+              <div class="mock-app-item">
+                <div class="mock-app-item-title" id="dAppItem1">Design Systems</div>
+                <div class="mock-app-item-sub">12 components updated</div>
+                <span class="mock-app-badge">Active</span>
+              </div>
+              <div class="mock-app-item">
+                <div class="mock-app-item-title">Brand Identity</div>
+                <div class="mock-app-item-sub">3 files, last edited today</div>
+              </div>
+              <div class="mock-app-item">
+                <div class="mock-app-item-title">Typography Guide</div>
+                <div class="mock-app-item-sub">Shared with 4 people</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /d-mockups -->
+    </div>
+
+    <!-- Pairing Section -->
+    <div class="d-section" style="padding-bottom:64px;">
+      <div class="d-section-label">Font Pairings <span>— recommended combinations</span></div>
+      <div class="d-pairs" id="dPairs"></div>
+    </div>
+
+  </div><!-- /d-body -->
+</div><!-- /detail-overlay -->
+
+<script>
+const DB = {
+  saas: {
+    meta: { label:"SaaS / Productivity", desc:"Clean, efficient, trustworthy typography for software products." },
+    fonts: [
+      {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"The definitive UI typeface. Exceptional legibility at every size. Used by Linear, Vercel, Figma.",t:["Grotesque","Variable","Open Source"],w:"linear.app",src:"Google Fonts"},
+      {n:"Geist",p:"Ag",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-2px;",d:"Vercel's proprietary typeface — geometric, minimal, born for developer tools.",t:["Geometric","Variable","Developer"],w:"vercel.com",src:"Vercel"},
+      {n:"Söhne",p:"Ss",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Klim Type Foundry's modern classic. Warm grotesque with personality. Figma and Pitch's choice.",t:["Grotesque","Premium","Warm"],w:"figma.com",src:"Klim Type"},
+      {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-1px;",d:"Digital reimagining of Helvetica. Authoritative, neutral, supremely professional.",t:["Swiss","Classic","Corporate"],w:"stripe.com",src:"Monotype"},
+      {n:"Roobert",p:"Rb",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Display-oriented grotesque that breathes life into dashboards. Playful yet polished.",t:["Display","Grotesque","Friendly"],w:"notion.so",src:"Display Foundry"},
+      {n:"Aeonik",p:"Ak",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Geometric precision with humanist warmth. Excellent for landing pages and product UI.",t:["Geometric","Variable","Premium"],w:"loom.com",src:"Cos Type"},
+      {n:"GT Walsheim",p:"Gw",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Grilli Type's friendly grotesque. Highly readable, great for onboarding and marketing.",t:["Grotesque","Friendly","Variable"],w:"dropbox.com",src:"Grilli Type"},
+      {n:"Silka",p:"Si",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-1px;",d:"Geometric sans with optical corrections. Clean, versatile, scales from UI to billboard.",t:["Geometric","Variable","Versatile"],w:"framer.com",src:"Atipo Foundry"},
+      {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Designed for digital interfaces. Open, readable geometry with a modern tech feel.",t:["Geometric","Open Source","UI"],w:"craft.do",src:"Google Fonts"},
+      {n:"Graphik",p:"Gr",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Commercial Type's neo-grotesque used by Airbnb, Apple — neutral yet refined.",t:["Neo-Grotesque","Premium","System-like"],w:"airbnb.com",src:"Commercial Type"},
+      {n:"Aktiv Grotesk",p:"Ag",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Built to fix Helvetica's legibility issues. Ideal for SaaS with heavy data display.",t:["Grotesque","Legible","Enterprise"],w:"hubspot.com",src:"Dalton Maag"},
+      {n:"Helvetica Now",p:"Hn",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Monotype's modern Helvetica revival. Ultra-trustworthy for enterprise SaaS.",t:["Classic","Swiss","Enterprise"],w:"adobe.com",src:"Monotype"},
+      {n:"Mabry Pro",p:"Mp",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Colophon Foundry's geometric-organic blend. Quirky enough to stand out, clean enough to trust.",t:["Geometric","Character","Variable"],w:"monzo.com",src:"Colophon"},
+      {n:"Larsseit",p:"Lr",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Grotesque with confidence. Display-heavy weight for bold hero statements.",t:["Display","Grotesque","Bold"],w:"webflow.com",src:"TypeMates"},
+      {n:"Neue Montreal",p:"Nm",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Pangram Pangram's subtle grotesque. Fine optical corrections give it an artisanal feel.",t:["Grotesque","PP","Variable"],w:"read.cv",src:"Pangram Pangram"},
+      {n:"Switzer",p:"Sw",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Indian Type Foundry's grotesque — global perspective, clean execution. Free to use.",t:["Grotesque","Open Source","Global"],w:"swell.am",src:"ITF"},
+      {n:"Cabinet Grotesk",p:"Cg",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Fontshare's workhorse with ink-trap accents. Super versatile for design systems.",t:["Grotesque","Variable","Free"],w:"cal.com",src:"Fontshare"},
+      {n:"Archivo",p:"Ar",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"A grotesque meant for digital screens. Excellent for dashboards and sidebar labels.",t:["Grotesque","Open Source","Screen"],w:"pitch.com",src:"Google Fonts"},
+      {n:"Figtree",p:"Fg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Geometric sans with rounded character. Warmer alternative to Inter for product UI.",t:["Geometric","Rounded","Variable"],w:"mercury.com",src:"Google Fonts"},
+      {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Rounded, approachable — excellent for onboarding UX and friendly SaaS interfaces.",t:["Rounded","Friendly","Variable"],w:"todoist.com",src:"Google Fonts"},
+      {n:"Space Grotesk",p:"Sg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-1px;",d:"Tech-coded grotesque with subtle quirks. Popular in Web3, AI, and developer tools.",t:["Tech","Geometric","Open Source"],w:"railway.app",src:"Google Fonts"},
+      {n:"Sora",p:"So",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Japanese-influenced geometric sans. Neutral, clean, excellent for internationalized SaaS.",t:["Geometric","Global","Variable"],w:"planetscale.com",src:"Google Fonts"},
+      {n:"General Sans",p:"Gs",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Fontshare's Swiss-inspired sans with beautiful optical sizing.",t:["Swiss","Variable","Free"],w:"supabase.com",src:"Fontshare"},
+      {n:"Chillax",p:"Ch",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Fontshare's rounded geometric. Friendly, for consumer-facing SaaS.",t:["Rounded","Geometric","Free"],w:"superlist.com",src:"Fontshare"},
+      {n:"Manrope",p:"Ma",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Semi-condensed grotesque. Works especially well for compact dashboards and data tables.",t:["Grotesque","Variable","Compact"],w:"clerk.dev",src:"Google Fonts"},
+      {n:"Epilogue",p:"Ep",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Variable grotesque with extreme weight range. For dynamic hero typography.",t:["Variable","Grotesque","Dynamic"],w:"resend.com",src:"Google Fonts"},
+      {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Indonesian type foundry's sans. Humanist details, globally informed aesthetic.",t:["Humanist","Global","Variable"],w:"loop.so",src:"Google Fonts"},
+      {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Geometric with high x-height. Approachable and modern for startup sites.",t:["Geometric","Open Source","Readable"],w:"primer.io",src:"Google Fonts"},
+      {n:"Be Vietnam Pro",p:"Bv",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Grotesque that excels across Latin and Vietnamese scripts. Excellent internationalization.",t:["Humanist","Global","Variable"],w:"miro.com",src:"Google Fonts"},
+      {n:"Lexend",p:"Lx",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Research-backed for improved reading speed. Ideal for text-heavy SaaS products.",t:["Readability","Open Source","Accessible"],w:"notion.so",src:"Google Fonts"},
+      {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Fontshare's modern geometric. Clean, contemporary, loved by designers worldwide.",t:["Geometric","Free","Variable"],w:"persona.name",src:"Fontshare"},
+      {n:"Basier Circle",p:"Bc",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Circular grotesque with geometric precision. Used in leading SaaS products.",t:["Geometric","Circular","Variable"],w:"qonto.com",src:"Fontshare"},
+      {n:"Whyte",p:"Wh",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"ABC Dinamo's contemporary grotesque. Subtle irregularities create warmth.",t:["Grotesque","Humanist","Premium"],w:"blend.com",src:"ABC Dinamo"},
+      {n:"Darker Grotesque",p:"Dk",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Condensed grotesque with tremendous display character. For bold hero statements.",t:["Condensed","Display","Bold"],w:"firefly.ai",src:"Google Fonts"},
+      {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Display grotesque with unique wide letterforms. Unconventional for innovative brands.",t:["Display","Variable","Wide"],w:"paystack.com",src:"Google Fonts"},
+      {n:"Clash Display",p:"Cd",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Fontshare's boldest display grotesque. Large letterforms with strong grid presence.",t:["Display","Bold","Free"],w:"vercel.com",src:"Fontshare"},
+      {n:"Ranade",p:"Rn",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"High x-height text grotesque. Professional and highly readable for product body text.",t:["Grotesque","Text","Free"],w:"figma.com",src:"Fontshare"},
+      {n:"Nippo",p:"Np",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Condensed grotesque that creates strong visual rhythm in UI design.",t:["Condensed","Grotesque","Free"],w:"linear.app",src:"Fontshare"},
+      {n:"Azeret Mono",p:"Az",s:"font-family:'Space Mono',monospace;font-weight:700;letter-spacing:-0.5px;",d:"Variable monospace grotesque. Bridges the gap between code and branding.",t:["Monospace","Variable","Technical"],w:"planetscale.com",src:"Google Fonts"},
+      {n:"IBM Plex Sans",p:"Ib",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"IBM's open-source typeface system. Technical authority, works beautifully in dark UIs.",t:["Humanist","Open Source","Technical"],w:"ibm.com",src:"IBM"},
+      {n:"Red Hat Display",p:"Rh",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Red Hat's open-source display type. Humanist, warm, great for tech brands wanting approachability.",t:["Humanist","Open Source","Display"],w:"redhat.com",src:"Google Fonts"},
+      {n:"Bricolage Grotesque",p:"Bg",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Variable grotesque with wood type influences. Expressive, modern, vibrant for SaaS marketing.",t:["Variable","Display","Expressive"],w:"make.com",src:"Google Fonts"},
+      {n:"Urbanist",p:"Ur",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Geometric humanist with wide character support. Elegant at display sizes, clean in body.",t:["Humanist","Geometric","Variable"],w:"attio.com",src:"Google Fonts"},
+      {n:"Spline Sans",p:"Sp",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Grotesque developed alongside the Spline 3D tool. Clean, precise, made for digital.",t:["Grotesque","Digital","Open Source"],w:"spline.design",src:"Google Fonts"},
+      {n:"Instrument Sans",p:"In",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.3px;",d:"Poppins-influenced geometric. Approachable yet professional for B2B SaaS products.",t:["Geometric","Variable","Clean"],w:"linear.app",src:"Google Fonts"},
+      {n:"Krona One",p:"Ko",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Ultra-wide condensed grotesque. Strong personality for startup hero sections.",t:["Display","Wide","Bold"],w:"pitch.com",src:"Google Fonts"},
+      {n:"Geologica",p:"Ge",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Variable grotesque with multiple optical axes. Excellent for responsive type hierarchies.",t:["Variable","Grotesque","Versatile"],w:"polygon.io",src:"Google Fonts"},
+      {n:"Work Sans",p:"Ws",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Screen-optimized grotesque. Slightly condensed proportions for efficient UI space use.",t:["Grotesque","Efficient","Open Source"],w:"webflow.com",src:"Google Fonts"},
+      {n:"Mukta",p:"Mu",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Multi-script humanist supporting Latin and Devanagari. Ideal for global SaaS.",t:["Multi-Script","Humanist","Global"],w:"freshworks.com",src:"Google Fonts"},
+      {n:"Oxygen",p:"Ox",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Screen-optimized humanist. Designed for Linux but excellent across all digital platforms.",t:["Humanist","Screen","Open Source"],w:"kde.org",src:"Google Fonts"},
+    ]
+  },
+  fintech: {
+    meta: { label:"Fintech / Banking", desc:"Authoritative, precise typography that builds financial trust." },
+    fonts: [
+      {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-0.5px;",d:"Authority and trust in typographic form. The backbone of premium financial products.",t:["Swiss","Trustworthy","Classic"],w:"stripe.com",src:"Monotype"},
+      {n:"GT Sectra",p:"Gs",s:"font-family:'Playfair Display',serif;font-style:italic;letter-spacing:-1px;",d:"Grilli Type's editorial serif. Brings warmth and editorial authority to finance.",t:["Serif","Editorial","Variable"],w:"wealthsimple.com",src:"Grilli Type"},
+      {n:"Tiempos Text",p:"Tt",s:"font-family:'Libre Baskerville',serif;",d:"Klim's highly readable text serif. Perfect for financial documents and long-form reading.",t:["Serif","Readable","Premium"],w:"robinhood.com",src:"Klim Type"},
+      {n:"Söhne",p:"Sh",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Refined grotesque with warmth. Perfect for fintech that wants to feel human, not corporate.",t:["Grotesque","Warm","Premium"],w:"mercury.com",src:"Klim Type"},
+      {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"Commercial Type's display serif. Dramatic, luxurious — ideal for wealth management.",t:["Display Serif","Luxury","Premium"],w:"N26.com",src:"Commercial Type"},
+      {n:"Graphik",p:"Gk",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Swiss-trained sans favored by financial institutions for clean, authoritative neutrality.",t:["Neo-Grotesque","Neutral","Corporate"],w:"wise.com",src:"Commercial Type"},
+      {n:"Aktiv Grotesk",p:"Ag",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Corrected Helvetica for screens. Excellent for data tables and pricing displays.",t:["Grotesque","Data","Enterprise"],w:"revolut.com",src:"Dalton Maag"},
+      {n:"Freight Text",p:"Ft",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Old-style serif with excellent screen rendering. Elevates digital banking to print quality.",t:["Serif","Old-Style","Screen"],w:"fidelity.com",src:"GarageFonts"},
+      {n:"Replica",p:"Rp",s:"font-family:'Space Mono',monospace;letter-spacing:-1px;",d:"Lineto's pixel-coded sans. Technical, precise, excellent for trading platforms and crypto.",t:["Technical","Geometric","Swiss"],w:"coinbase.com",src:"Lineto"},
+      {n:"Euclid Circular",p:"Ec",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Swiss Typefaces' geometric classic. Clean circles, confident letterforms, optimal for fintech UI.",t:["Geometric","Swiss","Variable"],w:"monzo.com",src:"Swiss Typefaces"},
+      {n:"Instrument Serif",p:"Is",s:"font-family:'Playfair Display',serif;",d:"Editorial serif with high contrast. Prestige and authority for premium financial products.",t:["Serif","Editorial","Open Source"],w:"ramp.com",src:"Google Fonts"},
+      {n:"Signifier",p:"Si",s:"font-family:'Libre Baskerville',serif;font-weight:400;",d:"Klim Type's sharp, angular serif. Distinctive personality for challenger banks.",t:["Serif","Sharp","Premium"],w:"brex.com",src:"Klim Type"},
+      {n:"GT Maru",p:"Gm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Grilli Type's rounded geometric. For fintech targeting younger, consumer-friendly audiences.",t:["Rounded","Friendly","Variable"],w:"chime.com",src:"Grilli Type"},
+      {n:"Lausanne",p:"La",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Swiss Typefaces' workhorse grotesque. Distinguished, ideal for wealth platforms.",t:["Grotesque","Swiss","Clean"],w:"interactivebrokers.com",src:"Swiss Typefaces"},
+      {n:"Domaine Display",p:"Dd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"High-contrast display serif with financial gravitas. Perfect for hero type in banking apps.",t:["Display Serif","High Contrast","Premium"],w:"betterment.com",src:"Klim Type"},
+      {n:"Monument Grotesk",p:"Mg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Haas Grotesk-inspired with modern optical refinements. Excellent neutral for serious fintech.",t:["Neo-Grotesque","Neutral","Swiss"],w:"plaid.com",src:"ABC Dinamo"},
+      {n:"Karla",p:"Ka",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Humanist grotesque inspired by print. Readable and slightly warm — great for finance content.",t:["Humanist","Open Source","Readable"],w:"wise.com",src:"Google Fonts"},
+      {n:"Libre Caslon",p:"Lc",s:"font-family:'Libre Baskerville',serif;",d:"Free Caslon revival. Old-money gravitas for premium investment services.",t:["Serif","Old-Style","Free"],w:"vanguard.com",src:"Google Fonts"},
+      {n:"Value Serif",p:"Vs",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Designed for financial readability. High x-height, open counters, perfect for data-heavy UIs.",t:["Serif","Screen","Financial"],w:"personalcapital.com",src:"Fontshare"},
+      {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Display grotesque with unique wide letterforms. Unconventional for challenger fintech brands.",t:["Display","Variable","Bold"],w:"paystack.com",src:"Google Fonts"},
+      {n:"Untitled Sans",p:"Us",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Zero ornament, pure function — ideal for serious finance tools.",t:["Grotesque","Minimal","Premium"],w:"klarna.com",src:"Klim Type"},
+      {n:"Roslindale",p:"Ro",s:"font-family:'Libre Baskerville',serif;font-weight:700;",d:"Sophisticated transitional serif revival. Old-money presence with modern screen optimization.",t:["Transitional Serif","Screen","Premium"],w:"fidelity.com",src:"DJR"},
+      {n:"Spectral",p:"Sp",s:"font-family:'Playfair Display',serif;",d:"Production Type's screen-optimized serif. Excellent for long-form financial documents.",t:["Serif","Screen","Open Source"],w:"gsam.com",src:"Google Fonts"},
+      {n:"Whyte",p:"Wh",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Contemporary grotesque with subtle irregularities that create warmth in cold fintech.",t:["Grotesque","Humanist","Premium"],w:"blend.com",src:"ABC Dinamo"},
+      {n:"Neue Machina",p:"Nm",s:"font-family:'Space Mono',monospace;font-weight:700;letter-spacing:-0.5px;",d:"Pangram Pangram's brutal geometric. For fintech that wants to look cutting-edge.",t:["Geometric","Tech","Bold"],w:"zapper.fi",src:"Pangram Pangram"},
+      {n:"Cormorant Garamond",p:"Cg",s:"font-family:'Playfair Display',serif;font-weight:400;",d:"Free Garamond revival with stunning italics. Prestige and old-world authority for investment.",t:["Garamond","Old-Style","Free"],w:"bogleheads.org",src:"Google Fonts"},
+      {n:"Adieu",p:"Ad",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Optimo's art nouveau-influenced serif. Unexpected choice for design-forward wealth management.",t:["Serif","Art Nouveau","Premium"],w:"elwood.com",src:"Optimo"},
+      {n:"Garamond Premier",p:"Gp",s:"font-family:'Playfair Display',serif;font-weight:400;font-style:italic;",d:"Adobe's definitive Garamond. Classic, authoritative, beautiful italics for premium brands.",t:["Garamond","Classic","Premium"],w:"morningstar.com",src:"Adobe"},
+      {n:"Maison Neue",p:"Mn",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:0.3px;",d:"Milieu Grotesque's sophisticated grotesque. Refined, wide-set, excellent for wealth brands.",t:["Grotesque","Refined","Premium"],w:"two.com",src:"Milieu Grotesque"},
+      {n:"IvyPresto Display",p:"Ip",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"Jan de Jong's magazine-inspired serif. Dramatic contrast, luxury editorial feel.",t:["Display Serif","Magazine","Premium"],w:"amex.com",src:"ivytype.com"},
+      {n:"Favorit",p:"Fa",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"ABC Dinamo's versatile grotesque. Highly functional yet distinctive for fintech brands.",t:["Grotesque","Variable","Premium"],w:"stripe.com",src:"ABC Dinamo"},
+      {n:"Founders Grotesk",p:"Fg",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Klim Type's inspired grotesque. Warm, humanist, excellent for banking consumer products.",t:["Grotesque","Humanist","Premium"],w:"westpac.com.au",src:"Klim Type"},
+      {n:"Styrene A",p:"St",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Commercial Type's geometric-to-humanist grotesque. Balance of trust and modernity.",t:["Grotesque","Geometric","Premium"],w:"brex.com",src:"Commercial Type"},
+      {n:"Feijoa Display",p:"Fd",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Klim Type's warm humanist serif. Approachable luxury for consumer fintech.",t:["Serif","Humanist","Warm"],w:"cba.com.au",src:"Klim Type"},
+    ]
+  },
+  editorial: {
+    meta: { label:"Editorial / Blog", desc:"Expressive, readable typefaces for content-first experiences." },
+    fonts: [
+      {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;font-style:italic;",d:"The darling of modern editorial design. Dramatic contrast, exquisite italic — built for long reads.",t:["Display Serif","Editorial","Luxury"],w:"theguardian.com",src:"Commercial Type"},
+      {n:"Tiempos Headline",p:"Th",s:"font-family:'Playfair Display',serif;font-weight:700;",d:"Klim's workhorse headline serif. Confident, authoritative, works from digital to print.",t:["Serif","Headline","Variable"],w:"nytimes.com",src:"Klim Type"},
+      {n:"Freight Display",p:"Fd",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"GarageFonts' elegant display serif. Refined, editorial, with stunning italic cuts.",t:["Display Serif","Editorial","Classic"],w:"newyorker.com",src:"GarageFonts"},
+      {n:"Domaine Text",p:"Dt",s:"font-family:'Libre Baskerville',serif;font-weight:400;",d:"Klim Type's text companion. High legibility at body size, made for long reading sessions.",t:["Text Serif","Readable","Screen"],w:"medium.com",src:"Klim Type"},
+      {n:"Linotype Didot",p:"Ld",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"Fashion magazine royalty. High contrast strokes, extreme elegance for premium editorial.",t:["Didone","Luxury","Editorial"],w:"vogue.com",src:"Linotype"},
+      {n:"Chronicle Display",p:"Cd",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"H&FJ's editorial masterwork. Used by The Atlantic and WSJ for commanding authority.",t:["Display Serif","American","Editorial"],w:"wsj.com",src:"H&FJ"},
+      {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"The most used editorial serif on the web. Display contrast at any size.",t:["Display Serif","Open Source","Elegant"],w:"eater.com",src:"Google Fonts"},
+      {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Open source Garamond revival. Humanist warmth, classical pedigree, beautiful at body size.",t:["Garamond","Humanist","Free"],w:"longreads.com",src:"Google Fonts"},
+      {n:"Cormorant",p:"Co",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:700;",d:"Free ultra-display serif with dramatic stroke contrast. For literary and arts content.",t:["Display Serif","Dramatic","Free"],w:"poets.org",src:"Google Fonts"},
+      {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Variable serif optimized for body text. Calligraphic brushwork visible in rounded joins.",t:["Text Serif","Calligraphic","Variable"],w:"atavist.com",src:"Google Fonts"},
+      {n:"GT Super Display",p:"Gd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"Grilli Type's retro-flavored super display. Nostalgic editorial voice with modern refinement.",t:["Display Serif","Retro","Editorial"],w:"pitch.com",src:"Grilli Type"},
+      {n:"Orpheus Pro",p:"Op",s:"font-family:'Playfair Display',serif;",d:"MVB Fonts' classical revival. Stately roman with exemplary small caps and ligatures.",t:["Roman","Classical","Premium"],w:"theparisreview.org",src:"MVB"},
+      {n:"Argent CF",p:"Ac",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Connary Fagen's serif with typographic swagger. Bold, editorial, surprisingly versatile.",t:["Display","Editorial","Bold"],w:"esquire.com",src:"Connary Fagen"},
+      {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Open source Baskerville revival. Transitional authority, beautiful rendering, zero cost.",t:["Transitional Serif","Open Source","Classic"],w:"substack.com",src:"Google Fonts"},
+      {n:"Spectral",p:"Sp",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Production Type's screen serif. Designed for web-first editorial with multiple optical sizes.",t:["Serif","Screen","Open Source"],w:"wired.com",src:"Google Fonts"},
+      {n:"Quincy CF",p:"Qc",s:"font-family:'Libre Baskerville',serif;font-weight:700;",d:"Connary Fagen's approachable serif. Rounder editorial voice for accessible long reads.",t:["Serif","Friendly","Variable"],w:"vox.com",src:"Connary Fagen"},
+      {n:"Newsreader",p:"Nr",s:"font-family:'Libre Baskerville',serif;",d:"Google's news-optimized serif. Designed explicitly for long-form digital reading.",t:["News","Readable","Variable"],w:"theatlantic.com",src:"Google Fonts"},
+      {n:"Lyon Text",p:"Lt",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Commercial Type's text companion. Perfect for editorial publications.",t:["Text Serif","Editorial","Premium"],w:"businessofashion.com",src:"Commercial Type"},
+      {n:"Produkt",p:"Pr",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Commercial Type's editorial sans. Strong personality — great for tech editorial.",t:["Sans","Editorial","Premium"],w:"theverge.com",src:"Commercial Type"},
+      {n:"Signifier",p:"Si",s:"font-family:'Libre Baskerville',serif;font-weight:400;",d:"Klim's sharp, angular serif. Distinctive editorial personality that sets itself apart.",t:["Serif","Angular","Premium"],w:"rest-of-world.org",src:"Klim Type"},
+      {n:"Instrument Serif",p:"Is",s:"font-family:'Playfair Display',serif;",d:"Google's editorial serif with high contrast. Prestige authority for premium content.",t:["Serif","Editorial","Open Source"],w:"ramp.com",src:"Google Fonts"},
+      {n:"Fraunces",p:"Fr",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Optical display serif with a nostalgic, slow-cooked warmth. Wonderful for storytelling.",t:["Display Serif","Optical","Variable"],w:"readwise.com",src:"Google Fonts"},
+      {n:"Bodoni Moda",p:"Bm",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"Free variable Bodoni revival. The original fashion editorial face. Timeless.",t:["Bodoni","Variable","Free"],w:"harpers.org",src:"Google Fonts"},
+      {n:"Old Standard TT",p:"Os",s:"font-family:'Libre Baskerville',serif;font-weight:400;",d:"Revives old printing standard typography. Academic, old-press feel for literary publications.",t:["Old Style","Academic","Free"],w:"brainpickings.org",src:"Google Fonts"},
+      {n:"Reforma",p:"Rf",s:"font-family:'Libre Baskerville',serif;font-weight:700;",d:"UNPSJB's free serif system. Elegant typeface family with different optical styles.",t:["Serif","Free","Argentine"],w:"portfolio.adobe.com",src:"UNPSJB"},
+      {n:"Roslindale",p:"Ro",s:"font-family:'Libre Baskerville',serif;font-weight:700;",d:"DJR's transitional serif revival. Old-money presence with modern screen optimization.",t:["Transitional Serif","Screen","Premium"],w:"nymag.com",src:"DJR"},
+    ]
+  },
+  luxury: {
+    meta: { label:"Luxury / Fashion", desc:"Ultra-refined typography with elegance and prestige." },
+    fonts: [
+      {n:"Linotype Didot",p:"Ld",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"The quintessential luxury typeface. Ultra-high contrast hairlines — fashion magazines worldwide.",t:["Didone","Luxury","Classic"],w:"vogue.com",src:"Linotype"},
+      {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Commercial Type's luxury editorial choice. Dramatic, sexy, utterly premium.",t:["Display Serif","Luxury","Editorial"],w:"net-a-porter.com",src:"Commercial Type"},
+      {n:"Hatton",p:"Hn",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1.5px;",d:"Pangram Pangram's vintage editorial serif. Art deco references, modern refinement.",t:["Display Serif","Art Deco","Variable"],w:"ssense.com",src:"Pangram Pangram"},
+      {n:"Cormorant Garamond",p:"Cg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Extreme elegance in a free package. Exquisitely thin strokes, dramatic display potential.",t:["Garamond","Elegant","Free"],w:"mytheresa.com",src:"Google Fonts"},
+      {n:"Freight Display",p:"Fd",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"GarageFonts' luxury serif with beautiful italic. Haute couture in type form.",t:["Display Serif","Luxury","Editorial"],w:"bottegaveneta.com",src:"GarageFonts"},
+      {n:"Bodoni Moda",p:"Bm",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"Free, variable Bodoni revival. The original fashion magazine face. Timeless.",t:["Bodoni","Variable","Free"],w:"chanel.com",src:"Google Fonts"},
+      {n:"Editorial New",p:"En",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Pangram Pangram's italic-first serif. Dramatic, modern, built for luxury storytelling.",t:["Display Serif","Italic","Variable"],w:"dior.com",src:"Pangram Pangram"},
+      {n:"GT Super Display",p:"Gs",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;font-style:italic;",d:"Grilli Type's retro-glamorous display. 60s couture meets digital luxury.",t:["Display Serif","Retro","Glamour"],w:"toteme.com",src:"Grilli Type"},
+      {n:"Ogg",p:"Og",s:"font-family:'Libre Baskerville',serif;font-weight:700;letter-spacing:-1px;",d:"Sharp, high-contrast display serif by Lucas Sharp. Arresting presence for luxury editorial.",t:["Display Serif","Sharp","Premium"],w:"rag-bone.com",src:"Sharp Type"},
+      {n:"Domaine Display",p:"Dd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;font-style:italic;",d:"Klim Type's most elegant offering. The crown jewel for luxury fashion and beauty brands.",t:["Display Serif","Elegant","Premium"],w:"goop.com",src:"Klim Type"},
+      {n:"Migra",p:"Mi",s:"font-family:'Playfair Display',serif;font-weight:400;font-style:italic;",d:"Pangram Pangram's transitional display. Delicate, feminine, ultra-premium.",t:["Transitional Serif","Delicate","Variable"],w:"margiela.com",src:"Pangram Pangram"},
+      {n:"Optima Nova",p:"On",s:"font-family:'Libre Baskerville',serif;font-weight:400;",d:"Humanist sans with optical flaring. Hermann Zapf's masterpiece. Estée Lauder's choice.",t:["Humanist","Flared","Classic"],w:"esteelauder.com",src:"Linotype"},
+      {n:"Futura PT",p:"Fp",s:"font-family:'Inter Tight',sans-serif;font-weight:300;letter-spacing:3px;",d:"The luxury brand classic. Louis Vuitton, Supreme — geometric austerity that implies prestige.",t:["Geometric","Classic","Luxury"],w:"louisvuitton.com",src:"ParaType"},
+      {n:"Adobe Caslon Pro",p:"Ac",s:"font-family:'Libre Baskerville',serif;",d:"A refined Caslon revival from Adobe. Old money meets modern rendering.",t:["Caslon","Classic","Adobe"],w:"polo.com",src:"Adobe"},
+      {n:"IvyPresto Display",p:"Ip",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;font-style:italic;",d:"Jan de Jong's magazine-inspired serif. Dramatic contrast, luxury editorial feel.",t:["Display Serif","Magazine","Premium"],w:"vogue.com",src:"ivytype.com"},
+      {n:"Garamond Premier Pro",p:"Gp",s:"font-family:'Playfair Display',serif;font-weight:400;",d:"Adobe's definitive Garamond. Classical authority with exquisite italic cuts.",t:["Garamond","Classic","Premium"],w:"hermes.com",src:"Adobe"},
+      {n:"Maison Neue Mono",p:"Mm",s:"font-family:'Space Mono',monospace;font-weight:400;letter-spacing:0.5px;",d:"Milieu Grotesque's luxury monospace. Unexpected, refined choice for editorial fashion.",t:["Monospace","Luxury","Refined"],w:"acnestudios.com",src:"Milieu Grotesque"},
+      {n:"Lineto Circular",p:"Lc",s:"font-family:'Inter Tight',sans-serif;font-weight:300;letter-spacing:2px;",d:"Lineto's circular geometric. Ultra-premium, used by Apple Music and luxury brands.",t:["Geometric","Circular","Premium"],w:"apple.com",src:"Lineto"},
+      {n:"Acta Display",p:"Ad",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"DSType's vibrant display serif. Strong Brazilian editorial character in luxury contexts.",t:["Display Serif","Vibrant","Premium"],w:"farfetch.com",src:"DSType"},
+      {n:"Portrait",p:"Po",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Commercial Type's humanist serif. Portrait-like quality, natural, human elegance.",t:["Serif","Humanist","Editorial"],w:"kinfolk.com",src:"Commercial Type"},
+    ]
+  },
+  gaming: {
+    meta: { label:"Gaming / Entertainment", desc:"Bold, impactful typography for high-energy experiences." },
+    fonts: [
+      {n:"Bebas Neue",p:"Bb",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:4px;text-transform:uppercase;",d:"The gaming typeface. All-caps condensed grotesque used for game logos and trailers worldwide.",t:["Display","Condensed","Bold"],w:"epicgames.com",src:"Google Fonts"},
+      {n:"Barlow Condensed",p:"Bc",s:"font-family:'Inter Tight',sans-serif;font-weight:800;letter-spacing:1px;",d:"Highly readable condensed grotesque. Excellent for scoreboards, stats, and HUDs.",t:["Condensed","Readable","Variable"],w:"ea.com",src:"Google Fonts"},
+      {n:"Orbitron",p:"Ob",s:"font-family:'Space Mono',monospace;font-weight:700;letter-spacing:2px;",d:"The sci-fi game standard. Geometric, techy, used in racing and futuristic games.",t:["Geometric","Sci-Fi","Display"],w:"steampowered.com",src:"Google Fonts"},
+      {n:"Neue Machina",p:"Nm",s:"font-family:'Space Mono',monospace;font-weight:700;",d:"Pangram Pangram's brutal display. The choice for cyberpunk and industrial game aesthetics.",t:["Geometric","Brutal","Display"],w:"cdprojektred.com",src:"Pangram Pangram"},
+      {n:"Rajdhani",p:"Rj",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:1px;",d:"Semi-condensed display sans with Devanagari influence. Ideal for action and fighting games.",t:["Condensed","Devanagari","Bold"],w:"ubisoft.com",src:"Google Fonts"},
+      {n:"Exo 2",p:"Ex",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Geometric sci-fi sans with excellent variable range. Used in space and strategy game UIs.",t:["Sci-Fi","Variable","Geometric"],w:"blizzard.com",src:"Google Fonts"},
+      {n:"Jost",p:"Jo",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Clean geometric grotesque. Versatile for game UI and promotional materials.",t:["Geometric","Clean","Variable"],w:"activision.com",src:"Google Fonts"},
+      {n:"Audiowide",p:"Aw",s:"font-family:'Space Mono',monospace;",d:"Futuristic display designed for tech and gaming. High readability in HUD situations.",t:["Futuristic","Display","Mono"],w:"riot.com",src:"Google Fonts"},
+      {n:"Tungsten",p:"Tu",s:"font-family:'Inter Tight',sans-serif;font-weight:800;letter-spacing:2px;text-transform:uppercase;",d:"H&FJ's ultra-compressed impact font. Perfect for game title typography.",t:["Compressed","Impact","Premium"],w:"bungie.net",src:"H&FJ"},
+      {n:"Big Shoulders Display",p:"Bs",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:0px;",d:"Ultra-condensed display grotesque. Extremely legible in compact game UI.",t:["Condensed","Display","Variable"],w:"2k.com",src:"Google Fonts"},
+      {n:"Staatliches",p:"St",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:3px;",d:"Bauhaus-inspired ultra-condensed sans. Distinctive for menu systems and chapter titles.",t:["Bauhaus","Condensed","Display"],w:"square-enix.com",src:"Google Fonts"},
+      {n:"Anton",p:"An",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:1px;",d:"Free condensed display sans. Excellent for action game headlines.",t:["Impact","Condensed","Free"],w:"xbox.com",src:"Google Fonts"},
+      {n:"Oswald",p:"Os",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Reworked style of alternate gothic typefaces. Very popular for gaming titles and headings.",t:["Condensed","Gothic","Variable"],w:"bethesda.net",src:"Google Fonts"},
+      {n:"Black Han Sans",p:"Bh",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:1px;",d:"Korean-influenced ultra-black sans. Strong visual impact for multiplayer game branding.",t:["Black","Korean","Bold"],w:"nexon.com",src:"Google Fonts"},
+      {n:"Chakra Petch",p:"Cp",s:"font-family:'Space Mono',monospace;font-weight:700;",d:"Tech-forward display with Thai script influence. Distinctive for esports and cyberpunk UI.",t:["Tech","Thai","Display"],w:"faceit.com",src:"Google Fonts"},
+      {n:"Squada One",p:"Sq",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:1px;",d:"Wide condensed geometric. Bold, mechanical feel excellent for fps and strategy games.",t:["Geometric","Condensed","Display"],w:"battlenet.com",src:"Google Fonts"},
+      {n:"Teko",p:"Tk",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:1.5px;",d:"Devanagari-influenced condensed sans. Excellent for compact game stats and HUDs.",t:["Condensed","Devanagari","HUD"],w:"ea.com",src:"Google Fonts"},
+      {n:"Dharma Gothic E",p:"Dg",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:2px;text-transform:uppercase;",d:"Dharma Type's ultra-condensed gothic. Maximum impact for game logos and titles.",t:["Gothic","Condensed","Display"],w:"bandainamco.com",src:"Dharma Type"},
+      {n:"Druk",p:"Dr",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:-0.5px;",d:"Commercial Type's ultra-bold. Used by every major sports and gaming brand for impact.",t:["Black","Display","Premium"],w:"nba.com",src:"Commercial Type"},
+      {n:"Degular Display",p:"Dd",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"OH no Type's versatile display grotesque. Excellent for indie game branding.",t:["Display","Variable","Versatile"],w:"itch.io",src:"OH no Type"},
+    ]
+  },
+  portfolio: {
+    meta: { label:"Portfolio / Creative", desc:"Distinctive, artistic type for designers and creatives." },
+    fonts: [
+      {n:"Neue Montreal",p:"Nm",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Pangram Pangram's creative grotesque. The staple of designer portfolios globally.",t:["Grotesque","Creative","Variable"],w:"read.cv",src:"Pangram Pangram"},
+      {n:"Editorial New",p:"En",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Pangram Pangram's italic-first serif. Dramatic, artistic — instantly elevates portfolio.",t:["Display Serif","Italic","Variable"],w:"awwwards.com",src:"Pangram Pangram"},
+      {n:"Sentient",p:"St",s:"font-family:'Libre Baskerville',serif;font-weight:700;letter-spacing:-0.5px;",d:"Fontshare's free display serif. Confident, contemporary, excellent for hero type.",t:["Serif","Display","Free"],w:"layers.to",src:"Fontshare"},
+      {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Fontshare's modern geometric. Clean, contemporary, used by designers globally.",t:["Geometric","Free","Variable"],w:"persona.name",src:"Fontshare"},
+      {n:"Clash Display",p:"Cd",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Fontshare's boldest display grotesque. Large letterforms with strong grid presence.",t:["Display","Bold","Free"],w:"designspiration.com",src:"Fontshare"},
+      {n:"Boska",p:"Bk",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Fontshare's serif with enormous personality. For creative directors and brand designers.",t:["Serif","Character","Free"],w:"behance.net",src:"Fontshare"},
+      {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Display grotesque with wide letterforms. Sculptural, architectural — great for motion designers.",t:["Display","Variable","Wide"],w:"typewolf.com",src:"Google Fonts"},
+      {n:"Swear Display",p:"Sd",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:700;",d:"Display Type's irreverent serif. Unusual, memorable for creative personality portfolios.",t:["Display Serif","Irreverent","Character"],w:"dribbble.com",src:"Display Type"},
+      {n:"Louvette",p:"Lv",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-1px;",d:"Display serif with strong visual attitude. For photographers and creative directors.",t:["Display Serif","Expressive","Variable"],w:"cargo.site",src:"Grilli Type"},
+      {n:"Fraunces",p:"Fr",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Optical display serif with nostalgic warmth. Wonderful for storytelling portfolios.",t:["Display Serif","Optical","Variable"],w:"readwise.com",src:"Google Fonts"},
+      {n:"Hatton",p:"Ha",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1.5px;",d:"Pangram Pangram's art deco-influenced display serif. Vintage character, modern refinement.",t:["Display Serif","Art Deco","Variable"],w:"behance.net",src:"Pangram Pangram"},
+      {n:"Chillax",p:"Ch",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Fontshare's rounded geometric. Friendly character for consumer-facing creative brands.",t:["Rounded","Geometric","Free"],w:"layers.to",src:"Fontshare"},
+      {n:"Nippo",p:"Np",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Condensed grotesque that creates strong visual rhythm for design portfolios.",t:["Condensed","Grotesque","Free"],w:"read.cv",src:"Fontshare"},
+      {n:"Cabinet Grotesk",p:"Cg",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Fontshare's variable grotesque with ink-trap accents visible at display sizes.",t:["Grotesque","Variable","Free"],w:"typographics.com",src:"Fontshare"},
+      {n:"Cormorant Garamond",p:"Co",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Extreme elegance in a free package. Exquisitely thin strokes for luxury creative portfolios.",t:["Garamond","Elegant","Free"],w:"portfoliobox.net",src:"Google Fonts"},
+      {n:"Made Evolve Sans",p:"Me",s:"font-family:'Inter Tight',sans-serif;font-weight:300;letter-spacing:2px;",d:"Ultra-light wide-tracked sans for maximum elegance. Premium spacing for design portfolios.",t:["Sans","Wide","Luxury"],w:"awwwards.com",src:"Made Type"},
+      {n:"Regola Pro",p:"Rp",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Colophon's geometric grotesque. Precise, refined, excellent for studio brand identities.",t:["Grotesque","Geometric","Premium"],w:"colophon-foundry.com",src:"Colophon"},
+      {n:"Bely Display",p:"Bd",s:"font-family:'Playfair Display',serif;font-weight:700;",d:"Roxane Gataud's organic display serif. Hand-crafted feel for artisanal creative portfolios.",t:["Display Serif","Organic","Artisanal"],w:"fonts.adobe.com",src:"Roxane Gataud"},
+      {n:"Syncopate",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:4px;text-transform:uppercase;",d:"Wide-spaced geometric for ultra-minimal creative portfolios and studio brands.",t:["Geometric","Wide","Display"],w:"bestfolios.com",src:"Google Fonts"},
+      {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Display serif with dramatic contrast. Widely used for creative portfolio hero sections.",t:["Display Serif","Open Source","Elegant"],w:"cargo.site",src:"Google Fonts"},
+    ]
+  }
+};
+
+// Fallback for uncovered categories
+const fallbackFonts = [
+  {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"The foundational UI typeface. Universally excellent for digital interfaces.",t:["Grotesque","Open Source","Universal"],w:"google.com",src:"Google Fonts"},
+  {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-1px;",d:"Swiss precision. Clean, authoritative, works for any product category.",t:["Swiss","Classic","Premium"],w:"stripe.com",src:"Monotype"},
+  {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Commercial Type's luxury serif. Dramatic and elegant for premium products.",t:["Display Serif","Luxury","Editorial"],w:"net-a-porter.com",src:"Commercial Type"},
+  {n:"Söhne",p:"Ss",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Klim's warm grotesque. Humanist, refined, universally appropriate.",t:["Grotesque","Premium","Warm"],w:"figma.com",src:"Klim Type"},
+  {n:"GT Walsheim",p:"Gw",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Grilli Type's friendly grotesque. Versatile across categories.",t:["Grotesque","Friendly","Variable"],w:"mailchimp.com",src:"Grilli Type"},
+  {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Editorial display serif. Excellent for any content-forward product.",t:["Display Serif","Open Source","Elegant"],w:"medium.com",src:"Google Fonts"},
+  {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Open-source Baskerville revival with great screen rendering.",t:["Serif","Open Source","Classic"],w:"substack.com",src:"Google Fonts"},
+  {n:"Space Mono",p:"Sm",s:"font-family:'Space Mono',monospace;",d:"Technical, precise monospace. Developer-friendly with strong character.",t:["Monospace","Tech","Open Source"],w:"github.com",src:"Google Fonts"},
+];
+
+let currFonts = [], shown = 0;
+const BATCH = 12;
+
+function showResults() {
+  const cat = document.getElementById('catSel').value;
+  if (!cat) { document.getElementById('catSel').focus(); return; }
+
+  const data = DB[cat] || { meta: { label: cat, desc: "Curated typeface recommendations." }, fonts: fallbackFonts };
+  currFonts = data.fonts;
+  shown = 0;
+
+  document.getElementById('emptyState').style.display = 'none';
+  const sec = document.getElementById('results');
+  sec.style.display = 'block';
+  document.getElementById('rCat').textContent = data.meta.label;
+  document.getElementById('rTitle').textContent = data.meta.desc;
+  document.getElementById('rCount').textContent = `${currFonts.length} typefaces`;
+  document.getElementById('rGrid').innerHTML = '';
+  renderBatch();
+  sec.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function renderBatch() {
+  const grid = document.getElementById('rGrid');
+  const end = Math.min(shown + BATCH, currFonts.length);
+  for (let i = shown; i < end; i++) {
+    const f = currFonts[i];
+    const el = document.createElement('div');
+    el.className = 'card card-in';
+    el.style.animationDelay = `${(i - shown) * 0.045}s`;
+    el.innerHTML = `
+      <div class="card-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="card-preview" style="${f.s}">${f.p}</div>
+      <div class="card-name">${f.n}</div>
+      <div class="card-desc">${f.d}</div>
+      <div class="card-tags">${f.t.map(x=>`<span class="card-tag">${x}</span>`).join('')}</div>
+      <div class="card-foot">
+        <a href="https://${f.w}" target="_blank" rel="noopener" class="card-site">
+          <span class="fav">${f.w[0].toUpperCase()}</span>${f.w}
+        </a>
+        <button class="card-btn" onclick="openDetail(currFonts[${i}])">Details →</button>
+      </div>
+    `;
+    grid.appendChild(el);
+  }
+  shown = end;
+  document.getElementById('loadMoreWrap').style.display = shown < currFonts.length ? 'flex' : 'none';
+}
+
+function loadMore() { renderBatch(); }
+
+// ═══════════════════════════════════════
+// EXTRA FONT DATA (pairing, metadata, etc.)
+// ═══════════════════════════════════════
+const EXTRA = {
+  "Inter":            { foundry:"Google / Rasmus Andersson", year:"2016", classify:"Humanist Grotesque", license:"free", variants:"Thin–Black, Italic, Variable", url:"https://fonts.google.com/specimen/Inter", usedBy:["Linear","Vercel","Raycast","Notion","Pitch","Clerk"], similar:["Neue Haas Grotesk","DM Sans","Instrument Sans","Archivo"], pairs:[{role:"Display Heading",font:"Canela",desc:"Pair Inter's neutral body presence with Canela's dramatic editorial display for maximum contrast."},{role:"Monospace Accent",font:"Space Mono",desc:"Use Space Mono for code blocks and data labels alongside Inter's clean body text."}], quote:"Good typography is the difference between a product that's tolerated and one that's loved." },
+  "Söhne":            { foundry:"Klim Type Foundry", year:"2019", classify:"Grotesque", license:"premium", variants:"Leicht–Dreiviertelfett, Italic, 8 weights", url:"https://klim.co.nz/retail-fonts/sohne/", usedBy:["Figma","Pitch","Linear","Mercury","Wealthsimple"], similar:["Founders Grotesk","Aktiv Grotesk","Graphik"], pairs:[{role:"Editorial Serif",font:"Tiempos Text",desc:"Söhne and Tiempos together define the Klim 'house style' — warm, refined, editorial."},{role:"Display Contrast",font:"Canela",desc:"Canela's serif drama amplifies Söhne's grotesque confidence."}], quote:"Typography that doesn't call attention to itself enables the content to breathe." },
+  "Neue Haas Grotesk":{ foundry:"Monotype", year:"2010 (revival)", classify:"Neo-Grotesque", license:"premium", variants:"Display + Text, Thin–Black, 9 weights", url:"https://www.myfonts.com/fonts/mti/neue-haas-grotesk/", usedBy:["Stripe","Intercom","Squarespace","GitHub"], similar:["Graphik","Helvetica Now","Aktiv Grotesk"], pairs:[{role:"Serif Counterpoint",font:"Freight Text",desc:"Freight Text's warmth beautifully offsets Neue Haas's clinical precision."},{role:"Monospace",font:"Replica",desc:"A technical, precise monospace complements the Swiss rational aesthetic."}], quote:"Helvetica is the perfume of the city. You can't smell yourself, but everyone else can." },
+  "Geist":            { foundry:"Vercel", year:"2023", classify:"Geometric Grotesque", license:"free", variants:"Regular–Black, Variable", url:"https://vercel.com/font", usedBy:["Vercel","Next.js","v0.dev"], similar:["Inter","Space Grotesk","Neue Montreal"], pairs:[{role:"Monospace",font:"Geist Mono",desc:"Geist and Geist Mono together form Vercel's complete type system — perfect for dev tools."},{role:"Editorial Contrast",font:"Playfair Display",desc:"Playfair's elegance creates beautiful contrast with Geist's technical precision."}], quote:"The best interface is the one you don't notice." },
+  "Canela":           { foundry:"Commercial Type", year:"2015", classify:"Display Serif", license:"premium", variants:"Thin–Black, Italic, Display + Text + Deck", url:"https://commercialtype.com/catalog/canela", usedBy:["The Guardian","Net-a-Porter","Wealthsimple","goop","N26"], similar:["GT Super Display","Hatton","Editorial New"], pairs:[{role:"Body Text",font:"Graphik",desc:"Graphik's neutral grotesque body gives Canela's dramatic display maximum space to breathe."},{role:"Text Setting",font:"Domaine Text",desc:"Canela Display + Domaine Text is the classic Klim/Commercial pairing for premium editorial."}], quote:"Elegance is not the prerogative of those who have just escaped from adolescence." },
+  "GT Walsheim":      { foundry:"Grilli Type", year:"2010", classify:"Grotesque", license:"premium", variants:"Ultra Light–Ultra Bold, Condensed, Oblique", url:"https://www.grillitype.com/typeface/gt-walsheim", usedBy:["Dropbox","Mailchimp","National Geographic"], similar:["Roobert","Silka","Aeonik"], pairs:[{role:"Serif Heading",font:"GT Sectra",desc:"GT Walsheim + GT Sectra is Grilli's own house pairing — clean modern sans meets editorial serif."},{role:"Display Bold",font:"GT Super Display",desc:"Use GT Super Display for campaign-level type, GT Walsheim for UI and body."}], quote:"A typeface is a beautiful group of letters, not a group of beautiful letters." },
+  "Graphik":          { foundry:"Commercial Type", year:"2009", classify:"Neo-Grotesque", license:"premium", variants:"Thin–Super, 9 weights + Condensed", url:"https://commercialtype.com/catalog/graphik", usedBy:["Airbnb","Apple (editorial)","Wise","Intercom"], similar:["Neue Haas Grotesk","Aktiv Grotesk","Favorit"], pairs:[{role:"Display Editorial",font:"Canela",desc:"Commercial Type's own pairing: Graphik body + Canela display defines modern editorial luxury."},{role:"Serif Body",font:"Freight Text",desc:"Freight Text adds warmth and old-world texture to Graphik's precise Swiss structure."}], quote:"Typography is the craft of endowing human language with a durable visual form." },
+  "Playfair Display": { foundry:"Claus Eggers Sørensen", year:"2011", classify:"Transitional Display Serif", license:"free", variants:"Regular–Black, Italic, Variable", url:"https://fonts.google.com/specimen/Playfair+Display", usedBy:["Medium","Eater","Substack","portfolios worldwide"], similar:["Libre Baskerville","EB Garamond","Cormorant"], pairs:[{role:"Body Sans",font:"Source Sans Pro",desc:"Source Sans Pro's clean readability pairs naturally with Playfair's dramatic display presence."},{role:"Body Serif",font:"Lora",desc:"Lora's calligraphic serif warmth is a natural companion to Playfair's structured elegance."}], quote:"The perfect reading experience starts with a typeface that disappears into the content." },
+  "Space Mono":       { foundry:"Colophon Foundry", year:"2016", classify:"Monospace", license:"free", variants:"Regular, Bold, Italic, Bold Italic", url:"https://fonts.google.com/specimen/Space+Mono", usedBy:["GitHub","dev tools","code UIs","terminal apps"], similar:["IBM Plex Mono","JetBrains Mono","Azeret Mono"], pairs:[{role:"UI Sans",font:"Inter",desc:"Inter for all UI chrome, Space Mono for all code, data, and monospaced content."},{role:"Display Contrast",font:"Clash Display",desc:"Clash Display's bold grotesque display creates maximum contrast with Space Mono's technical texture."}], quote:"Code is poetry. The monospace letterform is its natural home." },
+  "Libre Baskerville":{ foundry:"Impallari Type", year:"2012", classify:"Transitional Serif", license:"free", variants:"Regular, Bold, Italic", url:"https://fonts.google.com/specimen/Libre+Baskerville", usedBy:["Substack","content blogs","academic sites"], similar:["EB Garamond","Lora","Newsreader"], pairs:[{role:"Heading Sans",font:"Raleway",desc:"Raleway's elegant geometric sans provides beautiful contrast to Baskerville's classical authority."},{role:"Display Serif",font:"Playfair Display",desc:"Step up to Playfair for hero sections while keeping Baskerville for body reading comfort."}], quote:"Baskerville is the typeface that quietly commands respect without ever raising its voice." },
+  "Satoshi":          { foundry:"Fontshare / Indian Type Foundry", year:"2021", classify:"Geometric Grotesque", license:"free", variants:"Light–Black, Italic, Variable", url:"https://www.fontshare.com/fonts/satoshi", usedBy:["Designer portfolios","startups","creative studios"], similar:["Neue Montreal","General Sans","Cabinet Grotesk"], pairs:[{role:"Serif Display",font:"Boska",desc:"Boska's expressive serif display contrasts beautifully with Satoshi's clean geometric structure."},{role:"Monospace",font:"Space Mono",desc:"Space Mono's technical texture adds depth to Satoshi's smooth modernism."}], quote:"Modern typography is about making space for ideas, not competing with them." },
+  "Aktiv Grotesk":    { foundry:"Dalton Maag", year:"2010", classify:"Grotesque", license:"premium", variants:"Thin–Black, Extended, Condensed, Variable", url:"https://www.daltonmaag.com/library/aktiv-grotesk", usedBy:["Revolut","HubSpot","BT Group","Monzo"], similar:["Neue Haas Grotesk","Helvetica Now","Founders Grotesk"], pairs:[{role:"Elegant Serif",font:"Garamond Premier Pro",desc:"Garamond's classical elegance creates timeless contrast with Aktiv's rational precision."},{role:"Display Bold",font:"Druk",desc:"Druk's ultra-bold impact gives Aktiv-based systems a powerful marketing voice."}], quote:"Legibility is not a style choice; it's a fundamental act of respect for the reader." },
+  "Neue Montreal":    { foundry:"Pangram Pangram", year:"2020", classify:"Grotesque", license:"premium (free trial)", variants:"Light–Bold, Italic, Variable", url:"https://pangrampangram.com/products/neue-montreal", usedBy:["Read.cv","design studios","creative portfolios"], similar:["Cabinet Grotesk","Satoshi","Switzer"], pairs:[{role:"Editorial Serif",font:"Editorial New",desc:"Pangram's own pairing: Neue Montreal body + Editorial New display defines modern creative identity."},{role:"Condensed Display",font:"Clash Display",desc:"Clash Display's boldness amplifies Neue Montreal's refined subtelty."}], quote:"The best grotesques disappear into the grid, letting the content take center stage." },
+  "Canela (Luxury)":  { foundry:"Commercial Type", year:"2015", classify:"Display Serif", license:"premium", variants:"Thin–Black, Italic, Display + Text", url:"https://commercialtype.com/catalog/canela", usedBy:["Net-a-Porter","goop","N26","Toteme"], similar:["Hatton","Editorial New","IvyPresto"], pairs:[{role:"Body Sans",font:"Futura PT",desc:"Futura's geometry and Canela's drama is the definitive luxury editorial combination."},{role:"Text Setting",font:"Optima Nova",desc:"Optima's flared humanist sans brings warmth while Canela commands the headlines."}], quote:"Luxury is in the details. A stroke width here, a curve there — every decision declares intent." },
+  "Bebas Neue":       { foundry:"Ryoichi Tsunekawa / Dharma Type", year:"2010", classify:"Display Condensed", license:"free", variants:"Regular (uppercase only)", url:"https://fonts.google.com/specimen/Bebas+Neue", usedBy:["Epic Games","countless game UIs","sports brands"], similar:["Barlow Condensed","Anton","Big Shoulders Display"], pairs:[{role:"Body Text",font:"Roboto",desc:"Roboto's neutral body alongside Bebas Neue's powerful display is a proven UI system."},{role:"Readable Display",font:"Oswald",desc:"Oswald brings readability for body headers, Bebas Neue fires for hero moments."}], quote:"In game design, typography isn't just text — it's part of the world-building." },
+  "Tiempos Headline": { foundry:"Klim Type Foundry", year:"2012", classify:"Transitional Serif", license:"premium", variants:"Light–Black, Italic, Headline + Text", url:"https://klim.co.nz/retail-fonts/tiempos-headline/", usedBy:["NYT","Robinhood","major publications"], similar:["Domaine Display","Chronicle Display","Lyon Text"], pairs:[{role:"Body Sans",font:"Söhne",desc:"Tiempos Headline + Söhne is Klim's own house pairing — warm, refined, deeply editorial."},{role:"Body Serif",font:"Tiempos Text",desc:"Use the complete Tiempos family: Headline for display, Text for long-form body reading."}], quote:"A great headline typeface is like a great opening sentence — it makes everything that follows feel inevitable." },
+  "Editorial New":    { foundry:"Pangram Pangram", year:"2021", classify:"Display Serif", license:"free", variants:"Light–Ultrabold, Italic, Variable", url:"https://pangrampangram.com/products/editorial-new", usedBy:["Awwwards","design portfolios","creative agencies"], similar:["Hatton","Boska","Sentient"], pairs:[{role:"Body Grotesque",font:"Neue Montreal",desc:"Pangram's own house combination — Editorial New headlines with Neue Montreal body text."},{role:"Clean UI",font:"Satoshi",desc:"Satoshi's clean geometry grounds Editorial New's expressive serif personality."}], quote:"Italics are not an afterthought — they carry emotion, emphasis, and entire moods." },
+  "Satoshi (Portfolio)": { foundry:"Fontshare", year:"2021", classify:"Geometric Grotesque", license:"free", variants:"Light–Black, Italic, Variable", url:"https://www.fontshare.com/fonts/satoshi", usedBy:["Designer portfolios","read.cv","creative studios"], similar:["Neue Montreal","General Sans","Outfit"], pairs:[{role:"Display Serif",font:"Editorial New",desc:"Editorial New headlines with Saoshi body gives portfolios an authoritative editorial signature."},{role:"Expressive Serif",font:"Sentient",desc:"Sentient's confident serif display combined with Satoshi's clean geometry is a portfolio staple."}], quote:"Your portfolio's typography is the first thing viewers read — even before they read a word." },
+};
+
+function getExtra(fontName) {
+  return EXTRA[fontName] || {
+    foundry: "Independent Foundry", year: "–", classify: "Display / Text",
+    license: "check foundry", variants: "Multiple weights",
+    url: `https://fonts.google.com/?query=${encodeURIComponent(fontName)}`,
+    usedBy: ["Various products","Design studios","Tech companies"],
+    similar: ["Inter","Playfair Display","Space Mono"],
+    pairs:[
+      {role:"Contrasting Serif",font:"Playfair Display",desc:"Create visual hierarchy by pairing this grotesque with Playfair Display's editorial drama."},
+      {role:"Neutral Body",font:"Inter",desc:"Inter's universally excellent readability lets this display typeface be the star of the show."}
+    ],
+    quote:"Typography is what language looks like."
+  };
+}
+
+// ═══════════════════════════════════════
+// OPEN / CLOSE DETAIL
+// ═══════════════════════════════════════
+function openDetail(f) {
+  const ex = getExtra(f.n);
+  const overlay = document.getElementById('detailOverlay');
+
+  // ── populate header ──
+  document.getElementById('dNavTag').textContent = f.t[0] || '–';
+  const getBtn = document.getElementById('dGetBtn');
+  getBtn.href = ex.url;
+
+  // ── hero ──
+  document.getElementById('dEyebrow').innerHTML = `${ex.foundry} &nbsp;·&nbsp; ${ex.classify}`;
+  const heroName = document.getElementById('dHeroName');
+  heroName.textContent = f.n;
+  heroName.style.cssText = f.s;
+  heroName.style.fontSize = 'clamp(56px,10vw,140px)';
+  heroName.style.lineHeight = '0.9';
+  heroName.style.letterSpacing = '-5px';
+  heroName.style.color = '#fff';
+  heroName.style.paddingBottom = '40px';
+  document.getElementById('dHeroSub').innerHTML = `${ex.foundry}<br>${ex.year} · ${ex.variants}`;
+
+  // mock url bar
+  document.getElementById('dMockUrl').textContent = f.w;
+  // apply font to all mockup text elements
+  const mockEls = ['dMockLogo','dMockTag','dMockH1','dMockP','dMockCta','dDashLogo','dDashTitle','dDashL1','dDashV1','dAppTitle','dAppItem1'];
+  mockEls.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.style.cssText = f.s; el.style.color = 'inherit'; }
+  });
+
+  // ── alphabet ──
+  const alpha = document.getElementById('dAlphabet');
+  alpha.innerHTML = '';
+  const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const lower = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  [...upper, ...lower].forEach(ch => {
+    const d = document.createElement('div');
+    d.className = 'd-glyph';
+    d.style.cssText = f.s;
+    d.style.color = '#fff';
+    d.textContent = ch;
+    alpha.appendChild(d);
+  });
+
+  // ── size scale ──
+  const scale = document.getElementById('dScale');
+  scale.innerHTML = '';
+  const sizes = [{sz:'72px',lbl:'72'},{sz:'48px',lbl:'48'},{sz:'36px',lbl:'36'},{sz:'24px',lbl:'24'},{sz:'18px',lbl:'18'},{sz:'14px',lbl:'14'},{sz:'12px',lbl:'12'},{sz:'10px',lbl:'10'}];
+  sizes.forEach(({sz,lbl}) => {
+    const row = document.createElement('div');
+    row.className = 'd-scale-row';
+    row.innerHTML = `<span class="d-scale-size">${lbl}</span><span class="d-scale-text" style="${f.s}font-size:${sz};color:#fff;">The quick brown fox jumps over the lazy dog</span>`;
+    scale.appendChild(row);
+  });
+
+  // ── weights ──
+  const weights = document.getElementById('dWeights');
+  weights.innerHTML = '';
+  const wts = [{w:'300',l:'Light'},{w:'400',l:'Regular'},{w:'500',l:'Medium'},{w:'600',l:'SemiBold'},{w:'700',l:'Bold'},{w:'800',l:'ExtraBold'},{w:'900',l:'Black'}];
+  wts.forEach(({w,l}) => {
+    const row = document.createElement('div');
+    row.className = 'd-weight-row';
+    // Extract font-family from style string
+    const ffMatch = f.s.match(/font-family:[^;]+/);
+    const ff = ffMatch ? ffMatch[0] : "font-family:'Inter Tight',sans-serif";
+    row.innerHTML = `<span class="d-weight-label">${l} · ${w}</span><span class="d-weight-sample" style="${ff};font-weight:${w};color:#fff;">Typeset</span>`;
+    weights.appendChild(row);
+  });
+
+  // ── numbers ──
+  const nums = document.getElementById('dNums');
+  nums.innerHTML = '';
+  '0123456789'.split('').forEach(ch => {
+    const d = document.createElement('div');
+    d.className = 'd-num-cell';
+    d.style.cssText = f.s;
+    d.style.color = '#fff';
+    d.style.fontSize = 'clamp(20px,3vw,44px)';
+    d.style.padding = '28px 8px';
+    d.style.textAlign = 'center';
+    d.style.lineHeight = '1';
+    d.textContent = ch;
+    nums.appendChild(d);
+  });
+
+  // ── special chars ──
+  const specials = document.getElementById('dSpecials');
+  specials.innerHTML = '';
+  '!@#$%&*()_+-=[]{}|;:,./<>?~`\'"\\^'.split('').forEach(ch => {
+    const d = document.createElement('div');
+    d.className = 'd-special';
+    d.style.cssText = f.s;
+    d.style.color = 'var(--subtle)';
+    d.style.fontSize = '20px';
+    d.textContent = ch;
+    specials.appendChild(d);
+  });
+
+  // ── pull quote ──
+  document.getElementById('dQuoteText').style.cssText = f.s;
+  document.getElementById('dQuoteText').style.cssText += `;font-size:clamp(22px,3vw,38px);line-height:1.3;color:#fff;letter-spacing:-1px;max-width:700px;margin-bottom:16px;`;
+  document.getElementById('dQuoteText').textContent = `"${ex.quote}"`;
+  document.getElementById('dQuoteAttr').textContent = `— A note on ${f.n}`;
+
+  // ── paragraphs ──
+  document.getElementById('dParaLg').style.cssText = f.s;
+  document.getElementById('dParaLg').style.cssText += `;font-size:clamp(18px,2.5vw,28px);line-height:1.55;color:#fff;margin-bottom:24px;letter-spacing:-0.3px;`;
+  document.getElementById('dParaLg').textContent = `${f.n} is ${f.d.split('.')[0].toLowerCase()}. Its character is defined by ${f.t.join(', ').toLowerCase()} qualities that make it uniquely suited to ${f.t[0].toLowerCase()} contexts.`;
+
+  document.getElementById('dParaSm').style.cssText = f.s;
+  document.getElementById('dParaSm').style.cssText += `;font-size:14px;line-height:1.8;color:var(--subtle);border-left:2px solid var(--border);padding-left:20px;`;
+  document.getElementById('dParaSm').textContent = `Typography is an ancient craft, but ${f.n} approaches it with a contemporary lens. Each letterform has been considered not just in isolation, but in context — how it performs at 12px in a data table, how it sings at 96px on a billboard, and everything in between. ${ex.classify} characteristics define its personality, while ${ex.foundry}'s craftsmanship ensures it excels at every point size.`;
+
+  // ── metadata ──
+  const meta = document.getElementById('dMeta');
+  meta.innerHTML = '';
+  const licBadge = ex.license === 'free'
+    ? `<span class="d-license-badge free">Free</span>`
+    : ex.license === 'premium'
+    ? `<span class="d-license-badge premium">Commercial</span>`
+    : `<span class="d-license-badge">${ex.license}</span>`;
+  const isVariable = ex.variants.toLowerCase().includes('variable');
+  const rows = [
+    {k:'Foundry', v:`<span style="color:#fff;font-weight:600;">${ex.foundry}</span>`},
+    {k:'Year', v:`<span style="color:#fff;font-weight:600;">${ex.year}</span>`},
+    {k:'Classification', v:`<span style="color:#fff;font-weight:600;">${ex.classify}</span>`},
+    {k:'Variants', v:`<span style="color:#fff;font-weight:500;font-size:10px;text-align:right;">${ex.variants}</span>`},
+    {k:'License', v:licBadge},
+    isVariable ? {k:'Variable', v:`<span class="d-license-badge variable">Variable Font</span>`} : null,
+  ].filter(Boolean);
+  rows.forEach(({k,v}) => {
+    const row = document.createElement('div');
+    row.className = 'd-meta-row';
+    row.innerHTML = `<span class="d-meta-key">${k}</span><span class="d-meta-val">${v}</span>`;
+    meta.appendChild(row);
+  });
+
+  // ── CTAs ──
+  const ctas = document.getElementById('dCtas');
+  ctas.innerHTML = `
+    <a class="d-cta-primary" href="${ex.url}" target="_blank" rel="noopener">Get ${f.n} ↗</a>
+    <a class="d-cta-secondary" href="https://www.typewolf.com/site-of-the-day/fonts/${encodeURIComponent(f.n.toLowerCase().replace(/ /g,'-'))}" target="_blank" rel="noopener">See sites using ${f.n.split(' ')[0]} ↗</a>
+  `;
+
+  // ── used by ──
+  const usedBy = document.getElementById('dUsedBy');
+  usedBy.innerHTML = '';
+  const brands = [...(ex.usedBy || []), f.w.replace('www.','').split('.')[0]].filter((v,i,a)=>a.indexOf(v)===i).slice(0,8);
+  brands.forEach(b => {
+    const chip = document.createElement('span');
+    chip.className = 'd-usedby-chip';
+    chip.textContent = b;
+    usedBy.appendChild(chip);
+  });
+
+  // ── similar ──
+  const similar = document.getElementById('dSimilar');
+  similar.innerHTML = '';
+  (ex.similar || []).slice(0,4).forEach(name => {
+    const item = document.createElement('div');
+    item.className = 'd-similar-item';
+    const allFonts = Object.values(DB).flatMap(cat => cat.fonts);
+    const found = allFonts.find(f => f.n === name);
+    item.innerHTML = `
+      <div>
+        <div class="d-similar-name">${name}</div>
+        <div class="d-similar-src">${found ? found.t[0] : 'Related typeface'}</div>
+      </div>
+      <span class="d-similar-arrow">→</span>
+    `;
+    if (found) item.onclick = () => openDetail(found);
+    similar.appendChild(item);
+  });
+
+  // ── pairings ──
+  const pairs = document.getElementById('dPairs');
+  pairs.innerHTML = '';
+  (ex.pairs || []).forEach(pair => {
+    const allFonts = Object.values(DB).flatMap(cat => cat.fonts);
+    const pFont = allFonts.find(x => x.n === pair.font);
+    const pStyle = pFont ? pFont.s : "font-family:'Inter Tight',sans-serif;font-weight:700;";
+    const card = document.createElement('div');
+    card.className = 'd-pair-card';
+    card.innerHTML = `
+      <div class="d-pair-role">${pair.role}</div>
+      <div class="d-pair-names" style="${f.s}color:#fff;">${f.n} <span style="${pStyle}color:var(--subtle);"> + ${pair.font}</span></div>
+      <div class="d-pair-desc">${pair.desc}</div>
+      <div class="d-pair-demo">
+        <div class="d-pair-demo-h" style="${f.s}color:#fff;font-size:22px;letter-spacing:-0.5px;">Design is intelligence made visible.</div>
+        <div class="d-pair-demo-p" style="${pStyle}color:var(--subtle);font-size:13px;line-height:1.7;">The combination of ${f.n} and ${pair.font} creates a visual hierarchy that guides the eye through content with confidence and clarity.</div>
+      </div>
+    `;
+    pairs.appendChild(card);
+  });
+
+  // ── show overlay ──
+  overlay.classList.add('open','entering');
+  overlay.addEventListener('animationend', () => overlay.classList.remove('entering'), {once:true});
+  document.getElementById('dBody').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDetail() {
+  const overlay = document.getElementById('detailOverlay');
+  overlay.classList.add('leaving');
+  overlay.addEventListener('animationend', () => {
+    overlay.classList.remove('open','leaving');
+    document.body.style.overflow = '';
+  }, {once:true});
+}
+
+// ═══════════════════════════════════════
+// PWA SERVICE WORKER REGISTRATION
+// ═══════════════════════════════════════
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+
+// ═══════════════════════════════════════
+// SHARE API — native share on mobile
+// ═══════════════════════════════════════
+function shareApp() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Get.Set.Typeface',
+      text: 'Find the perfect typeface for any product — 50+ curated font recommendations per category!',
+      url: window.location.href
+    }).catch(() => {});
+  } else {
+    // Fallback: copy to clipboard
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = document.getElementById('shareBtn');
+      if (btn) { btn.textContent = 'Link copied!'; setTimeout(() => btn.textContent = 'Share ↗', 2000); }
+    }).catch(() => {});
+  }
+}
+
+// ═══════════════════════════════════════
+// URL STATE — persist category in URL
+// ═══════════════════════════════════════
+function showResults() {
+  const cat = document.getElementById('catSel').value;
+  if (!cat) { document.getElementById('catSel').focus(); return; }
+  // Update URL without reload
+  const url = new URL(window.location);
+  url.searchParams.set('cat', cat);
+  window.history.pushState({cat}, '', url);
+  _renderResults(cat);
+}
+
+function _renderResults(cat) {
+  const data = DB[cat] || { meta: { label: cat, desc: "Curated typeface recommendations." }, fonts: fallbackFonts };
+  currFonts = data.fonts;
+  shown = 0;
+  document.getElementById('emptyState').style.display = 'none';
+  const sec = document.getElementById('results');
+  sec.style.display = 'block';
+  document.getElementById('rCat').textContent = data.meta.label;
+  document.getElementById('rTitle').textContent = data.meta.desc;
+  document.getElementById('rCount').textContent = `${currFonts.length} typefaces`;
+  document.getElementById('rGrid').innerHTML = '';
+  renderBatch();
+  sec.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+// Restore state from URL on load
+window.addEventListener('popstate', (e) => {
+  if (e.state && e.state.cat) {
+    document.getElementById('catSel').value = e.state.cat;
+    _renderResults(e.state.cat);
+  }
+});
+
+window.addEventListener('load', () => {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat');
+  if (cat && document.getElementById('catSel')) {
+    document.getElementById('catSel').value = cat;
+    _renderResults(cat);
+  }
+});
+
+
+// ═══════════════════════════════════════
+// APP — DAILY PICKS & MIDNIGHT REFRESH
+// ═══════════════════════════════════════
+
+// Seeded random using date as seed — ensures same picks all day, new picks next day
+function seededRand(seed) {
+  let s = seed;
+  return function() {
+    s = (s * 1664525 + 1013904223) & 0xffffffff;
+    return (s >>> 0) / 0xffffffff;
+  };
+}
+
+function getDateSeed() {
+  const d = new Date();
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+}
+
+function getDailyPicks(count = 6) {
+  const allFonts = Object.values(DB).flatMap(cat => cat.fonts);
+  const rand = seededRand(getDateSeed());
+  // Shuffle using seeded rand
+  const shuffled = [...allFonts];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  // Deduplicate by font name
+  const seen = new Set();
+  return shuffled.filter(f => {
+    if (seen.has(f.n)) return false;
+    seen.add(f.n);
+    return true;
+  }).slice(0, count);
+}
+
+function renderDailyPicks() {
+  const picks = getDailyPicks(6);
+  const grid = document.getElementById('dailyPicksGrid');
+  const section = document.getElementById('dailyPicksSection');
+  if (!grid) return;
+  grid.innerHTML = '';
+  picks.forEach((f, i) => {
+    const el = document.createElement('div');
+    el.className = 'daily-card card-in';
+    el.style.animationDelay = `${i * 0.06}s`;
+    el.innerHTML = `
+      <div class="daily-card-top">
+        <span class="daily-card-num">${String(i+1).padStart(2,'0')}</span>
+        <span class="daily-card-badge">Today's Pick</span>
+      </div>
+      <div class="daily-card-preview" style="${f.s}color:#fff;">${f.p}</div>
+      <div class="daily-card-name">${f.n}</div>
+      <div class="daily-card-desc">${f.d}</div>
+      <button class="daily-card-btn" onclick="openDetail(getDailyPicks(6)[${i}])">Details →</button>
+    `;
+    grid.appendChild(el);
+  });
+  section.style.display = 'block';
+}
+
+function formatDate(d) {
+  return d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+}
+
+function updateDateDisplay() {
+  const now = new Date();
+  const dateStr = formatDate(now);
+  const dailyDate = document.getElementById('dailyDate');
+  const dailyPicksDate = document.getElementById('dailyPicksDate');
+  if (dailyDate) dailyDate.textContent = dateStr;
+  if (dailyPicksDate) dailyPicksDate.textContent = dateStr;
+}
+
+function updateCountdown() {
+  const now = new Date();
+  const midnight = new Date(now);
+  midnight.setHours(24, 0, 0, 0); // next midnight
+  const diff = midnight - now;
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  const val = document.getElementById('countdownVal');
+  if (val) val.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  const footer = document.getElementById('footerUpdateTime');
+  if (footer) footer.textContent = `Last updated ${now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'})} · Next refresh in ${h}h ${m}m`;
+}
+
+let lastDaySeed = getDateSeed();
+
+function checkMidnightRefresh() {
+  const currentSeed = getDateSeed();
+  if (currentSeed !== lastDaySeed) {
+    // Day changed — show toast
+    lastDaySeed = currentSeed;
+    const toast = document.getElementById('refreshToast');
+    if (toast) {
+      toast.classList.add('show');
+      // Auto-dismiss after 12 seconds if user doesn't interact
+      setTimeout(() => toast.classList.remove('show'), 12000);
+    }
+  }
+}
+
+function applyDailyRefresh() {
+  const toast = document.getElementById('refreshToast');
+  if (toast) toast.classList.remove('show');
+  updateDateDisplay();
+  renderDailyPicks();
+  // If results are showing, re-render them too
+  if (document.getElementById('results').style.display !== 'none' && currFonts.length) {
+    document.getElementById('rGrid').innerHTML = '';
+    shown = 0;
+    renderBatch();
+  }
+}
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', () => {
+  updateDateDisplay();
+  updateCountdown();
+  renderDailyPicks();
+  // Tick every second
+  setInterval(() => {
+    updateCountdown();
+    checkMidnightRefresh();
+  }, 1000);
+});
+
+</script>
+</body>
+</html>
