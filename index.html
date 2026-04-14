@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
 
 <!-- ═══ PRIMARY META ═══ -->
 <title>Get.Set.Typeface — Find the Perfect Typeface for Any Product</title>
@@ -83,7 +83,7 @@
     --border-hover: rgba(255,255,255,0.22);
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust:100%; }
   body {
     background: var(--black);
     color: var(--white);
@@ -91,7 +91,19 @@
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  /* Safe area for notched devices */
+  nav {
+    padding-left: max(48px, env(safe-area-inset-left));
+    padding-right: max(48px, env(safe-area-inset-right));
+  }
+  footer {
+    padding-bottom: max(28px, env(safe-area-inset-bottom));
+  }
+  /* Touch target minimum */
+  button, a, select, [onclick] { min-height: 36px; }
 
   /* NOISE */
   body::before {
@@ -162,7 +174,7 @@
     opacity:0; animation:up 0.8s ease forwards 0.32s;
   }
 
-  /* INPUT */
+  /* INPUT MODULE */
   .input-module {
     width:100%; max-width:520px; display:flex; flex-direction:column;
     align-items:center; gap:14px;
@@ -194,7 +206,21 @@
   }
   .go-btn:hover { background:var(--gray); transform:scale(0.97); }
   .go-btn:active { transform:scale(0.95); }
-  .input-note { font-size:11px; color:var(--muted); letter-spacing:0.3px; }
+
+  /* QUICK PICK CHIPS */
+  .search-examples {
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+  }
+  .search-chip {
+    font-size:12px; color:var(--subtle); padding:6px 14px;
+    border:1px solid var(--border); border-radius:20px; background:transparent;
+    cursor:pointer; font-family:'Inter Tight',sans-serif; font-weight:500;
+    transition:background 0.2s, border-color 0.2s, color 0.2s; letter-spacing:0.2px;
+  }
+  .search-chip:hover { background:var(--a2); border-color:var(--border-hover); color:var(--white); }
+  .search-chip.active { background:var(--white); border-color:var(--white); color:var(--black); }
+  .input-note { font-size:12px; color:var(--muted); letter-spacing:0.2px; }
+
 
   /* SCROLL */
   .scroll-cue {
@@ -270,6 +296,7 @@
   }
   .daily-card::before { content:''; position:absolute; inset:0; background:var(--a2); opacity:0; transition:opacity 0.22s; pointer-events:none; }
   .daily-card:hover::before { opacity:1; }
+  .daily-card:hover .daily-card-btn { background:var(--white); color:var(--black); border-color:var(--white); }
   .daily-card-top { display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1; }
   .daily-card-num { font-family:'Space Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:1px; }
   .daily-card-badge { font-size:9px; color:#4ade80; background:rgba(74,222,128,0.1); padding:2px 7px; border-radius:3px; font-weight:600; letter-spacing:0.5px; }
@@ -354,12 +381,14 @@
     background:var(--black); padding:28px 24px 24px;
     display:flex; flex-direction:column; position:relative;
     overflow:hidden; transition:background 0.22s;
+    cursor:pointer;
   }
   .card::before {
     content:''; position:absolute; inset:0; background:var(--a2);
     opacity:0; transition:opacity 0.22s; pointer-events:none;
   }
   .card:hover::before { opacity:1; }
+  .card:hover .card-btn { background:var(--white); color:var(--black); border-color:var(--white); }
   .card-num {
     font-family:'Space Mono',monospace; font-size:9px; color:var(--muted);
     letter-spacing:1.5px; margin-bottom:18px; position:relative; z-index:1;
@@ -609,98 +638,288 @@
   }
   .d-num-cell:hover { background:var(--a2); }
 
-  /* MOCKUPS */
-  .d-mockups { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:48px; }
+  /* ─────────────────────────────────────
+     MOCKUPS — Rich Website Previews
+  ───────────────────────────────────── */
+  .d-mockups {
+    display:flex; flex-direction:column; gap:2px;
+    border:1px solid var(--border); border-radius:16px; overflow:hidden;
+    margin-bottom:48px; background:var(--border);
+  }
+  .mock-label {
+    font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--muted); padding:10px 16px 0;
+    font-family:'Space Mono',monospace;
+  }
 
-  /* Mockup 1 — Website Hero */
-  .mock-browser {
-    background:var(--a1); padding:0; overflow:hidden;
+  /* ── BROWSER CHROME ── */
+  .mock-browser-chrome {
+    background:#1c1c1e; display:flex; flex-direction:column;
   }
-  .mock-browser-bar {
-    background:var(--a2); height:36px; padding:0 16px;
-    display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border);
+  .mock-chrome-bar {
+    height:38px; background:#2c2c2e; padding:0 14px;
+    display:flex; align-items:center; gap:8px;
+    border-bottom:1px solid rgba(255,255,255,0.06); flex-shrink:0;
   }
-  .mock-dot { width:10px; height:10px; border-radius:50%; }
+  .mock-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
   .mock-dot.r { background:#ff5f57; }
   .mock-dot.y { background:#febc2e; }
   .mock-dot.g { background:#28c840; }
-  .mock-url-bar {
-    flex:1; max-width:280px; margin:0 auto; background:var(--a3);
-    border-radius:4px; height:20px; display:flex; align-items:center;
-    padding:0 10px; font-size:10px; color:var(--subtle);
+  .mock-chrome-url {
+    flex:1; max-width:340px; margin:0 auto; height:22px;
+    background:rgba(255,255,255,0.07); border-radius:5px;
+    display:flex; align-items:center; padding:0 10px; gap:6px;
+  }
+  .mock-chrome-lock { font-size:9px; color:#4ade80; opacity:0.7; }
+  .mock-chrome-domain {
+    font-size:10px; color:rgba(255,255,255,0.4);
     font-family:'Space Mono',monospace; letter-spacing:0;
   }
-  .mock-hero-inner {
-    padding:40px 40px 48px; text-align:center;
-  }
-  .mock-nav-links {
-    display:flex; justify-content:space-between; align-items:center;
-    margin-bottom:48px;
-  }
-  .mock-logo-text { font-size:15px; font-weight:700; color:var(--white); letter-spacing:-0.5px; }
-  .mock-nav-items { display:flex; gap:20px; }
-  .mock-nav-item { font-size:11px; color:var(--subtle); }
-  .mock-hero-tag { font-size:9px; color:var(--muted); letter-spacing:2.5px; text-transform:uppercase; margin-bottom:16px; }
-  .mock-hero-h1 { font-size:clamp(28px,4vw,52px); line-height:1.05; color:var(--white); letter-spacing:-2px; margin-bottom:16px; }
-  .mock-hero-p { font-size:13px; color:var(--subtle); line-height:1.7; max-width:380px; margin:0 auto 28px; }
-  .mock-cta-row { display:flex; gap:10px; justify-content:center; }
-  .mock-cta { font-size:11px; font-weight:700; padding:10px 20px; border-radius:6px; }
-  .mock-cta.primary { background:var(--white); color:var(--black); }
-  .mock-cta.secondary { background:transparent; color:var(--subtle); border:1px solid var(--border); }
+  .mock-chrome-actions { margin-left:auto; display:flex; gap:10px; }
+  .mock-chrome-icon { width:14px; height:14px; opacity:0.25; }
 
-  /* Mockup 2 — Dashboard */
-  .mock-dashboard {
-    background:var(--a1); display:grid; grid-template-columns:200px 1fr;
-    min-height:220px; overflow:hidden;
+  /* ── MOCKUP 1: HERO WEBSITE ── */
+  .mock-site {
+    background:#080808; position:relative; overflow:hidden; min-height:380px;
   }
-  .mock-sidebar {
-    background:var(--a2); border-right:1px solid var(--border);
-    padding:20px 16px; display:flex; flex-direction:column; gap:6px;
+  .mock-site-noise {
+    position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255,255,255,0.04) 0%, transparent 70%);
   }
-  .mock-sidebar-logo { font-size:13px; font-weight:700; color:var(--white); margin-bottom:16px; letter-spacing:-0.5px; }
-  .mock-nav-link {
-    font-size:11px; padding:7px 10px; border-radius:5px; color:var(--subtle);
+  .mock-site-grid {
+    position:absolute; inset:0; pointer-events:none; overflow:hidden;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size:40px 40px;
+  }
+  /* Nav */
+  .mock-site-nav {
+    position:relative; z-index:2; padding:0 40px;
+    height:52px; display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .msn-logo {
     display:flex; align-items:center; gap:8px;
   }
-  .mock-nav-link.active { background:var(--a3); color:var(--white); }
-  .mock-nav-dot { width:6px; height:6px; border-radius:50%; background:currentColor; opacity:0.5; }
-  .mock-main { padding:20px 24px; }
-  .mock-dash-title { font-size:16px; font-weight:700; color:var(--white); margin-bottom:4px; letter-spacing:-0.5px; }
-  .mock-dash-sub { font-size:10px; color:var(--subtle); margin-bottom:16px; }
-  .mock-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-  .mock-card {
-    background:var(--a2); border:1px solid var(--border); border-radius:7px;
-    padding:14px 12px;
+  .msn-logo-mark {
+    width:22px; height:22px; background:white; border-radius:5px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:10px; font-weight:900; color:#000; flex-shrink:0;
+    font-family:'Inter Tight',sans-serif;
   }
-  .mock-card-label { font-size:9px; color:var(--subtle); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
-  .mock-card-val { font-size:20px; color:var(--white); font-weight:700; letter-spacing:-0.5px; line-height:1; }
-  .mock-card-change { font-size:9px; color:#4ade80; margin-top:4px; }
+  .msn-logo-name { font-size:13px; font-weight:700; color:#fff; letter-spacing:-0.3px; }
+  .msn-links { display:flex; align-items:center; gap:24px; }
+  .msn-link { font-size:11px; color:rgba(255,255,255,0.4); letter-spacing:0.1px; }
+  .msn-cta {
+    font-size:11px; font-weight:700; padding:7px 14px; border-radius:7px;
+    background:white; color:#000; letter-spacing:0.2px;
+  }
+  /* Hero content */
+  .mock-site-hero {
+    position:relative; z-index:2;
+    padding:52px 40px 56px; display:flex; flex-direction:column;
+    align-items:center; text-align:center; gap:0;
+  }
+  .mock-site-badge {
+    display:inline-flex; align-items:center; gap:7px;
+    border:1px solid rgba(255,255,255,0.1); border-radius:20px;
+    padding:5px 12px 5px 8px; margin-bottom:28px;
+    background:rgba(255,255,255,0.04);
+  }
+  .mock-site-badge-dot {
+    width:6px; height:6px; border-radius:50%; background:#4ade80;
+    animation:livepulse 2s ease-in-out infinite;
+  }
+  .mock-site-badge-txt { font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.3px; }
+  .mock-site-badge-link { font-size:10px; color:rgba(255,255,255,0.8); font-weight:600; }
+  .mock-site-h1 {
+    font-size:clamp(32px,5vw,62px); line-height:1.02; letter-spacing:-2.5px;
+    color:#fff; font-weight:700; max-width:640px; margin-bottom:18px;
+  }
+  .mock-site-h1 em {
+    font-style:italic; color:rgba(255,255,255,0.45); font-weight:400;
+  }
+  .mock-site-sub {
+    font-size:14px; color:rgba(255,255,255,0.45); line-height:1.7;
+    max-width:420px; margin-bottom:32px; font-weight:400;
+  }
+  .mock-site-actions { display:flex; align-items:center; gap:12px; margin-bottom:48px; }
+  .mock-site-btn-primary {
+    font-size:12px; font-weight:700; padding:11px 22px; border-radius:9px;
+    background:#fff; color:#000; letter-spacing:0.1px; display:flex; align-items:center; gap:7px;
+  }
+  .mock-site-btn-primary svg { opacity:0.5; }
+  .mock-site-btn-secondary {
+    font-size:12px; font-weight:500; padding:11px 20px; border-radius:9px;
+    color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.1);
+    background:transparent; letter-spacing:0.1px;
+  }
+  /* Social proof */
+  .mock-site-proof {
+    display:flex; align-items:center; gap:12px;
+  }
+  .mock-site-avatars {
+    display:flex;
+  }
+  .mock-site-avatar {
+    width:24px; height:24px; border-radius:50%; border:2px solid #080808;
+    margin-left:-8px; background:linear-gradient(135deg, #444, #222);
+    display:flex; align-items:center; justify-content:center;
+    font-size:8px; color:rgba(255,255,255,0.6); font-weight:700;
+  }
+  .mock-site-avatar:first-child { margin-left:0; }
+  .mock-site-proof-txt { font-size:10px; color:rgba(255,255,255,0.3); }
+  .mock-site-proof-txt strong { color:rgba(255,255,255,0.6); font-weight:600; }
+  /* App window preview inside hero */
+  .mock-site-window {
+    width:100%; max-width:560px; border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px; overflow:hidden; background:#111; margin-top:40px;
+    box-shadow:0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .mock-site-window-bar {
+    height:28px; background:#1a1a1a; border-bottom:1px solid rgba(255,255,255,0.06);
+    display:flex; align-items:center; padding:0 12px; gap:6px;
+  }
+  .mock-wdot { width:8px; height:8px; border-radius:50%; }
+  .mock-wdot.r { background:rgba(255,95,87,0.6); }
+  .mock-wdot.y { background:rgba(254,188,46,0.6); }
+  .mock-wdot.g { background:rgba(40,200,64,0.6); }
+  .mock-site-window-content {
+    padding:20px 24px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;
+  }
+  .mock-wcard {
+    background:#1a1a1a; border:1px solid rgba(255,255,255,0.06);
+    border-radius:7px; padding:14px 12px;
+  }
+  .mock-wcard-label { font-size:8px; color:rgba(255,255,255,0.3); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; }
+  .mock-wcard-val { font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.5px; line-height:1; }
+  .mock-wcard-change { font-size:8px; color:#4ade80; margin-top:4px; }
 
-  /* Mockup 3 — Mobile */
-  .mock-mobile-wrap { background:var(--a1); padding:28px; display:flex; justify-content:center; }
-  .mock-phone {
-    width:220px; border:1px solid var(--a4); border-radius:28px;
-    overflow:hidden; background:var(--a2);
+  /* ── MOCKUP 2: EDITORIAL / ARTICLE ── */
+  .mock-editorial { background:#fff; overflow:hidden; }
+  .mock-ed-nav {
+    padding:0 40px; height:50px; display:flex; align-items:center;
+    justify-content:space-between; border-bottom:1px solid #eee;
+    background:#fff;
   }
-  .mock-phone-status {
-    background:var(--black); height:28px; display:flex;
-    align-items:center; justify-content:space-between; padding:0 16px;
-    font-size:8px; color:var(--subtle); font-family:'Space Mono',monospace;
+  .mock-ed-logo { font-size:14px; font-weight:800; color:#000; letter-spacing:-0.5px; }
+  .mock-ed-nav-links { display:flex; gap:20px; }
+  .mock-ed-nav-link { font-size:11px; color:#666; }
+  .mock-ed-nav-cta { font-size:11px; font-weight:700; color:#000; }
+  .mock-ed-hero {
+    padding:48px 40px 40px; max-width:100%;
+    border-bottom:1px solid #eee;
   }
-  .mock-phone-notch { width:60px; height:12px; background:var(--black); border-radius:0 0 12px 12px; margin:0 auto; }
-  .mock-app-header {
-    padding:16px 16px 12px; border-bottom:1px solid var(--border);
-    display:flex; align-items:center; justify-content:space-between;
+  .mock-ed-category {
+    font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+    color:#999; margin-bottom:16px; display:flex; align-items:center; gap:10px;
   }
-  .mock-app-title { font-size:16px; font-weight:700; color:var(--white); letter-spacing:-0.5px; }
-  .mock-app-body { padding:16px; display:flex; flex-direction:column; gap:10px; }
-  .mock-app-item {
-    background:var(--a3); border-radius:8px; padding:12px;
-    border:1px solid var(--border);
+  .mock-ed-category::after { content:''; flex:1; height:1px; background:#eee; }
+  .mock-ed-h1 {
+    font-size:clamp(26px,4vw,52px); line-height:1.08; letter-spacing:-1.5px;
+    color:#000; font-weight:700; margin-bottom:16px; max-width:680px;
   }
-  .mock-app-item-title { font-size:11px; font-weight:600; color:var(--white); margin-bottom:3px; }
-  .mock-app-item-sub { font-size:9px; color:var(--subtle); }
-  .mock-app-badge { font-size:8px; color:#4ade80; background:rgba(74,222,128,0.1); padding:2px 6px; border-radius:3px; display:inline-block; margin-top:4px; }
+  .mock-ed-byline {
+    display:flex; align-items:center; gap:14px; margin-bottom:20px;
+  }
+  .mock-ed-avatar {
+    width:28px; height:28px; border-radius:50%; background:#e5e5e5;
+    display:flex; align-items:center; justify-content:center;
+    font-size:10px; font-weight:700; color:#999;
+  }
+  .mock-ed-author { font-size:11px; color:#999; }
+  .mock-ed-author strong { color:#000; font-weight:600; }
+  .mock-ed-lead {
+    font-size:15px; color:#444; line-height:1.75; max-width:620px;
+    border-left:3px solid #000; padding-left:16px;
+  }
+  .mock-ed-body {
+    padding:24px 40px 32px; display:grid; grid-template-columns:1fr 1fr; gap:20px;
+  }
+  .mock-ed-body-p { font-size:11px; color:#666; line-height:1.75; }
+  .mock-ed-pull {
+    background:#f5f5f5; border-radius:8px; padding:20px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .mock-ed-pull-q { font-size:15px; font-style:italic; color:#000; line-height:1.5; letter-spacing:-0.3px; }
+  .mock-ed-pull-attr { font-size:10px; color:#999; }
+
+  /* ── MOCKUP 3: MOBILE HERO ── */
+  .mock-mobile-scene {
+    background:#0a0a0a; padding:32px; display:flex;
+    justify-content:center; align-items:flex-start; gap:24px;
+  }
+  .mock-phone-frame {
+    width:200px; flex-shrink:0;
+    border:1.5px solid rgba(255,255,255,0.15); border-radius:32px;
+    overflow:hidden; background:#000;
+    box-shadow:0 20px 60px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .mock-phone-notch-bar {
+    background:#000; height:32px; display:flex; align-items:flex-end;
+    justify-content:center; padding-bottom:4px;
+  }
+  .mock-phone-notch {
+    width:80px; height:20px; background:#0a0a0a; border-radius:0 0 16px 16px;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .mock-notch-cam { width:8px; height:8px; border-radius:50%; background:#1a1a1a; }
+  .mock-phone-screen { background:#0a0a0a; }
+  .mock-phone-hero-area {
+    padding:20px 16px 16px; min-height:260px; position:relative; overflow:hidden;
+  }
+  .mock-phone-hero-grad {
+    position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse 120% 60% at 50% 0%, rgba(255,255,255,0.05) 0%, transparent 70%);
+  }
+  .mock-phone-hero-content { position:relative; z-index:1; }
+  .mock-phone-eyebrow {
+    font-size:8px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:rgba(255,255,255,0.35); margin-bottom:10px;
+  }
+  .mock-phone-h1 {
+    font-size:22px; line-height:1.1; letter-spacing:-1px; font-weight:700;
+    color:#fff; margin-bottom:10px;
+  }
+  .mock-phone-sub { font-size:9.5px; color:rgba(255,255,255,0.4); line-height:1.6; margin-bottom:18px; }
+  .mock-phone-cta {
+    display:inline-flex; align-items:center; gap:6px;
+    background:#fff; color:#000; font-size:10px; font-weight:700;
+    padding:9px 16px; border-radius:8px; letter-spacing:0.2px;
+  }
+  .mock-phone-cards { padding:0 16px 20px; display:flex; flex-direction:column; gap:8px; }
+  .mock-phone-card {
+    background:#161616; border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px; padding:12px; display:flex; align-items:center; gap:10px;
+  }
+  .mock-phone-card-icon {
+    width:32px; height:32px; border-radius:8px; background:rgba(255,255,255,0.06);
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    font-size:14px;
+  }
+  .mock-phone-card-title { font-size:11px; font-weight:600; color:#fff; margin-bottom:2px; }
+  .mock-phone-card-sub { font-size:9px; color:rgba(255,255,255,0.35); }
+  .mock-phone-card-arrow { margin-left:auto; font-size:11px; color:rgba(255,255,255,0.2); }
+  .mock-phone-tab-bar {
+    background:#111; border-top:1px solid rgba(255,255,255,0.06);
+    height:44px; display:flex; align-items:center; justify-content:space-around; padding:0 8px;
+  }
+  .mock-tab { display:flex; flex-direction:column; align-items:center; gap:2px; opacity:0.3; }
+  .mock-tab.active { opacity:1; }
+  .mock-tab-icon { font-size:14px; line-height:1; }
+  .mock-tab-label { font-size:7px; letter-spacing:0.2px; color:#fff; }
+  /* Right side caption in mobile scene */
+  .mock-mobile-caption {
+    flex:1; padding-top:12px; display:flex; flex-direction:column; gap:20px;
+  }
+  .mock-mobile-caption-item { }
+  .mock-mobile-caption-label {
+    font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+    color:rgba(255,255,255,0.25); margin-bottom:6px; font-family:'Space Mono',monospace;
+  }
+  .mock-mobile-caption-val { font-size:13px; color:rgba(255,255,255,0.7); line-height:1.5; }
+  .mock-mobile-caption-val strong { color:#fff; }
 
   /* PAIRING SECTION */
   .d-pairs { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:48px; }
@@ -786,42 +1005,425 @@
     .d-section { padding:36px 24px 0; }
     .d-side-section { padding:28px 24px; }
     .d-alphabet { grid-template-columns:repeat(9,1fr); }
-    .mock-dashboard { grid-template-columns:1fr; }
-    .mock-sidebar { display:none; }
     .d-nav { padding:0 20px; }
+    .mock-mobile-scene { flex-direction:column; align-items:center; }
+    .mock-mobile-caption { width:100%; padding-top:0; }
+    .mock-ed-body { grid-template-columns:1fr; }
+    .msn-links { gap:14px; }
+    .msn-link { display:none; }
   }
   @media(max-width:600px) {
     .d-nav { padding:0 16px; }
     .d-back span { display:none; }
-    .d-alphabet { grid-template-columns:repeat(7,1fr); }
-    .mock-mobile-wrap { display:none; }
-    .mock-cards { grid-template-columns:repeat(2,1fr); }
+    .d-alphabet { grid-template-columns:repeat(6,1fr); }
+    .d-nums { flex-wrap:wrap; }
+    .d-num-cell { min-width:10%; }
+    .mock-site-window { display:none; }
+    .mock-site-h1 { font-size:28px; letter-spacing:-1px; }
+    .mock-site-actions { flex-direction:column; align-items:center; gap:8px; }
+    .mock-ed-hero { padding:24px 20px 20px; }
+    .mock-ed-body { padding:16px 20px 20px; }
+    .mock-ed-nav { padding:0 20px; }
+    .msn-links .msn-cta { display:block; }
   }
 
+  /* ═══════════════════════════════════════════════
+     MAIN SITE RESPONSIVE — All breakpoints
+  ═══════════════════════════════════════════════ */
+
+  /* ── 1280px: Large desktop fine-tuning ── */
+  @media(max-width:1280px) {
+    nav { padding:0 32px; }
+    #results { padding:0 32px 100px; }
+    .daily-picks { padding:0 32px; }
+    .empty-state { padding:80px 32px 100px; }
+  }
+
+  /* ── 960px: Tablet ── */
   @media(max-width:960px) {
-    nav { padding:0 20px; }
-    .daily-banner { padding:10px 20px; flex-direction:column; gap:6px; align-items:flex-start; }
-    .hero { padding:90px 20px 60px; }
-    .hero-h1 { letter-spacing:-3px; }
+    /* Nav */
+    nav { padding:0 20px; height:56px; }
+    .nav-links { gap:20px; }
+    .nav-links li:nth-child(1),
+    .nav-links li:nth-child(2) { display:none; }
+
+    /* Daily banner */
+    .daily-banner { padding:10px 20px; flex-direction:column; gap:4px; align-items:flex-start; }
+    .daily-countdown { font-size:10px; }
+
+    /* Hero */
+    .hero { padding:88px 20px 56px; }
+    .hero-h1 { letter-spacing:-2.5px; }
+    .hero-sub { font-size:15px; }
+    .input-module { max-width:100%; }
+
+    /* Sections */
     #results { padding:0 20px 80px; }
     .daily-picks { padding:0 20px; }
+    .results-header { padding:40px 0 28px; }
+    .empty-state { padding:56px 20px 80px; }
+
+    /* Grids */
     .results-grid { grid-template-columns:repeat(2,1fr); }
     .daily-picks-row { grid-template-columns:repeat(2,1fr); }
-    .empty-state { padding:60px 20px; }
     .sample-grid { grid-template-columns:repeat(2,1fr); }
+
+    /* Cards */
+    .card { padding:22px 18px 18px; }
+    .card-preview { font-size:40px; }
+
+    /* Daily cards */
+    .daily-card { padding:20px 18px; }
+    .daily-card-preview { font-size:38px; }
+
+    /* Footer */
     footer { padding:24px 20px; flex-direction:column; gap:10px; text-align:center; }
+
+    /* Modals */
+    .modal-box { max-width:100%; border-radius:16px; }
+    .share-grid { grid-template-columns:1fr; }
+
+    /* Marquee */
+    .marquee-track { gap:36px; }
+    .marquee-item { gap:36px; }
   }
-  @media(max-width:600px) {
-    .results-grid { grid-template-columns:1fr; }
-    .daily-picks-row { grid-template-columns:1fr; }
-    .nav-links { gap:18px; }
+
+  /* ── 640px: Large phone ── */
+  @media(max-width:640px) {
+    /* Nav — hamburger mode */
+    nav { padding:0 16px; height:52px; }
+    .nav-links { gap:12px; }
+    .nav-links li:nth-child(3) { display:none; }
     .nav-pill { display:none; }
-    .input-shell { flex-direction:column; }
-    .go-btn { border-radius:0 0 10px 10px; }
-    .results-header { flex-direction:column; align-items:flex-start; gap:6px; }
-    .hero-h1 { letter-spacing:-2px; }
+    .logo { font-size:13px; gap:7px; }
+    .logo-mark { width:26px; height:26px; font-size:10px; }
+
+    /* Hero */
+    .hero { padding:80px 16px 52px; min-height:auto; }
+    .hero-h1 {
+      font-size:clamp(36px,10vw,56px);
+      letter-spacing:-2px; line-height:1.05;
+    }
+    .hero-h1 em { letter-spacing:-2px; }
+    .hero-sub { font-size:14px; margin-bottom:36px; }
+    .eyebrow { font-size:9px; letter-spacing:3px; margin-bottom:20px; }
+
+    /* Input */
+    .input-module { gap:10px; }
+    .input-shell { flex-direction:column; border-radius:14px; }
+    .cat-select { padding:14px 16px; font-size:13px; border-radius:13px 13px 0 0; }
+    .go-btn { border-radius:0 0 13px 13px; padding:14px; font-size:13px; text-align:center; }
+    .search-examples { gap:6px; }
+    .search-chip { font-size:11px; padding:5px 11px; }
+    .input-note { font-size:10px; }
+
+    /* Daily banner */
+    .daily-banner { padding:8px 16px; }
+    .daily-left { flex-direction:column; gap:2px; }
+    .daily-text { font-size:11px; }
     .daily-countdown { display:none; }
+
+    /* Sections */
+    #results { padding:0 16px 64px; }
+    .daily-picks { padding:0 16px; }
+    .empty-state { padding:48px 16px 64px; }
+    .results-header { padding:32px 0 20px; flex-direction:column; align-items:flex-start; gap:4px; }
+    .results-h2 { font-size:22px; letter-spacing:-0.8px; }
+    .results-cat { font-size:9px; }
+
+    /* Grids — single column */
+    .results-grid { grid-template-columns:1fr; border-radius:12px; }
+    .daily-picks-row { grid-template-columns:1fr; border-radius:12px; }
+    .sample-grid { grid-template-columns:repeat(2,1fr); border-radius:10px; }
+
+    /* Cards */
+    .card { padding:20px 16px 16px; }
+    .card-preview { font-size:36px; }
+    .card-name { font-size:13px; }
+    .card-desc { font-size:12px; }
+    .card-tag { font-size:9px; padding:2px 6px; }
+
+    /* Daily picks header */
+    .daily-picks-header { padding:32px 0 20px; flex-direction:column; align-items:flex-start; gap:8px; }
+    .daily-picks-title { font-size:12px; }
+    .daily-picks-date { font-size:10px; }
+
+    /* Footer */
+    footer { padding:20px 16px; gap:8px; }
+    .footer-logo { font-size:12px; }
+    .footer-txt { font-size:10px; }
+    .footer-update { font-size:10px; }
+
+    /* Marquee */
+    .marquee-wrap { padding:14px 0; }
+    .marquee-item { font-size:10px; letter-spacing:1.5px; gap:28px; }
+    .marquee-track { gap:28px; }
+
+    /* Modals — full-screen feel on mobile */
+    .modal-backdrop { padding:12px; align-items:flex-end; }
+    .modal-box { border-radius:20px 20px 16px 16px; max-height:90vh; overflow-y:auto; }
+    .modal-header { padding:20px 20px 0; }
+    .modal-title { font-size:18px; }
+    .modal-body { padding:16px 20px 20px; gap:12px; }
+    .contact-card { padding:14px 16px; }
+    .share-grid { grid-template-columns:1fr; gap:6px; }
+    .share-url-box { flex-direction:column; }
+    .share-copy-btn { border-radius:0 0 9px 9px; border-left:none; border-top:1px solid var(--border); }
+
+    /* About stats */
+    .about-stat-row { grid-template-columns:repeat(3,1fr); }
+    .about-stat-num { font-size:22px; }
+    .about-stat-lbl { font-size:9px; }
+
+    /* Detail panel nav */
+    .d-nav-tag { display:none; }
   }
+
+  /* ── 400px: Small phone (iPhone SE etc) ── */
+  @media(max-width:400px) {
+    nav { height:50px; }
+    .logo span:last-child { display:none; } /* hide text, show only mark */
+    .hero-h1 { font-size:clamp(30px,11vw,42px); letter-spacing:-1.5px; }
+    .hero-sub { font-size:13px; }
+
+    #results { padding:0 12px 56px; }
+    .daily-picks { padding:0 12px; }
+    .empty-state { padding:40px 12px 56px; }
+
+    .card { padding:16px 14px 14px; }
+    .card-preview { font-size:32px; }
+    .daily-card-preview { font-size:32px; }
+
+    .sample-grid { grid-template-columns:1fr 1fr; }
+    .sample-cell { padding:24px 16px 18px; }
+    .sample-glyph { font-size:42px; }
+
+    .d-section { padding:28px 16px 0; }
+    .d-side-section { padding:20px 16px; }
+    .d-hero { padding:28px 16px 0; }
+    .d-alphabet { grid-template-columns:repeat(5,1fr); }
+
+    .modal-backdrop { padding:8px; }
+    .modal-body { padding:12px 16px 16px; }
+    footer { padding:16px 12px; }
+  }
+
+  /* ── MOCKUP RESPONSIVE ── */
+  @media(max-width:960px) {
+    .mock-site-nav { padding:0 24px; height:46px; }
+    .msn-links { gap:14px; }
+    .mock-site-hero { padding:36px 24px 40px; }
+    .mock-site-h1 { font-size:clamp(24px,4vw,44px); }
+    .mock-ed-hero { padding:32px 28px 28px; }
+    .mock-ed-body { grid-template-columns:1fr; padding:20px 28px 28px; }
+    .mock-ed-h1 { font-size:clamp(22px,3.5vw,38px); }
+    .mock-mobile-scene { flex-direction:column; align-items:center; padding:24px; gap:20px; }
+    .mock-mobile-caption { width:100%; max-width:360px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .mock-mobile-caption-item:last-child { grid-column:1/-1; }
+  }
+  @media(max-width:640px) {
+    .mock-browser-chrome .mock-chrome-bar { height:32px; }
+    .mock-chrome-url { max-width:200px; }
+    .mock-site-nav { padding:0 16px; height:42px; }
+    .msn-link { display:none; }
+    .msn-logo-name { font-size:12px; }
+    .mock-site-hero { padding:28px 16px 32px; gap:0; }
+    .mock-site-h1 { font-size:clamp(20px,6vw,32px); letter-spacing:-1px; margin-bottom:12px; }
+    .mock-site-sub { font-size:11px; margin-bottom:20px; }
+    .mock-site-actions { flex-direction:column; align-items:center; gap:8px; width:100%; }
+    .mock-site-btn-primary, .mock-site-btn-secondary { width:100%; justify-content:center; }
+    .mock-site-badge { margin-bottom:18px; }
+    .mock-site-proof { flex-direction:column; gap:6px; align-items:center; }
+    .mock-site-window { display:none; }
+    .mock-ed-nav { padding:0 16px; height:44px; }
+    .mock-ed-logo { font-size:13px; }
+    .mock-ed-nav-links { gap:12px; }
+    .mock-ed-nav-link { display:none; }
+    .mock-ed-hero { padding:20px 16px 16px; }
+    .mock-ed-h1 { font-size:clamp(18px,5.5vw,28px); letter-spacing:-0.5px; }
+    .mock-ed-lead { font-size:12px; }
+    .mock-ed-body { padding:14px 16px 16px; gap:12px; }
+    .mock-ed-body-p { font-size:10px; }
+    .mock-ed-pull-q { font-size:12px; }
+    .mock-phone-frame { width:180px; }
+    .mock-phone-h1 { font-size:18px; letter-spacing:-0.8px; }
+    .mock-mobile-caption { grid-template-columns:1fr; }
+    .mock-mobile-caption-item:last-child { grid-column:1; }
+  }
+
+  /* ── DETAIL PANEL RESPONSIVE ── */
+  @media(max-width:960px) {
+    .d-layout { grid-template-columns:1fr; }
+    .d-main { border-right:none; border-bottom:1px solid var(--border); }
+    .d-hero { padding:36px 24px 0; }
+    .d-hero-sub { position:static; text-align:left; max-width:100%; margin-top:14px; padding-bottom:24px; }
+    .d-section { padding:32px 24px 0; }
+    .d-side-section { padding:24px; }
+    .d-alphabet { grid-template-columns:repeat(9,1fr); }
+    .d-quote { padding:32px 24px; }
+    .d-nav { padding:0 20px; }
+    .d-nav-tag { display:none; }
+  }
+  @media(max-width:640px) {
+    .d-nav { padding:0 14px; height:52px; }
+    .d-back { font-size:12px; gap:8px; }
+    .d-back span { display:none; }
+    .d-back-arrow { width:26px; height:26px; }
+    .d-hero { padding:24px 16px 0; }
+    .d-hero-name { font-size:clamp(48px,12vw,80px); letter-spacing:-3px; }
+    .d-hero-eyebrow { font-size:9px; letter-spacing:2px; }
+    .d-section { padding:24px 16px 0; }
+    .d-section-label { font-size:8px; letter-spacing:2px; margin-bottom:20px; }
+    .d-side-section { padding:20px 16px; }
+    .d-side-label { font-size:8px; }
+    .d-alphabet { grid-template-columns:repeat(7,1fr); }
+    .d-scale-row { flex-wrap:wrap; gap:4px; }
+    .d-scale-text { font-size:clamp(8px,1.8vw,inherit) !important; }
+    .d-quote { padding:24px 16px; }
+    .d-quote-text { font-size:clamp(16px,4.5vw,28px); }
+    .d-pair-card { padding:20px 16px; }
+    .d-pair-names { font-size:15px; }
+    .d-specials { justify-content:center; }
+    .d-special { width:44px; height:44px; font-size:17px; }
+    .d-nums { flex-wrap:wrap; }
+    .d-num-cell { min-width:60px; padding:18px 6px; }
+    .d-usedby-chip { font-size:9px; padding:3px 8px; }
+  }
+  @media(max-width:400px) {
+    .d-alphabet { grid-template-columns:repeat(5,1fr); }
+    .d-hero-name { font-size:clamp(40px,12vw,64px); letter-spacing:-2px; }
+    .d-weight-sample { font-size:18px; }
+    .d-pair-demo-h { font-size:17px; }
+  }
+
+  .modal-backdrop {
+    position:fixed; inset:0; z-index:600;
+    background:rgba(0,0,0,0.7); backdrop-filter:blur(12px);
+    display:none; align-items:center; justify-content:center;
+    padding:24px;
+  }
+  .modal-backdrop.open { display:flex; animation:fadein 0.2s ease; }
+
+  .modal-box {
+    background:var(--a1); border:1px solid var(--border);
+    border-radius:20px; width:100%; max-width:520px;
+    overflow:hidden; animation:modalUp 0.3s cubic-bezier(0.16,1,0.3,1);
+    position:relative;
+  }
+  @keyframes modalUp { from{opacity:0;transform:translateY(24px) scale(0.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+
+  .modal-header {
+    padding:28px 28px 0;
+    display:flex; align-items:flex-start; justify-content:space-between;
+  }
+  .modal-title {
+    font-size:22px; font-weight:700; color:var(--white);
+    letter-spacing:-0.8px; line-height:1.2;
+  }
+  .modal-sub {
+    font-size:13px; color:var(--muted); margin-top:4px; line-height:1.5;
+  }
+  .modal-close {
+    width:32px; height:32px; border-radius:8px; border:1px solid var(--border);
+    background:transparent; color:var(--subtle); cursor:pointer;
+    font-size:16px; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; transition:background 0.2s, color 0.2s; font-family:sans-serif;
+  }
+  .modal-close:hover { background:var(--a3); color:var(--white); }
+  .modal-body { padding:24px 28px 28px; display:flex; flex-direction:column; gap:16px; }
+
+  /* About modal */
+  .about-stat-row {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+    border-radius:12px; overflow:hidden;
+  }
+  .about-stat {
+    background:var(--black); padding:20px 16px; text-align:center;
+  }
+  .about-stat-num { font-size:28px; font-weight:700; color:var(--white); letter-spacing:-1px; line-height:1; }
+  .about-stat-lbl { font-size:10px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+  .about-desc {
+    font-size:14px; color:var(--subtle); line-height:1.75;
+  }
+  .about-desc strong { color:var(--white); font-weight:600; }
+  .about-divider { height:1px; background:var(--border); }
+  .about-made-by {
+    font-size:13px; color:var(--muted); display:flex; align-items:center; gap:8px;
+  }
+  .about-made-by a { color:var(--subtle); text-decoration:none; transition:color 0.2s; }
+  .about-made-by a:hover { color:var(--white); }
+  .about-tag {
+    font-size:10px; padding:3px 8px; background:var(--a3);
+    border:1px solid var(--border); border-radius:4px;
+    color:var(--subtle); letter-spacing:0.5px; text-transform:uppercase; font-weight:600;
+  }
+
+  /* Contact modal */
+  .contact-card {
+    display:flex; align-items:center; gap:16px;
+    padding:18px 20px; background:var(--black);
+    border:1px solid var(--border); border-radius:12px;
+    text-decoration:none; transition:background 0.2s, border-color 0.2s;
+    cursor:pointer;
+  }
+  .contact-card:hover { background:var(--a2); border-color:var(--border-hover); }
+  .contact-icon {
+    width:44px; height:44px; border-radius:10px; border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    font-size:20px; flex-shrink:0; background:var(--a2);
+  }
+  .contact-info-title { font-size:14px; font-weight:700; color:var(--white); margin-bottom:2px; }
+  .contact-info-sub { font-size:12px; color:var(--muted); }
+  .contact-arrow { margin-left:auto; font-size:14px; color:var(--dim); }
+  .contact-note {
+    font-size:12px; color:var(--dim); text-align:center; line-height:1.6;
+    padding:4px 0;
+  }
+
+  /* Share modal */
+  .share-url-box {
+    display:flex; gap:0; border:1px solid var(--border); border-radius:10px; overflow:hidden;
+    background:var(--a2);
+  }
+  .share-url-text {
+    flex:1; padding:12px 16px; font-size:12px; color:var(--muted);
+    font-family:'Space Mono',monospace; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    background:transparent; border:none; outline:none;
+  }
+  .share-copy-btn {
+    padding:12px 16px; background:var(--a3); border:none; border-left:1px solid var(--border);
+    font-size:12px; font-weight:700; color:var(--white); cursor:pointer;
+    font-family:'Inter Tight',sans-serif; transition:background 0.2s; white-space:nowrap;
+  }
+  .share-copy-btn:hover { background:var(--a4); }
+  .share-grid {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:8px;
+  }
+  .share-channel {
+    display:flex; align-items:center; gap:12px;
+    padding:14px 16px; border:1px solid var(--border); border-radius:10px;
+    background:var(--black); text-decoration:none;
+    transition:background 0.2s, border-color 0.2s; cursor:pointer;
+  }
+  .share-channel:hover { background:var(--a2); border-color:var(--border-hover); }
+  .share-ch-icon {
+    width:36px; height:36px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; flex-shrink:0;
+  }
+  .share-ch-name { font-size:13px; font-weight:700; color:var(--white); }
+  .share-ch-sub  { font-size:10px; color:var(--muted); margin-top:1px; }
+  .share-or {
+    text-align:center; font-size:11px; color:var(--dim); letter-spacing:1px;
+    text-transform:uppercase; position:relative;
+  }
+  .share-or::before, .share-or::after {
+    content:''; position:absolute; top:50%; width:42%;
+    height:1px; background:var(--border);
+  }
+  .share-or::before { left:0; }
+  .share-or::after { right:0; }
 </style>
 </head>
 <body>
@@ -833,10 +1435,10 @@
     Get.Set.Typeface
   </a>
   <ul class="nav-links">
-    <li><a href="#">About</a></li>
-    <li><a href="#">Library</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><button id="shareBtn" onclick="shareApp()" style="font-family:'Inter Tight',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3px;color:var(--black);background:var(--white);border:none;border-radius:6px;padding:7px 14px;cursor:pointer;transition:background 0.2s;">Share ↗</button></li>
+    <li><a href="#" onclick="openAbout();return false;">About</a></li>
+    <li><a href="#" onclick="scrollToLibrary();return false;">Library</a></li>
+    <li><a href="#" onclick="openContact();return false;">Contact</a></li>
+    <li><button id="shareBtn" onclick="openShare()" style="font-family:'Inter Tight',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3px;color:var(--black);background:var(--white);border:none;border-radius:6px;padding:7px 14px;cursor:pointer;transition:background 0.2s;">Share ↗</button></li>
     <li><span class="nav-pill">Beta</span></li>
   </ul>
 </nav>
@@ -893,7 +1495,17 @@
       </select>
       <button class="go-btn" onclick="showResults()">Get Recommendations →</button>
     </div>
-    <p class="input-note">50+ curated recommendations per category — updated 2025</p>
+
+    <div class="search-examples">
+      <button class="search-chip" onclick="quickPick('luxury')">Luxury Fashion</button>
+      <button class="search-chip" onclick="quickPick('saas')">SaaS Dashboard</button>
+      <button class="search-chip" onclick="quickPick('editorial')">Editorial Blog</button>
+      <button class="search-chip" onclick="quickPick('fintech')">Fintech</button>
+      <button class="search-chip" onclick="quickPick('gaming')">Gaming</button>
+      <button class="search-chip" onclick="quickPick('portfolio')">Portfolio</button>
+    </div>
+
+    <p class="input-note">50+ curated recommendations per category — updated daily</p>
   </div>
 
   <div class="scroll-cue">
@@ -988,7 +1600,7 @@
   </div>
 </div>
 
-<!-- RESULTS -->
+<!-- CURATED RESULTS SECTION -->
 <section id="results">
   <div class="results-header">
     <div>
@@ -1011,6 +1623,167 @@
   </span>
   <span class="footer-txt">© 2025 — Typography for Designers</span>
 </footer>
+
+<!-- ═══════════════════════════════════════
+     ABOUT MODAL
+════════════════════════════════════════ -->
+<div class="modal-backdrop" id="aboutModal" onclick="closeModal('aboutModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">About Get.Set.Typeface</div>
+        <div class="modal-sub">A free typography intelligence tool for designers</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('aboutModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <div class="about-stat-num">300+</div>
+          <div class="about-stat-lbl">Typefaces</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">20</div>
+          <div class="about-stat-lbl">Categories</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">∞</div>
+          <div class="about-stat-lbl">Free forever</div>
+        </div>
+      </div>
+      <p class="about-desc">
+        <strong>Get.Set.Typeface</strong> helps designers, developers, and product teams find the right typeface for their project — fast. Every font is hand-curated with real-world usage examples, full type specimens, and pairing suggestions.
+      </p>
+      <p class="about-desc">
+        The list refreshes daily at midnight with new picks. No sign-up, no paywall, no tracking. Built for the design community.
+      </p>
+      <div class="about-divider"></div>
+      <div class="about-made-by">
+        <span class="about-tag">Made by</span>
+        <a href="https://www.linkedin.com/in/tanmayvatsa31" target="_blank" rel="noopener">Tanmay Vatsa</a>
+        · Built with vanilla HTML/CSS/JS · Zero dependencies
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CONTACT MODAL
+════════════════════════════════════════ -->
+<div class="modal-backdrop" id="contactModal" onclick="closeModal('contactModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Get in touch</div>
+        <div class="modal-sub">Questions, feedback, or collaborations — reach out anytime.</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('contactModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <a class="contact-card" href="/cdn-cgi/l/email-protection#2f58405d445b4e41424e565a576f48424e4643014c4042">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-info-title">Send an Email</div>
+          <div class="contact-info-sub"><span class="__cf_email__" data-cfemail="f4839b869f80959a99958d818cb49399959d98da979b99">[email&#160;protected]</span></div>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/tanmayvatsa31" target="_blank" rel="noopener">
+        <div class="contact-icon" style="background:#0a66c2;border-color:#0a66c2;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div>
+          <div class="contact-info-title">Connect on LinkedIn</div>
+          <div class="contact-info-sub">linkedin.com/in/tanmayvatsa31</div>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+      <p class="contact-note">Usually responds within 24 hours. Open to feedback, font suggestions, and collaboration.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SHARE MODAL
+════════════════════════════════════════ -->
+<div class="modal-backdrop" id="shareModal" onclick="closeModal('shareModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Share Get.Set.Typeface</div>
+        <div class="modal-sub">Help more designers find the perfect typeface.</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('shareModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- URL Copy Box -->
+      <div class="share-url-box">
+        <input class="share-url-text" id="shareUrlInput" readonly value="https://getset.typeface.design">
+        <button class="share-copy-btn" id="shareCopyBtn" onclick="copyShareLink()">Copy link</button>
+      </div>
+
+      <div class="share-or">or share on</div>
+
+      <!-- Social Grid -->
+      <div class="share-grid">
+        <a class="share-channel" id="shareTwitter" href="#" target="_blank" rel="noopener">
+          <div class="share-ch-icon" style="background:#000;border:1px solid #333;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.912-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </div>
+          <div>
+            <div class="share-ch-name">X / Twitter</div>
+            <div class="share-ch-sub">Post to your feed</div>
+          </div>
+        </a>
+        <a class="share-channel" id="shareLinkedIn" href="#" target="_blank" rel="noopener">
+          <div class="share-ch-icon" style="background:#0a66c2;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="share-ch-name">LinkedIn</div>
+            <div class="share-ch-sub">Share with your network</div>
+          </div>
+        </a>
+        <a class="share-channel" id="shareWhatsApp" href="#" target="_blank" rel="noopener">
+          <div class="share-ch-icon" style="background:#25d366;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <div class="share-ch-name">WhatsApp</div>
+            <div class="share-ch-sub">Send to contacts</div>
+          </div>
+        </a>
+        <a class="share-channel" id="shareFacebook" href="#" target="_blank" rel="noopener">
+          <div class="share-ch-icon" style="background:#1877f2;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </div>
+          <div>
+            <div class="share-ch-name">Facebook</div>
+            <div class="share-ch-sub">Share on your timeline</div>
+          </div>
+        </a>
+        <a class="share-channel" id="shareTelegram" href="#" target="_blank" rel="noopener">
+          <div class="share-ch-icon" style="background:#229ed9;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          </div>
+          <div>
+            <div class="share-ch-name">Telegram</div>
+            <div class="share-ch-sub">Send to a chat</div>
+          </div>
+        </a>
+        <a class="share-channel" id="shareEmail" href="#">
+          <div class="share-ch-icon" style="background:var(--a3);border:1px solid var(--border);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div>
+            <div class="share-ch-name">Email</div>
+            <div class="share-ch-sub">Share via email</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════
      DETAIL OVERLAY
@@ -1133,91 +1906,188 @@
 
       <div class="d-mockups">
 
-        <!-- Mockup 1: Website Hero -->
-        <div class="mock-browser">
-          <div class="mock-browser-bar">
+        <!-- ══ MOCKUP 1: FULL WEBSITE HERO ══ -->
+        <div class="mock-browser-chrome">
+          <div class="mock-chrome-bar">
             <div class="mock-dot r"></div>
             <div class="mock-dot y"></div>
             <div class="mock-dot g"></div>
-            <div class="mock-url-bar" id="dMockUrl">yourproduct.com</div>
+            <div class="mock-chrome-url">
+              <span class="mock-chrome-lock">🔒</span>
+              <span class="mock-chrome-domain" id="dMockUrl">yourproduct.com</span>
+            </div>
+            <div class="mock-chrome-actions">
+              <svg class="mock-chrome-icon" viewBox="0 0 16 16" fill="rgba(255,255,255,0.5)"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 1a6 6 0 110 12A6 6 0 018 2z"/></svg>
+              <svg class="mock-chrome-icon" viewBox="0 0 16 16" fill="rgba(255,255,255,0.5)"><circle cx="8" cy="8" r="1.5"/><circle cx="3" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg>
+            </div>
           </div>
-          <div class="mock-hero-inner">
-            <div class="mock-nav-links">
-              <div class="mock-logo-text" id="dMockLogo">Brand</div>
-              <div class="mock-nav-items">
-                <span class="mock-nav-item">Features</span>
-                <span class="mock-nav-item">Pricing</span>
-                <span class="mock-nav-item">Docs</span>
+          <div class="mock-site">
+            <div class="mock-site-noise"></div>
+            <div class="mock-site-grid"></div>
+            <!-- Nav -->
+            <div class="mock-site-nav">
+              <div class="msn-logo">
+                <div class="msn-logo-mark" id="dMockLogoMark">G</div>
+                <span class="msn-logo-name" id="dMockLogo">Studio</span>
+              </div>
+              <div class="msn-links">
+                <span class="msn-link" id="dMockNav1">Product</span>
+                <span class="msn-link" id="dMockNav2">Pricing</span>
+                <span class="msn-link" id="dMockNav3">Blog</span>
+                <span class="msn-cta" id="dMockNavCta">Get started</span>
               </div>
             </div>
-            <div class="mock-hero-tag" id="dMockTag">New — v2.0 just shipped</div>
-            <div class="mock-hero-h1" id="dMockH1">Build something remarkable.</div>
-            <div class="mock-hero-p" id="dMockP">The fastest way to ship your next big idea. Used by 50,000+ teams worldwide.</div>
-            <div class="mock-cta-row">
-              <span class="mock-cta primary" id="dMockCta">Get started free</span>
-              <span class="mock-cta secondary">See the demo →</span>
+            <!-- Hero -->
+            <div class="mock-site-hero">
+              <div class="mock-site-badge">
+                <div class="mock-site-badge-dot"></div>
+                <span class="mock-site-badge-txt" id="dMockBadgeTxt">Just shipped</span>
+                <span class="mock-site-badge-link" id="dMockBadgeLink">v3.0 is here →</span>
+              </div>
+              <div class="mock-site-h1" id="dMockH1">Design systems<br><em>that scale</em> beautifully.</div>
+              <div class="mock-site-sub" id="dMockSub">The fastest way to build consistent, production-ready interfaces. Trusted by 80,000+ designers worldwide.</div>
+              <div class="mock-site-actions">
+                <div class="mock-site-btn-primary" id="dMockCta1">
+                  Start for free
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l7 7-7 7M1 8h14"/></svg>
+                </div>
+                <div class="mock-site-btn-secondary" id="dMockCta2">Watch the demo</div>
+              </div>
+              <div class="mock-site-proof">
+                <div class="mock-site-avatars">
+                  <div class="mock-site-avatar">A</div>
+                  <div class="mock-site-avatar">B</div>
+                  <div class="mock-site-avatar">C</div>
+                  <div class="mock-site-avatar">D</div>
+                </div>
+                <div class="mock-site-proof-txt" id="dMockProof">Loved by <strong>80,000+ designers</strong></div>
+              </div>
+              <!-- App preview window -->
+              <div class="mock-site-window">
+                <div class="mock-site-window-bar">
+                  <div class="mock-wdot r"></div>
+                  <div class="mock-wdot y"></div>
+                  <div class="mock-wdot g"></div>
+                </div>
+                <div class="mock-site-window-content">
+                  <div class="mock-wcard">
+                    <div class="mock-wcard-label" id="dWCard1L">Revenue</div>
+                    <div class="mock-wcard-val" id="dWCard1V">$124k</div>
+                    <div class="mock-wcard-change">↑ 18.2%</div>
+                  </div>
+                  <div class="mock-wcard">
+                    <div class="mock-wcard-label">Users</div>
+                    <div class="mock-wcard-val">24.8k</div>
+                    <div class="mock-wcard-change">↑ 6.4%</div>
+                  </div>
+                  <div class="mock-wcard">
+                    <div class="mock-wcard-label">Churn</div>
+                    <div class="mock-wcard-val">1.2%</div>
+                    <div class="mock-wcard-change" style="color:#f87171;">↓ 0.3%</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Mockup 2: Dashboard -->
-        <div class="mock-dashboard">
-          <div class="mock-sidebar">
-            <div class="mock-sidebar-logo" id="dDashLogo">Studio</div>
-            <div class="mock-nav-link active"><span class="mock-nav-dot"></span>Overview</div>
-            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Analytics</div>
-            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Projects</div>
-            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Team</div>
-            <div class="mock-nav-link"><span class="mock-nav-dot"></span>Settings</div>
+        <!-- ══ MOCKUP 2: EDITORIAL / ARTICLE ══ -->
+        <div class="mock-editorial">
+          <div class="mock-ed-nav">
+            <div class="mock-ed-logo" id="dEdLogo">The Review</div>
+            <div class="mock-ed-nav-links">
+              <span class="mock-ed-nav-link" id="dEdNav1">Design</span>
+              <span class="mock-ed-nav-link" id="dEdNav2">Technology</span>
+              <span class="mock-ed-nav-link" id="dEdNav3">Culture</span>
+              <span class="mock-ed-nav-cta" id="dEdNavCta">Subscribe</span>
+            </div>
           </div>
-          <div class="mock-main">
-            <div class="mock-dash-title" id="dDashTitle">Good morning, Alex</div>
-            <div class="mock-dash-sub">Here's what's happening today.</div>
-            <div class="mock-cards">
-              <div class="mock-card">
-                <div class="mock-card-label" id="dDashL1">Revenue</div>
-                <div class="mock-card-val" id="dDashV1">$84,291</div>
-                <div class="mock-card-change">↑ 12.4% this month</div>
-              </div>
-              <div class="mock-card">
-                <div class="mock-card-label">Active Users</div>
-                <div class="mock-card-val">14,822</div>
-                <div class="mock-card-change">↑ 3.1% this week</div>
-              </div>
-              <div class="mock-card">
-                <div class="mock-card-label">Conversion</div>
-                <div class="mock-card-val">4.7%</div>
-                <div class="mock-card-change">↑ 0.8% vs last week</div>
-              </div>
+          <div class="mock-ed-hero">
+            <div class="mock-ed-category" id="dEdCategory">Design · Typography</div>
+            <div class="mock-ed-h1" id="dEdH1">The typeface is the first thing your audience reads — even before the words.</div>
+            <div class="mock-ed-byline">
+              <div class="mock-ed-avatar">T</div>
+              <div class="mock-ed-author" id="dEdByline">By <strong>Tanmay Vatsa</strong> · 8 min read · April 2025</div>
+            </div>
+            <div class="mock-ed-lead" id="dEdLead">Typography is not decoration. It is the voice of your content — carrying tone, authority, warmth, or precision before a single word is processed. The fonts you choose are design decisions with real consequences.</div>
+          </div>
+          <div class="mock-ed-body">
+            <div class="mock-ed-body-p" id="dEdBody">Every great publication has a typeface it owns. The New Yorker has its Irvin. The New York Times has its Cheltenham. These choices feel inevitable in retrospect, but they were deliberate bets on a particular reading experience — a particular relationship with the audience.</div>
+            <div class="mock-ed-pull">
+              <div class="mock-ed-pull-q" id="dEdPull">"Typography at its best is invisible — you feel the quality without ever noticing the letterforms."</div>
+              <div class="mock-ed-pull-attr" id="dEdPullAttr">— Matthew Butterick, Practical Typography</div>
             </div>
           </div>
         </div>
 
-        <!-- Mockup 3: Mobile App -->
-        <div class="mock-mobile-wrap">
-          <div class="mock-phone">
-            <div class="mock-phone-status">
-              <span>9:41</span>
-              <span>●●●</span>
+        <!-- ══ MOCKUP 3: MOBILE APP HERO ══ -->
+        <div class="mock-mobile-scene">
+          <div class="mock-phone-frame">
+            <div class="mock-phone-notch-bar">
+              <div class="mock-phone-notch">
+                <div class="mock-notch-cam"></div>
+              </div>
             </div>
-            <div class="mock-app-header">
-              <div class="mock-app-title" id="dAppTitle">Explore</div>
-              <span style="font-size:18px;color:var(--subtle)">⊕</span>
+            <div class="mock-phone-screen">
+              <div class="mock-phone-hero-area">
+                <div class="mock-phone-hero-grad"></div>
+                <div class="mock-phone-hero-content">
+                  <div class="mock-phone-eyebrow" id="dPhoneEyebrow">New in 3.0</div>
+                  <div class="mock-phone-h1" id="dPhoneH1">Track every decision that matters.</div>
+                  <div class="mock-phone-sub" id="dPhoneSub">Your projects, team, and timeline — in one beautiful workspace.</div>
+                  <div class="mock-phone-cta" id="dPhoneCta">
+                    Start free
+                    <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l7 7-7 7M1 8h14"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="mock-phone-cards">
+                <div class="mock-phone-card">
+                  <div class="mock-phone-card-icon">⚡</div>
+                  <div>
+                    <div class="mock-phone-card-title" id="dPhoneCard1">Launch Sprint</div>
+                    <div class="mock-phone-card-sub">6 tasks · Due Friday</div>
+                  </div>
+                  <div class="mock-phone-card-arrow">›</div>
+                </div>
+                <div class="mock-phone-card">
+                  <div class="mock-phone-card-icon">🎨</div>
+                  <div>
+                    <div class="mock-phone-card-title" id="dPhoneCard2">Brand Refresh</div>
+                    <div class="mock-phone-card-sub">12 tasks · In review</div>
+                  </div>
+                  <div class="mock-phone-card-arrow">›</div>
+                </div>
+              </div>
+              <div class="mock-phone-tab-bar">
+                <div class="mock-tab active">
+                  <div class="mock-tab-icon">⌂</div>
+                  <div class="mock-tab-label" id="dTabHome">Home</div>
+                </div>
+                <div class="mock-tab">
+                  <div class="mock-tab-icon">◫</div>
+                  <div class="mock-tab-label" id="dTabWork">Work</div>
+                </div>
+                <div class="mock-tab">
+                  <div class="mock-tab-icon">◎</div>
+                  <div class="mock-tab-label" id="dTabMe">Me</div>
+                </div>
+              </div>
             </div>
-            <div class="mock-app-body">
-              <div class="mock-app-item">
-                <div class="mock-app-item-title" id="dAppItem1">Design Systems</div>
-                <div class="mock-app-item-sub">12 components updated</div>
-                <span class="mock-app-badge">Active</span>
-              </div>
-              <div class="mock-app-item">
-                <div class="mock-app-item-title">Brand Identity</div>
-                <div class="mock-app-item-sub">3 files, last edited today</div>
-              </div>
-              <div class="mock-app-item">
-                <div class="mock-app-item-title">Typography Guide</div>
-                <div class="mock-app-item-sub">Shared with 4 people</div>
-              </div>
+          </div>
+          <!-- Caption -->
+          <div class="mock-mobile-caption">
+            <div class="mock-mobile-caption-item">
+              <div class="mock-mobile-caption-label">Typeface in use</div>
+              <div class="mock-mobile-caption-val" id="dPhoneFontName"><strong>—</strong></div>
+            </div>
+            <div class="mock-mobile-caption-item">
+              <div class="mock-mobile-caption-label">Used at</div>
+              <div class="mock-mobile-caption-val">Hero headline · 22px<br>Body copy · 9.5px<br>UI labels · 8px</div>
+            </div>
+            <div class="mock-mobile-caption-item">
+              <div class="mock-mobile-caption-label">Why it works</div>
+              <div class="mock-mobile-caption-val" id="dPhoneWhy">High x-height aids readability at small sizes. Consistent stroke weight reduces visual noise in dense UI layouts.</div>
             </div>
           </div>
         </div>
@@ -1234,7 +2104,7 @@
   </div><!-- /d-body -->
 </div><!-- /detail-overlay -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const DB = {
   saas: {
     meta: { label:"SaaS / Productivity", desc:"Clean, efficient, trustworthy typography for software products." },
@@ -1453,24 +2323,7 @@ const fallbackFonts = [
 let currFonts = [], shown = 0;
 const BATCH = 12;
 
-function showResults() {
-  const cat = document.getElementById('catSel').value;
-  if (!cat) { document.getElementById('catSel').focus(); return; }
-
-  const data = DB[cat] || { meta: { label: cat, desc: "Curated typeface recommendations." }, fonts: fallbackFonts };
-  currFonts = data.fonts;
-  shown = 0;
-
-  document.getElementById('emptyState').style.display = 'none';
-  const sec = document.getElementById('results');
-  sec.style.display = 'block';
-  document.getElementById('rCat').textContent = data.meta.label;
-  document.getElementById('rTitle').textContent = data.meta.desc;
-  document.getElementById('rCount').textContent = `${currFonts.length} typefaces`;
-  document.getElementById('rGrid').innerHTML = '';
-  renderBatch();
-  sec.scrollIntoView({ behavior:'smooth', block:'start' });
-}
+// showResults is defined further below with URL state support
 
 function renderBatch() {
   const grid = document.getElementById('rGrid');
@@ -1480,6 +2333,7 @@ function renderBatch() {
     const el = document.createElement('div');
     el.className = 'card card-in';
     el.style.animationDelay = `${(i - shown) * 0.045}s`;
+    el.style.cursor = 'pointer';
     el.innerHTML = `
       <div class="card-num">${String(i+1).padStart(2,'0')}</div>
       <div class="card-preview" style="${f.s}">${f.p}</div>
@@ -1487,12 +2341,13 @@ function renderBatch() {
       <div class="card-desc">${f.d}</div>
       <div class="card-tags">${f.t.map(x=>`<span class="card-tag">${x}</span>`).join('')}</div>
       <div class="card-foot">
-        <a href="https://${f.w}" target="_blank" rel="noopener" class="card-site">
+        <a href="https://${f.w}" target="_blank" rel="noopener" class="card-site" onclick="event.stopPropagation()">
           <span class="fav">${f.w[0].toUpperCase()}</span>${f.w}
         </a>
-        <button class="card-btn" onclick="openDetail(currFonts[${i}])">Details →</button>
+        <span class="card-btn">Details →</span>
       </div>
     `;
+    el.addEventListener('click', () => openDetail(currFonts[i]));
     grid.appendChild(el);
   }
   shown = end;
@@ -1502,8 +2357,233 @@ function renderBatch() {
 function loadMore() { renderBatch(); }
 
 // ═══════════════════════════════════════
-// EXTRA FONT DATA (pairing, metadata, etc.)
+// FONT SOURCE URLS — exact per-font links
 // ═══════════════════════════════════════
+const FONT_URL_MAP = {
+  // ── GOOGLE FONTS (fonts.google.com/specimen/Name) ──
+  "Inter":               { get:"https://fonts.google.com/specimen/Inter",                         getLabel:"Download on Google Fonts",   showcase:"https://linear.app",             showcaseLabel:"Linear.app" },
+  "DM Sans":             { get:"https://fonts.google.com/specimen/DM+Sans",                       getLabel:"Download on Google Fonts",   showcase:"https://craft.do",               showcaseLabel:"Craft.do" },
+  "Space Grotesk":       { get:"https://fonts.google.com/specimen/Space+Grotesk",                 getLabel:"Download on Google Fonts",   showcase:"https://railway.app",            showcaseLabel:"Railway.app" },
+  "Sora":                { get:"https://fonts.google.com/specimen/Sora",                          getLabel:"Download on Google Fonts",   showcase:"https://www.prisma.io",          showcaseLabel:"Prisma.io" },
+  "Manrope":             { get:"https://fonts.google.com/specimen/Manrope",                       getLabel:"Download on Google Fonts",   showcase:"https://clerk.com",              showcaseLabel:"Clerk.com" },
+  "Epilogue":            { get:"https://fonts.google.com/specimen/Epilogue",                      getLabel:"Download on Google Fonts",   showcase:"https://resend.com",             showcaseLabel:"Resend.com" },
+  "Plus Jakarta Sans":   { get:"https://fonts.google.com/specimen/Plus+Jakarta+Sans",             getLabel:"Download on Google Fonts",   showcase:"https://www.loop.so",            showcaseLabel:"Loop.so" },
+  "Outfit":              { get:"https://fonts.google.com/specimen/Outfit",                        getLabel:"Download on Google Fonts",   showcase:"https://www.primer.io",          showcaseLabel:"Primer.io" },
+  "Be Vietnam Pro":      { get:"https://fonts.google.com/specimen/Be+Vietnam+Pro",                getLabel:"Download on Google Fonts",   showcase:"https://miro.com",               showcaseLabel:"Miro.com" },
+  "Lexend":              { get:"https://fonts.google.com/specimen/Lexend",                        getLabel:"Download on Google Fonts",   showcase:"https://www.dyslexiefont.com",   showcaseLabel:"Typewolf" },
+  "Archivo":             { get:"https://fonts.google.com/specimen/Archivo",                       getLabel:"Download on Google Fonts",   showcase:"https://pitch.com",              showcaseLabel:"Pitch.com" },
+  "Figtree":             { get:"https://fonts.google.com/specimen/Figtree",                       getLabel:"Download on Google Fonts",   showcase:"https://mercury.com",            showcaseLabel:"Mercury.com" },
+  "Nunito Sans":         { get:"https://fonts.google.com/specimen/Nunito+Sans",                   getLabel:"Download on Google Fonts",   showcase:"https://todoist.com",            showcaseLabel:"Todoist.com" },
+  "Playfair Display":    { get:"https://fonts.google.com/specimen/Playfair+Display",              getLabel:"Download on Google Fonts",   showcase:"https://eater.com",              showcaseLabel:"Eater.com" },
+  "EB Garamond":         { get:"https://fonts.google.com/specimen/EB+Garamond",                   getLabel:"Download on Google Fonts",   showcase:"https://longreads.com",          showcaseLabel:"Longreads.com" },
+  "Cormorant":           { get:"https://fonts.google.com/specimen/Cormorant",                     getLabel:"Download on Google Fonts",   showcase:"https://www.poets.org",          showcaseLabel:"Poets.org" },
+  "Cormorant Garamond":  { get:"https://fonts.google.com/specimen/Cormorant+Garamond",            getLabel:"Download on Google Fonts",   showcase:"https://www.mytheresa.com",      showcaseLabel:"Mytheresa.com" },
+  "Lora":                { get:"https://fonts.google.com/specimen/Lora",                          getLabel:"Download on Google Fonts",   showcase:"https://www.atavist.com",        showcaseLabel:"Atavist.com" },
+  "Libre Baskerville":   { get:"https://fonts.google.com/specimen/Libre+Baskerville",             getLabel:"Download on Google Fonts",   showcase:"https://substack.com",           showcaseLabel:"Substack.com" },
+  "Space Mono":          { get:"https://fonts.google.com/specimen/Space+Mono",                    getLabel:"Download on Google Fonts",   showcase:"https://github.com",             showcaseLabel:"GitHub.com" },
+  "Spectral":            { get:"https://fonts.google.com/specimen/Spectral",                      getLabel:"Download on Google Fonts",   showcase:"https://www.wired.com",          showcaseLabel:"Wired.com" },
+  "Newsreader":          { get:"https://fonts.google.com/specimen/Newsreader",                    getLabel:"Download on Google Fonts",   showcase:"https://www.theatlantic.com",    showcaseLabel:"TheAtlantic.com" },
+  "Bodoni Moda":         { get:"https://fonts.google.com/specimen/Bodoni+Moda",                   getLabel:"Download on Google Fonts",   showcase:"https://www.harpersbazaar.com",  showcaseLabel:"HarpersBazaar.com" },
+  "Fraunces":            { get:"https://fonts.google.com/specimen/Fraunces",                      getLabel:"Download on Google Fonts",   showcase:"https://readwise.io",            showcaseLabel:"Readwise.io" },
+  "Instrument Serif":    { get:"https://fonts.google.com/specimen/Instrument+Sans",               getLabel:"Download on Google Fonts",   showcase:"https://ramp.com",               showcaseLabel:"Ramp.com" },
+  "Bebas Neue":          { get:"https://fonts.google.com/specimen/Bebas+Neue",                    getLabel:"Download on Google Fonts",   showcase:"https://www.epicgames.com",      showcaseLabel:"EpicGames.com" },
+  "Barlow Condensed":    { get:"https://fonts.google.com/specimen/Barlow+Condensed",              getLabel:"Download on Google Fonts",   showcase:"https://www.ea.com",             showcaseLabel:"EA.com" },
+  "Orbitron":            { get:"https://fonts.google.com/specimen/Orbitron",                      getLabel:"Download on Google Fonts",   showcase:"https://store.steampowered.com", showcaseLabel:"Steam" },
+  "Rajdhani":            { get:"https://fonts.google.com/specimen/Rajdhani",                      getLabel:"Download on Google Fonts",   showcase:"https://www.ubisoft.com",        showcaseLabel:"Ubisoft.com" },
+  "Exo 2":               { get:"https://fonts.google.com/specimen/Exo+2",                         getLabel:"Download on Google Fonts",   showcase:"https://www.blizzard.com",       showcaseLabel:"Blizzard.com" },
+  "Jost":                { get:"https://fonts.google.com/specimen/Jost",                          getLabel:"Download on Google Fonts",   showcase:"https://www.activision.com",     showcaseLabel:"Activision.com" },
+  "Big Shoulders Display":{ get:"https://fonts.google.com/specimen/Big+Shoulders+Display",        getLabel:"Download on Google Fonts",   showcase:"https://2k.com",                 showcaseLabel:"2K.com" },
+  "Staatliches":         { get:"https://fonts.google.com/specimen/Staatliches",                   getLabel:"Download on Google Fonts",   showcase:"https://www.nintendo.com",       showcaseLabel:"Nintendo.com" },
+  "Anton":               { get:"https://fonts.google.com/specimen/Anton",                         getLabel:"Download on Google Fonts",   showcase:"https://www.xbox.com",           showcaseLabel:"Xbox.com" },
+  "Oswald":              { get:"https://fonts.google.com/specimen/Oswald",                        getLabel:"Download on Google Fonts",   showcase:"https://www.bethesda.net",       showcaseLabel:"Bethesda.net" },
+  "Chakra Petch":        { get:"https://fonts.google.com/specimen/Chakra+Petch",                  getLabel:"Download on Google Fonts",   showcase:"https://www.faceit.com",         showcaseLabel:"FACEIT.com" },
+  "Squada One":          { get:"https://fonts.google.com/specimen/Squada+One",                    getLabel:"Download on Google Fonts",   showcase:"https://store.steampowered.com", showcaseLabel:"Steam" },
+  "Teko":                { get:"https://fonts.google.com/specimen/Teko",                          getLabel:"Download on Google Fonts",   showcase:"https://www.ea.com",             showcaseLabel:"EA.com" },
+  "Syne":                { get:"https://fonts.google.com/specimen/Syne",                          getLabel:"Download on Google Fonts",   showcase:"https://paystack.com",           showcaseLabel:"Paystack.com" },
+  "Karla":               { get:"https://fonts.google.com/specimen/Karla",                         getLabel:"Download on Google Fonts",   showcase:"https://wise.com",               showcaseLabel:"Wise.com" },
+  "Libre Caslon Text":   { get:"https://fonts.google.com/specimen/Libre+Caslon+Text",             getLabel:"Download on Google Fonts",   showcase:"https://investor.vanguard.com",  showcaseLabel:"Vanguard.com" },
+  "Darker Grotesque":    { get:"https://fonts.google.com/specimen/Darker+Grotesque",              getLabel:"Download on Google Fonts",   showcase:"https://www.firefly.adobe.com",  showcaseLabel:"Adobe Firefly" },
+  "Switzer":             { get:"https://fonts.google.com/specimen/Switzer",                       getLabel:"Download on Google Fonts",   showcase:"https://swell.is",               showcaseLabel:"Swell.is" },
+  "Azeret Mono":         { get:"https://fonts.google.com/specimen/Azeret+Mono",                   getLabel:"Download on Google Fonts",   showcase:"https://planetscale.com",        showcaseLabel:"PlanetScale.com" },
+  "IBM Plex Sans":       { get:"https://fonts.google.com/specimen/IBM+Plex+Sans",                 getLabel:"Download on Google Fonts",   showcase:"https://www.ibm.com/design",     showcaseLabel:"IBM Design" },
+  "Red Hat Display":     { get:"https://fonts.google.com/specimen/Red+Hat+Display",               getLabel:"Download on Google Fonts",   showcase:"https://www.redhat.com",         showcaseLabel:"RedHat.com" },
+  "Bricolage Grotesque":  { get:"https://fonts.google.com/specimen/Bricolage+Grotesque",          getLabel:"Download on Google Fonts",   showcase:"https://www.make.com",           showcaseLabel:"Make.com" },
+  "Urbanist":            { get:"https://fonts.google.com/specimen/Urbanist",                      getLabel:"Download on Google Fonts",   showcase:"https://www.attio.com",          showcaseLabel:"Attio.com" },
+  "Spline Sans":         { get:"https://fonts.google.com/specimen/Spline+Sans",                   getLabel:"Download on Google Fonts",   showcase:"https://spline.design",          showcaseLabel:"Spline.design" },
+  "Instrument Sans":     { get:"https://fonts.google.com/specimen/Instrument+Sans",               getLabel:"Download on Google Fonts",   showcase:"https://linear.app",             showcaseLabel:"Linear.app" },
+  "Geologica":           { get:"https://fonts.google.com/specimen/Geologica",                     getLabel:"Download on Google Fonts",   showcase:"https://polygon.io",             showcaseLabel:"Polygon.io" },
+  "Work Sans":           { get:"https://fonts.google.com/specimen/Work+Sans",                     getLabel:"Download on Google Fonts",   showcase:"https://webflow.com",            showcaseLabel:"Webflow.com" },
+  "Mukta":               { get:"https://fonts.google.com/specimen/Mukta",                         getLabel:"Download on Google Fonts",   showcase:"https://www.freshworks.com",     showcaseLabel:"Freshworks.com" },
+  "Old Standard TT":     { get:"https://fonts.google.com/specimen/Old+Standard+TT",               getLabel:"Download on Google Fonts",   showcase:"https://www.gutenberg.org",      showcaseLabel:"Gutenberg.org" },
+  "Black Han Sans":      { get:"https://fonts.google.com/specimen/Black+Han+Sans",                getLabel:"Download on Google Fonts",   showcase:"https://www.nexon.com",          showcaseLabel:"Nexon.com" },
+
+  // ── FONTSHARE (fontshare.com/fonts/name) ──
+  "Satoshi":             { get:"https://www.fontshare.com/fonts/satoshi",                         getLabel:"Download on Fontshare",      showcase:"https://read.cv",                showcaseLabel:"Read.cv" },
+  "Cabinet Grotesk":     { get:"https://www.fontshare.com/fonts/cabinet-grotesk",                 getLabel:"Download on Fontshare",      showcase:"https://cal.com",                showcaseLabel:"Cal.com" },
+  "General Sans":        { get:"https://www.fontshare.com/fonts/general-sans",                    getLabel:"Download on Fontshare",      showcase:"https://supabase.com",           showcaseLabel:"Supabase.com" },
+  "Chillax":             { get:"https://www.fontshare.com/fonts/chillax",                         getLabel:"Download on Fontshare",      showcase:"https://superlist.com",          showcaseLabel:"Superlist.com" },
+  "Nippo":               { get:"https://www.fontshare.com/fonts/nippo",                           getLabel:"Download on Fontshare",      showcase:"https://linear.app",             showcaseLabel:"Linear.app" },
+  "Ranade":              { get:"https://www.fontshare.com/fonts/ranade",                          getLabel:"Download on Fontshare",      showcase:"https://screenlane.com",         showcaseLabel:"Screenlane.com" },
+  "Boska":               { get:"https://www.fontshare.com/fonts/boska",                           getLabel:"Download on Fontshare",      showcase:"https://behance.net",            showcaseLabel:"Behance.net" },
+  "Clash Display":       { get:"https://www.fontshare.com/fonts/clash-display",                   getLabel:"Download on Fontshare",      showcase:"https://vercel.com",             showcaseLabel:"Vercel.com" },
+  "Sentient":            { get:"https://www.fontshare.com/fonts/sentient",                        getLabel:"Download on Fontshare",      showcase:"https://layers.to",              showcaseLabel:"Layers.to" },
+  "Basier Circle":       { get:"https://www.fontshare.com/fonts/basier-circle",                   getLabel:"Download on Fontshare",      showcase:"https://qonto.com",              showcaseLabel:"Qonto.com" },
+  "Value Serif":         { get:"https://www.fontshare.com/fonts/value-serif",                     getLabel:"Download on Fontshare",      showcase:"https://www.personalcapital.com",showcaseLabel:"PersonalCapital.com" },
+
+  // ── PANGRAM PANGRAM (pangrampangram.com/products/name) ──
+  "Neue Montreal":       { get:"https://pangrampangram.com/products/neue-montreal",               getLabel:"Get on Pangram Pangram",     showcase:"https://read.cv",                showcaseLabel:"Read.cv" },
+  "Neue Machina":        { get:"https://pangrampangram.com/products/neue-machina",                getLabel:"Get on Pangram Pangram",     showcase:"https://www.cdprojektred.com",   showcaseLabel:"CD Projekt Red" },
+  "Editorial New":       { get:"https://pangrampangram.com/products/editorial-new",               getLabel:"Get on Pangram Pangram",     showcase:"https://awwwards.com",           showcaseLabel:"Awwwards.com" },
+  "Hatton":              { get:"https://pangrampangram.com/products/hatton",                      getLabel:"Get on Pangram Pangram",     showcase:"https://www.ssense.com",         showcaseLabel:"SSENSE.com" },
+  "Migra":               { get:"https://pangrampangram.com/products/migra",                       getLabel:"Get on Pangram Pangram",     showcase:"https://www.maisonmargiela.com", showcaseLabel:"MaisonMargiela.com" },
+
+  // ── KLIM TYPE (klim.co.nz) ──
+  "Söhne":               { get:"https://klim.co.nz/retail-fonts/sohne/",                         getLabel:"Get from Klim Type",         showcase:"https://pitch.com",              showcaseLabel:"Pitch.com" },
+  "Tiempos Headline":    { get:"https://klim.co.nz/retail-fonts/tiempos-headline/",               getLabel:"Get from Klim Type",         showcase:"https://www.nytimes.com",        showcaseLabel:"NYTimes.com" },
+  "Tiempos Text":        { get:"https://klim.co.nz/retail-fonts/tiempos-text/",                   getLabel:"Get from Klim Type",         showcase:"https://www.robinhood.com",      showcaseLabel:"Robinhood.com" },
+  "Founders Grotesk":    { get:"https://klim.co.nz/retail-fonts/founders-grotesk/",               getLabel:"Get from Klim Type",         showcase:"https://www.westpac.com.au",     showcaseLabel:"Westpac.com.au" },
+  "Signifier":           { get:"https://klim.co.nz/retail-fonts/signifier/",                      getLabel:"Get from Klim Type",         showcase:"https://restofworld.org",        showcaseLabel:"RestOfWorld.org" },
+  "Untitled Sans":       { get:"https://klim.co.nz/retail-fonts/untitled-sans/",                  getLabel:"Get from Klim Type",         showcase:"https://www.klarna.com",         showcaseLabel:"Klarna.com" },
+  "Domaine Display":     { get:"https://klim.co.nz/retail-fonts/domaine-display/",                getLabel:"Get from Klim Type",         showcase:"https://goop.com",               showcaseLabel:"Goop.com" },
+  "Domaine Text":        { get:"https://klim.co.nz/retail-fonts/domaine-text/",                   getLabel:"Get from Klim Type",         showcase:"https://medium.com",             showcaseLabel:"Medium.com" },
+  "Feijoa Display":      { get:"https://klim.co.nz/retail-fonts/feijoa/",                         getLabel:"Get from Klim Type",         showcase:"https://www.commbank.com.au",    showcaseLabel:"CommBank.com.au" },
+
+  // ── GRILLI TYPE (grillitype.com) ──
+  "GT Walsheim":         { get:"https://www.grillitype.com/typeface/gt-walsheim",                 getLabel:"Get from Grilli Type",       showcase:"https://www.dropbox.com",        showcaseLabel:"Dropbox.com" },
+  "GT Sectra":           { get:"https://www.grillitype.com/typeface/gt-sectra",                   getLabel:"Get from Grilli Type",       showcase:"https://wealthsimple.com",       showcaseLabel:"Wealthsimple.com" },
+  "GT Super Display":    { get:"https://www.grillitype.com/typeface/gt-super",                    getLabel:"Get from Grilli Type",       showcase:"https://toteme-studio.com",      showcaseLabel:"Toteme-Studio.com" },
+  "GT Maru":             { get:"https://www.grillitype.com/typeface/gt-maru",                     getLabel:"Get from Grilli Type",       showcase:"https://www.chime.com",          showcaseLabel:"Chime.com" },
+  "Louvette":            { get:"https://www.grillitype.com/typeface/gt-louvette",                 getLabel:"Get from Grilli Type",       showcase:"https://cargo.site",             showcaseLabel:"Cargo.site" },
+
+  // ── COMMERCIAL TYPE (commercialtype.com) ──
+  "Canela":              { get:"https://commercialtype.com/catalog/canela",                       getLabel:"Get from Commercial Type",   showcase:"https://wealthsimple.com",       showcaseLabel:"Wealthsimple.com" },
+  "Graphik":             { get:"https://commercialtype.com/catalog/graphik",                      getLabel:"Get from Commercial Type",   showcase:"https://www.airbnb.com",         showcaseLabel:"Airbnb.com" },
+  "Lyon Text":           { get:"https://commercialtype.com/catalog/lyon",                         getLabel:"Get from Commercial Type",   showcase:"https://www.businessoffashion.com", showcaseLabel:"BusinessOfFashion.com" },
+  "Produkt":             { get:"https://commercialtype.com/catalog/produkt",                      getLabel:"Get from Commercial Type",   showcase:"https://www.theverge.com",       showcaseLabel:"TheVerge.com" },
+  "Portrait":            { get:"https://commercialtype.com/catalog/portrait",                     getLabel:"Get from Commercial Type",   showcase:"https://www.kinfolk.com",        showcaseLabel:"Kinfolk.com" },
+  "Chronicle Display":   { get:"https://www.typography.com/fonts/chronicle-display/overview",    getLabel:"Get from H&FJ",              showcase:"https://www.wsj.com",            showcaseLabel:"WSJ.com" },
+  "Styrene A":           { get:"https://commercialtype.com/catalog/styrene",                      getLabel:"Get from Commercial Type",   showcase:"https://brex.com",               showcaseLabel:"Brex.com" },
+  "Druk":                { get:"https://commercialtype.com/catalog/druk",                         getLabel:"Get from Commercial Type",   showcase:"https://www.nba.com",            showcaseLabel:"NBA.com" },
+
+  // ── MONOTYPE / MYFONTS ──
+  "Neue Haas Grotesk":   { get:"https://www.myfonts.com/collections/neue-haas-grotesk-font-linotype", getLabel:"Get on MyFonts",         showcase:"https://stripe.com",             showcaseLabel:"Stripe.com" },
+  "Aktiv Grotesk":       { get:"https://www.myfonts.com/collections/aktiv-grotesk-font-dalton-maag",  getLabel:"Get on MyFonts",         showcase:"https://www.hubspot.com",        showcaseLabel:"HubSpot.com" },
+  "Helvetica Now":       { get:"https://www.myfonts.com/collections/helvetica-now-font-monotype",     getLabel:"Get on MyFonts",         showcase:"https://www.adobe.com",          showcaseLabel:"Adobe.com" },
+  "Linotype Didot":      { get:"https://www.myfonts.com/collections/didot-font-linotype",             getLabel:"Get on MyFonts",         showcase:"https://www.vogue.com",          showcaseLabel:"Vogue.com" },
+  "Optima Nova":         { get:"https://www.myfonts.com/collections/optima-nova-font-linotype",       getLabel:"Get on MyFonts",         showcase:"https://www.esteelauder.com",    showcaseLabel:"EsteeLauder.com" },
+
+  // ── ABC DINAMO (abcdinamo.com) ──
+  "Whyte":               { get:"https://abcdinamo.com/typefaces/whyte",                           getLabel:"Get from ABC Dinamo",        showcase:"https://blend.finance",          showcaseLabel:"Blend.finance" },
+  "Monument Grotesk":    { get:"https://abcdinamo.com/typefaces/abc-monument-grotesk",            getLabel:"Get from ABC Dinamo",        showcase:"https://plaid.com",              showcaseLabel:"Plaid.com" },
+  "Favorit":             { get:"https://abcdinamo.com/typefaces/favorit",                         getLabel:"Get from ABC Dinamo",        showcase:"https://stripe.com",             showcaseLabel:"Stripe.com" },
+
+  // ── COLOPHON (colophon-foundry.com) ──
+  "Mabry Pro":           { get:"https://www.colophon-foundry.com/fonts/mabry",                    getLabel:"Get from Colophon",          showcase:"https://monzo.com",              showcaseLabel:"Monzo.com" },
+  "Regola Pro":          { get:"https://www.colophon-foundry.com/fonts/regola-pro",               getLabel:"Get from Colophon",          showcase:"https://www.colophon-foundry.com", showcaseLabel:"Colophon Foundry" },
+
+  // ── VERCEL (free download) ──
+  "Geist":               { get:"https://vercel.com/font",                                         getLabel:"Download Free (Vercel)",     showcase:"https://vercel.com",             showcaseLabel:"Vercel.com" },
+
+  // ── DALTON MAAG ──
+  "Silka":               { get:"https://www.daltonmaag.com/library/silka",                        getLabel:"Get from Dalton Maag",       showcase:"https://framer.com",             showcaseLabel:"Framer.com" },
+
+  // ── ATIPO FOUNDRY ──
+  "Aeonik":              { get:"https://www.costype.co/aeonik",                                   getLabel:"Get from Cos Type",          showcase:"https://www.loom.com",           showcaseLabel:"Loom.com" },
+
+  // ── DISPLAY FOUNDRY ──
+  "Roobert":             { get:"https://displaay.net/typeface/roobert/",                          getLabel:"Get from Displaay",          showcase:"https://www.notion.so",          showcaseLabel:"Notion.so" },
+
+  // ── TYPEMATES ──
+  "Larsseit":            { get:"https://typemates.com/fonts/larsseit",                            getLabel:"Get from TypeMates",         showcase:"https://webflow.com",            showcaseLabel:"Webflow.com" },
+
+  // ── IVY TYPE ──
+  "IvyPresto Display":   { get:"https://www.ivytype.com/product/ivypresto",                       getLabel:"Get from IvyType",           showcase:"https://www.vogue.com",          showcaseLabel:"Vogue.com" },
+
+  // ── FREIGHT / GARAGE FONTS ──
+  "Freight Display":     { get:"https://fonts.adobe.com/fonts/freight-display-pro",               getLabel:"Get on Adobe Fonts",         showcase:"https://www.newyorker.com",      showcaseLabel:"NewYorker.com" },
+  "Freight Text":        { get:"https://fonts.adobe.com/fonts/freight-text-pro",                  getLabel:"Get on Adobe Fonts",         showcase:"https://www.fidelity.com",       showcaseLabel:"Fidelity.com" },
+
+  // ── ADOBE FONTS ──
+  "Minion 3":            { get:"https://fonts.adobe.com/fonts/minion-3",                          getLabel:"Get on Adobe Fonts",         showcase:"https://www.jpmorgan.com",       showcaseLabel:"JPMorgan.com" },
+  "Garamond Premier Pro":{ get:"https://fonts.adobe.com/fonts/garamond-premier",                  getLabel:"Get on Adobe Fonts",         showcase:"https://www.hermes.com",         showcaseLabel:"Hermes.com" },
+  "Caslon":              { get:"https://fonts.adobe.com/fonts/adobe-caslon",                      getLabel:"Get on Adobe Fonts",         showcase:"https://www.ralphlauren.com",    showcaseLabel:"RalphLauren.com" },
+  "Adobe Caslon Pro":    { get:"https://fonts.adobe.com/fonts/adobe-caslon",                      getLabel:"Get on Adobe Fonts",         showcase:"https://www.ralphlauren.com",    showcaseLabel:"RalphLauren.com" },
+
+  // ── FUTURA PT (Adobe / ParaType) ──
+  "Futura PT":           { get:"https://fonts.adobe.com/fonts/futura-pt",                         getLabel:"Get on Adobe Fonts",         showcase:"https://www.louisvuitton.com",   showcaseLabel:"LouisVuitton.com" },
+
+  // ── SHARP TYPE ──
+  "Ogg":                 { get:"https://sharptype.co/typefaces/ogg/",                             getLabel:"Get from Sharp Type",        showcase:"https://www.rag-bone.com",       showcaseLabel:"Rag-Bone.com" },
+  "Roslindale":          { get:"https://djr.com/roslindale",                                      getLabel:"Get from DJR",               showcase:"https://nymag.com",              showcaseLabel:"NYMag.com" },
+
+  // ── SWISS TYPEFACES ──
+  "Euclid Circular":     { get:"https://www.swisstypefaces.com/fonts/euclid/",                    getLabel:"Get from Swiss Typefaces",   showcase:"https://monzo.com",              showcaseLabel:"Monzo.com" },
+  "Lausanne":            { get:"https://www.swisstypefaces.com/fonts/lausanne/",                  getLabel:"Get from Swiss Typefaces",   showcase:"https://www.interactivebrokers.com", showcaseLabel:"InteractiveBrokers.com" },
+
+  // ── MILIEU GROTESQUE ──
+  "Maison Neue":         { get:"https://www.milieugrotesque.com/type-library/maison-neue/",       getLabel:"Get from Milieu Grotesque",  showcase:"https://two.pm",                 showcaseLabel:"Two.pm" },
+  "Maison Neue Mono":    { get:"https://www.milieugrotesque.com/type-library/maison-neue/",       getLabel:"Get from Milieu Grotesque",  showcase:"https://www.acnestudios.com",    showcaseLabel:"AcneStudios.com" },
+
+  // ── LINETO ──
+  "Lineto Circular":     { get:"https://lineto.com/typefaces/circular",                           getLabel:"Get from Lineto",            showcase:"https://music.apple.com",        showcaseLabel:"Apple Music" },
+  "Replica":             { get:"https://lineto.com/typefaces/replica",                            getLabel:"Get from Lineto",            showcase:"https://www.coinbase.com",       showcaseLabel:"Coinbase.com" },
+
+  // ── TYPOGRAPHY.COM (H&FJ) ──
+  "Tungsten":            { get:"https://www.typography.com/fonts/tungsten/overview",              getLabel:"Get from H&FJ",              showcase:"https://www.bungie.net",         showcaseLabel:"Bungie.net" },
+  "Canela (Luxury)":     { get:"https://commercialtype.com/catalog/canela",                       getLabel:"Get from Commercial Type",   showcase:"https://wealthsimple.com",       showcaseLabel:"Wealthsimple.com" },
+
+  // ── OH NO TYPE ──
+  "Degular Display":     { get:"https://ohnotype.co/fonts/degular-display",                       getLabel:"Get from OH no Type",        showcase:"https://itch.io",                showcaseLabel:"Itch.io" },
+
+  // ── DHARMA TYPE ──
+  "Dharma Gothic E":     { get:"https://www.dafont.com/dharma-gothic-e.font",                     getLabel:"Download on DaFont",         showcase:"https://www.bandainamcoent.com", showcaseLabel:"BandaiNamco.com" },
+
+  // ── OPTIMO ──
+  "Adieu":               { get:"https://optimo.ch/typefaces/adieu",                               getLabel:"Get from Optimo",            showcase:"https://www.elwoodclothing.com", showcaseLabel:"Elwood.com" },
+};
+
+function getFontURLs(fontName, srcHint) {
+  // 1. Check exact lookup table
+  if (FONT_URL_MAP[fontName]) return FONT_URL_MAP[fontName];
+
+  // 2. Smart fallback by source hint
+  const src = (srcHint || '').toLowerCase();
+  const slug = fontName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  const gSlug = fontName.replace(/\s+/g, '+');
+
+  if (src.includes('google fonts') || src.includes('google'))
+    return { get:`https://fonts.google.com/specimen/${gSlug}`,           getLabel:"Download on Google Fonts",  showcase:`https://fonts.google.com/specimen/${gSlug}`, showcaseLabel:"Google Fonts" };
+  if (src.includes('fontshare'))
+    return { get:`https://www.fontshare.com/fonts/${slug}`,               getLabel:"Download on Fontshare",     showcase:"https://www.fontshare.com",                  showcaseLabel:"Fontshare" };
+  if (src.includes('pangram'))
+    return { get:`https://pangrampangram.com/products/${slug}`,           getLabel:"Get on Pangram Pangram",    showcase:"https://pangrampangram.com",                 showcaseLabel:"Pangram Pangram" };
+  if (src.includes('klim'))
+    return { get:`https://klim.co.nz/retail-fonts/${slug}/`,              getLabel:"Get from Klim Type",        showcase:"https://klim.co.nz",                         showcaseLabel:"Klim Type" };
+  if (src.includes('grilli'))
+    return { get:`https://www.grillitype.com/typeface/${slug}`,           getLabel:"Get from Grilli Type",      showcase:"https://www.grillitype.com",                 showcaseLabel:"Grilli Type" };
+  if (src.includes('commercial type') || src.includes('commercial'))
+    return { get:`https://commercialtype.com/catalog/${slug}`,            getLabel:"Get from Commercial Type",  showcase:"https://commercialtype.com",                 showcaseLabel:"Commercial Type" };
+  if (src.includes('monotype') || src.includes('myfonts'))
+    return { get:`https://www.myfonts.com/search?query=${encodeURIComponent(fontName)}`, getLabel:"Get on MyFonts", showcase:"https://www.myfonts.com",                showcaseLabel:"MyFonts.com" };
+  if (src.includes('adobe'))
+    return { get:`https://fonts.adobe.com/fonts/${slug}`,                 getLabel:"Get on Adobe Fonts",        showcase:"https://fonts.adobe.com",                    showcaseLabel:"Adobe Fonts" };
+  if (src.includes('abc dinamo') || src.includes('dinamo'))
+    return { get:`https://abcdinamo.com/typefaces/${slug}`,               getLabel:"Get from ABC Dinamo",       showcase:"https://abcdinamo.com",                      showcaseLabel:"ABC Dinamo" };
+  if (src.includes('colophon'))
+    return { get:`https://www.colophon-foundry.com/fonts/${slug}`,        getLabel:"Get from Colophon",         showcase:"https://www.colophon-foundry.com",            showcaseLabel:"Colophon Foundry" };
+  if (src.includes('itf') || src.includes('indian type'))
+    return { get:`https://fonts.google.com/specimen/${gSlug}`,            getLabel:"Download on Google Fonts",  showcase:"https://fonts.google.com",                   showcaseLabel:"Google Fonts" };
+
+  // 3. Final fallback — Google Fonts search
+  return {
+    get: `https://fonts.google.com/?query=${encodeURIComponent(fontName)}`,
+    getLabel: `Search "${fontName}" on Google Fonts`,
+    showcase: `https://www.typewolf.com/google-fonts`,
+    showcaseLabel: "Typewolf"
+  };
+}
+
+
 const EXTRA = {
   "Inter":            { foundry:"Google / Rasmus Andersson", year:"2016", classify:"Humanist Grotesque", license:"free", variants:"Thin–Black, Italic, Variable", url:"https://fonts.google.com/specimen/Inter", usedBy:["Linear","Vercel","Raycast","Notion","Pitch","Clerk"], similar:["Neue Haas Grotesk","DM Sans","Instrument Sans","Archivo"], pairs:[{role:"Display Heading",font:"Canela",desc:"Pair Inter's neutral body presence with Canela's dramatic editorial display for maximum contrast."},{role:"Monospace Accent",font:"Space Mono",desc:"Use Space Mono for code blocks and data labels alongside Inter's clean body text."}], quote:"Good typography is the difference between a product that's tolerated and one that's loved." },
   "Söhne":            { foundry:"Klim Type Foundry", year:"2019", classify:"Grotesque", license:"premium", variants:"Leicht–Dreiviertelfett, Italic, 8 weights", url:"https://klim.co.nz/retail-fonts/sohne/", usedBy:["Figma","Pitch","Linear","Mercury","Wealthsimple"], similar:["Founders Grotesk","Aktiv Grotesk","Graphik"], pairs:[{role:"Editorial Serif",font:"Tiempos Text",desc:"Söhne and Tiempos together define the Klim 'house style' — warm, refined, editorial."},{role:"Display Contrast",font:"Canela",desc:"Canela's serif drama amplifies Söhne's grotesque confidence."}], quote:"Typography that doesn't call attention to itself enables the content to breathe." },
@@ -1567,11 +2647,28 @@ function openDetail(f) {
   // mock url bar
   document.getElementById('dMockUrl').textContent = f.w;
   // apply font to all mockup text elements
-  const mockEls = ['dMockLogo','dMockTag','dMockH1','dMockP','dMockCta','dDashLogo','dDashTitle','dDashL1','dDashV1','dAppTitle','dAppItem1'];
+  const mockEls = [
+    'dMockLogo','dMockLogoMark','dMockNav1','dMockNav2','dMockNav3','dMockNavCta',
+    'dMockBadgeTxt','dMockBadgeLink','dMockH1','dMockSub','dMockCta1','dMockCta2','dMockProof',
+    'dWCard1L','dWCard1V',
+    'dEdLogo','dEdNav1','dEdNav2','dEdNav3','dEdNavCta','dEdCategory',
+    'dEdH1','dEdByline','dEdLead','dEdBody','dEdPull','dEdPullAttr',
+    'dPhoneEyebrow','dPhoneH1','dPhoneSub','dPhoneCta',
+    'dPhoneCard1','dPhoneCard2','dTabHome','dTabWork','dTabMe',
+    'dPhoneFontName','dPhoneWhy'
+  ];
   mockEls.forEach(id => {
     const el = document.getElementById(id);
-    if (el) { el.style.cssText = f.s; el.style.color = 'inherit'; }
+    if (el) {
+      const ffMatch = f.s.match(/font-family:[^;]+/);
+      if (ffMatch) el.style.fontFamily = ffMatch[0].replace('font-family:','').trim();
+    }
   });
+  // Set phone caption values
+  const phoneFontEl = document.getElementById('dPhoneFontName');
+  if (phoneFontEl) phoneFontEl.innerHTML = `<strong>${f.n}</strong> — ${ex.classify || f.t[0] || ''}`;
+  const phoneWhyEl = document.getElementById('dPhoneWhy');
+  if (phoneWhyEl) phoneWhyEl.textContent = ex.quote || f.d;
 
   // ── alphabet ──
   const alpha = document.getElementById('dAlphabet');
@@ -1682,9 +2779,14 @@ function openDetail(f) {
 
   // ── CTAs ──
   const ctas = document.getElementById('dCtas');
+  const urls = getFontURLs(f.n, f.src);
   ctas.innerHTML = `
-    <a class="d-cta-primary" href="${ex.url}" target="_blank" rel="noopener">Get ${f.n} ↗</a>
-    <a class="d-cta-secondary" href="https://www.typewolf.com/site-of-the-day/fonts/${encodeURIComponent(f.n.toLowerCase().replace(/ /g,'-'))}" target="_blank" rel="noopener">See sites using ${f.n.split(' ')[0]} ↗</a>
+    <a class="d-cta-primary" href="${urls.get}" target="_blank" rel="noopener">
+      ${urls.getLabel} ↗
+    </a>
+    <a class="d-cta-secondary" href="${urls.showcase}" target="_blank" rel="noopener">
+      See it on ${urls.showcaseLabel} ↗
+    </a>
   `;
 
   // ── used by ──
@@ -1764,23 +2866,75 @@ if ('serviceWorker' in navigator) {
 }
 
 // ═══════════════════════════════════════
-// SHARE API — native share on mobile
+// MODAL SYSTEM
 // ═══════════════════════════════════════
-function shareApp() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Get.Set.Typeface',
-      text: 'Find the perfect typeface for any product — 50+ curated font recommendations per category!',
-      url: window.location.href
-    }).catch(() => {});
-  } else {
-    // Fallback: copy to clipboard
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      const btn = document.getElementById('shareBtn');
-      if (btn) { btn.textContent = 'Link copied!'; setTimeout(() => btn.textContent = 'Share ↗', 2000); }
-    }).catch(() => {});
-  }
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    ['aboutModal','contactModal','shareModal'].forEach(id => closeModal(id));
+    closeDetail();
+  }
+});
+
+function openAbout()   { openModal('aboutModal'); }
+function openContact() { openModal('contactModal'); }
+
+// ═══════════════════════════════════════
+// SHARE MODAL
+// ═══════════════════════════════════════
+function openShare() {
+  const url = window.location.href.includes('localhost') || window.location.href.includes('file://')
+    ? 'https://getset.typeface.design'
+    : window.location.href;
+
+  const encodedUrl  = encodeURIComponent(url);
+  const encodedText = encodeURIComponent('Find the perfect typeface for any product — 50+ curated font recommendations per category. Free forever. 🔡');
+
+  document.getElementById('shareUrlInput').value = url;
+  document.getElementById('shareTwitter').href   = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+  document.getElementById('shareLinkedIn').href  = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
+  document.getElementById('shareWhatsApp').href  = `https://wa.me/?text=${encodedText}%20${encodedUrl}`;
+  document.getElementById('shareFacebook').href  = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+  document.getElementById('shareTelegram').href  = `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`;
+  document.getElementById('shareEmail').href     = `mailto:?subject=Found%20this%20great%20typography%20tool&body=${encodedText}%0A%0A${encodedUrl}`;
+
+  openModal('shareModal');
+}
+
+function copyShareLink() {
+  const input = document.getElementById('shareUrlInput');
+  const btn   = document.getElementById('shareCopyBtn');
+  navigator.clipboard.writeText(input.value).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.style.background = '#166534';
+    btn.style.color = '#4ade80';
+    setTimeout(() => {
+      btn.textContent = 'Copy link';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2500);
+  }).catch(() => {
+    input.select();
+    document.execCommand('copy');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => btn.textContent = 'Copy link', 2000);
+  });
+}
+
+function scrollToLibrary() {
+  const target = document.getElementById('results').style.display !== 'none'
+    ? document.getElementById('results')
+    : document.getElementById('dailyPicksSection');
+  if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
 
 // ═══════════════════════════════════════
 // URL STATE — persist category in URL
@@ -1788,10 +2942,11 @@ function shareApp() {
 function showResults() {
   const cat = document.getElementById('catSel').value;
   if (!cat) { document.getElementById('catSel').focus(); return; }
-  // Update URL without reload
-  const url = new URL(window.location);
-  url.searchParams.set('cat', cat);
-  window.history.pushState({cat}, '', url);
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set('cat', cat);
+    window.history.pushState({cat}, '', url);
+  } catch(e) { /* sandboxed iframe — skip URL state */ }
   _renderResults(cat);
 }
 
@@ -1810,7 +2965,7 @@ function _renderResults(cat) {
   sec.scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
-// Restore state from URL on load
+// Restore state from URL on load (only works when deployed, not in sandbox)
 window.addEventListener('popstate', (e) => {
   if (e.state && e.state.cat) {
     document.getElementById('catSel').value = e.state.cat;
@@ -1818,14 +2973,14 @@ window.addEventListener('popstate', (e) => {
   }
 });
 
-window.addEventListener('load', () => {
+try {
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat');
   if (cat && document.getElementById('catSel')) {
     document.getElementById('catSel').value = cat;
     _renderResults(cat);
   }
-});
+} catch(e) { /* sandboxed — skip */ }
 
 
 // ═══════════════════════════════════════
@@ -1874,6 +3029,7 @@ function renderDailyPicks() {
     const el = document.createElement('div');
     el.className = 'daily-card card-in';
     el.style.animationDelay = `${i * 0.06}s`;
+    el.style.cursor = 'pointer';
     el.innerHTML = `
       <div class="daily-card-top">
         <span class="daily-card-num">${String(i+1).padStart(2,'0')}</span>
@@ -1882,8 +3038,9 @@ function renderDailyPicks() {
       <div class="daily-card-preview" style="${f.s}color:#fff;">${f.p}</div>
       <div class="daily-card-name">${f.n}</div>
       <div class="daily-card-desc">${f.d}</div>
-      <button class="daily-card-btn" onclick="openDetail(getDailyPicks(6)[${i}])">Details →</button>
+      <span class="daily-card-btn">Details →</span>
     `;
+    el.addEventListener('click', () => openDetail(picks[i]));
     grid.appendChild(el);
   });
   section.style.display = 'block';
@@ -1945,6 +3102,21 @@ function applyDailyRefresh() {
   }
 }
 
+// ═══════════════════════════════════════
+// AI SEARCH — Claude API powered
+// ═══════════════════════════════════════
+
+function quickPick(cat) {
+  const sel = document.getElementById('catSel');
+  sel.value = cat;
+  // Highlight the active chip
+  document.querySelectorAll('.search-chip').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+  // Run immediately
+  _renderResults(cat);
+}
+
+
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
   updateDateDisplay();
@@ -1956,7 +3128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     checkMidnightRefresh();
   }, 1000);
 });
-
 </script>
 </body>
 </html>
