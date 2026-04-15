@@ -6,7 +6,7 @@
 
 <!-- ═══ PRIMARY META ═══ -->
 <title>Get.Set.Typeface — Find the Perfect Typeface for Any Product</title>
-<meta name="description" content="Discover the perfect typeface for your website or app. 50+ curated font recommendations per category — SaaS, fintech, editorial, luxury, gaming and more. Updated daily.">
+<meta name="description" content="Discover the perfect typeface for your website or app. 200+ curated font recommendations per category — SaaS, fintech, editorial, luxury, gaming and more. Updated daily.">
 <meta name="keywords" content="typeface finder, font recommendations, typography tool, web fonts, SaaS fonts, fintech fonts, editorial fonts, luxury fonts, font pairing, design tool">
 <meta name="author" content="Get.Set.Typeface">
 <meta name="robots" content="index, follow">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getset.typeface.design/">
 <meta property="og:title" content="Get.Set.Typeface — Find the Perfect Typeface for Any Product">
-<meta property="og:description" content="50+ curated font recommendations per category. SaaS, fintech, editorial, luxury, gaming & more. Updated every day at midnight.">
+<meta property="og:description" content="200+ curated font recommendations per category. SaaS, fintech, editorial, luxury, gaming & more. Updated every day at midnight.">
 <meta property="og:image" content="https://getset.typeface.design/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -29,7 +29,7 @@
 <meta name="twitter:site" content="@gettypeface">
 <meta name="twitter:creator" content="@gettypeface">
 <meta name="twitter:title" content="Get.Set.Typeface — Find the Perfect Typeface for Any Product">
-<meta name="twitter:description" content="50+ curated font recommendations per category. SaaS, fintech, editorial, luxury, gaming & more. Updated daily at midnight.">
+<meta name="twitter:description" content="200+ curated font recommendations per category. SaaS, fintech, editorial, luxury, gaming & more. Updated daily at midnight.">
 <meta name="twitter:image" content="https://getset.typeface.design/og-image.png">
 <meta name="twitter:image:alt" content="Get.Set.Typeface — Typography Intelligence Tool">
 
@@ -41,7 +41,7 @@
 <meta name="theme-color" content="#000000">
 <meta name="mobile-web-app-capable" content="yes">
 
-<!-- ═══ FAVICON ═══ -->
+<!-- ═══ FAVICON (inline SVG) ═══ -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23000'/><rect width='32' height='32' rx='7' fill='%23fff'/><text x='5' y='24' font-family='serif' font-size='22' font-weight='900' fill='%23000'>Gg</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%23000'/><text x='20' y='130' font-family='serif' font-size='110' font-weight='900' fill='%23fff'>G</text></svg>">
 
@@ -68,20 +68,379 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
+  /* ── THEME VARIABLES ── */
   :root {
-    --black: #000000;
-    --white: #FFFFFF;
-    --gray: #D0D0D0;
-    --a1: #0e0e0e;
-    --a2: #161616;
-    --a3: #1e1e1e;
-    --a4: #2e2e2e;
-    --subtle: #a8a8a8;
-    --muted:  #727272;
-    --dim:    #484848;
-    --border: rgba(255,255,255,0.1);
+    /* Dark mode (default) */
+    --black:        #000000;
+    --white:        #FFFFFF;
+    --gray:         #D0D0D0;
+    --a1:           #0e0e0e;
+    --a2:           #161616;
+    --a3:           #1e1e1e;
+    --a4:           #2e2e2e;
+    --subtle:       #a8a8a8;
+    --muted:        #727272;
+    --dim:          #484848;
+    --border:       rgba(255,255,255,0.1);
     --border-hover: rgba(255,255,255,0.22);
+
+    /* Semantic aliases used across all components */
+    --bg:           #000000;
+    --bg-card:      #000000;
+    --bg-elevated:  #161616;
+    --bg-input:     #161616;
+    --bg-nav:       rgba(0,0,0,0.9);
+    --text-primary: #FFFFFF;
+    --text-body:    #a8a8a8;
+    --text-muted:   #727272;
+    --text-dim:     #484848;
+    --accent:       #FFFFFF;
+    --accent-inv:   #000000;
+    --shadow-card:  0 4px 24px rgba(0,0,0,0.4);
   }
+
+  /* ── LIGHT MODE ── */
+  html.light {
+    --black:        #FFFFFF;
+    --white:        #0a0a0a;
+    --gray:         #333333;
+    --a1:           #f7f7f7;
+    --a2:           #f0f0f0;
+    --a3:           #e8e8e8;
+    --a4:           #d8d8d8;
+    --subtle:       #555555;
+    --muted:        #888888;
+    --dim:          #aaaaaa;
+    --border:       rgba(0,0,0,0.1);
+    --border-hover: rgba(0,0,0,0.22);
+
+    --bg:           #fafafa;
+    --bg-card:      #ffffff;
+    --bg-elevated:  #f0f0f0;
+    --bg-input:     #f0f0f0;
+    --bg-nav:       rgba(250,250,250,0.92);
+    --text-primary: #0a0a0a;
+    --text-body:    #444444;
+    --text-muted:   #777777;
+    --text-dim:     #aaaaaa;
+    --accent:       #0a0a0a;
+    --accent-inv:   #FFFFFF;
+    --shadow-card:  0 2px 16px rgba(0,0,0,0.08);
+  }
+
+  /* ── GLOBAL THEME TRANSITION ── */
+  *, *::before, *::after {
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  /* Exclude animation-based transitions from theme transition */
+  .card-in, .detail-overlay, .blog-overlay, .modal-backdrop,
+  .d-glyph, .card, .daily-card, .blog-card, .ai-card {
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease,
+      opacity 0.45s ease,
+      transform 0.45s ease;
+  }
+
+  /* ── THEME TOGGLE ── */
+  .theme-toggle-wrap { display:flex; align-items:center; flex-shrink:0; }
+
+  .theme-toggle {
+    width: 64px; height: 32px; border-radius: 16px;
+    position: relative; flex-shrink: 0; cursor: pointer;
+    border: none; padding: 0; overflow: hidden;
+    transition: background 0.35s ease;
+    /* Dark mode: deep navy with stars aesthetic */
+    background: #1a1f35;
+  }
+  html.light .theme-toggle { background: #91bdf6; }
+
+  /* Stars inside the dark toggle */
+  .theme-toggle::before {
+    content: '✦ ✦ ✦';
+    position: absolute; top: 50%; left: 6px;
+    transform: translateY(-50%);
+    font-size: 5px; letter-spacing: 3px; color: rgba(255,255,255,0.7);
+    line-height: 1; transition: opacity 0.3s;
+  }
+  html.light .theme-toggle::before { opacity: 0; }
+
+  /* The thumb — shows moon in dark, sun circle in light */
+  .theme-toggle-thumb {
+    position: absolute; top: 4px; right: 4px;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #fff;
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; line-height: 1; z-index: 2;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  /* In dark mode thumb is on the right showing moon; in light mode slides left showing sun */
+  html.light .theme-toggle-thumb { transform: translateX(-32px); }
+
+  /* ── LIGHT MODE OVERRIDES ── */
+  html.light body { background: var(--bg); color: var(--text-primary); }
+
+  html.light body::before { opacity: 0.15; }
+
+  html.light nav { background: var(--bg-nav); border-bottom-color: var(--border); }
+  html.light .logo { color: var(--text-primary); }
+  html.light .logo-mark { background: var(--text-primary); color: var(--bg); }
+  html.light .nav-links a { color: var(--text-muted); }
+  html.light .nav-links a:hover { color: var(--text-primary); }
+  html.light .nav-pill { background: var(--a3); color: var(--text-muted); border-color: var(--border); }
+  html.light #shareBtn { background: var(--text-primary); color: var(--bg); }
+  html.light #shareBtn:hover { background: #222; color: #fff; }
+  #shareBtn:hover { background: #e8e8e8; color: #000; transform: scale(0.97); }
+  #shareBtn:active { transform: scale(0.94); }
+
+  html.light .daily-banner { background: var(--a1); border-bottom-color: var(--border); }
+  html.light .daily-badge { background: rgba(34,197,94,0.1); color: #16a34a; border-color: rgba(34,197,94,0.25); }
+  html.light .daily-text { color: var(--text-body); }
+  html.light .daily-text strong { color: var(--text-primary); }
+  html.light .daily-countdown { color: var(--text-muted); }
+  html.light .daily-countdown-val { color: var(--text-body); }
+
+  html.light .hero { background: var(--bg); }
+  html.light .hero-h1 { color: var(--text-primary); }
+  html.light .hero-h1 em { color: #555; }
+  html.light .hero-sub { color: var(--text-body); }
+  html.light .eyebrow { color: var(--text-muted); }
+  html.light .hero-glow { background: radial-gradient(ellipse, rgba(0,0,0,0.04) 0%, transparent 70%); }
+  html.light .scroll-line { background: linear-gradient(to bottom, var(--a4), transparent); }
+
+  html.light .input-shell { background: var(--bg-input); border-color: var(--border); }
+  html.light .input-shell:focus-within { border-color: rgba(0,0,0,0.3); box-shadow: 0 0 0 3px rgba(0,0,0,0.05); }
+  html.light .cat-select { color: var(--text-primary); }
+  html.light .cat-select option { background: #fff; color: #000; }
+  html.light .go-btn { background: var(--text-primary); color: var(--bg); }
+  html.light .go-btn:hover { background: #333; }
+  html.light .input-note { color: var(--text-muted); }
+  html.light .search-chip { color: var(--text-muted); border-color: var(--border); }
+  html.light .search-chip:hover { background: var(--a2); border-color: var(--border-hover); color: var(--text-primary); }
+  html.light .search-chip.active { background: var(--text-primary); border-color: var(--text-primary); color: var(--bg); }
+
+  html.light .marquee-wrap { border-color: var(--border); }
+  html.light .marquee-item { color: var(--text-muted); }
+
+  html.light .empty-state { background: var(--bg); }
+  html.light .empty-h2 { color: var(--text-primary); }
+  html.light .empty-sub { color: var(--text-body); }
+  html.light .sample-grid { background: var(--border); border-color: var(--border); }
+  html.light .sample-cell { background: var(--bg-card); }
+  html.light .sample-cell:hover { background: var(--a2); }
+  html.light .sample-glyph { color: var(--text-primary); }
+  html.light .sample-name { color: var(--text-body); }
+  html.light .sample-eg { color: var(--text-muted); }
+
+  html.light .daily-picks-header { border-bottom-color: var(--border); }
+  html.light .daily-picks-title { color: var(--text-primary); }
+  html.light .daily-picks-sub { color: var(--text-muted); }
+  html.light .daily-picks-date { color: var(--text-muted); }
+  html.light .daily-picks-row { background: var(--border); border-color: var(--border); }
+  html.light .daily-card { background: var(--bg-card); }
+  html.light .daily-card::before { background: var(--a2); }
+  html.light .daily-card-num { color: var(--text-muted); }
+  html.light .daily-card-badge { background: rgba(34,197,94,0.1); color: #16a34a; border-color: rgba(34,197,94,0.2); }
+  html.light .daily-card-preview { color: var(--text-primary); }
+  html.light .daily-card-name { color: var(--text-primary); }
+  html.light .daily-card-desc { color: var(--text-body); }
+  html.light .daily-card-btn { color: var(--text-primary); border-color: var(--border); }
+  html.light .daily-card:hover .daily-card-btn { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+
+  html.light #results { background: var(--bg); }
+  html.light .results-header { border-bottom-color: var(--border); }
+  html.light .results-cat { color: var(--text-muted); }
+  html.light .results-h2 { color: var(--text-primary); }
+  html.light .results-count { color: var(--text-muted); }
+  html.light .results-grid { background: var(--border); border-color: var(--border); }
+  html.light .card { background: var(--bg-card); }
+  html.light .card::before { background: var(--a2); }
+  html.light .card-num { color: var(--text-muted); }
+  html.light .card-preview { color: var(--text-primary); }
+  html.light .card-name { color: var(--text-primary); }
+  html.light .card-desc { color: var(--text-body); }
+  html.light .card-tag { background: var(--a2); border-color: var(--border); color: var(--text-muted); }
+  html.light .card:hover .card-tag { border-color: var(--border-hover); color: var(--text-body); }
+  html.light .card-foot { border-top-color: var(--border); }
+  html.light .card:hover .card-foot { border-top-color: var(--border-hover); }
+  html.light .card-site { color: var(--text-muted); }
+  html.light .card-site:hover { color: var(--text-primary); }
+  html.light .fav { background: var(--a3); color: var(--text-muted); }
+  html.light .card-btn { color: var(--text-primary); border-color: var(--border); }
+  html.light .card-btn:hover { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+  html.light .load-more { color: var(--text-primary); border-color: var(--border); }
+  html.light .load-more:hover { background: var(--a2); border-color: var(--border-hover); }
+
+  html.light footer { border-top-color: var(--border); background: var(--bg); }
+  html.light .footer-logo { color: var(--text-muted); }
+  html.light .footer-txt { color: var(--text-muted); }
+  html.light .footer-update { color: var(--text-dim); }
+
+  /* Detail overlay — light */
+  html.light .detail-overlay { background: var(--bg); }
+  html.light .d-nav { background: rgba(250,250,250,0.95); border-bottom-color: var(--border); }
+  html.light .d-back { color: var(--text-muted); }
+  html.light .d-back:hover { color: var(--text-primary); }
+  html.light .d-back-arrow { border-color: var(--border); }
+  html.light .d-nav-tag { background: var(--a3); color: var(--text-muted); border-color: var(--border); }
+  html.light .d-get-btn { background: var(--text-primary); color: var(--bg); }
+  html.light .d-hero { border-bottom-color: var(--border); }
+  html.light .d-hero-eyebrow { color: var(--text-body); }
+  html.light .d-hero-name { color: var(--text-primary); }
+  html.light .d-hero-sub { color: var(--text-body); }
+  html.light .d-section-label { color: var(--text-body); }
+  html.light .d-section-label span { color: var(--text-muted); }
+  html.light .d-alphabet { background: var(--border); border-color: var(--border); }
+  html.light .d-glyph { background: var(--bg-card); color: var(--text-primary); }
+  html.light .d-glyph:hover { background: var(--a2); }
+  html.light .d-scale-row { border-bottom-color: var(--border); }
+  html.light .d-scale-size { color: var(--text-muted); }
+  html.light .d-scale-text { color: var(--text-primary); }
+  html.light .d-weight-row { border-bottom-color: var(--border); }
+  html.light .d-weight-label { color: var(--text-muted); }
+  html.light .d-weight-sample { color: var(--text-primary); }
+  html.light .d-nums { background: var(--border); border-color: var(--border); }
+  html.light .d-num-cell { background: var(--bg-card); color: var(--text-primary); }
+  html.light .d-num-cell:hover { background: var(--a2); }
+  html.light .d-specials { background: var(--border); border-color: var(--border); }
+  html.light .d-special { background: var(--bg-card); color: var(--text-body); }
+  html.light .d-special:hover { background: var(--a2); color: var(--text-primary); }
+  html.light .d-main { border-right-color: var(--border); }
+  html.light .d-section { border-bottom-color: var(--border); }
+  html.light .d-quote { background: var(--a1); border-bottom-color: var(--border); }
+  html.light .d-quote::before { color: var(--a3); }
+  html.light .d-quote-text { color: var(--text-primary); }
+  html.light .d-quote-attr { color: var(--text-muted); }
+  html.light .d-para-lg { color: var(--text-primary); }
+  html.light .d-para-sm { color: var(--text-body); border-left-color: var(--border); }
+  html.light .d-side-section { border-bottom-color: var(--border); }
+  html.light .d-side-label { color: var(--text-body); }
+  html.light .d-meta-key { color: var(--text-muted); }
+  html.light .d-usedby-chip { background: var(--a2); border-color: var(--border); color: var(--text-muted); }
+  html.light .d-usedby-chip:hover { border-color: var(--border-hover); color: var(--text-primary); }
+  html.light .d-similar { background: var(--border); }
+  html.light .d-similar-item { background: var(--bg-card); }
+  html.light .d-similar-item:hover { background: var(--a2); }
+  html.light .d-similar-name { color: var(--text-primary); }
+  html.light .d-similar-src { color: var(--text-muted); }
+  html.light .d-similar-arrow { color: var(--text-body); }
+  html.light .d-cta-primary { background: var(--text-primary); color: var(--bg); }
+  html.light .d-cta-primary:hover { background: #333; }
+  html.light .d-cta-secondary { color: var(--text-primary); border-color: var(--border); }
+  html.light .d-cta-secondary:hover { background: var(--a2); border-color: var(--border-hover); }
+  html.light .d-pair-card { background: var(--bg-card); }
+  html.light .d-pair-card:hover { background: var(--a2); }
+  html.light .d-pair-role { color: var(--text-muted); }
+  html.light .d-pair-names { color: var(--text-primary); }
+  html.light .d-pair-desc { color: var(--text-body); }
+  html.light .d-pair-demo { border-top-color: var(--border); }
+
+  /* Modals — light */
+  html.light .modal-backdrop { background: rgba(0,0,0,0.4); }
+  html.light .modal-box { background: #fff; border-color: rgba(0,0,0,0.12); }
+  html.light .modal-title { color: var(--text-primary); }
+  html.light .modal-sub { color: var(--text-muted); }
+  html.light .modal-close { border-color: var(--border); color: var(--text-muted); }
+  html.light .modal-close:hover { background: var(--a2); color: var(--text-primary); }
+  html.light .about-stat-row { background: var(--border); border-color: var(--border); }
+  html.light .about-stat { background: var(--bg-card); }
+  html.light .about-stat-num { color: var(--text-primary); }
+  html.light .about-stat-lbl { color: var(--text-muted); }
+  html.light .about-desc { color: var(--text-body); }
+  html.light .about-desc strong { color: var(--text-primary); }
+  html.light .about-divider { background: var(--border); }
+  html.light .about-made-by { color: var(--text-muted); }
+  html.light .contact-card { background: var(--a1); border-color: var(--border); }
+  html.light .contact-card:hover { background: var(--a2); border-color: var(--border-hover); }
+  html.light .contact-info-title { color: var(--text-primary); }
+  html.light .contact-info-sub { color: var(--text-muted); }
+  html.light .contact-arrow { color: var(--text-muted); }
+  html.light .share-url-box { background: var(--a2); border-color: var(--border); }
+  html.light .share-url-text { color: var(--text-muted); }
+  html.light .share-copy-btn { background: var(--a3); color: var(--text-primary); border-left-color: var(--border); }
+  html.light .share-channel { background: var(--a1); border-color: var(--border); }
+  html.light .share-channel:hover { background: var(--a2); border-color: var(--border-hover); }
+  html.light .share-ch-name { color: var(--text-primary); }
+  html.light .share-ch-sub { color: var(--text-muted); }
+  html.light .share-or { color: var(--text-dim); }
+  html.light .share-or::before, html.light .share-or::after { background: var(--border); }
+
+  /* Blog — light */
+  html.light .blog-overlay { background: var(--bg); }
+  html.light .blog-nav { background: rgba(250,250,250,0.95); border-bottom-color: var(--border); }
+  html.light .blog-back { color: var(--text-muted); }
+  html.light .blog-back:hover { color: var(--text-primary); }
+  html.light .blog-back-arrow { border-color: var(--border); }
+  html.light .blog-nav-title { color: var(--text-primary); }
+  html.light .blog-list-eyebrow { color: var(--text-muted); }
+  html.light .blog-list-title { color: var(--text-primary); }
+  html.light .blog-list-sub { color: var(--text-body); }
+  html.light .blog-grid { background: var(--border); border-color: var(--border); }
+  html.light .blog-card { background: var(--bg-card); }
+  html.light .blog-card::before { background: var(--a2); }
+  html.light .blog-card-num { color: var(--text-muted); }
+  html.light .blog-card-cat { color: var(--text-muted); }
+  html.light .blog-card-title { color: var(--text-primary); }
+  html.light .blog-card-excerpt { color: var(--text-body); }
+  html.light .blog-card-tag { background: var(--a2); border-color: var(--border); color: var(--text-muted); }
+  html.light .blog-card-meta { border-top-color: var(--border); }
+  html.light .blog-card:hover .blog-card-meta { border-top-color: var(--border-hover); }
+  html.light .blog-card-read { color: var(--text-muted); }
+  html.light .blog-card-arrow { color: var(--text-muted); }
+  html.light .blog-card:hover .blog-card-arrow { color: var(--text-primary); }
+  html.light .blog-article-cat { color: var(--text-muted); }
+  html.light .blog-article-cat::after { background: var(--border); }
+  html.light .blog-article-title { color: var(--text-primary); }
+  html.light .blog-meta-author { color: var(--text-primary); }
+  html.light .blog-meta-date { color: var(--text-muted); }
+  html.light .blog-meta-read { background: var(--a2); border-color: var(--border); color: var(--text-muted); }
+  html.light .blog-h2 { color: var(--text-primary); }
+  html.light .blog-h3 { color: var(--text-primary); }
+  html.light .blog-p { color: var(--text-body); }
+  html.light .blog-p strong { color: var(--text-primary); }
+  html.light .blog-quote { border-left-color: var(--text-primary); }
+  html.light .blog-quote-text { color: var(--text-primary); }
+  html.light .blog-quote-attr { color: var(--text-muted); }
+  html.light .blog-callout { background: var(--a1); border-color: var(--border); }
+  html.light .blog-callout-label { color: var(--text-muted); }
+  html.light .blog-callout-text { color: var(--text-body); }
+  html.light .blog-callout-text strong { color: var(--text-primary); }
+  html.light .blog-font-row { background: var(--border); border-color: var(--border); }
+  html.light .blog-font-item { background: var(--bg-card); }
+  html.light .blog-font-item:hover { background: var(--a2); }
+  html.light .blog-font-name { color: var(--text-primary); }
+  html.light .blog-font-desc { color: var(--text-body); }
+  html.light .blog-divider { background: var(--border); }
+  html.light .blog-article-footer { border-top-color: var(--border); }
+  html.light .blog-article-footer-label { color: var(--text-muted); }
+  html.light .blog-read-more-btn { color: var(--text-primary); border-color: var(--border); }
+  html.light .blog-read-more-btn:hover { background: var(--a2); border-color: var(--border-hover); }
+  html.light .new-badge { background: rgba(22,163,74,0.1); color: #16a34a; border-color: rgba(22,163,74,0.2); }
+
+  /* Mockup light overrides — keep mockups intentionally dark even in light mode for contrast */
+  html.light .mock-site { background: #0c0c0c; }
+  html.light .mock-browser-chrome { background: #1c1c1e; }
+  html.light .mock-chrome-bar { background: #2c2c2e; }
+  html.light .mock-mobile-scene { background: #111; }
+  html.light .mock-phone-frame { border-color: rgba(255,255,255,0.2); }
+  html.light .mock-editorial { background: #fff; }
+  html.light .mock-ed-nav { background: #fff; border-bottom-color: #eee; }
+  html.light .mock-ed-logo { color: #000; }
+  html.light .mock-ed-nav-link { color: #666; }
+  html.light .mock-ed-nav-cta { color: #000; }
+  html.light .mock-ed-h1 { color: #000; }
+  html.light .mock-ed-lead { color: #444; border-left-color: #000; }
+  html.light .mock-ed-body-p { color: #666; }
+  html.light .mock-ed-pull { background: #f5f5f5; }
+  html.light .mock-ed-pull-q { color: #000; }
+  html.light .mock-ed-pull-attr { color: #999; }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust:100%; }
   body {
@@ -154,9 +513,10 @@
     pointer-events:none;
   }
   .eyebrow {
-    font-size:10px; font-weight:600; letter-spacing:4px; text-transform:uppercase;
+    font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase;
     color:var(--muted); margin-bottom:28px;
     opacity:0; animation:up 0.7s ease forwards 0.1s;
+    max-width:700px; line-height:1.6;
   }
   .hero-h1 {
     font-family:'Inter Tight', sans-serif; font-size:clamp(40px,7vw,88px);
@@ -1424,24 +1784,463 @@
   }
   .share-or::before { left:0; }
   .share-or::after { right:0; }
+  /* ══════════════════════════════════════
+     BLOG OVERLAY
+  ══════════════════════════════════════ */
+  .blog-overlay {
+    position:fixed; inset:0; z-index:510;
+    width:100vw; height:100vh;
+    background:var(--black); display:none;
+    flex-direction:column; overflow:hidden;
+  }
+  .blog-overlay.open { display:flex; animation:slideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .blog-overlay.leaving { animation:slideDown 0.35s cubic-bezier(0.7,0,1,0.6) forwards; }
+
+  .blog-nav {
+    flex-shrink:0; width:100%; height:60px; padding:0 48px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid var(--border);
+    background:rgba(0,0,0,0.95); backdrop-filter:blur(20px); z-index:10;
+  }
+  .blog-nav-left { display:flex; align-items:center; gap:16px; }
+  .blog-back {
+    display:flex; align-items:center; gap:10px;
+    font-size:13px; font-weight:600; color:var(--subtle);
+    background:none; border:none; cursor:pointer;
+    font-family:'Inter Tight',sans-serif; transition:color 0.2s;
+  }
+  .blog-back:hover { color:var(--white); }
+  .blog-back-arrow {
+    width:28px; height:28px; border:1px solid var(--border);
+    border-radius:7px; display:flex; align-items:center; justify-content:center;
+    font-size:14px; transition:border-color 0.2s, background 0.2s;
+  }
+  .blog-back:hover .blog-back-arrow { border-color:var(--border-hover); background:var(--a2); }
+  .blog-nav-title {
+    font-size:13px; font-weight:700; color:var(--white); letter-spacing:-0.3px;
+    display:none;
+  }
+  .blog-nav-title.visible { display:block; }
+
+  .blog-body {
+    flex:1; width:100%; overflow-y:auto; overflow-x:hidden; scroll-behavior:smooth;
+  }
+  .blog-body::-webkit-scrollbar { width:4px; }
+  .blog-body::-webkit-scrollbar-thumb { background:var(--a4); border-radius:2px; }
+
+  /* ── BLOG LIST VIEW ── */
+  #blogList { display:block; width:100%; }
+  .blog-list-hero {
+    width:100%; padding:64px 48px 48px; border-bottom:1px solid var(--border);
+  }
+  .blog-list-eyebrow {
+    font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:16px;
+  }
+  .blog-list-title {
+    font-family:'Inter Tight',sans-serif; font-size:clamp(36px,5vw,64px);
+    font-weight:500; letter-spacing:-3px; line-height:1; color:var(--white);
+    margin-bottom:12px;
+  }
+  .blog-list-sub { font-size:15px; color:var(--subtle); max-width:480px; line-height:1.65; }
+
+  .blog-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--border); width:calc(100% - 96px); margin:0 48px 80px;
+    border:1px solid var(--border); border-radius:16px; overflow:hidden;
+  }
+
+  .blog-card {
+    background:var(--black); padding:32px 28px 28px;
+    display:flex; flex-direction:column; gap:0;
+    cursor:pointer; transition:background 0.22s; position:relative; overflow:hidden;
+  }
+  .blog-card::before {
+    content:''; position:absolute; inset:0; background:var(--a2);
+    opacity:0; transition:opacity 0.22s; pointer-events:none;
+  }
+  .blog-card:hover::before { opacity:1; }
+  .blog-card-num {
+    font-family:'Space Mono',monospace; font-size:9px; color:var(--muted);
+    letter-spacing:1.5px; margin-bottom:20px; position:relative; z-index:1;
+  }
+  .blog-card-cat {
+    font-size:9px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:12px; position:relative; z-index:1;
+  }
+  .blog-card-title {
+    font-size:17px; font-weight:700; color:var(--white); line-height:1.3;
+    letter-spacing:-0.4px; margin-bottom:10px; position:relative; z-index:1;
+    flex:1;
+  }
+  .blog-card-excerpt {
+    font-size:12px; color:var(--subtle); line-height:1.65;
+    margin-bottom:20px; position:relative; z-index:1;
+    display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+  }
+  .blog-card-meta {
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; border-top:1px solid var(--border);
+    position:relative; z-index:1; transition:border-color 0.2s;
+  }
+  .blog-card:hover .blog-card-meta { border-color:var(--border-hover); }
+  .blog-card-read {
+    font-size:10px; color:var(--muted); font-family:'Space Mono',monospace;
+  }
+  .blog-card-arrow { font-size:14px; color:var(--subtle); transition:transform 0.2s, color 0.2s; }
+  .blog-card:hover .blog-card-arrow { transform:translateX(4px); color:var(--white); }
+  .blog-card-tags-row { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:16px; position:relative; z-index:1; }
+  .blog-card-tag {
+    font-size:9px; padding:2px 7px; background:var(--a3);
+    border:1px solid var(--border); border-radius:4px; color:var(--muted);
+    letter-spacing:0.4px; text-transform:uppercase; font-weight:600;
+  }
+  .new-badge {
+    font-size:8px; padding:2px 7px; background:rgba(74,222,128,0.12);
+    color:#4ade80; border:1px solid rgba(74,222,128,0.2); border-radius:4px;
+    letter-spacing:1px; font-weight:700; margin-left:6px;
+    text-transform:uppercase; vertical-align:middle;
+  }
+
+  /* ── BLOG ARTICLE VIEW ── */
+  #blogArticle { display:none; width:100%; }
+  .blog-article-hero {
+    width:100%; padding:64px 48px 48px; border-bottom:1px solid var(--border); max-width:100%;
+  }
+  .blog-article-hero-inner { max-width:860px; }
+  .blog-article-cat {
+    font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:20px; display:flex; align-items:center; gap:12px;
+  }
+  .blog-article-cat::after { content:''; height:1px; background:var(--border); width:200px; }
+  .blog-article-title {
+    font-family:'Inter Tight',sans-serif; font-size:clamp(28px,4vw,52px);
+    font-weight:700; letter-spacing:-2px; line-height:1.08;
+    color:var(--white); margin-bottom:20px; max-width:800px;
+  }
+  .blog-article-meta {
+    display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .blog-meta-author { font-size:13px; font-weight:600; color:var(--white); }
+  .blog-meta-date { font-size:12px; color:var(--muted); }
+  .blog-meta-read {
+    font-size:11px; color:var(--muted); font-family:'Space Mono',monospace;
+    padding:3px 10px; background:var(--a3); border:1px solid var(--border); border-radius:20px;
+  }
+
+  /* Article body */
+  .blog-article-body {
+    width:100%; padding:48px 48px 80px; display:flex; flex-direction:column; gap:28px;
+  }
+  .blog-article-body-inner { max-width:720px; display:flex; flex-direction:column; gap:28px; }
+  .blog-p {
+    font-size:16px; color:var(--subtle); line-height:1.85; font-weight:400;
+  }
+  .blog-p strong { color:var(--white); font-weight:600; }
+  .blog-h2 {
+    font-size:24px; font-weight:700; color:var(--white); letter-spacing:-0.8px;
+    line-height:1.2; padding-top:12px;
+  }
+  .blog-h3 {
+    font-size:18px; font-weight:700; color:var(--white); letter-spacing:-0.3px; line-height:1.3;
+  }
+  .blog-quote {
+    border-left:3px solid var(--white); padding-left:24px; margin:4px 0;
+  }
+  .blog-quote-text {
+    font-size:20px; font-style:italic; color:var(--white); line-height:1.5;
+    letter-spacing:-0.3px; font-family:'Playfair Display',serif;
+  }
+  .blog-quote-attr { font-size:12px; color:var(--muted); margin-top:8px; }
+  .blog-callout {
+    background:var(--a2); border:1px solid var(--border); border-radius:12px;
+    padding:24px 28px;
+  }
+  .blog-callout-label {
+    font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:10px;
+  }
+  .blog-callout-text { font-size:14px; color:var(--gray); line-height:1.7; }
+  .blog-callout-text strong { color:var(--white); }
+  .blog-font-row {
+    display:flex; flex-direction:column; gap:1px; background:var(--border);
+    border:1px solid var(--border); border-radius:10px; overflow:hidden;
+  }
+  .blog-font-item {
+    background:var(--black); padding:16px 20px;
+    display:flex; align-items:baseline; gap:16px; transition:background 0.2s;
+  }
+  .blog-font-item:hover { background:var(--a2); }
+  .blog-font-name { font-size:13px; font-weight:700; color:var(--white); min-width:160px; }
+  .blog-font-desc { font-size:12px; color:var(--subtle); line-height:1.5; }
+  .blog-divider { height:1px; background:var(--border); }
+  .blog-article-footer {
+    padding:32px 48px 48px; border-top:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+  }
+  .blog-article-footer-label { font-size:12px; color:var(--muted); }
+  .blog-read-more-btn {
+    font-family:'Inter Tight',sans-serif; font-size:12px; font-weight:700;
+    color:var(--white); background:transparent; border:1px solid var(--border);
+    border-radius:8px; padding:10px 20px; cursor:pointer;
+    transition:background 0.2s, border-color 0.2s;
+  }
+  .blog-read-more-btn:hover { background:var(--a2); border-color:var(--border-hover); }
+
+  /* Blog responsive */
+  @media(max-width:960px) {
+    .blog-nav { padding:0 20px; }
+    .blog-list-hero { padding:48px 20px 36px; }
+    .blog-grid { width:100%; margin:0 0 60px; grid-template-columns:repeat(2,1fr); border-radius:0; border-left:none; border-right:none; }
+    .blog-article-hero { padding:48px 24px 36px; }
+    .blog-article-body { padding:36px 24px 60px; }
+    .blog-article-footer { padding:24px; }
+  }
+  @media(max-width:640px) {
+    .blog-nav { padding:0 16px; height:52px; }
+    .blog-back span { display:none; }
+    .blog-list-hero { padding:36px 16px 28px; }
+    .blog-list-title { letter-spacing:-2px; }
+    .blog-grid { grid-template-columns:1fr; }
+    .blog-card { padding:24px 16px 20px; }
+    .blog-card-title { font-size:15px; }
+    .blog-article-hero { padding:36px 16px 28px; }
+    .blog-article-title { letter-spacing:-1.5px; }
+    .blog-article-body { padding:28px 16px 48px; gap:20px; }
+    .blog-p { font-size:15px; }
+    .blog-h2 { font-size:20px; }
+    .blog-quote-text { font-size:17px; }
+    .blog-callout { padding:18px 16px; }
+    .blog-article-footer { padding:20px 16px; flex-direction:column; gap:12px; }
+  }
+  /* ══════════════════════════════════
+     MOBILE NAV — Hamburger + Drawer
+  ══════════════════════════════════ */
+
+  /* Desktop: hide mobile-only elements */
+  .nav-mobile-right { display:none; }
+  .mobile-drawer    { display:none; }
+
+  /* ── Hamburger button ── */
+  .hamburger {
+    width:40px; height:40px; background:transparent; border:none;
+    cursor:pointer; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:5px; padding:0;
+    border-radius:8px; transition:background 0.2s;
+  }
+  .hamburger:hover { background:var(--a2); }
+  .ham-line {
+    width:20px; height:1.5px; background:var(--white);
+    border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease;
+    display:block;
+  }
+  html.light .ham-line { background:var(--text-primary); }
+  .hamburger.open .ham-line:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+  .hamburger.open .ham-line:nth-child(2) { opacity:0; transform:scaleX(0); }
+  .hamburger.open .ham-line:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+  /* ── Mobile drawer ── */
+  .mobile-drawer {
+    position:fixed; inset:0; z-index:800;
+    pointer-events:none;
+  }
+  .mobile-drawer.open { pointer-events:auto; }
+
+  .mobile-drawer-backdrop {
+    position:absolute; inset:0;
+    background:rgba(0,0,0,0.5); backdrop-filter:blur(4px);
+    opacity:0; transition:opacity 0.3s ease;
+  }
+  .mobile-drawer.open .mobile-drawer-backdrop { opacity:1; }
+
+  .mobile-drawer-panel {
+    position:absolute; top:0; right:0;
+    width:min(300px, 88vw); height:100%;
+    background:var(--a1); border-left:1px solid var(--border);
+    display:flex; flex-direction:column;
+    transform:translateX(100%);
+    transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    overflow-y:auto;
+  }
+  html.light .mobile-drawer-panel { background:#ffffff; border-left-color:rgba(0,0,0,0.1); }
+  .mobile-drawer.open .mobile-drawer-panel { transform:translateX(0); }
+
+  .mobile-drawer-header {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 20px 16px; border-bottom:1px solid var(--border);
+    flex-shrink:0;
+  }
+  html.light .mobile-drawer-header { border-bottom-color:rgba(0,0,0,0.1); }
+  .mobile-drawer-logo {
+    font-size:14px; font-weight:700; color:var(--white); letter-spacing:-0.3px;
+  }
+  html.light .mobile-drawer-logo { color:#0a0a0a; }
+
+  .mobile-drawer-close {
+    width:34px; height:34px; border-radius:8px;
+    background:transparent; border:1px solid var(--border);
+    color:var(--subtle); cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background 0.2s, color 0.2s; flex-shrink:0;
+  }
+  .mobile-drawer-close:hover { background:var(--a3); color:var(--white); }
+  html.light .mobile-drawer-close { border-color:rgba(0,0,0,0.1); color:#888; }
+  html.light .mobile-drawer-close:hover { background:#f0f0f0; color:#0a0a0a; }
+
+  .mobile-drawer-nav {
+    display:flex; flex-direction:column; flex-shrink:0;
+    padding:16px 16px 20px;
+    gap:0;
+    border-bottom:1px solid var(--border);
+  }
+  html.light .mobile-drawer-nav { border-bottom-color:rgba(0,0,0,0.08); }
+
+  .mobile-drawer-link {
+    display:flex; align-items:center; gap:14px;
+    padding:0 12px; font-size:15px; font-weight:500;
+    color:var(--white); text-decoration:none; letter-spacing:-0.1px;
+    border-radius:10px;
+    transition:background 0.15s;
+    height:48px;
+    margin-bottom:24px;
+  }
+  .mobile-drawer-link:last-child { margin-bottom:0; }
+  .mobile-drawer-link .drawer-link-icon {
+    width:36px; height:36px; border-radius:9px;
+    background:var(--a3); border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0; font-size:16px;
+  }
+  .mobile-drawer-link .drawer-link-text { flex:1; }
+  .mobile-drawer-link .drawer-link-arrow { opacity:0.25; flex-shrink:0; }
+  .mobile-drawer-link:active { background:var(--a2); }
+  .mobile-drawer-link:active .drawer-link-arrow { opacity:0.6; }
+  html.light .mobile-drawer-link { color:#1a1a1a; }
+  html.light .mobile-drawer-link .drawer-link-icon { background:#f2f2f2; border-color:rgba(0,0,0,0.07); }
+  html.light .mobile-drawer-link:active { background:#f0f0f0; }
+
+  .mobile-drawer-footer {
+    padding:20px 16px; display:flex; flex-direction:column; gap:12px;
+    margin-top:auto; flex-shrink:0; border-top:1px solid var(--border);
+  }
+  html.light .mobile-drawer-footer { border-top-color:rgba(0,0,0,0.08); }
+  .mobile-drawer-footer p {
+    font-size:11px; color:var(--muted); line-height:1.7; margin:0;
+  }
+  html.light .mobile-drawer-footer p { color:#999; }
+  .mobile-drawer-share {
+    width:100%; display:flex; align-items:center; justify-content:center; gap:10px;
+    font-family:'Inter Tight',sans-serif; font-size:14px; font-weight:700;
+    letter-spacing:0.1px; color:var(--black); background:var(--white);
+    border:none; border-radius:10px; padding:14px; cursor:pointer;
+    transition:opacity 0.2s, transform 0.15s;
+  }
+  .mobile-drawer-share:active { transform:scale(0.97); opacity:0.85; }
+  html.light .mobile-drawer-share { background:#0a0a0a; color:#fff; }
+
+  /* ── Breakpoint: show hamburger, hide desktop links ── */
+  @media(max-width:768px) {
+    .nav-links      { display:none !important; }
+    .nav-mobile-right {
+      display:flex; align-items:center; gap:8px;
+    }
+    .mobile-drawer  { display:block; }
+    nav { padding:0 20px; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">
-    <div class="logo-mark">G·T</div>
-    Get.Set.Typeface
-  </a>
+  <a href="#" class="logo">Get.Set.Typeface</a>
+
+  <!-- Desktop nav links (hidden on mobile) -->
   <ul class="nav-links">
     <li><a href="#" onclick="openAbout();return false;">About</a></li>
-    <li><a href="#" onclick="scrollToLibrary();return false;">Library</a></li>
+    <li><a href="#" onclick="openBlog();return false;">Blog</a></li>
     <li><a href="#" onclick="openContact();return false;">Contact</a></li>
-    <li><button id="shareBtn" onclick="openShare()" style="font-family:'Inter Tight',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.3px;color:var(--black);background:var(--white);border:none;border-radius:6px;padding:7px 14px;cursor:pointer;transition:background 0.2s;">Share ↗</button></li>
+    <li>
+      <div class="theme-toggle-wrap" onclick="toggleTheme()" title="Toggle light/dark mode" style="cursor:pointer;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <div class="theme-toggle-thumb" id="themeThumb">🌙</div>
+        </button>
+      </div>
+    </li>
+    <li>
+      <button id="shareBtn" onclick="openShare()" title="Share" aria-label="Share Get.Set.Typeface" style="display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.1px;color:var(--black);background:var(--white);border:none;border-radius:8px;padding:7px 14px 7px 10px;cursor:pointer;transition:background 0.2s,color 0.2s,transform 0.15s;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+        Share
+      </button>
+    </li>
     <li><span class="nav-pill">Beta</span></li>
   </ul>
+
+  <!-- Mobile nav: toggle + hamburger only -->
+  <div class="nav-mobile-right">
+    <div class="theme-toggle-wrap" onclick="toggleTheme()" title="Toggle light/dark mode" style="cursor:pointer;">
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <div class="theme-toggle-thumb" id="themeThumbMobile">🌙</div>
+      </button>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false">
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+    </button>
+  </div>
 </nav>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-backdrop" onclick="closeMobileMenu()"></div>
+  <div class="mobile-drawer-panel" id="mobileDrawerPanel">
+    <div class="mobile-drawer-header">
+      <span class="mobile-drawer-logo">Get.Set.Typeface</span>
+      <button class="mobile-drawer-close" onclick="closeMobileMenu()" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-drawer-nav">
+      <a class="mobile-drawer-link" href="#" onclick="openAbout();closeMobileMenu();return false;">
+        <div class="drawer-link-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <span class="drawer-link-text">About</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a class="mobile-drawer-link" href="#" onclick="openBlog();closeMobileMenu();return false;">
+        <div class="drawer-link-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <span class="drawer-link-text">Blog</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a class="mobile-drawer-link" href="#" onclick="openContact();closeMobileMenu();return false;">
+        <div class="drawer-link-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <span class="drawer-link-text">Contact</span>
+        <svg class="drawer-link-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <button onclick="openShare();closeMobileMenu();" class="mobile-drawer-share">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+        Share Get.Set.Typeface
+      </button>
+      <p>Typography Intelligence Tool<br>Made with ❤️ in Bangalore, India</p>
+    </div>
+  </div>
+</div>
 
 <!-- DAILY BANNER -->
 <div class="daily-banner" id="dailyBanner">
@@ -1456,7 +2255,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="eyebrow">Typography Intelligence Tool</p>
+  <p class="eyebrow">Typography Intelligence Tool — Made with Love in Bangalore, India ❤️</p>
   <h1 class="hero-h1">Find the <em>perfect</em><br>typeface for<br>any product.</h1>
   <p class="hero-sub">Select a category and get curated font recommendations with real-world usage examples.</p>
 
@@ -1505,7 +2304,7 @@
       <button class="search-chip" onclick="quickPick('portfolio')">Portfolio</button>
     </div>
 
-    <p class="input-note">50+ curated recommendations per category — updated daily</p>
+    <p class="input-note">200+ curated recommendations per category — updated daily</p>
   </div>
 
   <div class="scroll-cue">
@@ -1782,6 +2581,53 @@
         </a>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BLOG OVERLAY
+════════════════════════════════════════ -->
+<div class="blog-overlay" id="blogOverlay">
+  <div class="blog-nav">
+    <div class="blog-nav-left">
+      <button class="blog-back" onclick="closeBlogOrGoList()">
+        <span class="blog-back-arrow">←</span>
+        <span id="blogBackLabel">Back</span>
+      </button>
+      <span class="blog-nav-title" id="blogNavTitle"></span>
+    </div>
+    <span style="font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;" id="blogNavMeta"></span>
+  </div>
+  <div class="blog-body" id="blogBody">
+
+    <!-- ── BLOG LIST ── -->
+    <div id="blogList">
+      <div class="blog-list-hero">
+        <p class="blog-list-eyebrow">Typography Knowledge</p>
+        <h1 class="blog-list-title">The<br><em style="font-family:'Playfair Display',serif;font-weight:400;color:var(--gray);">Type</em> Blog.</h1>
+        <p class="blog-list-sub">Deep dives into typefaces, font pairing, sizing systems, and the craft of typography — for designers who care about the details.</p>
+      </div>
+      <div class="blog-grid" id="blogGrid"></div>
+    </div>
+
+    <!-- ── BLOG ARTICLE ── -->
+    <div id="blogArticle">
+      <div class="blog-article-hero">
+        <div class="blog-article-cat" id="baCat">Typography</div>
+        <h1 class="blog-article-title" id="baTitle">—</h1>
+        <div class="blog-article-meta">
+          <span class="blog-meta-author">Tanmay Vatsa</span>
+          <span class="blog-meta-date" id="baDate">—</span>
+          <span class="blog-meta-read" id="baRead">— min read</span>
+        </div>
+      </div>
+      <div class="blog-article-body" id="baBody"></div>
+      <div class="blog-article-footer">
+        <span class="blog-article-footer-label">Enjoyed this? Browse the full library.</span>
+        <button class="blog-read-more-btn" onclick="showBlogList()">← More articles</button>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -2640,7 +3486,7 @@ function openDetail(f) {
   heroName.style.fontSize = 'clamp(56px,10vw,140px)';
   heroName.style.lineHeight = '0.9';
   heroName.style.letterSpacing = '-5px';
-  heroName.style.color = '#fff';
+  heroName.style.color = tc();
   heroName.style.paddingBottom = '40px';
   document.getElementById('dHeroSub').innerHTML = `${ex.foundry}<br>${ex.year} · ${ex.variants}`;
 
@@ -2679,7 +3525,7 @@ function openDetail(f) {
     const d = document.createElement('div');
     d.className = 'd-glyph';
     d.style.cssText = f.s;
-    d.style.color = '#fff';
+    d.style.color = tc();
     d.textContent = ch;
     alpha.appendChild(d);
   });
@@ -2691,7 +3537,7 @@ function openDetail(f) {
   sizes.forEach(({sz,lbl}) => {
     const row = document.createElement('div');
     row.className = 'd-scale-row';
-    row.innerHTML = `<span class="d-scale-size">${lbl}</span><span class="d-scale-text" style="${f.s}font-size:${sz};color:#fff;">The quick brown fox jumps over the lazy dog</span>`;
+    row.innerHTML = `<span class="d-scale-size">${lbl}</span><span class="d-scale-text" style="${fontOnly(f.s)}font-size:${sz};color:${tc()};letter-spacing:${parseInt(sz)>=36?'-0.02em':'0.01em'};">The quick brown fox jumps over the lazy dog</span>`;
     scale.appendChild(row);
   });
 
@@ -2705,7 +3551,7 @@ function openDetail(f) {
     // Extract font-family from style string
     const ffMatch = f.s.match(/font-family:[^;]+/);
     const ff = ffMatch ? ffMatch[0] : "font-family:'Inter Tight',sans-serif";
-    row.innerHTML = `<span class="d-weight-label">${l} · ${w}</span><span class="d-weight-sample" style="${ff};font-weight:${w};color:#fff;">Typeset</span>`;
+    row.innerHTML = `<span class="d-weight-label">${l} · ${w}</span><span class="d-weight-sample" style="${ff};font-weight:${w};color:${tc()};letter-spacing:-0.01em;">Typeset</span>`;
     weights.appendChild(row);
   });
 
@@ -2716,7 +3562,7 @@ function openDetail(f) {
     const d = document.createElement('div');
     d.className = 'd-num-cell';
     d.style.cssText = f.s;
-    d.style.color = '#fff';
+    d.style.color = tc();
     d.style.fontSize = 'clamp(20px,3vw,44px)';
     d.style.padding = '28px 8px';
     d.style.textAlign = 'center';
@@ -2731,26 +3577,25 @@ function openDetail(f) {
   '!@#$%&*()_+-=[]{}|;:,./<>?~`\'"\\^'.split('').forEach(ch => {
     const d = document.createElement('div');
     d.className = 'd-special';
-    d.style.cssText = f.s;
+    d.style.fontFamily = (f.s.match(/font-family:[^;]+/) || ['font-family:inherit'])[0].replace('font-family:','');
+    d.style.fontWeight = (f.s.match(/font-weight:[^;]+/) || ['font-weight:400'])[0].replace('font-weight:','');
     d.style.color = 'var(--subtle)';
     d.style.fontSize = '20px';
+    d.style.letterSpacing = 'normal';
     d.textContent = ch;
     specials.appendChild(d);
   });
 
   // ── pull quote ──
-  document.getElementById('dQuoteText').style.cssText = f.s;
-  document.getElementById('dQuoteText').style.cssText += `;font-size:clamp(22px,3vw,38px);line-height:1.3;color:#fff;letter-spacing:-1px;max-width:700px;margin-bottom:16px;`;
+  document.getElementById('dQuoteText').style.cssText = fontOnly(f.s) + `font-size:clamp(22px,3vw,38px);line-height:1.3;color:${tc()};letter-spacing:-0.02em;max-width:700px;margin-bottom:16px;`;
   document.getElementById('dQuoteText').textContent = `"${ex.quote}"`;
   document.getElementById('dQuoteAttr').textContent = `— A note on ${f.n}`;
 
   // ── paragraphs ──
-  document.getElementById('dParaLg').style.cssText = f.s;
-  document.getElementById('dParaLg').style.cssText += `;font-size:clamp(18px,2.5vw,28px);line-height:1.55;color:#fff;margin-bottom:24px;letter-spacing:-0.3px;`;
+  document.getElementById('dParaLg').style.cssText = fontOnly(f.s) + `font-size:clamp(18px,2.5vw,28px);line-height:1.55;color:${tc()};margin-bottom:24px;letter-spacing:0.01em;`;
   document.getElementById('dParaLg').textContent = `${f.n} is ${f.d.split('.')[0].toLowerCase()}. Its character is defined by ${f.t.join(', ').toLowerCase()} qualities that make it uniquely suited to ${f.t[0].toLowerCase()} contexts.`;
 
-  document.getElementById('dParaSm').style.cssText = f.s;
-  document.getElementById('dParaSm').style.cssText += `;font-size:14px;line-height:1.8;color:var(--subtle);border-left:2px solid var(--border);padding-left:20px;`;
+  document.getElementById('dParaSm').style.cssText = fontOnly(f.s) + `font-size:14px;line-height:1.8;color:var(--subtle);border-left:2px solid var(--border);padding-left:20px;letter-spacing:0.01em;`;
   document.getElementById('dParaSm').textContent = `Typography is an ancient craft, but ${f.n} approaches it with a contemporary lens. Each letterform has been considered not just in isolation, but in context — how it performs at 12px in a data table, how it sings at 96px on a billboard, and everything in between. ${ex.classify} characteristics define its personality, while ${ex.foundry}'s craftsmanship ensures it excels at every point size.`;
 
   // ── metadata ──
@@ -2763,10 +3608,10 @@ function openDetail(f) {
     : `<span class="d-license-badge">${ex.license}</span>`;
   const isVariable = ex.variants.toLowerCase().includes('variable');
   const rows = [
-    {k:'Foundry', v:`<span style="color:#fff;font-weight:600;">${ex.foundry}</span>`},
-    {k:'Year', v:`<span style="color:#fff;font-weight:600;">${ex.year}</span>`},
-    {k:'Classification', v:`<span style="color:#fff;font-weight:600;">${ex.classify}</span>`},
-    {k:'Variants', v:`<span style="color:#fff;font-weight:500;font-size:10px;text-align:right;">${ex.variants}</span>`},
+    {k:'Foundry', v:`<span style="color:${tc()};font-weight:600;">${ex.foundry}</span>`},
+    {k:'Year', v:`<span style="color:${tc()};font-weight:600;">${ex.year}</span>`},
+    {k:'Classification', v:`<span style="color:${tc()};font-weight:600;">${ex.classify}</span>`},
+    {k:'Variants', v:`<span style="color:${tc()};font-weight:500;font-size:10px;text-align:right;">${ex.variants}</span>`},
     {k:'License', v:licBadge},
     isVariable ? {k:'Variable', v:`<span class="d-license-badge variable">Variable Font</span>`} : null,
   ].filter(Boolean);
@@ -2830,11 +3675,11 @@ function openDetail(f) {
     card.className = 'd-pair-card';
     card.innerHTML = `
       <div class="d-pair-role">${pair.role}</div>
-      <div class="d-pair-names" style="${f.s}color:#fff;">${f.n} <span style="${pStyle}color:var(--subtle);"> + ${pair.font}</span></div>
+      <div class="d-pair-names" style="${fontOnly(f.s)}color:${tc()};font-size:18px;letter-spacing:-0.02em;">${f.n} <span style="${fontOnly(pStyle)}color:var(--subtle);"> + ${pair.font}</span></div>
       <div class="d-pair-desc">${pair.desc}</div>
       <div class="d-pair-demo">
-        <div class="d-pair-demo-h" style="${f.s}color:#fff;font-size:22px;letter-spacing:-0.5px;">Design is intelligence made visible.</div>
-        <div class="d-pair-demo-p" style="${pStyle}color:var(--subtle);font-size:13px;line-height:1.7;">The combination of ${f.n} and ${pair.font} creates a visual hierarchy that guides the eye through content with confidence and clarity.</div>
+        <div class="d-pair-demo-h" style="${fontOnly(f.s)}color:${tc()};font-size:22px;letter-spacing:-0.02em;">Design is intelligence made visible.</div>
+        <div class="d-pair-demo-p" style="${fontOnly(pStyle)}color:var(--subtle);font-size:13px;line-height:1.7;letter-spacing:0.01em;">The combination of ${f.n} and ${pair.font} creates a visual hierarchy that guides the eye through content with confidence and clarity.</div>
       </div>
     `;
     pairs.appendChild(card);
@@ -2880,6 +3725,8 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     ['aboutModal','contactModal','shareModal'].forEach(id => closeModal(id));
     closeDetail();
+    if (document.getElementById('blogOverlay').classList.contains('open')) closeBlog();
+    closeMobileMenu();
   }
 });
 
@@ -2895,7 +3742,7 @@ function openShare() {
     : window.location.href;
 
   const encodedUrl  = encodeURIComponent(url);
-  const encodedText = encodeURIComponent('Find the perfect typeface for any product — 50+ curated font recommendations per category. Free forever. 🔡');
+  const encodedText = encodeURIComponent('Find the perfect typeface for any product — 200+ curated font recommendations per category. Free forever. 🔡');
 
   document.getElementById('shareUrlInput').value = url;
   document.getElementById('shareTwitter').href   = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
@@ -3035,7 +3882,7 @@ function renderDailyPicks() {
         <span class="daily-card-num">${String(i+1).padStart(2,'0')}</span>
         <span class="daily-card-badge">Today's Pick</span>
       </div>
-      <div class="daily-card-preview" style="${f.s}color:#fff;">${f.p}</div>
+      <div class="daily-card-preview" style="${f.s}">${f.p}</div>
       <div class="daily-card-name">${f.n}</div>
       <div class="daily-card-desc">${f.d}</div>
       <span class="daily-card-btn">Details →</span>
@@ -3117,8 +3964,741 @@ function quickPick(cat) {
 }
 
 
-// ── INIT ──
+// ═══════════════════════════════════════
+// BLOG SYSTEM
+// ═══════════════════════════════════════
+const BLOGS = [
+  {
+    id: 1,
+    cat: "Typography Trends",
+    title: "Variable Fonts: The Future of Responsive Typography",
+    excerpt: "One font file that does the work of dozens. Variable fonts are transforming how designers build type systems for the modern web.",
+    date: "April 10, 2025",
+    read: "7",
+    tags: ["Variable Fonts","Web Typography","Performance"],
+    body: `
+      <p class="blog-p">For most of the web's history, loading a bold version of a typeface meant loading an entirely separate font file. Want light, regular, medium, semibold, bold, and black? That's six HTTP requests, six files, and a measurable hit to your page load time. <strong>Variable fonts change this equation completely.</strong></p>
+      <h2 class="blog-h2">What Exactly Is a Variable Font?</h2>
+      <p class="blog-p">A variable font is a single OpenType font file that encodes a continuous range of design variations along one or more axes. The most common axes are weight (thin to black), width (condensed to expanded), and italic (upright to slanted). But foundries are getting creative — axes for optical size, grade, or even custom expressive properties are increasingly common.</p>
+      <div class="blog-quote"><div class="blog-quote-text">"Variable fonts give designers a dial where they used to have a switch."</div><div class="blog-quote-attr">— Nick Sherman, variablefonts.io</div></div>
+      <p class="blog-p">Instead of snapping between predefined weights like 400, 600, and 700, a variable font lets you set <strong>font-weight: 523</strong> — an exact, custom value anywhere along the axis. This opens up typographic possibilities that static fonts simply can't match.</p>
+      <h2 class="blog-h2">Why Variable Fonts Matter for Performance</h2>
+      <p class="blog-p">The performance case is compelling. A typical font family with six weights might total 400–600 KB. A single variable font covering the same range often lands under 150 KB — a 60–75% reduction. For users on slow connections or mobile data, this is a meaningful difference in perceived load time.</p>
+      <div class="blog-callout"><div class="blog-callout-label">Real Numbers</div><div class="blog-callout-text">Google Fonts reports that switching to variable fonts can reduce font payload by up to <strong>75%</strong> for sites using multiple weights. Combined with <code>font-display: swap</code>, variable fonts deliver both speed and visual quality.</div></div>
+      <h2 class="blog-h2">The Best Variable Fonts Available in 2025</h2>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Inter</span><span class="blog-font-desc">The gold standard for UI variable fonts. Weight axis from 100–900, optical size variants. Free on Google Fonts.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Fraunces</span><span class="blog-font-desc">Optical display serif with weight, softness, and wonk axes. Extraordinary expressive range.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Recursive</span><span class="blog-font-desc">Monospace-to-casual variable font with five axes including a unique casual/linear axis.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Nunito Sans</span><span class="blog-font-desc">Rounded humanist with full weight and width variation. Excellent for friendly UI design.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Epilogue</span><span class="blog-font-desc">Grotesque variable font with extreme weight range. Perfect for dynamic hero typography.</span></div>
+      </div>
+      <h2 class="blog-h2">How to Implement Variable Fonts in CSS</h2>
+      <p class="blog-p">Using a variable font in CSS is straightforward. For Google Fonts, the URL syntax adds a weight range instead of a single value. For self-hosted fonts, the <code>@font-face</code> declaration uses <code>font-weight: 100 900</code> to declare the supported range.</p>
+      <div class="blog-callout"><div class="blog-callout-label">CSS Example</div><div class="blog-callout-text"><strong>@font-face</strong> { font-family: 'Inter'; src: url('Inter.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }<br><br>Then use any value: <strong>font-weight: 550</strong> — something impossible with static fonts.</div></div>
+      <h2 class="blog-h2">The Axes to Know</h2>
+      <p class="blog-p"><strong>wght (Weight)</strong> — The most common axis. 100 = thin, 900 = black. <strong>wdth (Width)</strong> — Scales letterforms from condensed to expanded. <strong>ital (Italic)</strong> — Continuous transition from upright to italic. <strong>opsz (Optical Size)</strong> — Adjusts letter proportions for small vs display use. <strong>slnt (Slant)</strong> — Oblique angle separate from true italic.</p>
+      <p class="blog-p">Variable fonts aren't just a performance optimization — they're a new creative medium. As browser support reaches near-universal coverage and more foundries release variable versions of their libraries, the question isn't whether to use variable fonts. It's how creatively you can use the axes they offer.</p>
+    `
+  },
+  {
+    id: 2,
+    cat: "Font Sizing",
+    title: "The Perfect Type Scale: A Complete Guide to Font Sizing for Web & App",
+    excerpt: "Random font sizes feel random. A proper type scale gives your UI coherence, rhythm, and visual logic that users sense even if they never consciously notice it.",
+    date: "April 3, 2025",
+    read: "9",
+    tags: ["Font Sizing","Type Scale","UI Design"],
+    body: `
+      <p class="blog-p">Open most design files and you'll find font sizes scattered like debris: 13px, 15px, 18px, 22px, 25px, 31px, 44px. No system. No logic. The result is a UI that feels vaguely off — like furniture that almost matches but doesn't quite. <strong>A type scale solves this.</strong></p>
+      <h2 class="blog-h2">What Is a Type Scale?</h2>
+      <p class="blog-p">A type scale is a set of font sizes related by a consistent mathematical ratio. Each step up multiplies the previous size by the ratio; each step down divides it. The result is a series of sizes that feel harmonious together — because they share an underlying proportion.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The Major Third Scale (1.25)</div><div class="blog-callout-text">Base 16px × 1.25 gives: <strong>12.8 · 16 · 20 · 25 · 31.25 · 39 · 48.8 · 61px</strong>. Round to integers and you have a complete, harmonious scale for any interface.</div></div>
+      <h2 class="blog-h2">Popular Scale Ratios and When to Use Them</h2>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Minor Second (1.067)</span><span class="blog-font-desc">Subtle steps. Best for dense UIs with many type levels — dashboards, data tables.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Major Second (1.125)</span><span class="blog-font-desc">Gentle progression. Works well for body-heavy reading experiences and editorial.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Minor Third (1.200)</span><span class="blog-font-desc">Balanced. The most versatile ratio. Works for SaaS products and general web.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Major Third (1.250)</span><span class="blog-font-desc">Clear visual hierarchy. Great for marketing sites and landing pages.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Perfect Fourth (1.333)</span><span class="blog-font-desc">Strong contrast between levels. Excellent for editorial and portfolio sites.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Golden Ratio (1.618)</span><span class="blog-font-desc">Dramatic jumps. Display-heavy sites, luxury brands, large-format editorial.</span></div>
+      </div>
+      <h2 class="blog-h2">The 8-Level System Used by Top Design Teams</h2>
+      <p class="blog-p">Most mature design systems use 8 defined type levels. Here's how they map to real UI contexts using a Minor Third scale at 16px base:</p>
+      <p class="blog-p"><strong>xs (10px)</strong> — Legal copy, metadata, timestamps. <strong>sm (12px)</strong> — Captions, labels, helper text. <strong>base (14px)</strong> — UI body, form fields, buttons. <strong>md (16px)</strong> — Article body, prose reading. <strong>lg (20px)</strong> — Card titles, section intros. <strong>xl (24px)</strong> — Page subtitles, feature descriptions. <strong>2xl (30px)</strong> — Page titles, modal headings. <strong>3xl (36px+)</strong> — Hero headlines, display type.</p>
+      <div class="blog-quote"><div class="blog-quote-text">"A type scale doesn't limit creativity — it gives you a vocabulary to speak with."</div><div class="blog-quote-attr">— Elliot Jay Stocks</div></div>
+      <h2 class="blog-h2">Line Height: The Most Overlooked Setting</h2>
+      <p class="blog-p">Font size without appropriate line height is like a room without breathing space. The standard guidance: <strong>1.5–1.7 for body text</strong> (16–18px), <strong>1.2–1.35 for headings</strong>, and <strong>1.0–1.1 for display type</strong> above 48px. As type gets larger, it needs tighter leading. As it gets smaller, it needs more air.</p>
+      <h2 class="blog-h2">Fluid Typography with clamp()</h2>
+      <p class="blog-p">Modern CSS allows font sizes that fluidly scale with the viewport using <code>clamp(min, preferred, max)</code>. For example: <code>font-size: clamp(32px, 6vw, 72px)</code> sets a floor of 32px on mobile, scales up with the viewport, and caps at 72px on large screens. This eliminates awkward breakpoint jumps and keeps your type proportional at every screen size.</p>
+      <div class="blog-callout"><div class="blog-callout-label">Recommended Tool</div><div class="blog-callout-text">Use <strong>typescale.com</strong> or <strong>utopia.fyi</strong> to generate complete fluid type scales. Paste the output directly into your CSS custom properties and your entire type system is done in minutes.</div></div>
+    `
+  },
+  {
+    id: 3,
+    cat: "Typeface Fundamentals",
+    title: "Serif vs Sans-Serif: The Definitive Guide for Designers in 2025",
+    excerpt: "The oldest debate in typography still matters — but the answer in 2025 is more nuanced than you might think.",
+    date: "March 28, 2025",
+    read: "8",
+    tags: ["Serif","Sans-Serif","Typography Basics"],
+    body: `
+      <p class="blog-p">Ask a designer whether to use a serif or sans-serif typeface and you'll get a confident answer. Ask a second designer and you'll get the opposite confident answer. The truth is that <strong>both camps are right — in the right context</strong>. Here's how to think about the choice clearly.</p>
+      <h2 class="blog-h2">What Makes a Serif a Serif?</h2>
+      <p class="blog-p">Serifs are the small finishing strokes at the ends of letterform stems. They trace back to Roman inscription — stone carvers used chisel strokes to finish their cuts, and the convention carried forward for two millennia. Serif typefaces are typically grouped into: <strong>Old Style</strong> (Garamond, Caslon — humanist, low contrast), <strong>Transitional</strong> (Baskerville, Times New Roman — more contrast, more regular), <strong>Modern/Didone</strong> (Bodoni, Didot — extreme contrast, geometric), and <strong>Slab/Egyptian</strong> (Rockwell, Clarendon — heavy, square serifs).</p>
+      <h2 class="blog-h2">The Legibility Myth</h2>
+      <p class="blog-p">For decades, designers were taught that serifs improve readability in long-form text because the serifs guide the eye along the baseline. <strong>Modern research doesn't support this.</strong> Multiple studies, including work from the British Dyslexia Association and various university reading labs, find no statistically significant legibility difference between serif and sans-serif typefaces at standard body sizes on screen. What matters far more: line height, line length, font size, and letter spacing.</p>
+      <div class="blog-quote"><div class="blog-quote-text">"There is no reliable evidence that either serifs or their absence meaningfully affects reading speed or comprehension."</div><div class="blog-quote-attr">— Sofie Beier, Reading Letters</div></div>
+      <h2 class="blog-h2">When Serifs Win</h2>
+      <p class="blog-p"><strong>Print and high-resolution displays:</strong> Serifs shine when pixels aren't a constraint. At print resolution (300+ DPI) or on Retina screens, the fine details of a well-made serif render beautifully. <strong>Editorial and long-form reading:</strong> Serifs carry cultural associations with authority, credibility, and depth. For newspapers, books, and long-form journalism, they establish the right register. <strong>Luxury and premium brands:</strong> High-contrast Didone serifs (Canela, Freight, Bodoni) communicate elegance, fashion, and prestige in a way grotesques simply cannot.</p>
+      <h2 class="blog-h2">When Sans-Serifs Win</h2>
+      <p class="blog-p"><strong>UI and application design:</strong> At the small sizes common in interfaces (11–14px), sans-serifs generally render more cleanly and maintain legibility better than serifs. Inter, SF Pro, and Roboto exist precisely for this reason. <strong>Tech and innovation:</strong> Grotesque sans-serifs carry associations with modernity, efficiency, and precision. They're the visual language of technology companies for a reason. <strong>Low-resolution displays:</strong> On screens below 150 DPI, serifs can appear muddy. Sans-serifs maintain clarity.</p>
+      <h2 class="blog-h2">The Best Approach: Use Both</h2>
+      <p class="blog-p">The most sophisticated typographic systems combine serif and sans-serif typefaces. A common pattern: a grotesque sans for UI, navigation, and body text; a display serif for headlines, quotes, and hero sections. The contrast creates visual rhythm and hierarchy that neither face can achieve alone. Wealthsimple (Canela + Graphik), The Guardian (Guardian Egyptian + Guardian Sans), and The New York Times (Cheltenham + Franklin Gothic) all use this strategy.</p>
+      <div class="blog-callout"><div class="blog-callout-label">Rule of Thumb</div><div class="blog-callout-text">Use serifs when you want to say <strong>authority, tradition, elegance, story.</strong> Use sans-serifs when you want to say <strong>clarity, modernity, efficiency, function.</strong> The best designs often say both.</div></div>
+    `
+  },
+  {
+    id: 4,
+    cat: "Font Pairing",
+    title: "Font Pairing Mastery: How to Combine Typefaces Like a Pro",
+    excerpt: "Bad font pairing is invisible — until someone notices. Great font pairing feels inevitable. Here's the framework that makes it systematic.",
+    date: "March 21, 2025",
+    read: "10",
+    tags: ["Font Pairing","Design Systems","Typography"],
+    body: `
+      <p class="blog-p">Font pairing is one of those skills that looks effortless when done well and catastrophically bad when done wrong. The good news: there are clear principles behind great pairings, and once you understand them, you can create harmonious combinations confidently rather than by accident.</p>
+      <h2 class="blog-h2">The Core Principle: Contrast with Harmony</h2>
+      <p class="blog-p">The fundamental goal of font pairing is <strong>sufficient contrast to create hierarchy, with enough harmony to feel unified</strong>. If two typefaces are too similar, the result is visual confusion — the reader's eye doesn't know which is dominant. If they're too different, the design feels chaotic. The sweet spot is a pairing where both fonts feel like they belong in the same room, but serve clearly different roles.</p>
+      <h2 class="blog-h2">The 5 Proven Pairing Strategies</h2>
+      <h3 class="blog-h3">1. Serif Display + Grotesque Body</h3>
+      <p class="blog-p">The most reliable pairing in contemporary design. A high-contrast editorial serif (Canela, Tiempos, Freight) for headlines, combined with a clean grotesque (Graphik, Söhne, Neue Haas) for body text. The tonal contrast between the two creates natural hierarchy while the shared design era keeps them cohesive.</p>
+      <h3 class="blog-h3">2. Same Family, Different Styles</h3>
+      <p class="blog-p">Pair a display cut with the text cut of the same typeface family. Tiempos Headline with Tiempos Text. GT Super Display with GT Super Text. The family relationship guarantees harmony while the optical size differences create hierarchy. This is the safest pairing strategy and the one used most often by editorial publications.</p>
+      <h3 class="blog-h3">3. Grotesque + Monospace</h3>
+      <p class="blog-p">Highly effective for tech products, developer tools, and data-heavy interfaces. Inter or DM Sans for UI, Space Mono or JetBrains Mono for code, data labels, and timestamps. The structural difference between proportional and monospace type creates instant visual differentiation without introducing a third typeface.</p>
+      <h3 class="blog-h3">4. Geometric + Humanist</h3>
+      <p class="blog-p">Pair a cold, precise geometric sans (Futura, Euclid) with a warm humanist serif (Freight, Lora, Libre Baskerville). The geometric provides modern efficiency; the humanist provides warmth and approachability. This contrast works especially well in healthcare, wellness, and premium consumer brands.</p>
+      <h3 class="blog-h3">5. Historical Echoes</h3>
+      <p class="blog-p">Pair typefaces that share a historical or cultural lineage. Garamond with Gill Sans (both rooted in early 20th century British typography). Bodoni with Futura (both geometric idealists from the same interwar period). The shared era creates unconscious harmony even when the styles differ.</p>
+      <h2 class="blog-h2">Proven Pairings in the Wild</h2>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Canela + Graphik</span><span class="blog-font-desc">Used by The Guardian, Wealthsimple. The definitive modern editorial pairing.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Söhne + Tiempos</span><span class="blog-font-desc">Klim Type's house pairing. Warm grotesque meets authoritative serif.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Inter + Space Mono</span><span class="blog-font-desc">The developer tool standard. Clean UI meets precise technical.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">GT Sectra + GT Walsheim</span><span class="blog-font-desc">Grilli's house pairing — editorial serif meets friendly grotesque.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Playfair Display + Source Sans</span><span class="blog-font-desc">Free pairing on Google Fonts. Dramatic display serif + neutral body.</span></div>
+      </div>
+      <h2 class="blog-h2">What Not to Do</h2>
+      <p class="blog-p"><strong>Don't pair fonts from the same category with similar proportions.</strong> Inter + DM Sans, or Garamond + Baskerville — too similar to create hierarchy, different enough to look like a mistake. <strong>Don't use more than two typefaces.</strong> Every additional typeface multiplies the chance of incoherence. If you need variety, explore the weight and style range within your chosen pair. <strong>Don't ignore historical context.</strong> Pairing a futuristic grotesque with a Victorian display serif creates jarring tonal conflict unless that conflict is intentional.</p>
+      <div class="blog-callout"><div class="blog-callout-label">Quick Test</div><div class="blog-callout-text">Set your two fonts side by side at the same size. If they look like <strong>strangers</strong>, the pairing won't work. If they look like <strong>twins</strong>, you'll lose hierarchy. You want them to look like <strong>colleagues</strong> — clearly different roles, clearly the same organization.</div></div>
+    `
+  },
+  {
+    id: 5,
+    cat: "Typography Trends",
+    title: "Typography Trends 2025: Bold, Variable, and Delightfully Human",
+    excerpt: "After years of minimal grotesques, typography in 2025 is getting expressive, tactile, and alive. Here's what's driving the shift and how to use it.",
+    date: "March 14, 2025",
+    read: "8",
+    tags: ["Trends 2025","Variable Fonts","Expressive Type"],
+    body: `
+      <p class="blog-p">For the better part of a decade, the dominant typographic aesthetic on the web was Swiss minimalism: neutral grotesques, restrained weights, generous white space. Inter, Helvetica Now, Graphik. Clean. Reliable. Sometimes boring. In 2025, <strong>designers are pushing back</strong>.</p>
+      <h2 class="blog-h2">1. The Serif Revival</h2>
+      <p class="blog-p">Serifs are having their biggest moment in digital design since the 1990s. Not the clunky web-safe serifs of the early internet, but sophisticated, screen-optimized display serifs like Canela, Tiempos, GT Super, and Editorial New. The trigger: higher-resolution displays now render fine serif details beautifully, eliminating the legibility concerns that pushed designers toward sans-serifs. Brands like Wealthsimple, Net-a-Porter, and The Guardian are leading this return to typographic richness.</p>
+      <h2 class="blog-h2">2. Variable Fonts Everywhere</h2>
+      <p class="blog-p">As browser support reaches near-100%, variable fonts are shifting from technical curiosity to design tool. <strong>Framer and Figma both support variable font axis manipulation</strong>, meaning designers can explore typographic possibilities that static fonts couldn't offer. Brands are using extreme weight values mid-sentence, responsive optical sizing, and animated weight transitions to create type that feels alive.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The Adidas Approach</div><div class="blog-callout-text">Adidas's custom variable font morphs between widths as the viewport changes — same font file, completely different personality at different sizes. This is the future of responsive branding.</div></div>
+      <h2 class="blog-h2">3. Expressive Anti-Design</h2>
+      <p class="blog-p">Charli XCX's Brat summer wasn't just a music moment — it was a typographic manifesto. Scrappy, intentionally imperfect, Microsoft-Paint-coded typography became one of the most discussed design moments of 2024 and carried into 2025. The trend represents a reaction against AI-polished aesthetics: designers are embracing irregularity, imperfection, and raw human energy in their type choices. Independent labels, fashion brands, and cultural institutions are leading this move.</p>
+      <h2 class="blog-h2">4. Condensed Brutalism</h2>
+      <p class="blog-p">Ultra-condensed grotesques — Bebas Neue, Barlow Condensed, Big Shoulders Display — are appearing in high-end branding contexts, not just gaming and sports. The appeal: maximum typographic impact in minimum horizontal space, with a structural, architectural quality that feels confident and uncompromising. When used well, condensed brutalism communicates exactly one thing: we mean business.</p>
+      <h2 class="blog-h2">5. Handwritten and Organic</h2>
+      <p class="blog-p">As AI-generated imagery floods every visual channel, handwritten and organic typefaces are becoming premium signals of authenticity. The fonts that feel handmade — slightly uneven baselines, variable stroke width, calligraphic curves — communicate humanity in a way that AI can't fake. Brands using these fonts aren't signaling nostalgia. They're signaling: <strong>there are real humans behind this.</strong></p>
+      <h2 class="blog-h2">6. Heritage Fonts Make a Comeback</h2>
+      <p class="blog-p">Prada, Chanel, and Burberry have always owned their typographic heritage. In 2025, this institutional confidence is spreading to smaller brands. Ornamental serifs, hand-stamped logotype aesthetics, and stamps of authority are appearing in DTC brands, food packaging, and lifestyle products that want to communicate permanence in an era of ephemeral content.</p>
+      <p class="blog-p">The overarching story of 2025 typography is this: <strong>personality is back</strong>. After years of design systems optimized for consistency above all else, designers are reclaiming expressive territory. The typefaces winning attention are those that feel like someone made a considered, distinctive choice — not the path of least resistance.</p>
+    `
+  },
+  {
+    id: 6,
+    cat: "Brand Identity",
+    title: "How to Choose the Right Typeface for Your Brand: A Systematic Framework",
+    excerpt: "Your brand's typeface speaks before your headline does. Here's a step-by-step framework for making that choice with clarity and confidence.",
+    date: "March 7, 2025",
+    read: "9",
+    tags: ["Brand Identity","Typeface Selection","Strategy"],
+    body: `
+      <p class="blog-p">Most brand typeface decisions happen one of two ways: a founder picks a font they like personally, or a designer defaults to their current favorite. Neither approach produces a typeface that genuinely expresses what the brand is and who it's for. <strong>A systematic framework produces better results.</strong></p>
+      <h2 class="blog-h2">Step 1: Define Your Brand Personality in Adjective Pairs</h2>
+      <p class="blog-p">Before looking at a single typeface, articulate your brand personality using opposing adjective pairs. Place yourself on each spectrum: Warm ←→ Cool. Playful ←→ Serious. Approachable ←→ Exclusive. Modern ←→ Heritage. Simple ←→ Complex. These positions directly map to typographic qualities. A warm, approachable, modern brand will choose a very different typeface than a cool, exclusive, heritage brand — and the framework makes that clear.</p>
+      <h2 class="blog-h2">Step 2: Understand Your Industry's Typographic Conventions</h2>
+      <p class="blog-p">Every industry has typographic conventions — and deciding whether to follow them or break them is a strategic choice. Fintech uses Swiss grotesques because they communicate precision and trustworthiness. Luxury fashion uses high-contrast serifs because they communicate rarity and craftsmanship. Healthcare uses humanist sans-serifs because they communicate care and approachability.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The Convention Test</div><div class="blog-callout-text">Look at the 10 most successful brands in your category. What typeface families do they use? If 8 out of 10 use grotesque sans-serifs, going with a display serif is either a differentiator or a mistake — and only your brand strategy can tell you which.</div></div>
+      <h2 class="blog-h2">Step 3: Map Typeface Categories to Brand Values</h2>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Humanist Grotesque</span><span class="blog-font-desc">Warm, approachable, modern. Best for: consumer tech, healthcare, education, friendly SaaS.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Geometric Sans</span><span class="blog-font-desc">Precise, modern, neutral. Best for: B2B SaaS, fintech, developer tools, enterprise.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Display Serif</span><span class="blog-font-desc">Authoritative, editorial, prestigious. Best for: luxury, finance, editorial, law.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Transitional Serif</span><span class="blog-font-desc">Trustworthy, established, readable. Best for: publishing, academic, traditional finance.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Condensed Grotesque</span><span class="blog-font-desc">Bold, impactful, confident. Best for: sports, gaming, media, entertainment brands.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Rounded Sans</span><span class="blog-font-desc">Friendly, playful, accessible. Best for: consumer apps, children's products, food & beverage.</span></div>
+      </div>
+      <h2 class="blog-h2">Step 4: Consider the Full Context</h2>
+      <p class="blog-p">A typeface that looks brilliant on a full-screen billboard may be unreadable on a mobile notification. Evaluate your chosen typeface across every context where your brand appears: <strong>small UI (10–14px)</strong>, <strong>body text (16–20px)</strong>, <strong>headings (24–48px)</strong>, <strong>display (64px+)</strong>, <strong>print and physical materials</strong>, and <strong>screen-only digital contexts</strong>. A brand typeface must perform beautifully at all of these.</p>
+      <h2 class="blog-h2">Step 5: Budget and Licensing Reality</h2>
+      <p class="blog-p">Premium typefaces from Klim Type, Commercial Type, and Grilli Type cost $500–$5000+ for commercial licensing. This is money well spent for established brands — the difference in quality and distinctiveness is real. For early-stage companies, Google Fonts and Fontshare offer professional quality at zero cost. <strong>General Sans, Satoshi, Cabinet Grotesk, and Instrument Sans</strong> are free fonts that compete credibly with premium options.</p>
+      <div class="blog-quote"><div class="blog-quote-text">"The right typeface for your brand isn't the most beautiful font you've ever seen. It's the one that most accurately speaks your brand's voice."</div><div class="blog-quote-attr">— Tobias Frere-Jones</div></div>
+    `
+  },
+  {
+    id: 7,
+    cat: "Psychology",
+    title: "The Psychology of Fonts: What Your Typeface Communicates Before You Say a Word",
+    excerpt: "Typography is the body language of text. Before anyone reads your words, they've already formed an impression — based entirely on the shape of your letters.",
+    date: "February 28, 2025",
+    read: "7",
+    tags: ["Psychology","Brand Perception","Typography"],
+    body: `
+      <p class="blog-p">In 1974, psychologist Robert Cialdini demonstrated that physical attractiveness creates a halo effect — we unconsciously attribute positive qualities (intelligence, trustworthiness, competence) to people we find attractive. Typography creates the same effect. Research shows that typeface choice <strong>directly influences perceived credibility, competence, warmth, and even pricing expectations</strong> before a single word is read.</p>
+      <h2 class="blog-h2">The Research Is Clear</h2>
+      <p class="blog-p">A 2012 study by Errol Morris in The New York Times tested reader belief in identical text set in different typefaces. Text set in <strong>Baskerville</strong> was rated as most credible. Text set in Comic Sans was rated as least credible. The content was word-for-word identical. Studies at MIT and the University of Melbourne have found similar effects — typeface choice consistently influences judgments of professionalism, warmth, and trustworthiness.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The Baskerville Effect</div><div class="blog-callout-text">Errol Morris's experiment found that text in Baskerville was perceived as most true by a statistically significant margin over Georgia, Helvetica, Times New Roman, and Comic Sans. Morris concluded: <strong>"Baskerville is to the font world what a well-tailored suit is to the business world."</strong></div></div>
+      <h2 class="blog-h2">What Each Font Category Communicates</h2>
+      <h3 class="blog-h3">Geometric Sans-Serifs → Precision and Modernity</h3>
+      <p class="blog-p">Futura, Gill Sans, and their descendants communicate rationality, order, and forward-thinking. Their circular letter O's and mathematical proportions signal that the organization behind them values efficiency and clarity. Apple has used this language for decades; tech companies continue to default to it because the association is so strong.</p>
+      <h3 class="blog-h3">Humanist Grotesques → Warmth and Approachability</h3>
+      <p class="blog-p">Fonts like Gill Sans, Myriad, and Frutiger were designed with human proportions rather than geometric ideals. Their slightly irregular letterforms signal warmth and approachability — they feel made by a person, not derived from a compass. Healthcare brands, consumer tech, and educational products lean on this quality.</p>
+      <h3 class="blog-h3">Transitional Serifs → Authority and Credibility</h3>
+      <p class="blog-p">Baskerville, Times New Roman, and their cousins carry centuries of association with scholarship, journalism, and legal authority. Using them signals that you're serious, established, and not here to be questioned. Banks and law firms use them precisely because breaking that association would undermine trust.</p>
+      <h3 class="blog-h3">Display Serifs → Luxury and Exclusivity</h3>
+      <p class="blog-p">Bodoni, Didot, and their contemporary equivalents (Canela, Freight Display) communicate rarity and craft. The extreme contrast between thick and thin strokes is technically demanding to produce — historically, only the finest typographers and printers could execute it well. That association with craftsmanship persists, making high-contrast serifs the visual language of luxury goods worldwide.</p>
+      <h2 class="blog-h2">The Price Perception Effect</h2>
+      <p class="blog-p">Research by graphic designer Inge Druckrey found that identical products displayed with serif fonts were priced significantly higher by consumers than the same products displayed with sans-serif fonts. Wine labels, restaurant menus, and luxury packaging all exploit this: the serif whispers <strong>"this is worth more."</strong></p>
+      <p class="blog-p">Typography is not neutral. Every typeface choice is a psychological statement — whether intentional or not. The designers who understand this use it deliberately. The ones who don't, make it accidentally.</p>
+    `
+  },
+  {
+    id: 8,
+    cat: "Web Typography",
+    title: "Web Typography Best Practices: Line Height, Spacing, and Readability in 2025",
+    excerpt: "Choosing a beautiful typeface is the beginning, not the end. How you set it — line height, letter spacing, measure — determines whether it's actually readable.",
+    date: "February 21, 2025",
+    read: "8",
+    tags: ["Readability","Line Height","Web Typography"],
+    body: `
+      <p class="blog-p">The best typeface in the world, set badly, is worse than a mediocre typeface set well. Typography is 90% about how you use the type, not which type you choose. The variables that most affect reading experience — line height, measure, letter spacing, paragraph spacing — are also the most frequently neglected.</p>
+      <h2 class="blog-h2">Line Height: The Single Most Important Setting</h2>
+      <p class="blog-p">Line height (leading) is the vertical space between baselines. Too tight and lines feel claustrophobic, slowing reading. Too loose and the eye loses the horizontal thread and jumps to the wrong line. The research-backed sweet spots: <strong>1.5–1.7× for body text</strong> (most content at 16–20px), <strong>1.2–1.35× for headings</strong>, and <strong>1.0–1.1× for display type</strong> above 48px.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The CSS Rule</div><div class="blog-callout-text">Use unitless line-height values (line-height: 1.6) rather than pixel values. Unitless values scale proportionally with font-size changes and are inherited correctly by child elements. <strong>line-height: 1.6</strong> is the single best default you can set for body text.</div></div>
+      <h2 class="blog-h2">Measure: The Forgotten Variable</h2>
+      <p class="blog-p">Measure is the length of a line of text. The optimal measure for comfortable reading is <strong>45–75 characters per line</strong> (the "66-character rule" is a useful heuristic). Lines shorter than 45 characters force too many hyphenations and create a choppy rhythm. Lines longer than 75 characters force excessive lateral eye movement, increasing reading fatigue.</p>
+      <p class="blog-p">In CSS: set a <code>max-width</code> of roughly <strong>65ch</strong> (65 character widths) on your body text container. The <code>ch</code> unit, equal to the width of the "0" character, is the most semantically appropriate unit for controlling text measure.</p>
+      <h2 class="blog-h2">Letter Spacing: Touch With Care</h2>
+      <p class="blog-p">Letter spacing (tracking) modifies the space between all characters in a text block. The most important rule: <strong>never add positive tracking to lowercase body text</strong>. Type designers spend enormous effort setting the optimal spacing into the letterforms themselves. Adding tracking to body text disrupts this, creating an airy, disconnected quality that slows reading.</p>
+      <p class="blog-p">Where tracking helps: <strong>all-caps text</strong> (add 0.05–0.12em to uppercase labels and headings), <strong>small text below 12px</strong> (slightly positive tracking aids legibility), and <strong>display type at very large sizes</strong> (slight negative tracking tightens headlines that would otherwise feel loose).</p>
+      <h2 class="blog-h2">Paragraph Spacing</h2>
+      <p class="blog-p">Paragraph spacing should be between 1× and 1.5× your line height. In practice: set <code>margin-bottom</code> on paragraphs to roughly 1em. This creates clear paragraph delineation without the wasteful blank-line gap common in early web typography. A tighter 0.75em works well in UI contexts; a wider 1.5em suits long-form editorial reading.</p>
+      <h2 class="blog-h2">Responsive Typography Checklist</h2>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Base size: 16–18px</span><span class="blog-font-desc">Never set body text smaller than 16px. 18px is the current gold standard for comfortable reading.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Line height: 1.6</span><span class="blog-font-desc">Default for body text. Reduce to 1.25 for headings, 1.0 for display type.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Measure: max-width 65ch</span><span class="blog-font-desc">Constrain body text columns for comfortable reading across all screen sizes.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Color contrast: 4.5:1</span><span class="blog-font-desc">WCAG AA minimum for normal text. Test with accessible-colors.com.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Font weight: 400 body, 600+ headings</span><span class="blog-font-desc">Light weights below 300 struggle on non-retina displays. Default to regular weight for body text.</span></div>
+      </div>
+      <div class="blog-quote"><div class="blog-quote-text">"Typography is the detail and presentation of a story. It represents the voice of an atmosphere, or historical setting of some kind."</div><div class="blog-quote-attr">— Cyrus Highsmith</div></div>
+    `
+  },
+  {
+    id: 9,
+    cat: "Google Fonts",
+    title: "The 10 Best Free Google Fonts for Serious Designers in 2025",
+    excerpt: "Free doesn't mean generic. These Google Fonts compete directly with premium options — and some designers prefer them regardless of budget.",
+    date: "February 14, 2025",
+    read: "6",
+    tags: ["Google Fonts","Free Fonts","Recommendations"],
+    body: `
+      <p class="blog-p">Google Fonts has a reputation problem it doesn't entirely deserve. Yes, the library contains thousands of fonts of varying quality, and yes, Inter, Roboto, and Open Sans have been so widely used they've become visual wallpaper. But buried in the library — and increasingly prominent in it — are fonts of genuine quality that compete credibly with the best premium offerings. <strong>Here are the ten that actually matter in 2025.</strong></p>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">1. Inter</span><span class="blog-font-desc">Rasmus Andersson's masterwork. Variable font with outstanding hinting and optical sizing. The most practical UI font ever released. Used by Linear, Vercel, Figma, and thousands of serious products.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">2. Playfair Display</span><span class="blog-font-desc">A high-contrast transitional serif with beautiful italics. Renders dramatically at display sizes. The free typeface most often mistaken for a premium one.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">3. Fraunces</span><span class="blog-font-desc">A "wonky" optical variable serif with weight, softness, and wonk axes. Technically sophisticated and visually distinctive. The most underused font on this list.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">4. Bricolage Grotesque</span><span class="blog-font-desc">Variable grotesque with wood type references. Expressive, modern, excellent for SaaS marketing. Recently added and rapidly gaining traction.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">5. DM Sans</span><span class="blog-font-desc">Geometric sans designed for digital interfaces. Collab between Colophon Foundry and Google. High x-height, excellent legibility at small sizes.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">6. Cormorant Garamond</span><span class="blog-font-desc">A Garamond revival with extreme contrast and elegant italics. Competes with premium display serifs. Free and widely available, yet rarely overused.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">7. Space Grotesk</span><span class="blog-font-desc">Tech-coded grotesque with subtle quirks at large sizes. Popular in Web3, AI tools, and developer-focused products. Has character without being loud.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">8. Newsreader</span><span class="blog-font-desc">Designed by Production Type specifically for news and long-form reading. Multiple optical sizes. Exceptional body text performance.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">9. Instrument Sans</span><span class="blog-font-desc">Recently promoted to variable status. Geometric humanist with clean proportions. Increasingly used as an Inter alternative by designers wanting something slightly less ubiquitous.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">10. EB Garamond</span><span class="blog-font-desc">Georg Mayr-Duffner's meticulous Garamond revival. Beautiful italics, classical pedigree. The free font most suited to literary, scholarly, and long-form contexts.</span></div>
+      </div>
+      <h2 class="blog-h2">The Ones to Avoid</h2>
+      <p class="blog-p">Not all popular Google Fonts deserve their popularity. <strong>Lato, Raleway, and Montserrat</strong> were excellent choices in 2015 but are now so overused in generic websites and templates that they signal "default design decision" rather than intentional choice. <strong>Comic Sans</strong> and <strong>Pacifico</strong> have legitimate use cases, but they require extreme intentionality to not appear amateurish.</p>
+      <div class="blog-callout"><div class="blog-callout-label">Also Worth Exploring: Fontshare</div><div class="blog-callout-text">Beyond Google Fonts, <strong>fontshare.com</strong> (by Indian Type Foundry) offers 100+ high-quality fonts completely free for commercial use — including Satoshi, Cabinet Grotesk, General Sans, and Editorial New. These are often more distinctive than equivalent Google Fonts.</div></div>
+    `
+  },
+  {
+    id: 10,
+    cat: "Advanced Typography",
+    title: "Custom Typefaces vs. System Fonts: The Decision Every Scaling Brand Faces",
+    excerpt: "At some point, every successful brand asks: should we have our own font? Here's how to think through one of the most consequential design decisions you'll make.",
+    date: "February 7, 2025",
+    read: "9",
+    tags: ["Custom Fonts","Brand Identity","Performance"],
+    body: `
+      <p class="blog-p">When GitHub redesigned with Mona Sans and Hubot Sans, they weren't just changing fonts. They were making a statement: <strong>we are large enough and distinct enough to have our own typographic voice.</strong> When Vercel released Geist, same story. When IBM commissioned Plex from Bold Monday, same. Custom typefaces are increasingly how serious companies at scale communicate their identity — but they're not right for everyone, and the decision deserves careful thought.</p>
+      <h2 class="blog-h2">The Case for a Custom Typeface</h2>
+      <p class="blog-p"><strong>Distinctive identity at every touchpoint.</strong> A custom typeface is, by definition, used by exactly one brand. When you see Mona Sans on a GitHub page, you know it's GitHub. When you see Apple's San Francisco, you know it's Apple. No other brand can accidentally use your font, diluting your visual identity.</p>
+      <p class="blog-p"><strong>Perfect fit for your specific needs.</strong> Commercial typefaces are designed for general use. A custom type project can encode your brand's specific values, support exactly the scripts and languages you need, and perform optimally at the exact sizes and weights your product uses.</p>
+      <p class="blog-p"><strong>Long-term cost efficiency.</strong> A commercial license for a major typeface family across all platforms (web, app, print, video) can cost $10,000–$50,000+ annually. At that scale, commissioning a custom typeface for $100,000–$500,000 that you own outright becomes economically rational within 3–5 years.</p>
+      <h2 class="blog-h2">The Case Against (For Now)</h2>
+      <div class="blog-callout"><div class="blog-callout-label">The Reality Check</div><div class="blog-callout-text">Custom typeface projects typically take <strong>12–24 months</strong> and cost <strong>$80,000–$500,000</strong> for a full, well-executed type family. They require a dedicated type director or an experienced type foundry relationship. For most companies under $50M ARR, the money is better spent elsewhere.</div></div>
+      <h2 class="blog-h2">The Middle Path: Licensed Exclusive or Modified</h2>
+      <p class="blog-p">Between a fully custom typeface and an off-the-shelf license, several options exist. <strong>Exclusive licensing</strong> involves paying a foundry for exclusivity within your industry — you use their typeface, but competitors can't. <strong>Type customization</strong> involves commissioning modifications to an existing typeface: custom alternate characters, extended language support, or bespoke weight adjustments. This can deliver significant distinctiveness at 20–30% of a full custom project cost.</p>
+      <h2 class="blog-h2">System Fonts: More Relevant Than Ever?</h2>
+      <p class="blog-p">System fonts — the fonts already installed on users' devices — were the performance solution of the 2010s. No download, instant rendering, zero font flash. The argument was compelling then. In 2025, with HTTP/2 parallelized loading, edge CDN font serving (Google Fonts, Cloudflare Fonts), and service worker caching, the performance case for system fonts is weaker. <strong>San Francisco on Mac renders beautifully. But on Windows, Android, and Linux, you're at the mercy of each OS's system font — and the variation is significant.</strong></p>
+      <h2 class="blog-h2">The 2025 Recommendation</h2>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Seed stage / Early startup</span><span class="blog-font-desc">Google Fonts or Fontshare. Zero cost, professional quality. Focus budget on product.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Series A–B</span><span class="blog-font-desc">Premium licensed typeface (Klim, Grilli, Commercial Type). $500–$5k/year. Worth it for brand credibility.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Series C+ / Enterprise</span><span class="blog-font-desc">Consider custom modification or exclusive licensing. Evaluate full custom in 2–3 years.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Established brand / IPO ready</span><span class="blog-font-desc">Full custom typeface. Commission from a top foundry. Own your typographic identity completely.</span></div>
+      </div>
+      <p class="blog-p">The right answer depends on your stage, your budget, and how central visual identity is to your competitive differentiation. What's non-negotiable: <strong>make the decision intentionally.</strong> The brands that get this right treat typography as a strategic asset, not a default setting.</p>
+    `
+  },
+  {
+    id: 11,
+    cat: "Foundry Spotlight",
+    title: "Klim Type Foundry: The Studio Behind the Web's Best Typefaces",
+    excerpt: "Söhne, Tiempos, Founders Grotesk, Signifier. Kris Sowersby's New Zealand studio has quietly become the most influential type foundry of the 21st century.",
+    date: "May 2, 2025",
+    read: "7",
+    tags: ["Klim Type","Foundry","Premium Fonts"],
+    body: `
+      <p class="blog-p">If you've used the web in the last decade, you've almost certainly read type by Kris Sowersby without knowing it. The New Zealand designer behind Klim Type Foundry has produced some of the most widely deployed — and most quietly excellent — typefaces in contemporary digital design.</p>
+      <h2 class="blog-h2">Who Is Kris Sowersby?</h2>
+      <p class="blog-p">Sowersby founded Klim Type Foundry in Wellington in 2005 after studying graphic design at Massey University. What distinguishes his practice from most type designers is his commitment to deep research: every Klim typeface begins with historical study of precursor forms, followed by exhaustive screen optimization. <strong>The result is type that feels contemporary but rooted — modern without being trendy.</strong></p>
+      <h2 class="blog-h2">The Klim Catalog: A Brief Tour</h2>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Söhne (2019)</span><span class="blog-font-desc">Inspired by Helvetica as it was set for the Neue Grafik magazine in the 1960s. The warmest, most human grotesque in contemporary use. Figma and Pitch's choice.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Tiempos (2012)</span><span class="blog-font-desc">A transitional serif family with Headline and Text optical sizes. The definitive editorial serif for the web. Used by the New York Times and Robinhood.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Founders Grotesk (2010)</span><span class="blog-font-desc">Based on early 20th century grotesque sources. Warm, slightly eccentric, deeply humanist.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Signifier (2020)</span><span class="blog-font-desc">Sharp, angular serif influenced by 17th century type. Angular and distinctive. Used by Brex and Rest of World.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Domaine (2013)</span><span class="blog-font-desc">Display and text serif combining French Renaissance and 18th century forms. Goop's foundational typeface.</span></div>
+      </div>
+      <h2 class="blog-h2">The Klim House Style</h2>
+      <p class="blog-p">Looking across the catalog, patterns emerge. Sowersby consistently produces typefaces with <strong>warmth over coldness</strong>, rooted in historical sources but adapted for screen, and optimized across a wide range of optical sizes. There's a generosity to Klim type — letterforms that seem to expand slightly in the eye, giving reading more air than the metrics suggest.</p>
+      <div class="blog-quote"><div class="blog-quote-text">"I want fonts that feel inevitable. That when you see them in use, you think: of course that's the right typeface."</div><div class="blog-quote-attr">— Kris Sowersby</div></div>
+      <h2 class="blog-h2">The Klim House Pairing</h2>
+      <p class="blog-p">Söhne paired with Tiempos is arguably the most influential typographic pairing of the 2010s digital era. Deployed together, they achieve something remarkable: the Söhne body text feels warm and modern while the Tiempos headlines carry editorial authority. Wealthsimple's brand identity, widely cited as one of the best-designed financial products ever made, is built entirely on this foundation.</p>
+      <p class="blog-p">For anyone serious about their typographic practice, the Klim catalog deserves study. Not just as a collection of fonts to license, but as an ongoing lesson in how historical scholarship and contemporary craft can produce type that genuinely endures.</p>
+    `
+  },
+  {
+    id: 12,
+    cat: "Design Systems",
+    title: "Building a Typography Design System: From Tokens to Components",
+    excerpt: "A type system isn't just a list of font sizes. Done properly, it's a set of decisions that propagates consistent, intentional typography across every surface of your product.",
+    date: "May 9, 2025",
+    read: "10",
+    tags: ["Design Systems","Tokens","Type Scale"],
+    body: `
+      <p class="blog-p">Typography in a design system is not a solved problem you set once and forget. It's a living system of decisions — decisions about scale, hierarchy, responsiveness, and semantic meaning — that needs maintenance, documentation, and intentional evolution. Most teams underinvest in this and pay the cost in inconsistency, design debt, and hours lost to "what font size should this be?"</p>
+      <h2 class="blog-h2">Layer 1: Type Tokens</h2>
+      <p class="blog-p">The foundation of any type system is its token layer — named values that represent your typographic decisions. Tokens come in two varieties: <strong>global tokens</strong> (the raw scale: font-size-12, font-size-14, font-size-16) and <strong>semantic tokens</strong> (named by purpose: font-body-base, font-heading-lg, font-label-sm). The semantic layer is what makes a system actually usable.</p>
+      <div class="blog-callout"><div class="blog-callout-label">Example Token Structure</div><div class="blog-callout-text"><strong>Global:</strong> --font-size-xs: 11px; --font-size-sm: 13px; --font-size-base: 15px;<br><strong>Semantic:</strong> --font-label: var(--font-size-xs); --font-body: var(--font-size-base); --font-heading-md: var(--font-size-xl);<br><br>This two-layer approach means you can retheme your product's type scale by changing global tokens without touching semantic ones.</div></div>
+      <h2 class="blog-h2">Layer 2: Text Styles</h2>
+      <p class="blog-p">Text styles combine token values into named compositions: a specific font-family, font-size, font-weight, line-height, and letter-spacing in one named unit. In Figma, these are text styles. In code, they're CSS classes or utility combinations. Every text style should have a single, clear purpose. <strong>Don't create styles you won't use; delete styles that haven't been used in 60 days.</strong></p>
+      <h2 class="blog-h2">Layer 3: Typography Components</h2>
+      <p class="blog-p">Above text styles are components: Heading, Body, Label, Caption, Code. These components encapsulate not just visual style but semantic HTML — a Heading component renders the correct h1–h6 element, a Body renders a p. This prevents the rampant misuse of heading levels that plagues most products and makes accessibility audits painful.</p>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Display</span><span class="blog-font-desc">Marketing and hero content. Largest sizes, most expressive weight. Often uses display optical size.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Heading 1–4</span><span class="blog-font-desc">Page and section titles. Semantic h1–h4. Weight 600–700 depending on typeface.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Body Large / Regular / Small</span><span class="blog-font-desc">Prose, descriptions, content. 16–20px, weight 400. Line-height 1.6.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Label</span><span class="blog-font-desc">UI labels, form field names, data headers. 11–13px. Often uppercase with tracking.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Caption</span><span class="blog-font-desc">Metadata, timestamps, helper text. 10–12px. Muted color.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Code</span><span class="blog-font-desc">Monospace for code snippets, values, and technical data.</span></div>
+      </div>
+      <h2 class="blog-h2">Documentation That Actually Gets Used</h2>
+      <p class="blog-p">Type system documentation fails when it's too abstract. The most effective format: for each text style, show <strong>three real product examples</strong> of where and how to use it, plus two explicit anti-patterns of where it should not be used. Showing "what it looks like" is less useful than showing "when and why to reach for this."</p>
+      <p class="blog-p">A well-built type system pays dividends for years. Teams move faster because type decisions are already made. Designs feel consistent because everyone is drawing from the same vocabulary. New team members onboard faster because the system explains itself. The investment is always worth it.</p>
+    `
+  },
+  {
+    id: 13,
+    cat: "History",
+    title: "A Brief History of Typography: From Gutenberg to Variable Fonts",
+    excerpt: "Understanding where typography came from explains why it looks the way it does today. Five hundred years of typographic history compressed into essential insights for modern designers.",
+    date: "May 16, 2025",
+    read: "8",
+    tags: ["History","Typography","Typeface Origins"],
+    body: `
+      <p class="blog-p">Every typeface you use today is in conversation with history. The grotesque sans-serifs that dominate digital UI have roots in 19th century signage lettering. The serifs on your editorial pages trace back to Roman stone inscriptions. Understanding this lineage isn't antiquarian nostalgia — it explains why certain typefaces communicate what they do, and why those associations are so hard to shake.</p>
+      <h2 class="blog-h2">Gutenberg and the Invention of Moveable Type (1450s)</h2>
+      <p class="blog-p">Johann Gutenberg's press didn't invent letterforms — it industrialized them. His Blackletter type imitated the handwritten scripts of German scribes so closely that early readers couldn't tell printed books from hand-copied ones. The principle that would guide type design for the next five centuries was established immediately: <strong>new type technology should first replicate existing visual conventions, then gradually depart from them.</strong></p>
+      <h2 class="blog-h2">The Roman Revolution (1470s–1500s)</h2>
+      <p class="blog-p">Italian printers, particularly Nicolas Jenson in Venice and Aldus Manutius in the 1490s, rejected German Blackletter in favor of type modeled on Roman inscriptions and Carolingian manuscripts. Jenson's roman type of 1470 is still recognizable in contemporary serifs — the proportions, the modulated stroke weight, the bracketed serifs. The canonical form of the Latin alphabet as we know it was essentially settled within 50 years of the printing press's invention.</p>
+      <h2 class="blog-h2">Garalde, Transitional, and Modern Serifs (1530–1800)</h2>
+      <p class="blog-p">Three centuries produced a progression in serif design: from the humanist Garamond types (calligraphic, organic, low contrast) through the Transitional period (Baskerville in the 1750s — more regular, higher contrast, sharper) to the Modern or Didone serifs of the 1780s (Bodoni, Didot — extreme contrast, geometric construction). Each step increased rationalization and reduced the calligraphic hand.</p>
+      <div class="blog-quote"><div class="blog-quote-text">"Bodoni's types were the last act of rationalism. Every humanist quality had been engineered out. What remained was pure form."</div><div class="blog-quote-attr">— Robin Kinross, Modern Typography</div></div>
+      <h2 class="blog-h2">The Sans-Serif Revolution (1816–1920s)</h2>
+      <p class="blog-p">The first commercial sans-serif type appeared in 1816 from Caslon, described in its specimen book as "Two Lines English Egyptian." Printers of the time called these faces "grotesque" — an insult meaning foreign and strange. By the 1920s, the Bauhaus had reframed the grotesque as the modern, rational, universal letterform. Futura (1927) made the argument definitive: the geometric sans-serif as the typeface of modernity.</p>
+      <h2 class="blog-h2">The Digital Revolution and Its Consequences (1985–Present)</h2>
+      <p class="blog-p">Digital type began in PostScript in 1985 and proceeded through TrueType, OpenType, and finally variable fonts in 2016. Each format shift changed what was possible. PostScript enabled scalable vectors. OpenType enabled multilingual support and advanced features. Variable fonts enabled continuous axes. <strong>The history of type technology is a history of removing constraints</strong> — each generation of tools enabling things that were impossible before.</p>
+      <p class="blog-p">The grotesques that dominate contemporary UI design — Inter, Graphik, Helvetica — carry the accumulated weight of a century of association with modernity, efficiency, and rationalism. When you choose a geometric sans for your product, you're not just choosing a typeface. You're positioning yourself in this history.</p>
+    `
+  },
+  {
+    id: 14,
+    cat: "Accessibility",
+    title: "Typography and Accessibility: How to Design Type That Everyone Can Read",
+    excerpt: "Accessible typography isn't a constraint on good design — it's proof of it. The principles that make type readable for people with disabilities make it better for everyone.",
+    date: "May 23, 2025",
+    read: "8",
+    tags: ["Accessibility","WCAG","Inclusive Design"],
+    body: `
+      <p class="blog-p">An estimated 253 million people worldwide live with a visual impairment. A further 700 million have dyslexia. Hundreds of millions more read your product in challenging conditions: bright sunlight, small screens, at a distance, while tired. <strong>Typography that fails these users fails a significant percentage of your audience.</strong> Accessible type is not a niche concern.</p>
+      <h2 class="blog-h2">Contrast: The Non-Negotiable Foundation</h2>
+      <p class="blog-p">WCAG 2.1 mandates a minimum contrast ratio of 4.5:1 for normal text (below 18pt) and 3:1 for large text (18pt+ or 14pt bold). These aren't arbitrary numbers — they're the minimum below which significant numbers of users with low vision cannot reliably read. The common failure is small gray text on white backgrounds, or white text on near-white backgrounds in "clean" design systems.</p>
+      <div class="blog-callout"><div class="blog-callout-label">Test Your Contrast</div><div class="blog-callout-text">Use <strong>whocanuse.com</strong> or the browser DevTools accessibility panel. Both give you real-time contrast ratios and simulate how your type appears to users with different types of color blindness. Run this check on every text color in your design system.</div></div>
+      <h2 class="blog-h2">Size: The Floor Is Higher Than You Think</h2>
+      <p class="blog-p">The WCAG minimum for body text is essentially 16px — below this, a significant number of users struggle. Apple's Human Interface Guidelines recommend 17px as the default body size for iOS. Google's Material Design specifies 16px. The trend toward smaller, lighter "minimal" UI text is not a good trend. <strong>12px text is a choice that excludes users.</strong></p>
+      <h2 class="blog-h2">Font Choice and Dyslexia</h2>
+      <p class="blog-p">Typefaces with high letter differentiation — where b, d, p, and q look meaningfully different from each other — aid readers with dyslexia. Some research supports certain features: larger x-height, wider letter-spacing, distinct shapes for easily confused letters. <strong>Inter, Lexend, and Atkinson Hyperlegible</strong> are designed with these considerations in mind.</p>
+      <p class="blog-p">Specialized dyslexia fonts like OpenDyslexic have been the subject of mixed research — some studies show benefit, others don't find significant advantage over well-set conventional fonts. What consistently helps: adequate size, good contrast, generous line spacing, and short line length.</p>
+      <h2 class="blog-h2">Line Length and Cognitive Load</h2>
+      <p class="blog-p">Lines longer than 80 characters increase reading errors and eye fatigue for users with attention disorders and low vision. The optimal measure of 45–65 characters is not just an aesthetic preference — it's a cognitive accessibility feature. Long lines require greater lateral eye tracking, which increases the error rate of returning to the correct line.</p>
+      <h2 class="blog-h2">Spacing: Room to Breathe</h2>
+      <p class="blog-p">WCAG 2.1 Success Criterion 1.4.12 (Text Spacing) specifies that no loss of functionality should occur when users override: line height to 1.5× font size, paragraph spacing to 2× font size, letter spacing to 0.12× font size, and word spacing to 0.16× font size. Design systems should be built to accommodate these overrides — they exist because many users require them.</p>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Atkinson Hyperlegible</span><span class="blog-font-desc">Designed by the Braille Institute specifically for low vision. Exceptional letter differentiation. Free.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Lexend</span><span class="blog-font-desc">Research-backed typeface designed to improve reading speed for all readers. Free on Google Fonts.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">APHont</span><span class="blog-font-desc">Developed by the American Printing House for the Blind. Optimized for low vision users.</span></div>
+      </div>
+      <p class="blog-p">The best accessible typography doesn't look different from good typography — it IS good typography. Every principle of accessible type (sufficient size, strong contrast, comfortable line length, generous spacing) is also a principle of readable, well-crafted design for everyone.</p>
+    `
+  },
+  {
+    id: 15,
+    cat: "Mobile Design",
+    title: "Mobile Typography: Rules for Small Screens That Most Designers Break",
+    excerpt: "Designing type for a 390px screen is a different discipline from designing for a 1440px canvas. The rules that apply at desktop scale actively harm readability at mobile.",
+    date: "May 30, 2025",
+    read: "7",
+    tags: ["Mobile","Responsive","iOS Android"],
+    body: `
+      <p class="blog-p">The single biggest typography mistake in mobile design is treating the phone screen as a small version of the desktop screen. It isn't. The usage context, viewing distance, ambient conditions, and cognitive load of mobile reading are all fundamentally different. <strong>Mobile typography needs its own rules — not just scaled-down desktop rules.</strong></p>
+      <h2 class="blog-h2">The Minimum Size Rule for Mobile</h2>
+      <p class="blog-p">Apple's Human Interface Guidelines specify 17pt as the default body text size for iOS apps. This is larger than most web convention. The reason: phones are often read at arm's length in suboptimal lighting, frequently while in motion. Text that looks comfortable on a desktop at 14px will feel eye-straining on a phone. The practical mobile minimum: <strong>16px for body text, 13px for secondary text, never below 11px for any text that carries meaning.</strong></p>
+      <h2 class="blog-h2">Dynamic Type and Text Scaling</h2>
+      <p class="blog-p">Both iOS and Android allow users to scale text sizes through system accessibility settings. A user might increase their default text size by 130–200%. Your typography system must accommodate this gracefully — layouts should reflow, not break. This means avoiding fixed-height containers for text, using flexible layouts, and testing at 2× the default text size as part of your QA process.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The Test Nobody Does</div><div class="blog-callout-text">Go to your phone's Settings → Accessibility → Larger Text and set it to maximum. Then open your app or mobile site. If text is truncated, overlapping, or invisible, you have accessibility failures affecting millions of users who depend on large text.</div></div>
+      <h2 class="blog-h2">Touch Targets and Type</h2>
+      <p class="blog-p">Interactive text — links, buttons, tappable labels — needs minimum touch target sizes of 44×44 points (iOS) or 48×48dp (Android). This often means adding padding around text rather than relying on the text area alone as the tap target. Inline text links are notoriously bad touch targets; consider replacing them with clearly bounded button components on mobile.</p>
+      <h2 class="blog-h2">Line Length on Mobile</h2>
+      <p class="blog-p">A 390px screen at 16px base size gives you approximately 35–40 characters per line — at the short end of the optimal 45–65 range. <strong>Don't try to shorten this further.</strong> The temptation to pad layouts with large margins produces 2–3 word lines that read like telegrams. Use the full available width for body text on mobile, with 16–20px horizontal padding only.</p>
+      <h2 class="blog-h2">Font Weight on OLED Screens</h2>
+      <p class="blog-p">Modern OLED screens (iPhone 12+, Samsung Galaxy, most premium Android) render dark backgrounds with true black and glowing white text. Light font weights (300, 400) on pure black backgrounds can appear to "bleed" or irradiate on OLED due to the extreme luminance contrast. Use weight 400–500 for body text on dark mobile screens and avoid weights below 300 entirely on OLED-optimized dark modes.</p>
+      <p class="blog-p">Mobile typography done well is invisible — readers consume the content without noticing the letterforms. Done badly, it produces squinting, re-reading, and abandonment. Given that mobile now accounts for over 60% of global web traffic, the stakes for getting this right have never been higher.</p>
+    `
+  },
+  {
+    id: 16,
+    cat: "Dark Mode",
+    title: "Dark Mode Typography: Why Your Fonts Look Different at Night",
+    excerpt: "Dark mode isn't just inverting colors. The typographic rules that work beautifully on white backgrounds actively harm readability on dark ones.",
+    date: "June 6, 2025",
+    read: "6",
+    tags: ["Dark Mode","Color","Readability"],
+    body: `
+      <p class="blog-p">When Apple launched system-wide dark mode in macOS Mojave (2018) and iOS 13 (2019), most design teams responded by inverting their color palettes. White background became #1a1a1a; black text became white. Logical. Symmetrical. <strong>And often terrible for typography.</strong></p>
+      <h2 class="blog-h2">Why White on Black Is Harder to Read Than Black on White</h2>
+      <p class="blog-p">The human eye processes dark mode differently from light mode. On a white background, the large luminous area "irradiates" — the bright field makes letter edges appear sharper. On a dark background, bright letterforms experience halation — light bleeds slightly into surrounding darkness, making thin strokes appear to glow or blur. This is why thin-weight type that looks crisp on white can appear to vibrate or bleed on very dark backgrounds.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The Pure Black Problem</div><div class="blog-callout-text">Never use pure #000000 as a dark mode background on OLED screens. The extreme contrast between true black pixels and white text creates halation and eye strain. Use <strong>#0a0a0a to #1c1c1e</strong> (Apple's dark mode backgrounds). The difference is subtle but measurable in reading comfort.</div></div>
+      <h2 class="blog-h2">Adjusting Font Weight for Dark Mode</h2>
+      <p class="blog-p">This is the most important — and most ignored — dark mode typography rule: <strong>increase font weight slightly in dark mode.</strong> A body text weight of 400 on white often needs to be 450–500 on dark to maintain the same visual weight and readability. The halation effect makes light text on dark backgrounds appear thinner than equivalent dark text on light backgrounds.</p>
+      <p class="blog-p">In practice with variable fonts: add <code>font-weight: 450</code> to your dark mode body text override. With static fonts: switch from Regular (400) to Medium (500) in dark mode. Linear, Vercel, and Stripe's dark modes all do this subtly.</p>
+      <h2 class="blog-h2">Don't Use Pure White Text</h2>
+      <p class="blog-p">Pure #FFFFFF text on a dark background has extremely high contrast — technically it passes WCAG. But for long-form reading, it can cause eye fatigue faster than slightly reduced contrast. Apple uses #F5F5F7 for primary text in dark mode. Linear uses #E8E8E8. The principle: <strong>maximum contrast ≠ maximum comfort.</strong> Aim for contrast ratios of 7:1–12:1, not the theoretical maximum of 21:1.</p>
+      <h2 class="blog-h2">Color and Hierarchy in Dark Mode</h2>
+      <p class="blog-p">Light mode typically uses color to add emphasis (blue links, green success states). Dark mode should use opacity instead of color for secondary text hierarchies. A three-level hierarchy works well: primary text at 90–95% white, secondary text at 60–70% white, tertiary text at 40–50% white. This gives clear hierarchy without introducing jarring hue contrasts into a dark environment.</p>
+      <p class="blog-p">Dark mode typography, done right, is its own craft. It's not the absence of light mode — it's a different lighting environment with its own physics, its own optical effects, and its own rules. The teams that treat it as such produce dark modes that users love. The teams that treat it as a color inversion produce dark modes users tolerate.</p>
+    `
+  },
+  {
+    id: 17,
+    cat: "Type Specimens",
+    title: "Reading Type Specimens: How to Evaluate a Typeface Before You Buy",
+    excerpt: "Most designers choose fonts based on how they look in a showcase at 80px. This is roughly like buying a car by looking at its hood ornament. Here's how to actually evaluate type.",
+    date: "June 13, 2025",
+    read: "7",
+    tags: ["Type Evaluation","Specimens","Process"],
+    body: `
+      <p class="blog-p">Type foundries produce specimen PDFs and websites designed to make their fonts look as beautiful as possible. Large display sizes, ideal copy, perfectly adjusted spacing. This is marketing, not evaluation. A typeface that dazzles at 96px in a specimen may be unreadable at 14px in your product. <strong>Here's how to evaluate type honestly.</strong></p>
+      <h2 class="blog-h2">Test at Your Actual Use Sizes</h2>
+      <p class="blog-p">Before anything else, set the typeface at the sizes you'll actually use it: 12px for small labels, 14px for UI body text, 16px for reading, 28px for subheadings, 48px for main headings. Most evaluation happens at display sizes that reveal a typeface's display character, not its practical performance. A font that looks beautiful at 60px and muddy at 12px is not a good body font.</p>
+      <h2 class="blog-h2">The Legibility String Test</h2>
+      <p class="blog-p">Set this string at 13px to evaluate letter differentiation: <strong>"Il1i0Oo rn/m"</strong>. The pairs you're checking: I (capital i) vs l (lowercase L) vs 1 (one); 0 (zero) vs O (capital o); rn (two letters) vs m (one letter). In poorly designed fonts, these pairs are indistinguishable. In well-designed UI fonts (Inter, DM Sans), they're clearly distinct. This single string tells you most of what you need to know about a font's legibility at small sizes.</p>
+      <div class="blog-callout"><div class="blog-callout-label">The Legibility String</div><div class="blog-callout-text">Il1i0Oo rn/m — Set this at 13px in the font you're evaluating. If you can distinguish every pair clearly, the font has good legibility features. If I, l, and 1 look identical, consider a different choice for UI text.</div></div>
+      <h2 class="blog-h2">Evaluate the Full Weight Range</h2>
+      <p class="blog-p">Examine the typeface at every weight you intend to use. Specifically: does the Light weight maintain good stroke thickness at your target size? Does the Bold appear sufficiently heavier than Regular without becoming chunky? Are the spacing and proportions consistent across weights, or do they shift awkwardly at extremes?</p>
+      <h2 class="blog-h2">Test Real Content, Not Lorem Ipsum</h2>
+      <p class="blog-p">Lorem Ipsum is phonetically and rhythmically unlike English (or any natural language). It tells you almost nothing about how the font will read with your actual content. For body text evaluation, paste a paragraph of real content from your product — a support article, a pricing page, a blog post — and set it in the candidate font at your intended body size and line height.</p>
+      <h2 class="blog-h2">Check the Character Set</h2>
+      <p class="blog-p">Before licensing, verify that the font includes: all characters your product needs (including any non-Latin scripts if relevant), proper quotation marks and apostrophes (not inch/foot marks), ligatures for common letter pairs (fi, fl, ffi), and tabular numerals for any data display use. A beautiful font with missing characters is unusable.</p>
+      <div class="blog-font-row">
+        <div class="blog-font-item"><span class="blog-font-name">Test at small sizes</span><span class="blog-font-desc">12–14px reveals whether the font is truly legible in UI contexts.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Test the legibility string</span><span class="blog-font-desc">Il1i0Oo rn/m — distinguishability is essential for interfaces.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Use real content</span><span class="blog-font-desc">Paste actual copy from your product, not Lorem Ipsum.</span></div>
+        <div class="blog-font-item"><span class="blog-font-name">Check the character set</span><span class="blog-font-desc">Verify all glyphs you need are present before purchasing.</span></div>
+      </div>
+    `
+  },
+  {
+    id: 18,
+    cat: "Typography Trends",
+    title: "AI-Generated Fonts: What They Mean for Type Design and Designers",
+    excerpt: "Tools like Adobe's Font Generator and several startups can now generate usable typefaces from text prompts. Is this the end of type design as a discipline?",
+    date: "June 20, 2025",
+    read: "8",
+    tags: ["AI Fonts","Future","Type Design"],
+    body: `
+      <p class="blog-p">In 2024, Adobe shipped a Font Generator tool that produces display typefaces from text prompts. In 2023, Google Research published work on diffusion-based type generation. Several startups now offer "design your own font in minutes." These are real tools producing real results — but they exist at a specific point on the quality curve, and understanding that curve matters for how designers should think about them.</p>
+      <h2 class="blog-h2">What AI Font Generation Does Well</h2>
+      <p class="blog-p">Current AI font tools excel at: <strong>generating display type concepts quickly</strong> for logo explorations and one-off headline uses; <strong>creating variations</strong> of an existing aesthetic direction; <strong>producing decorative and textural letterforms</strong> that would take days to hand-draw; and <strong>style transfer</strong> — applying the visual character of one typeface to another's skeleton.</p>
+      <h2 class="blog-h2">What AI Font Generation Does Badly</h2>
+      <p class="blog-p">AI tools consistently struggle with: <strong>spacing and kerning</strong> — the optical relationships between letter pairs that make type readable at body size; <strong>consistency across the full character set</strong> — A through Z capitals plus lowercase plus numbers plus punctuation; <strong>hinting</strong> — the technical instructions that make fonts render well at small sizes on different screens; and <strong>semantic intent</strong> — understanding why a specific curve or proportion is right for the brand, not just what looks generically good.</p>
+      <div class="blog-quote"><div class="blog-quote-text">"An AI can generate a letterform. It cannot yet understand why that letterform is the right one for this voice, this audience, this moment."</div><div class="blog-quote-attr">— Tobias Frere-Jones</div></div>
+      <h2 class="blog-h2">The Value of Human Type Design</h2>
+      <p class="blog-p">The most important parts of type design — the parts that make the difference between a font that merely exists and one that endures — are the parts that require human judgment. Decisions about how much optical correction to apply at different sizes. Decisions about which historical references to draw on and which to consciously subvert. Decisions about what the typeface should feel like to read over thousands of words, not just look like in a specimen.</p>
+      <h2 class="blog-h2">How to Use AI Type Tools Wisely</h2>
+      <p class="blog-p">The most productive approach: use AI generation for <strong>initial exploration and concept generation</strong>, then refine with human judgment or commission a proper typeface if the project warrants it. AI tools are excellent for generating 10 different aesthetic directions quickly so you can choose one to develop. They are poor substitutes for proper type design at the level of quality that serious brands require.</p>
+      <p class="blog-p">Type design, like architecture, will adapt to AI tools rather than be replaced by them. The architects who ignored CAD lost ground to those who mastered it. The type designers who master AI-assisted generation while retaining the critical judgment to evaluate and refine its outputs will be the most valuable practitioners of the next decade.</p>
+    `
+  }
+];
+
+// ─── BLOG SCHEDULE: 3-day unlock system ───
+// The first 10 articles are always visible.
+// Every 3 days from the epoch start, one more article from articles 11-18 unlocks.
+const BLOG_EPOCH_START = new Date('2025-04-14').getTime(); // Launch date
+
+function getVisibleBlogCount() {
+  const now = Date.now();
+  const daysSinceLaunch = Math.floor((now - BLOG_EPOCH_START) / (1000 * 60 * 60 * 24));
+  const unlocked = Math.floor(daysSinceLaunch / 3); // one new article every 3 days
+  return Math.min(10 + unlocked, BLOGS.length); // base 10 always visible
+}
+
+function getDaysUntilNextArticle() {
+  const now = Date.now();
+  const daysSinceLaunch = Math.floor((now - BLOG_EPOCH_START) / (1000 * 60 * 60 * 24));
+  const daysIntoCurrentCycle = daysSinceLaunch % 3;
+  return 3 - daysIntoCurrentCycle;
+}
+
+function isNewArticle(index) {
+  // An article is "new" if it unlocked in the last 3 days
+  const now = Date.now();
+  const daysSinceLaunch = Math.floor((now - BLOG_EPOCH_START) / (1000 * 60 * 60 * 24));
+  const unlockDay = (index - 10) * 3; // article 11 unlocks at day 0, 12 at day 3, etc.
+  return index >= 10 && daysSinceLaunch >= unlockDay && daysSinceLaunch < unlockDay + 3;
+}
+
+// ─── RELATED ARTICLES ───
+function getRelatedArticles(currentId, count = 3) {
+  const current = BLOGS.find(b => b.id === currentId);
+  if (!current) return [];
+  const visible = BLOGS.slice(0, getVisibleBlogCount());
+  const others = visible.filter(b => b.id !== currentId);
+
+  // Score by shared tags
+  const scored = others.map(b => {
+    const shared = b.tags.filter(t => current.tags.includes(t)).length;
+    const sameCat = b.cat === current.cat ? 2 : 0;
+    return { b, score: shared + sameCat };
+  }).sort((a, z) => z.score - a.score);
+
+  // Take top matches, fill with others if needed
+  const top = scored.slice(0, count);
+  return top.map(x => x.b);
+}
+
+function openBlog() {
+  showBlogList();
+  document.getElementById('blogOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('blogBody').scrollTop = 0;
+}
+
+function closeBlog() {
+  const overlay = document.getElementById('blogOverlay');
+  overlay.classList.add('leaving');
+  overlay.addEventListener('animationend', () => {
+    overlay.classList.remove('open','leaving');
+    document.body.style.overflow = '';
+  }, { once: true });
+}
+
+function closeBlogOrGoList() {
+  if (document.getElementById('blogArticle').style.display !== 'none') {
+    showBlogList();
+  } else {
+    closeBlog();
+  }
+}
+
+function showBlogList() {
+  document.getElementById('blogList').style.display = 'block';
+  document.getElementById('blogArticle').style.display = 'none';
+  document.getElementById('blogBackLabel').textContent = 'Back';
+  document.getElementById('blogNavTitle').classList.remove('visible');
+
+  const visibleCount = getVisibleBlogCount();
+  const daysLeft = getDaysUntilNextArticle();
+  const nextUnlock = visibleCount < BLOGS.length
+    ? `Next article in ${daysLeft} day${daysLeft !== 1 ? 's' : ''}`
+    : 'Full library available';
+  document.getElementById('blogNavMeta').textContent = `${visibleCount} articles · ${nextUnlock}`;
+  document.getElementById('blogBody').scrollTop = 0;
+
+  const grid = document.getElementById('blogGrid');
+  const visibleBlogs = BLOGS.slice(0, visibleCount);
+
+  grid.innerHTML = visibleBlogs.map((b, i) => {
+    const isNew = isNewArticle(i);
+    return `
+    <div class="blog-card" onclick="openBlogArticle(${b.id})">
+      <div class="blog-card-num">${String(i+1).padStart(2,'0')} ${isNew ? '<span class="new-badge">NEW</span>' : ''}</div>
+      <div class="blog-card-cat">${b.cat}</div>
+      <div class="blog-card-title">${b.title}</div>
+      <div class="blog-card-excerpt">${b.excerpt}</div>
+      <div class="blog-card-tags-row">${b.tags.map(t=>`<span class="blog-card-tag">${t}</span>`).join('')}</div>
+      <div class="blog-card-meta">
+        <span class="blog-card-read">${b.read} min read · ${b.date}</span>
+        <span class="blog-card-arrow">→</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Upcoming teaser if there are locked articles
+  if (visibleCount < BLOGS.length) {
+    const next = BLOGS[visibleCount];
+    grid.innerHTML += `
+    <div style="background:var(--a1);padding:28px;display:flex;flex-direction:column;gap:10px;border:1px dashed var(--border);opacity:0.5;cursor:default;">
+      <div style="font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:'Space Mono',monospace;">Coming in ${daysLeft} day${daysLeft!==1?'s':''}</div>
+      <div style="font-size:15px;font-weight:700;color:var(--white);letter-spacing:-0.3px;filter:blur(4px);user-select:none;">${next.title}</div>
+      <div style="font-size:11px;color:var(--muted);">🔒 Unlocks automatically</div>
+    </div>`;
+  }
+}
+
+function openBlogArticle(id) {
+  const b = BLOGS.find(x => x.id === id);
+  if (!b) return;
+
+  // Build related articles HTML
+  const related = getRelatedArticles(id, 3);
+  const relatedHTML = related.length ? `
+    <div class="blog-divider" style="margin:12px 0 24px;"></div>
+    <h2 class="blog-h2" style="margin-bottom:20px;">Related Articles</h2>
+    <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+      ${related.map(r => `
+        <div onclick="openBlogArticle(${r.id})" style="background:var(--black);padding:20px 22px;cursor:pointer;transition:background 0.2s;display:flex;align-items:center;gap:16px;" onmouseover="this.style.background='var(--a2)'" onmouseout="this.style.background='var(--black)'">
+          <div style="flex:1;">
+            <div style="font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">${r.cat}</div>
+            <div style="font-size:14px;font-weight:700;color:var(--white);letter-spacing:-0.3px;margin-bottom:4px;line-height:1.3;">${r.title}</div>
+            <div style="font-size:11px;color:var(--subtle);">${r.read} min read · ${r.date}</div>
+          </div>
+          <div style="font-size:16px;color:var(--muted);flex-shrink:0;">→</div>
+        </div>`).join('')}
+    </div>` : '';
+
+  document.getElementById('baCat').textContent = b.cat;
+  document.getElementById('baTitle').textContent = b.title;
+  document.getElementById('baDate').textContent = b.date;
+  document.getElementById('baRead').textContent = `${b.read} min read`;
+  document.getElementById('baBody').innerHTML = `<div class="blog-article-body-inner">${b.body}${relatedHTML}</div>`;
+  document.getElementById('blogList').style.display = 'none';
+  document.getElementById('blogArticle').style.display = 'block';
+  document.getElementById('blogBackLabel').textContent = 'All articles';
+  document.getElementById('blogNavTitle').textContent = b.title;
+  document.getElementById('blogNavTitle').classList.add('visible');
+  document.getElementById('blogNavMeta').textContent = b.cat;
+  document.getElementById('blogBody').scrollTop = 0;
+}
+
+
+
+
+// ═══════════════════════════════════════
+// THEME TOGGLE — Light / Dark mode
+// ═══════════════════════════════════════
+// ── Strip display letter-spacing for body/running text ──
+function fontOnly(s) {
+  // Keep only font-family and font-weight; remove letter-spacing, font-size, line-height
+  const ff = (s.match(/font-family:[^;]+/) || [''])[0];
+  const fw = (s.match(/font-weight:[^;]+/) || [''])[0];
+  const fi = (s.match(/font-style:[^;]+/) || [''])[0];
+  return [ff, fw, fi].filter(Boolean).join(';') + ';';
+}
+
+// ── Theme-aware color helper (used in inline styles) ──
+function tc() { return document.documentElement.classList.contains('light') ? '#0a0a0a' : '#ffffff'; }
+function tcs() { return document.documentElement.classList.contains('light') ? '#555555' : '#a8a8a8'; }
+
+function applyTheme(mode) {
+  const html = document.documentElement;
+  const thumbs = [document.getElementById('themeThumb'), document.getElementById('themeThumbMobile')];
+  const shareBtn = document.getElementById('shareBtn');
+  if (mode === 'light') {
+    html.classList.add('light');
+    thumbs.forEach(t => { if (t) t.textContent = '☀️'; });
+    if (shareBtn) { shareBtn.style.color = ''; shareBtn.style.background = ''; }
+    try { localStorage.setItem('gst-theme','light'); } catch(e){}
+  } else {
+    html.classList.remove('light');
+    thumbs.forEach(t => { if (t) t.textContent = '🌙'; });
+    if (shareBtn) { shareBtn.style.color = ''; shareBtn.style.background = ''; }
+    try { localStorage.setItem('gst-theme','dark'); } catch(e){}
+  }
+}
+
+// ─── MOBILE DRAWER ───
+function toggleMobileMenu() {
+  const drawer = document.getElementById('mobileDrawer');
+  const btn    = document.getElementById('hamburgerBtn');
+  const isOpen = drawer.classList.contains('open');
+  if (isOpen) { closeMobileMenu(); } else { openMobileMenu(); }
+}
+function openMobileMenu() {
+  document.getElementById('mobileDrawer').classList.add('open');
+  document.getElementById('hamburgerBtn').classList.add('open');
+  document.getElementById('hamburgerBtn').setAttribute('aria-expanded','true');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileDrawer').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+  document.getElementById('hamburgerBtn').setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+}
+// (Escape handler is unified above)
+function toggleTheme() {
+  applyTheme(document.documentElement.classList.contains('light') ? 'dark' : 'light');
+}
+// Respect saved or OS preference immediately (before paint)
+(function(){
+  let saved; try { saved = localStorage.getItem('gst-theme'); } catch(e){}
+  if (!saved) saved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  if (saved === 'light') document.documentElement.classList.add('light');
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Sync toggle button state with current theme
+  const isLight = document.documentElement.classList.contains('light');
+  applyTheme(isLight ? 'light' : 'dark');
   updateDateDisplay();
   updateCountdown();
   renderDailyPicks();
