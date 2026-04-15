@@ -714,12 +714,61 @@
   .sample-cell {
     background:var(--black); padding:36px 28px 28px;
     display:flex; flex-direction:column; gap:10px;
-    transition:background 0.25s;
+    transition:background 0.25s, transform 0.15s;
+    cursor:pointer;
   }
-  .sample-cell:hover { background:var(--a2); }
+  .sample-cell:hover { background:var(--a2); transform:scale(0.98); }
+  .sample-cell:active { transform:scale(0.96); }
   .sample-glyph { font-size:52px; line-height:1; color:var(--white); letter-spacing:-2px; }
   .sample-name { font-size:10px; color:var(--subtle); letter-spacing:1.5px; text-transform:uppercase; font-weight:600; }
   .sample-eg { font-size:11px; color:var(--muted); }
+
+  /* ── TYPE CLASS OVERLAY CONTENT ── */
+  .tc-hero { padding:64px 48px 0; border-bottom:1px solid var(--border); }
+  .tc-eyebrow { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:16px; display:flex; align-items:center; gap:16px; }
+  .tc-eyebrow::after { content:''; flex:1; height:1px; background:var(--border); }
+  .tc-hero-glyph { font-size:clamp(100px,18vw,220px); line-height:0.9; letter-spacing:-8px; color:var(--white); padding-bottom:48px; opacity:0.9; }
+  .tc-body { padding:0 48px 80px; max-width:840px; }
+  .tc-section { padding-top:52px; }
+  .tc-section-label { font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .tc-section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+  .tc-h2 { font-size:clamp(22px,3.5vw,38px); font-weight:700; color:var(--white); letter-spacing:-1px; line-height:1.15; margin-bottom:16px; }
+  .tc-p { font-size:16px; color:var(--subtle); line-height:1.85; }
+  .tc-p strong { color:var(--white); font-weight:600; }
+  .tc-divider { height:1px; background:var(--border); margin:48px 0 0; }
+  .tc-quote { border-left:3px solid var(--white); padding-left:24px; }
+  .tc-quote-text { font-size:clamp(18px,2.8vw,26px); font-style:italic; color:var(--white); line-height:1.45; letter-spacing:-0.3px; font-family:'Playfair Display',serif; }
+  .tc-quote-attr { font-size:12px; color:var(--muted); margin-top:10px; }
+  .tc-examples { display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .tc-example-row { background:var(--black); padding:24px 28px; display:grid; grid-template-columns:160px 1fr; gap:24px; align-items:center; transition:background 0.18s; }
+  .tc-example-row:hover { background:var(--a2); }
+  .tc-example-font { font-size:clamp(28px,4vw,52px); line-height:1; color:var(--white); }
+  .tc-example-name { font-size:14px; font-weight:700; color:var(--white); margin-bottom:4px; letter-spacing:-0.2px; }
+  .tc-example-desc { font-size:12px; color:var(--subtle); line-height:1.6; }
+  .tc-example-used { font-size:10px; color:var(--muted); margin-top:6px; font-family:'Space Mono',monospace; }
+  .tc-callout { background:var(--a2); border:1px solid var(--border); border-radius:12px; padding:28px 32px; }
+  .tc-callout-label { font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+  .tc-callout-text { font-size:14px; color:var(--gray); line-height:1.75; }
+  .tc-callout-text strong { color:var(--white); }
+  .tc-use-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .tc-use-cell { background:var(--black); padding:20px 22px; transition:background 0.18s; }
+  .tc-use-cell:hover { background:var(--a2); }
+  .tc-use-icon { font-size:20px; margin-bottom:8px; }
+  .tc-use-title { font-size:13px; font-weight:700; color:var(--white); margin-bottom:4px; }
+  .tc-use-desc { font-size:12px; color:var(--subtle); line-height:1.55; }
+  html.light .tc-hero-glyph,html.light .tc-h2,html.light .tc-example-font,html.light .tc-example-name,html.light .tc-quote-text { color:var(--text-primary); }
+  html.light .tc-p,html.light .tc-example-desc,html.light .tc-callout-text,html.light .tc-use-desc { color:var(--text-body); }
+  html.light .tc-quote { border-left-color:var(--text-primary); }
+  html.light .tc-example-row,html.light .tc-use-cell { background:var(--bg-card); }
+  html.light .tc-example-row:hover,html.light .tc-use-cell:hover { background:var(--a2); }
+  html.light .tc-callout { background:var(--a1); }
+  html.light .tc-use-title { color:var(--text-primary); }
+  @media(max-width:640px){
+    .tc-hero{padding:32px 16px 0;} .tc-body{padding:0 16px 48px;}
+    .tc-example-row{grid-template-columns:1fr;gap:10px;}
+    .tc-use-grid{grid-template-columns:1fr;}
+    .tc-callout{padding:18px 16px;}
+  }
 
   /* ── RESULTS ── */
   #results { padding:0 48px 100px; display:none; }
@@ -811,9 +860,10 @@
   .footer-update-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; display:inline-block; animation:livepulse 2s ease-in-out infinite; }
   .footer-tagline {
     text-align:center; font-size:10px; font-weight:600; letter-spacing:3px;
-    text-transform:uppercase; color:var(--muted); padding:28px 24px 0;
+    text-transform:uppercase; color:#4945be; padding:0 24px;
+    margin-bottom:40px;
   }
-  html.light .footer-tagline { color:var(--text-muted); }
+  html.light .footer-tagline { color:#4945be; }
   @keyframes livepulse { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
   .input-note { font-size:12px; color:var(--muted); letter-spacing:0.3px; }
 
@@ -2380,22 +2430,22 @@
   <h2 class="empty-h2">Typography shapes perception.</h2>
   <p class="empty-sub">Every great product starts with a typeface. Choose your category above to find yours.</p>
   <div class="sample-grid">
-    <div class="sample-cell">
+    <div class="sample-cell" onclick="openTypeClass('serif')" style="cursor:pointer;">
       <div class="sample-glyph" style="font-family:'Playfair Display',serif;font-style:italic;">Aa</div>
       <div class="sample-name">Serif</div>
       <div class="sample-eg">Canela · Tiempos · Freight</div>
     </div>
-    <div class="sample-cell">
+    <div class="sample-cell" onclick="openTypeClass('grotesque')" style="cursor:pointer;">
       <div class="sample-glyph" style="font-family:'Inter Tight',sans-serif;font-weight:700;">Aa</div>
       <div class="sample-name">Grotesque</div>
       <div class="sample-eg">Söhne · Graphik · Aktiv</div>
     </div>
-    <div class="sample-cell">
+    <div class="sample-cell" onclick="openTypeClass('monospace')" style="cursor:pointer;">
       <div class="sample-glyph" style="font-family:'Space Mono',monospace;">Aa</div>
       <div class="sample-name">Monospace</div>
       <div class="sample-eg">Replica · Geist Mono · IBM</div>
     </div>
-    <div class="sample-cell">
+    <div class="sample-cell" onclick="openTypeClass('display')" style="cursor:pointer;">
       <div class="sample-glyph" style="font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-3px;">Aa</div>
       <div class="sample-name">Display</div>
       <div class="sample-eg">Canela · GT Super · Hatton</div>
@@ -2635,6 +2685,22 @@
     </div>
 
   </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TYPE CLASS OVERLAY
+════════════════════════════════════════ -->
+<div class="blog-overlay" id="typeClassOverlay">
+  <div class="blog-nav">
+    <div class="blog-nav-left">
+      <button class="blog-back" onclick="closeTypeClass()">
+        <span class="blog-back-arrow">←</span>
+        <span>Back</span>
+      </button>
+    </div>
+    <span style="font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;" id="tcNavMeta">Type Classification</span>
+  </div>
+  <div class="blog-body" id="tcBody"></div>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -4057,6 +4123,7 @@ document.addEventListener('keydown', e => {
     ['aboutModal','contactModal','shareModal'].forEach(id => closeModal(id));
     closeDetail();
     if (document.getElementById('blogOverlay').classList.contains('open')) closeBlog();
+    if (document.getElementById('typeClassOverlay').classList.contains('open')) closeTypeClass();
     closeMobileMenu();
   }
 });
@@ -5025,6 +5092,170 @@ function toggleTheme() {
   if (!saved) saved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   if (saved === 'light') document.documentElement.classList.add('light');
 })();
+
+// ═══════════════════════════════════════
+// TYPE CLASSIFICATION EXPLAINER
+// ═══════════════════════════════════════
+const TYPE_CLASSES = {
+  serif: {
+    name:"Serif", subtitle:"Type Classification",
+    glyphStyle:"font-family:'Playfair Display',serif;font-style:italic;",
+    intro:`Serifs are the small finishing strokes at the ends of letterform stems — the little feet and hats that terminate each stroke. They trace back to Roman stone inscriptions, where chisel marks naturally created these terminals. For over five centuries, serif typefaces have been the dominant vehicle for human knowledge.`,
+    why:`Serifs carry powerful cultural associations: <strong>authority, tradition, credibility, and depth</strong>. Research shows that on high-DPI screens, serifs aid reading rhythm by guiding horizontal eye movement across lines. When a brand chooses a serif, they're borrowing from centuries of accumulated institutional trust.`,
+    quote:{text:`"The right typeface for authoritative content isn't the most beautiful one — it's the one readers already trust without knowing why."`,attr:"— Matthew Butterick, Practical Typography"},
+    families:[
+      {style:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;font-style:italic;",label:"Old Style",name:"Canela / Garamond",desc:"Low contrast, organic angles, calligraphic feel. Descended from humanist scribes. Warm, literary, and timeless — the oldest still-used type tradition.",used:"Used by: Wealthsimple · The Guardian · Substack"},
+      {style:"font-family:'Libre Baskerville',serif;",label:"Transitional",name:"Baskerville / Times",desc:"Higher contrast, more upright axis, sharper serifs. The mid-18th century refinement of serif type. Trustworthy, neutral, and institutional.",used:"Used by: NY Times · Harvard University · Financial Times"},
+      {style:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",label:"Modern / Didone",name:"Bodoni / Didot",desc:"Extreme stroke contrast, geometric construction, hairline serifs. Fashion's signature typeface family. Luxury and editorial contexts exclusively.",used:"Used by: Vogue · Louis Vuitton · Harper's Bazaar"},
+      {style:"font-family:'Libre Baskerville',serif;font-weight:700;",label:"Slab Serif",name:"Rockwell / Clarendon",desc:"Thick, block-like serifs with even stroke weight. Industrial heritage meets modern confidence. Bold and deeply structural.",used:"Used by: Volvo · Sony · IBM (historical)"},
+    ],
+    useCases:[
+      {icon:"📰",title:"Editorial & Long-form",desc:"Newspapers, magazines, and books. Serifs are reading's native language across centuries."},
+      {icon:"💎",title:"Luxury Brands",desc:"High-contrast Didone serifs signal rarity, craft, and premium pricing to any audience."},
+      {icon:"⚖️",title:"Law & Finance",desc:"Institutional credibility. Clients trust documents and statements set in serif type."},
+      {icon:"🎓",title:"Academia",desc:"Universities and research institutions. The typeface of scholarship and authority."},
+    ],
+    callout:{label:"The modern serif revival",text:`After a decade of grotesque sans dominance, <strong>serifs are having their biggest digital moment yet.</strong> High-DPI screens now render fine serif details beautifully. Brands like Wealthsimple (Canela), Net-a-Porter (Canela), and The Guardian (Guardian Egyptian) are leading a return to typographic richness that pure sans-serifs simply cannot match.`},
+  },
+  grotesque: {
+    name:"Grotesque", subtitle:"Type Classification",
+    glyphStyle:"font-family:'Inter Tight',sans-serif;font-weight:700;",
+    intro:`When the first sans-serif type appeared in 1816, printers called it "grotesque" — a term of mild contempt meaning foreign and strange. By the 1920s, the Bauhaus had reframed this rejection of ornament as the most rational, modern, universal letterform. Today, grotesque sans-serifs are the dominant type family on the entire web.`,
+    why:`Grotesques succeed in digital interfaces for several interconnected reasons: they render cleanly at small sizes; their neutrality allows content to lead; and decades of technology company usage has coded them as <strong>efficient, modern, and trustworthy</strong>. Apple, Google, Meta, and Microsoft all use grotesques. This accumulation of context is nearly impossible for any other type family to replicate.`,
+    quote:{text:`"A grotesque sans-serif is typography's equivalent of a well-cut suit — it never calls attention to itself, so the person wearing it always does."`,attr:"— Tobias Frere-Jones"},
+    families:[
+      {style:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",label:"Geometric",name:"Futura / Neue Montreal",desc:"Constructed from geometric shapes — circles, rectangles, straight lines. Cold, rational, and architectural. The Bauhaus legacy in every letterform.",used:"Used by: Volkswagen · Spotify · Airbnb"},
+      {style:"font-family:'Inter Tight',sans-serif;font-weight:500;",label:"Humanist",name:"Söhne / Gill Sans",desc:"Letterforms influenced by calligraphic proportions. Warmer and more approachable than pure geometrics. The most readable grotesque sub-family.",used:"Used by: Figma · Wealthsimple · GOV.UK"},
+      {style:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-0.5px;",label:"Neo-Grotesque",name:"Helvetica / Graphik",desc:"The Swiss International style refined for modern production. Maximum neutrality, minimal personality. The global corporate default.",used:"Used by: Nike · Apple (SF Pro) · American Airlines"},
+      {style:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:-2px;",label:"Display Grotesque",name:"Druk / Clash Display",desc:"Grotesques optimised for large sizes — extreme weights and dramatic proportions. Real personality only emerges at display scale.",used:"Used by: NBA · Vice · Red Bull · Coachella"},
+    ],
+    useCases:[
+      {icon:"💻",title:"SaaS & App UI",desc:"Inter, DM Sans, and Manrope dominate interface design. Clarity at 12px is non-negotiable."},
+      {icon:"🏦",title:"Fintech & Banking",desc:"Swiss grotesques communicate precision and trustworthiness. Money demands neutral type."},
+      {icon:"🚀",title:"Startups",desc:"90% of Y Combinator companies use grotesque sans-serifs. The visual language of moving fast."},
+      {icon:"🏗️",title:"Brand Systems",desc:"Variable grotesques create entire type systems from a single file — weight 100 to 900."},
+    ],
+    callout:{label:"Why Inter became the internet's typeface",text:`Rasmus Andersson spent four years perfecting Inter's <strong>optical sizing, hinting, and letter differentiation</strong> — making I (capital i), l (lowercase L) and 1 (one) unmistakably different at 12px. This single design decision explains why tens of thousands of products chose Inter as their UI font. The best grotesques are the ones that make the invisible decisions correctly.`},
+  },
+  monospace: {
+    name:"Monospace", subtitle:"Type Classification",
+    glyphStyle:"font-family:'Space Mono',monospace;font-weight:700;",
+    intro:`Every character in a monospace typeface occupies exactly the same horizontal width — the narrow 'i' and the wide 'M' take up identical space. This constraint, born from mechanical typewriters in the 1870s, has become one of the most powerful design languages on the modern web: monospace signals precision, technicality, and unvarnished data.`,
+    why:`Monospace fonts weren't designed for beauty — they were designed for machines. But this constraint creates something unexpectedly useful: <strong>perfect vertical alignment of characters across rows and columns</strong>. Code, data tables, terminal output, pricing, and verification codes all become structurally clear in monospace. The constraint became the identity.`,
+    quote:{text:`"Monospace is the typeface that says: this is real data, not marketing copy. Numbers in monospace feel like facts."`,attr:"— Designer at Stripe"},
+    families:[
+      {style:"font-family:'Space Mono',monospace;font-weight:700;",label:"Code Monospace",name:"JetBrains Mono / Fira Code",desc:"Designed specifically for code with programming ligatures (→ ≥ !=) and contextual alternates for easily confused characters. Developer tools and IDEs.",used:"Used by: VS Code · JetBrains · GitHub Codespaces"},
+      {style:"font-family:'Space Mono',monospace;font-weight:400;",label:"Design Monospace",name:"Space Mono / IBM Plex Mono",desc:"Monospace designed for visual contexts beyond code. Strong personality at display sizes, legible in UI contexts. Tech brands and data products.",used:"Used by: IBM · Vercel · PlanetScale · Linear"},
+      {style:"font-family:'Space Mono',monospace;font-weight:700;letter-spacing:2px;",label:"Display Monospace",name:"Azeret Mono / Input Mono",desc:"Variable monospace grotesques that bridge code aesthetics and brand typography. Wide weight range, real display character at large sizes.",used:"Used by: SaaS dashboards · FinTech data platforms"},
+      {style:"font-family:'Space Mono',monospace;font-weight:400;letter-spacing:-0.3px;",label:"Proportional Mono",name:"Recursive / iA Writer Mono",desc:"Experimental fonts offering both proportional and monospace modes in one variable file. The typographic frontier — reading experience meets data precision.",used:"Used by: Editorial tools · Writing apps · Creative platforms"},
+    ],
+    useCases:[
+      {icon:"👨‍💻",title:"Developer Tools",desc:"Code is read more than it's written. Monospace legibility directly affects developer productivity."},
+      {icon:"📊",title:"Data & Dashboards",desc:"Numbers align in columns naturally. Financial data, metrics, and timestamps read clearly."},
+      {icon:"🔐",title:"Fintech & Crypto",desc:"Transaction IDs, wallet addresses, and verification codes. Monospace signals authenticity."},
+      {icon:"🎨",title:"Tech Brand Identity",desc:"Monospace as accent type creates a technical, precise personality for AI and developer brands."},
+    ],
+    callout:{label:"Monospace as a design accent",text:`You don't need to set an entire interface in monospace to get its benefits. The most sophisticated approach: <strong>use a humanist grotesque for UI and copy, then switch to monospace for metadata, timestamps, IDs, code, and data values.</strong> The visual shift between proportional and monospace type creates hierarchy and communicates meaning — these numbers are precise facts, not rounded estimates.`},
+  },
+  display: {
+    name:"Display", subtitle:"Type Classification",
+    glyphStyle:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-4px;",
+    intro:`Display typefaces are built for one purpose: impact at large sizes. They are not designed to be read in paragraphs — they are designed to be felt in headlines. Every decision in a display typeface is optimised for the moment when a letterform is large enough to be experienced as visual art, not merely a functional reading symbol.`,
+    why:`Display type operates on entirely different principles from text type. Where a text font must remain invisible at 14px, a display font must stop a reader's eye at 72px. This means display faces can carry <strong>extreme contrast, distinctive quirks, dramatic proportions, and expressive details</strong> that would be illegible at body size but become defining and powerful at display scale.`,
+    quote:{text:`"A display typeface is the brand's voice turned up to full volume. Used correctly, it says everything before you read a single word."`,attr:"— Jessica Hische, typographer"},
+    families:[
+      {style:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-3px;font-style:italic;",label:"Display Serif",name:"Canela / GT Super / Hatton",desc:"High-contrast serifs optimised for headline sizes. Dramatic italics, exaggerated proportions, fine hairlines. The contemporary luxury editorial standard.",used:"Used by: Wealthsimple · Net-a-Porter · Pitchfork"},
+      {style:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:-2px;",label:"Display Sans",name:"Druk / Clash Display / Bebas",desc:"Ultra-bold or ultra-condensed grotesques. Maximum visual impact. Sports, entertainment, and culture brands. Physically impossible to ignore.",used:"Used by: NBA · Vice · Red Bull · Coachella"},
+      {style:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",label:"Expressive Serif",name:"Fraunces / Editorial New",desc:"Optical display serifs with unique personalities — nostalgic warmth, historical references, quirky details. Indie, artisanal, and editorial brands.",used:"Used by: Bandcamp · Kiva · Artisan food brands"},
+      {style:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",label:"Display Variable",name:"Syne / Epilogue / Bricolage",desc:"Variable display fonts with multiple expressive axes — weight, width, optical size, and brand-specific custom axes. The future of brand typography.",used:"Used by: Framer · Vercel · Brex · make.com"},
+    ],
+    useCases:[
+      {icon:"🎯",title:"Hero Headlines",desc:"The first thing your audience reads. Display type makes it impossible to scroll past."},
+      {icon:"📱",title:"Campaign & Marketing",desc:"Billboards, social media, OOH advertising. Display type works at any scale from billboard to phone."},
+      {icon:"🏷️",title:"Brand Identity",desc:"Logos, wordmarks, packaging. A distinctive display face is the brand's visual voice."},
+      {icon:"📖",title:"Editorial Covers",desc:"Magazine covers, book jackets, album art. The display moment where type becomes image."},
+    ],
+    callout:{label:"The cardinal rule of display type",text:`<strong>Never set body text in a display typeface.</strong> Display fonts are calibrated for large sizes — their extreme contrast and tight spacing that looks striking at 80px becomes illegible and uncomfortable at 16px. The correct approach: a display face for headlines and hero text, a text-optimised face for everything else. The contrast between them creates the hierarchy.`},
+  },
+};
+
+function openTypeClass(id) {
+  const cls = TYPE_CLASSES[id];
+  if (!cls) return;
+  const body = document.getElementById('tcBody');
+  document.getElementById('tcNavMeta').textContent = 'Type Classification · ' + cls.name;
+  body.innerHTML = `
+    <div class="tc-hero">
+      <div class="tc-eyebrow">${cls.subtitle}</div>
+      <div class="tc-hero-glyph" style="${cls.glyphStyle}">Aa</div>
+    </div>
+    <div class="tc-body">
+      <div class="tc-section">
+        <div class="tc-section-label">What is ${cls.name}?</div>
+        <h2 class="tc-h2">${cls.name} — The Full Story</h2>
+        <p class="tc-p">${cls.intro}</p>
+      </div>
+      <div class="tc-divider"></div>
+      <div class="tc-section">
+        <div class="tc-section-label">Why it works</div>
+        <p class="tc-p">${cls.why}</p>
+      </div>
+      <div class="tc-divider"></div>
+      <div class="tc-section">
+        <div class="tc-section-label">The four sub-families</div>
+        <div class="tc-examples">
+          ${cls.families.map(f=>`
+            <div class="tc-example-row">
+              <div class="tc-example-font" style="${f.style}">Aa</div>
+              <div>
+                <div class="tc-example-name">${f.name} <span style="font-size:9px;color:var(--muted);font-weight:400;letter-spacing:1.5px;text-transform:uppercase;margin-left:6px;">${f.label}</span></div>
+                <div class="tc-example-desc">${f.desc}</div>
+                <div class="tc-example-used">${f.used}</div>
+              </div>
+            </div>`).join('')}
+        </div>
+      </div>
+      <div class="tc-divider"></div>
+      <div class="tc-section">
+        <div class="tc-section-label">Where to use it</div>
+        <div class="tc-use-grid">
+          ${cls.useCases.map(u=>`
+            <div class="tc-use-cell">
+              <div class="tc-use-icon">${u.icon}</div>
+              <div class="tc-use-title">${u.title}</div>
+              <div class="tc-use-desc">${u.desc}</div>
+            </div>`).join('')}
+        </div>
+      </div>
+      <div class="tc-divider"></div>
+      <div class="tc-section">
+        <div class="tc-callout">
+          <div class="tc-callout-label">${cls.callout.label}</div>
+          <div class="tc-callout-text">${cls.callout.text}</div>
+        </div>
+      </div>
+      <div class="tc-divider"></div>
+      <div class="tc-section" style="padding-bottom:0;">
+        <div class="tc-quote">
+          <div class="tc-quote-text">${cls.quote.text}</div>
+          <div class="tc-quote-attr">${cls.quote.attr}</div>
+        </div>
+      </div>
+    </div>`;
+  const overlay = document.getElementById('typeClassOverlay');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  body.scrollTop = 0;
+}
+
+function closeTypeClass() {
+  const overlay = document.getElementById('typeClassOverlay');
+  overlay.classList.add('leaving');
+  overlay.addEventListener('animationend', () => {
+    overlay.classList.remove('open','leaving');
+    document.body.style.overflow = '';
+  }, {once:true});
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // Sync toggle button state with current theme
