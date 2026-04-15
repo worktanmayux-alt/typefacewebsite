@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0">
 
-<!-- ═══ PRIMARY META TAGS ═══ -->
+<!-- ═══ PRIMARY META ═══ -->
 <title>Get.Set.Typeface — Find the Perfect Typeface for Any Product</title>
 <meta name="description" content="Discover the perfect typeface for your website or app. 200+ curated font recommendations per category — SaaS, fintech, editorial, luxury, gaming and more. Updated daily.">
 <meta name="keywords" content="typeface finder, font recommendations, typography tool, web fonts, SaaS fonts, fintech fonts, editorial fonts, luxury fonts, font pairing, design tool">
@@ -809,6 +809,11 @@
   .footer-txt { font-size:11px; color:var(--muted); }
   .footer-update { font-size:11px; color:var(--dim); display:flex; align-items:center; gap:6px; }
   .footer-update-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; display:inline-block; animation:livepulse 2s ease-in-out infinite; }
+  .footer-tagline {
+    text-align:center; font-size:10px; font-weight:600; letter-spacing:3px;
+    text-transform:uppercase; color:var(--muted); padding:28px 24px 0;
+  }
+  html.light .footer-tagline { color:var(--text-muted); }
   @keyframes livepulse { 0%,100%{opacity:0.4;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
   .input-note { font-size:12px; color:var(--muted); letter-spacing:0.3px; }
 
@@ -2255,7 +2260,6 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="eyebrow">Typography Intelligence Tool — Made with Love in Bangalore, India ❤️</p>
   <h1 class="hero-h1">Find the <em>perfect</em><br>typeface for<br>any product.</h1>
   <p class="hero-sub">Select a category and get curated font recommendations with real-world usage examples.</p>
 
@@ -2413,6 +2417,8 @@
     <button class="load-more" onclick="loadMore()">Load more typefaces</button>
   </div>
 </section>
+
+<div class="footer-tagline">Typography Intelligence Tool — Made with Love in Bangalore, India ❤️</div>
 
 <footer>
   <span class="footer-logo">Get.Set.Typeface</span>
@@ -3154,6 +3160,334 @@ const DB = {
   }
 };
 
+
+// ─── 14 ADDITIONAL CATEGORIES ───
+Object.assign(DB, {
+  "ai-tool": { meta:{label:"AI Tool / Tech",desc:"Precise, forward-looking typography signalling intelligence and technical confidence."},fonts:[
+    {n:"Geist",p:"Ge",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-1.5px;",d:"Vercel's own typeface — minimal, geometric, born for developer tools and AI interfaces.",t:["Geometric","Developer","Variable"],w:"vercel.com",src:"Vercel"},
+    {n:"Space Grotesk",p:"Sg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-1px;",d:"Tech-coded grotesque with quirks at display size. The standout choice for AI and Web3 tools.",t:["Tech","Geometric","Open Source"],w:"railway.app",src:"Google Fonts"},
+    {n:"IBM Plex Sans",p:"Ib",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"IBM's open-source humanist. Technical authority with corporate neutrality. Dark UIs love it.",t:["Humanist","Technical","Open Source"],w:"ibm.com",src:"Google Fonts"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"The gold standard for AI and developer tool UIs. Exceptional legibility at every weight.",t:["Grotesque","Variable","Open Source"],w:"openai.com",src:"Google Fonts"},
+    {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Wide display grotesque. Unconventional form for AI brands that want to stand apart.",t:["Display","Variable","Bold"],w:"anthropic.com",src:"Google Fonts"},
+    {n:"Bricolage Grotesque",p:"Bg",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Variable grotesque with expressive range. Great for AI startup marketing and landing pages.",t:["Variable","Display","Expressive"],w:"make.com",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Open geometry and modern feel. Used by many AI-first startups for clean interfaces.",t:["Geometric","Open Source","UI"],w:"cohere.com",src:"Google Fonts"},
+    {n:"Darker Grotesque",p:"Dk",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Condensed grotesque with tremendous display character. Hero sections for AI brands.",t:["Condensed","Display","Bold"],w:"mistral.ai",src:"Google Fonts"},
+    {n:"JetBrains Mono",p:"Jm",s:"font-family:'Space Mono',monospace;font-weight:600;",d:"Designed specifically for developers. Ligatures and contextual alternatives for code UIs.",t:["Monospace","Developer","Premium"],w:"jetbrains.com",src:"JetBrains"},
+    {n:"Neue Montreal",p:"Nm",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Clean grotesque with subtle optical corrections. Popular for AI research and tool interfaces.",t:["Grotesque","PP","Variable"],w:"cohere.com",src:"Pangram Pangram"},
+    {n:"Epilogue",p:"Ep",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Variable grotesque with extreme weight range. Dynamic AI product hero typography.",t:["Variable","Grotesque","Dynamic"],w:"resend.com",src:"Google Fonts"},
+    {n:"Urbanist",p:"Ur",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Geometric humanist with wide character support. Elegant at display, clean in body.",t:["Humanist","Geometric","Variable"],w:"attio.com",src:"Google Fonts"},
+    {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern geometric adopted by AI and crypto startups for its clean confidence.",t:["Geometric","Free","Variable"],w:"perplexity.ai",src:"Fontshare"},
+    {n:"Clash Display",p:"Cd",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Bold display grotesque. Large letterforms with strong impact for AI product launches.",t:["Display","Bold","Free"],w:"stability.ai",src:"Fontshare"},
+    {n:"Instrument Sans",p:"In",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.3px;",d:"Clean geometric sans. Approachable for consumer AI, professional for enterprise.",t:["Geometric","Variable","Clean"],w:"linear.app",src:"Google Fonts"},
+    {n:"Cabinet Grotesk",p:"Cg",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Ink-trap variable grotesque. Tech personality with an artisanal edge.",t:["Grotesque","Variable","Free"],w:"supabase.com",src:"Fontshare"},
+    {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Humanist sans with globally-informed aesthetic. Great for AI tools targeting international markets.",t:["Humanist","Global","Variable"],w:"loop.so",src:"Google Fonts"},
+    {n:"Azeret Mono",p:"Az",s:"font-family:'Space Mono',monospace;font-weight:700;",d:"Variable monospace grotesque. Bridges the gap between code and branding perfectly.",t:["Monospace","Variable","Technical"],w:"planetscale.com",src:"Google Fonts"},
+    {n:"Manrope",p:"Ma",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Semi-condensed grotesque. Compact and efficient for data-heavy AI interfaces.",t:["Grotesque","Variable","Compact"],w:"clerk.dev",src:"Google Fonts"},
+    {n:"Geologica",p:"Gg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Variable grotesque with multiple optical axes. Excellent for responsive AI dashboards.",t:["Variable","Grotesque","Versatile"],w:"polygon.io",src:"Google Fonts"},
+    {n:"General Sans",p:"Gs",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Swiss-influenced optical sizing. Scales from navigation labels to hero text flawlessly.",t:["Swiss","Variable","Free"],w:"cal.com",src:"Fontshare"},
+    {n:"Spline Sans",p:"Sp",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Developed by the Spline 3D team. Clean, precise, native digital aesthetic.",t:["Grotesque","Digital","Open Source"],w:"spline.design",src:"Google Fonts"},
+    {n:"Work Sans",p:"Ws",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Screen-optimised grotesque. Efficient proportions for dense AI dashboard layouts.",t:["Grotesque","Efficient","Open Source"],w:"webflow.com",src:"Google Fonts"},
+    {n:"Fira Code",p:"Fc",s:"font-family:'Space Mono',monospace;font-weight:500;",d:"Monospace with programming ligatures. Standard in developer tool UIs worldwide.",t:["Monospace","Ligatures","Developer"],w:"github.com",src:"Mozilla"},
+    {n:"Red Hat Display",p:"Rh",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Red Hat open-source display. Humanist and approachable yet technical.",t:["Humanist","Open Source","Display"],w:"redhat.com",src:"Google Fonts"},
+  ]},
+  "mobile-app": { meta:{label:"Mobile App",desc:"High-legibility, touch-friendly typography optimised for small screens and dynamic type scaling."},fonts:[
+    {n:"SF Pro",p:"Sf",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Apple system typeface for iOS. Optical sizing, dynamic type, designed for every screen.",t:["System","Apple","Variable"],w:"apple.com",src:"Apple"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Cross-platform UI gold standard. Outstanding hinting, excellent on every mobile display.",t:["Grotesque","Variable","Universal"],w:"linear.app",src:"Google Fonts"},
+    {n:"Roboto",p:"Ro",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Google flagship for Android. Material Design 3 standard. Perfect for cross-platform apps.",t:["Grotesque","Android","Open Source"],w:"google.com",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"High x-height geometric. Renders cleanly at small mobile sizes and large display headlines.",t:["Geometric","Open Source","UI"],w:"craft.do",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Rounded, approachable. Excellent for onboarding UX and consumer mobile interfaces.",t:["Rounded","Friendly","Variable"],w:"todoist.com",src:"Google Fonts"},
+    {n:"Figtree",p:"Fg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Warmer alternative to Inter with rounded character. Beautiful on OLED screens.",t:["Geometric","Rounded","Variable"],w:"mercury.com",src:"Google Fonts"},
+    {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Humanist sans with international script support. Global mobile apps love this.",t:["Humanist","Global","Variable"],w:"loop.so",src:"Google Fonts"},
+    {n:"Manrope",p:"Ma",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Compact grotesque. Ideal for information-dense mobile layouts like finance apps.",t:["Grotesque","Variable","Compact"],w:"revolut.com",src:"Google Fonts"},
+    {n:"Sora",p:"So",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Japanese-influenced geometric. Clean and excellent for internationalised mobile apps.",t:["Geometric","Global","Variable"],w:"prisma.io",src:"Google Fonts"},
+    {n:"Urbanist",p:"Ur",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Geometric humanist. Beautiful in tab bars and bottom navigation components.",t:["Humanist","Geometric","Variable"],w:"attio.com",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"High x-height with approachable personality for consumer mobile products.",t:["Geometric","Open Source","Readable"],w:"primer.io",src:"Google Fonts"},
+    {n:"Epilogue",p:"Ep",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Variable grotesque. Extreme weight range for apps switching between thin UI and bold hero.",t:["Variable","Grotesque","Dynamic"],w:"resend.com",src:"Google Fonts"},
+    {n:"Lexend",p:"Lx",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Research-backed for reading speed. Improves comprehension in notification and feed text.",t:["Readability","Open Source","Accessible"],w:"lexend.com",src:"Google Fonts"},
+    {n:"Atkinson Hyperlegible",p:"Ah",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Designed by the Braille Institute. Maximum letter differentiation for accessible mobile apps.",t:["Accessible","Legible","Free"],w:"brailleinstitute.org",src:"Google Fonts"},
+    {n:"Instrument Sans",p:"Is",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Variable sans with clean proportions. Used by Linear mobile — modern and sharp.",t:["Geometric","Variable","Clean"],w:"linear.app",src:"Google Fonts"},
+    {n:"General Sans",p:"Gs",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Swiss-inspired optical sizing. Scales from navigation labels to hero text.",t:["Swiss","Variable","Free"],w:"cal.com",src:"Fontshare"},
+    {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern geometric. Pairs well with native system fonts for a premium hybrid look.",t:["Geometric","Free","Variable"],w:"read.cv",src:"Fontshare"},
+    {n:"Work Sans",p:"Ws",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Condensed proportions ideal for information-dense mobile lists and settings screens.",t:["Grotesque","Efficient","Open Source"],w:"webflow.com",src:"Google Fonts"},
+    {n:"Noto Sans",p:"No",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Google universal script font. Supports 1000+ scripts — essential for truly global apps.",t:["Universal","Multi-Script","Open Source"],w:"google.com",src:"Google Fonts"},
+    {n:"Mulish",p:"Mu",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Minimalist geometric sans. Popular for health, wellness and productivity mobile apps.",t:["Geometric","Minimal","Open Source"],w:"headspace.com",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Geometric with Indian type influences. Beloved for consumer apps in South and Southeast Asia.",t:["Geometric","Global","Open Source"],w:"swiggy.com",src:"Google Fonts"},
+    {n:"Chillax",p:"Ch",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Rounded geometric. Warm consumer-friendly personality. Great for lifestyle mobile apps.",t:["Rounded","Geometric","Free"],w:"superlist.com",src:"Fontshare"},
+    {n:"Be Vietnam Pro",p:"Bv",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Multi-script grotesque. Essential for mobile apps with Vietnamese or global user bases.",t:["Humanist","Global","Variable"],w:"miro.com",src:"Google Fonts"},
+    {n:"Source Sans Pro",p:"Ss",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Adobe humanist sans. Clean and readable for settings screens and help content.",t:["Humanist","Adobe","Open Source"],w:"adobe.com",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant display grotesque. Excellent for app onboarding screens and splash pages.",t:["Display","Elegant","Open Source"],w:"dribbble.com",src:"Google Fonts"},
+  ]},
+  "ecommerce": { meta:{label:"E-Commerce / Retail",desc:"Typography that builds trust, drives conversion, and makes products feel desirable."},fonts:[
+    {n:"Helvetica Now",p:"Hn",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"The retail standard. Amazon, IKEA, H&M — conveys scale, trust and efficiency.",t:["Classic","Swiss","Enterprise"],w:"amazon.com",src:"Monotype"},
+    {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-0.5px;",d:"Authoritative and clean. High-volume retail catalogues trust this for its neutrality.",t:["Swiss","Trustworthy","Classic"],w:"shopify.com",src:"Monotype"},
+    {n:"Graphik",p:"Gr",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Commercial Type neo-grotesque. Used by Airbnb and Nike — warm neutrality that sells.",t:["Neo-Grotesque","Premium","Warm"],w:"nike.com",src:"Commercial Type"},
+    {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Display serif for premium e-commerce. Net-a-Porter standard for luxury retail.",t:["Display Serif","Luxury","Editorial"],w:"net-a-porter.com",src:"Commercial Type"},
+    {n:"GT Walsheim",p:"Gw",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Friendly grotesque. Warm enough for consumer retail and marketplace platforms.",t:["Grotesque","Friendly","Variable"],w:"shopify.com",src:"Grilli Type"},
+    {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Display serif for product hero sections. Elevates mid-range retail to premium feel.",t:["Display Serif","Open Source","Elegant"],w:"etsy.com",src:"Google Fonts"},
+    {n:"Futura PT",p:"Fp",s:"font-family:'Inter Tight',sans-serif;font-weight:300;letter-spacing:3px;",d:"Geometric with wide tracking. The luxury DTC standard — Supreme, LV, Uniqlo.",t:["Geometric","Classic","Luxury"],w:"uniqlo.com",src:"Adobe Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Clean and readable for product grids and e-commerce UI. Cart pages feel professional.",t:["Geometric","Open Source","UI"],w:"shopify.com",src:"Google Fonts"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Classic serif for product descriptions and artisan retail brands.",t:["Transitional Serif","Open Source","Classic"],w:"etsy.com",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant display grotesque. Popular for fashion and beauty e-commerce hero sections.",t:["Display","Elegant","Open Source"],w:"sephora.com",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Rounded warmth for marketplaces and consumer goods platforms.",t:["Rounded","Friendly","Variable"],w:"wish.com",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Geometric widely used by South and Southeast Asian e-commerce platforms.",t:["Geometric","Global","Open Source"],w:"myntra.com",src:"Google Fonts"},
+    {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Calligraphic serif for artisan retail. Product descriptions feel handcrafted.",t:["Text Serif","Calligraphic","Variable"],w:"uncommongoods.com",src:"Google Fonts"},
+    {n:"Urbanist",p:"Ur",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Works across product listings, category headers and checkout flows cleanly.",t:["Humanist","Geometric","Variable"],w:"attio.com",src:"Google Fonts"},
+    {n:"Bodoni Moda",p:"Bm",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"High-fashion editorial face. Hero headlines for premium apparel and beauty brands.",t:["Bodoni","Variable","Free"],w:"matchesfashion.com",src:"Google Fonts"},
+    {n:"Cormorant Garamond",p:"Co",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Ultra-thin serifs communicate craft and luxury. Jewellery, skincare and high-end fashion.",t:["Garamond","Elegant","Free"],w:"mejuri.com",src:"Google Fonts"},
+    {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Classical Garamond for artisan, vintage and slow-fashion retail.",t:["Garamond","Humanist","Free"],w:"everlane.com",src:"Google Fonts"},
+    {n:"Montserrat",p:"Mo",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Wide geometric. Used by countless DTC brands for its confident, modular character.",t:["Geometric","Wide","Open Source"],w:"casper.com",src:"Google Fonts"},
+    {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern geometric. Clean DTC brand language for Millennial and Gen Z retail.",t:["Geometric","Free","Variable"],w:"allbirds.com",src:"Fontshare"},
+    {n:"Work Sans",p:"Ws",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Efficient grotesque for high-SKU category pages and product filter UIs.",t:["Grotesque","Efficient","Open Source"],w:"asos.com",src:"Google Fonts"},
+    {n:"Instrument Serif",p:"Isr",s:"font-family:'Playfair Display',serif;",d:"Editorial serif with authority. Product landing pages command premium pricing.",t:["Serif","Editorial","Open Source"],w:"ramp.com",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Approachable and modern. Excellent for startup DTC retail brands targeting millennials.",t:["Geometric","Open Source","Readable"],w:"brooklinen.com",src:"Google Fonts"},
+    {n:"Source Serif Pro",p:"Ssp",s:"font-family:'Libre Baskerville',serif;font-weight:400;",d:"Adobe screen serif. Product reviews and long descriptions read beautifully.",t:["Serif","Adobe","Screen"],w:"williams-sonoma.com",src:"Google Fonts"},
+    {n:"Aktiv Grotesk",p:"Ag",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Enterprise retail standard. Excellent for product specs and data-heavy catalogs.",t:["Grotesque","Legible","Enterprise"],w:"zalando.com",src:"Dalton Maag"},
+    {n:"Tiempos Headline",p:"Th",s:"font-family:'Playfair Display',serif;font-weight:700;",d:"Editorial serif that brings authority to product descriptions and landing pages.",t:["Serif","Headline","Variable"],w:"magnolia.com",src:"Klim Type"},
+  ]},
+  "real-estate": { meta:{label:"Real Estate / Architecture",desc:"Typography that communicates permanence, craftsmanship, and aspirational living."},fonts:[
+    {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-0.5px;",d:"Swiss authority for architecture firms. Rational, permanent, zero ornament.",t:["Swiss","Trustworthy","Classic"],w:"gensler.com",src:"Monotype"},
+    {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Luxury real estate serif of choice. Property listings in Canela feel aspirational.",t:["Display Serif","Luxury","Editorial"],w:"compass.com",src:"Commercial Type"},
+    {n:"Tiempos Headline",p:"Th",s:"font-family:'Playfair Display',serif;font-weight:700;",d:"Editorial serif that makes property descriptions feel like journalism.",t:["Serif","Headline","Variable"],w:"sothebysrealty.com",src:"Klim Type"},
+    {n:"Futura PT",p:"Fp",s:"font-family:'Inter Tight',sans-serif;font-weight:300;letter-spacing:3px;",d:"Architectural grotesque with modernist heritage. Firms like Zaha Hadid use this aesthetic.",t:["Geometric","Classic","Modernist"],w:"zaha-hadid.com",src:"Adobe Fonts"},
+    {n:"Cormorant Garamond",p:"Co",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Refined elegance for luxury estates, heritage hotels and villa rental brands.",t:["Garamond","Elegant","Free"],w:"belmond.com",src:"Google Fonts"},
+    {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Display serif for hotel branding and destination landing pages.",t:["Display Serif","Open Source","Elegant"],w:"marriott.com",src:"Google Fonts"},
+    {n:"Graphik",p:"Gk",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Neo-grotesque used by leading architecture studios for precise neutrality.",t:["Neo-Grotesque","Neutral","Corporate"],w:"bjarke.com",src:"Commercial Type"},
+    {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Classical Garamond for heritage estates, country homes and old-world real estate.",t:["Garamond","Humanist","Free"],w:"knightfrank.com",src:"Google Fonts"},
+    {n:"Aktiv Grotesk",p:"Ag",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Clean grotesque for residential property portals and agent websites.",t:["Grotesque","Legible","Enterprise"],w:"zillow.com",src:"Dalton Maag"},
+    {n:"Bodoni Moda",p:"Bm",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"High-contrast Didone for ultra-luxury property brands. Penthouse and prime listing energy.",t:["Bodoni","Variable","Free"],w:"berkeleyhomes.com",src:"Google Fonts"},
+    {n:"GT Walsheim",p:"Gw",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Friendly grotesque for residential property apps aiming for approachable, modern tone.",t:["Grotesque","Friendly","Variable"],w:"opendoor.com",src:"Grilli Type"},
+    {n:"Montserrat",p:"Mo",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Clean and confident for new-development real estate brands with geometric clarity.",t:["Geometric","Wide","Open Source"],w:"redfin.com",src:"Google Fonts"},
+    {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Sculptural display grotesque. Architecture studios and design-forward developers.",t:["Display","Variable","Wide"],w:"archdaily.com",src:"Google Fonts"},
+    {n:"DM Serif Display",p:"Ds",s:"font-family:'Playfair Display',serif;font-weight:700;",d:"Sophisticated display serif for estate agents and property technology brands.",t:["Serif","Display","Open Source"],w:"propertyweek.com",src:"Google Fonts"},
+    {n:"Instrument Serif",p:"Is",s:"font-family:'Playfair Display',serif;",d:"Clean editorial serif. Architecture and interior design portfolios.",t:["Serif","Editorial","Open Source"],w:"dezeen.com",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant geometric for boutique travel agencies and destination marketing.",t:["Display","Elegant","Open Source"],w:"visiticeland.com",src:"Google Fonts"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Authority and warmth for mid-range hotel chains and hospitality management platforms.",t:["Transitional Serif","Open Source","Classic"],w:"hilton.com",src:"Google Fonts"},
+    {n:"Spectral",p:"Spc",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Screen-first editorial serif. Architecture journalism and property magazines.",t:["Serif","Screen","Open Source"],w:"dezeen.com",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Approachable and clean for residential marketplace platforms for first-time buyers.",t:["Rounded","Friendly","Variable"],w:"purplebricks.com",src:"Google Fonts"},
+    {n:"Domaine Display",p:"Dd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;font-style:italic;",d:"Premium display serif for high-end property portals and luxury developments.",t:["Display Serif","Elegant","Premium"],w:"christiesrealestate.com",src:"Klim Type"},
+  ]},
+  "music": { meta:{label:"Music / Audio",desc:"Typography that sets a mood, communicates rhythm, and resonates with genre and audience."},fonts:[
+    {n:"Bebas Neue",p:"Bb",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:4px;text-transform:uppercase;",d:"The default for music marketing. All-caps condensed with undeniable impact for event posters.",t:["Display","Condensed","Bold"],w:"spotify.com",src:"Google Fonts"},
+    {n:"GT Super Display",p:"Gs",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;font-style:italic;",d:"Retro-glamorous display serif. Vinyl, indie labels, music journalism and album editorial.",t:["Display Serif","Retro","Glamour"],w:"pitchfork.com",src:"Grilli Type"},
+    {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Wide display grotesque. Electronic, techno and experimental music brands.",t:["Display","Variable","Wide"],w:"resident-advisor.net",src:"Google Fonts"},
+    {n:"Neue Machina",p:"Nm",s:"font-family:'Space Mono',monospace;font-weight:700;",d:"Brutal geometric for underground club culture, techno labels and industrial music.",t:["Geometric","Brutal","Display"],w:"berghain.de",src:"Pangram Pangram"},
+    {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Display serif for classical, jazz and acoustic music brands. Prestige and depth.",t:["Display Serif","Open Source","Elegant"],w:"nytimes.com",src:"Google Fonts"},
+    {n:"Fraunces",p:"Fr",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Nostalgic optical serif. Indie folk, singer-songwriter and ambient music aesthetic.",t:["Display Serif","Optical","Variable"],w:"bandcamp.com",src:"Google Fonts"},
+    {n:"Druk",p:"Dr",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:-0.5px;",d:"Ultra-bold for hip-hop, rap and mainstream chart music marketing. Maximum impact.",t:["Black","Display","Premium"],w:"livenation.com",src:"Commercial Type"},
+    {n:"Bodoni Moda",p:"Bm",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"High fashion typography for pop, K-Pop and mainstream music marketing.",t:["Bodoni","Variable","Free"],w:"universalmusic.com",src:"Google Fonts"},
+    {n:"Space Mono",p:"Sm",s:"font-family:'Space Mono',monospace;font-weight:700;",d:"Technical monospace for electronic music, DJ tools and streaming platforms.",t:["Monospace","Tech","Open Source"],w:"soundcloud.com",src:"Google Fonts"},
+    {n:"Cormorant Garamond",p:"Cg",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Delicate classical serif for opera, classical labels and premium music journalism.",t:["Garamond","Elegant","Free"],w:"laphil.com",src:"Google Fonts"},
+    {n:"Clash Display",p:"Cd",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Bold display grotesque for festival lineups, music event posters and venue branding.",t:["Display","Bold","Free"],w:"primaverasound.com",src:"Fontshare"},
+    {n:"Editorial New",p:"En",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Italic-first serif for music journalism, artist features and editorial album reviews.",t:["Display Serif","Italic","Variable"],w:"pitchfork.com",src:"Pangram Pangram"},
+    {n:"Staatliches",p:"St",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:3px;",d:"Bauhaus condensed for techno raves, warehouse events and minimal electronic branding.",t:["Bauhaus","Condensed","Display"],w:"boilerroom.tv",src:"Google Fonts"},
+    {n:"Oswald",p:"Os",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Condensed grotesque for festival lineups and event announcements.",t:["Condensed","Gothic","Variable"],w:"coachella.com",src:"Google Fonts"},
+    {n:"Hatton",p:"Ha",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1.5px;",d:"Art deco display serif for vintage jazz, soul and retro music branding.",t:["Display Serif","Art Deco","Variable"],w:"bluenotejazz.com",src:"Pangram Pangram"},
+    {n:"Space Grotesk",p:"Sg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-1px;",d:"Tech-coded grotesque for music tech platforms, audio plugins and DAW interfaces.",t:["Tech","Geometric","Open Source"],w:"splice.com",src:"Google Fonts"},
+    {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Editorial serif for music journalism. Guardian Music and Pitchfork-aesthetic.",t:["Display Serif","Editorial","Luxury"],w:"theguardian.com",src:"Commercial Type"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Clean UI for music streaming platforms, dashboards and player interfaces.",t:["Grotesque","Variable","Universal"],w:"spotify.com",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant geometric for music streaming interfaces and artist landing pages.",t:["Display","Elegant","Open Source"],w:"tidal.com",src:"Google Fonts"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Classical authority for orchestral, opera and institution music websites.",t:["Transitional Serif","Open Source","Classic"],w:"metopera.org",src:"Google Fonts"},
+  ]},
+  "agency": { meta:{label:"Agency / Studio",desc:"Distinctive, confident typography that positions the agency as creatively authoritative."},fonts:[
+    {n:"Neue Montreal",p:"Nm",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"The default grotesque for creative agencies globally. Studio-quality with artisanal subtlety.",t:["Grotesque","Creative","Variable"],w:"read.cv",src:"Pangram Pangram"},
+    {n:"Editorial New",p:"En",s:"font-family:'Playfair Display',serif;font-style:italic;font-weight:400;",d:"Italic-first serif. Creative agencies and studios project editorial authority with this.",t:["Display Serif","Italic","Variable"],w:"awwwards.com",src:"Pangram Pangram"},
+    {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Sculptural wide grotesque. Architecture and product design studios love the structural forms.",t:["Display","Variable","Wide"],w:"superflux.in",src:"Google Fonts"},
+    {n:"GT Super Display",p:"Gs",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;font-style:italic;",d:"Retro-flavored display serif. Brand agencies channeling editorial glamour.",t:["Display Serif","Retro","Glamour"],w:"collins.am",src:"Grilli Type"},
+    {n:"Clash Display",p:"Cd",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Bold display grotesque. Digital and branding agencies making strong hero statements.",t:["Display","Bold","Free"],w:"pentagram.com",src:"Fontshare"},
+    {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern geometric. Clean studio identity for digital-first creative agencies.",t:["Geometric","Free","Variable"],w:"persona.name",src:"Fontshare"},
+    {n:"Graphik",p:"Gr",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Commercial Type premium grotesque. Serious branding agencies choose this for credibility.",t:["Neo-Grotesque","Premium","Warm"],w:"wolff-olins.com",src:"Commercial Type"},
+    {n:"Aktiv Grotesk",p:"Ag",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Clean and systematic. Branding and identity studios building large design systems.",t:["Grotesque","Legible","Enterprise"],w:"landor.com",src:"Dalton Maag"},
+    {n:"Hatton",p:"Ha",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1.5px;",d:"Art deco display serif. Creative agencies with a vintage-modern visual language.",t:["Display Serif","Art Deco","Variable"],w:"humanafterall.net",src:"Pangram Pangram"},
+    {n:"Boska",p:"Bk",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Expressive serif with personality. Independent creative studios and design directors.",t:["Serif","Character","Free"],w:"cargo.site",src:"Fontshare"},
+    {n:"Druk",p:"Dr",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:-0.5px;",d:"Maximum bold. Sports, entertainment and culture agencies needing raw impact.",t:["Black","Display","Premium"],w:"mutantandproud.com",src:"Commercial Type"},
+    {n:"Whyte",p:"Wh",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Contemporary grotesque. Forward-thinking digital studios and UX agencies.",t:["Grotesque","Humanist","Premium"],w:"ueno.co",src:"ABC Dinamo"},
+    {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Drama and elegance for high-end brand consultancies and luxury agency identities.",t:["Display Serif","Luxury","Editorial"],w:"futurebrand.com",src:"Commercial Type"},
+    {n:"Neue Machina",p:"Nm2",s:"font-family:'Space Mono',monospace;font-weight:700;",d:"Brutal geometric for disruptive agencies and experimental creative studios.",t:["Geometric","Brutal","Display"],w:"studio-fnt.com",src:"Pangram Pangram"},
+    {n:"Fraunces",p:"Fr",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Optical display serif for artisanal branding studios and brand narrative practices.",t:["Display Serif","Optical","Variable"],w:"sagmeisterwalsh.com",src:"Google Fonts"},
+    {n:"Regola Pro",p:"Rp",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Colophon precise grotesque for systematic branding agencies and corporate identity.",t:["Grotesque","Geometric","Premium"],w:"colophon-foundry.com",src:"Colophon"},
+    {n:"Söhne",p:"Sh",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Klim warm grotesque for design studios wanting sophistication without corporate coldness.",t:["Grotesque","Premium","Warm"],w:"studionand.com",src:"Klim Type"},
+    {n:"Nippo",p:"Np",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Condensed grotesque for agency portfolios with dense case study layouts.",t:["Condensed","Grotesque","Free"],w:"work-co.com",src:"Fontshare"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Classic authority for established strategic consultancies and legacy agencies.",t:["Transitional Serif","Open Source","Classic"],w:"ogilvy.com",src:"Google Fonts"},
+    {n:"Sentient",p:"St",s:"font-family:'Libre Baskerville',serif;font-weight:700;letter-spacing:-0.5px;",d:"Confident contemporary serif for strategy and creative consultancies.",t:["Serif","Display","Free"],w:"layers.to",src:"Fontshare"},
+  ]},
+  "healthcare": { meta:{label:"Healthcare / Medical",desc:"Legible, trustworthy, calm typography that communicates care, competence and safety."},fonts:[
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Maximum legibility across all sizes. Standard for health app UIs and patient portals.",t:["Grotesque","Variable","Open Source"],w:"epic.com",src:"Google Fonts"},
+    {n:"Lexend",p:"Lx",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Research-backed for reading speed and comprehension. Ideal for medical content.",t:["Readability","Open Source","Accessible"],w:"who.int",src:"Google Fonts"},
+    {n:"Atkinson Hyperlegible",p:"Ah",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Designed by the Braille Institute for maximum letter differentiation.",t:["Accessible","Legible","Free"],w:"brailleinstitute.org",src:"Google Fonts"},
+    {n:"Source Sans Pro",p:"Ss",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Adobe humanist. Clean and readable for medical records and patient information.",t:["Humanist","Adobe","Open Source"],w:"mayoclinic.org",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Rounded warm grotesque. Patient-facing apps and mental health platforms.",t:["Rounded","Friendly","Variable"],w:"calm.com",src:"Google Fonts"},
+    {n:"Noto Sans",p:"No",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Universal script support essential for global healthcare platforms.",t:["Universal","Multi-Script","Open Source"],w:"who.int",src:"Google Fonts"},
+    {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Warm serif for medical editorial, doctor bios and healthcare blog content.",t:["Text Serif","Calligraphic","Variable"],w:"webmd.com",src:"Google Fonts"},
+    {n:"Graphik",p:"Gk",s:"font-family:'Inter Tight',sans-serif;font-weight:400;",d:"Professional and neutral. Major health systems and hospital networks.",t:["Neo-Grotesque","Neutral","Corporate"],w:"clevelandclinic.org",src:"Commercial Type"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Open geometry and modern feel. Digital health startups and wellness apps.",t:["Geometric","Open Source","UI"],w:"hims.com",src:"Google Fonts"},
+    {n:"Roboto",p:"Ro",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Android health apps. Google Health and Google Fit typography standard.",t:["Grotesque","Android","Open Source"],w:"health.google.com",src:"Google Fonts"},
+    {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-0.5px;",d:"Institutional authority for major hospital systems and medical universities.",t:["Swiss","Trustworthy","Classic"],w:"johnshopkins.edu",src:"Monotype"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Classical authority. Pharmaceutical companies and established medical institutions.",t:["Transitional Serif","Open Source","Classic"],w:"pfizer.com",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Approachable and clean. Consumer health, fitness and telemedicine startups.",t:["Geometric","Open Source","Readable"],w:"hinge-health.com",src:"Google Fonts"},
+    {n:"Figtree",p:"Fg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Warm geometric. Mental health and wellness platforms prioritising empathy.",t:["Geometric","Rounded","Variable"],w:"headspace.com",src:"Google Fonts"},
+    {n:"Mulish",p:"Mu",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Clean minimal grotesque for health tech startups and digital therapeutics.",t:["Geometric","Minimal","Open Source"],w:"noom.com",src:"Google Fonts"},
+    {n:"Manrope",p:"Ma",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Compact for health dashboards with dense data and metrics.",t:["Grotesque","Variable","Compact"],w:"apple.com",src:"Google Fonts"},
+    {n:"Tiempos Text",p:"Tt",s:"font-family:'Libre Baskerville',serif;",d:"Highly readable serif. Long-form medical content and clinical research.",t:["Serif","Readable","Premium"],w:"nejm.org",src:"Klim Type"},
+    {n:"Spectral",p:"Spc",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Screen serif for medical journals, clinical guidelines and research publications.",t:["Serif","Screen","Open Source"],w:"thelancet.com",src:"Google Fonts"},
+    {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Global humanist. International health organisations and NGOs.",t:["Humanist","Global","Variable"],w:"who.int",src:"Google Fonts"},
+    {n:"Newsreader",p:"Nr",s:"font-family:'Libre Baskerville',serif;",d:"Optimised for long screen reading. Medical reference resources and content platforms.",t:["News","Readable","Variable"],w:"uptodate.com",src:"Google Fonts"},
+  ]},
+  "education": { meta:{label:"Education / E-Learning",desc:"Readable, welcoming typography that reduces cognitive load and encourages learning."},fonts:[
+    {n:"Lexend",p:"Lx",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Research-backed to improve reading speed. Designed specifically for educational contexts.",t:["Readability","Open Source","Accessible"],w:"lexend.com",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Rounded, approachable. Reduces reading anxiety. K-12 and consumer e-learning platforms.",t:["Rounded","Friendly","Variable"],w:"duolingo.com",src:"Google Fonts"},
+    {n:"Source Sans Pro",p:"Ss",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Adobe humanist. Long-form educational content reads cleanly and comfortably.",t:["Humanist","Adobe","Open Source"],w:"khanacademy.org",src:"Google Fonts"},
+    {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Calligraphic text serif. Coursera-style written course content and lesson text.",t:["Text Serif","Calligraphic","Variable"],w:"coursera.org",src:"Google Fonts"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Universal UI legibility. Dashboards, progress trackers and e-learning platform interfaces.",t:["Grotesque","Variable","Open Source"],w:"notion.so",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern and open. Ed-tech startups and online learning platform UIs.",t:["Geometric","Open Source","UI"],w:"masterclass.com",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"High x-height and approachable. Perfect for children and young adult education.",t:["Geometric","Open Source","Readable"],w:"quizlet.com",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Beloved for e-learning in South Asia and globally. Geometric, warm, widely readable.",t:["Geometric","Global","Open Source"],w:"byju.com",src:"Google Fonts"},
+    {n:"Atkinson Hyperlegible",p:"Ah",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Maximum letter differentiation. Essential for inclusive education platforms.",t:["Accessible","Legible","Free"],w:"brailleinstitute.org",src:"Google Fonts"},
+    {n:"Newsreader",p:"Nr",s:"font-family:'Libre Baskerville',serif;",d:"Long-form screen reading. Academic content, research databases, textbooks.",t:["News","Readable","Variable"],w:"jstor.org",src:"Google Fonts"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Classical authority for universities, academic journals and institutional education.",t:["Transitional Serif","Open Source","Classic"],w:"mit.edu",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant display grotesque for adult education, professional development and MBA programs.",t:["Display","Elegant","Open Source"],w:"udemy.com",src:"Google Fonts"},
+    {n:"Spectral",p:"Spc",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Screen-first serif for legal, medical and humanities education platforms.",t:["Serif","Screen","Open Source"],w:"coursera.org",src:"Google Fonts"},
+    {n:"Figtree",p:"Fg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Warm rounded geometric. Modern ed-tech platforms targeting millennials.",t:["Geometric","Rounded","Variable"],w:"notion.so",src:"Google Fonts"},
+    {n:"Mulish",p:"Mu",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Minimal grotesque for SaaS e-learning tools and learning management systems.",t:["Geometric","Minimal","Open Source"],w:"360learning.com",src:"Google Fonts"},
+    {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Classical humanist for liberal arts, philosophy and literature education.",t:["Garamond","Humanist","Free"],w:"gutenberg.org",src:"Google Fonts"},
+    {n:"Merriweather",p:"Me",s:"font-family:'Libre Baskerville',serif;",d:"Designed for screens at small sizes. Dense textbook-style reading content.",t:["Serif","Screen","Open Source"],w:"medium.com",src:"Google Fonts"},
+    {n:"Urbanist",p:"Ur",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Modern humanist. Tech education bootcamps and coding school interfaces.",t:["Humanist","Geometric","Variable"],w:"generalassemb.ly",src:"Google Fonts"},
+    {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Global humanist for international education platforms serving non-English speakers.",t:["Humanist","Global","Variable"],w:"edx.org",src:"Google Fonts"},
+    {n:"Manrope",p:"Ma",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Compact for dense course dashboards, grade tables and learning analytics.",t:["Grotesque","Variable","Compact"],w:"moodle.org",src:"Google Fonts"},
+  ]},
+  "restaurant": { meta:{label:"Restaurant / Food",desc:"Typography that stimulates appetite, communicates cuisine identity, and sets the dining mood."},fonts:[
+    {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Editorial serif for fine dining. White tablecloth restaurants and wine lists.",t:["Display Serif","Luxury","Editorial"],w:"eleven-madison.com",src:"Commercial Type"},
+    {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Classic serif for upscale dining. Menu typography and restaurant brand identity.",t:["Display Serif","Open Source","Elegant"],w:"opentable.com",src:"Google Fonts"},
+    {n:"Cormorant Garamond",p:"Co",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Ultra-thin elegance for high-end cuisine. Tasting menus and Michelin-starred restaurants.",t:["Garamond","Elegant","Free"],w:"noma.dk",src:"Google Fonts"},
+    {n:"GT Walsheim",p:"Gw",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Friendly grotesque for casual dining chains and food delivery platforms.",t:["Grotesque","Friendly","Variable"],w:"chipotle.com",src:"Grilli Type"},
+    {n:"Fraunces",p:"Fr",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Nostalgic warmth for slow food, craft beverages and artisan restaurant brands.",t:["Display Serif","Optical","Variable"],w:"tartinebakery.com",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Rounded warmth for family restaurants, cafes and neighbourhood food brands.",t:["Rounded","Friendly","Variable"],w:"zomato.com",src:"Google Fonts"},
+    {n:"Bebas Neue",p:"Bb",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:4px;text-transform:uppercase;",d:"Bold condensed for fast food, burger brands and street food concepts.",t:["Display","Condensed","Bold"],w:"fiveguys.com",src:"Google Fonts"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Traditional authority for heritage restaurants, steakhouses and classic dining.",t:["Transitional Serif","Open Source","Classic"],w:"wolfgangs.com",src:"Google Fonts"},
+    {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Old-world elegance for French bistros, Italian trattorias and old-school menus.",t:["Garamond","Humanist","Free"],w:"frenchrestaurant.com",src:"Google Fonts"},
+    {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Calligraphic warmth for farm-to-table, artisan bakeries and seasonal food brands.",t:["Text Serif","Calligraphic","Variable"],w:"bluehillfarm.com",src:"Google Fonts"},
+    {n:"Hatton",p:"Ha",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1.5px;",d:"Art deco serif for cocktail bars, speakeasies and 1920s-themed dining.",t:["Display Serif","Art Deco","Variable"],w:"deathandencompany.com",src:"Pangram Pangram"},
+    {n:"Bodoni Moda",p:"Bm",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-2px;",d:"High-fashion typography for luxury food and beverage brands.",t:["Bodoni","Variable","Free"],w:"moethennessy.com",src:"Google Fonts"},
+    {n:"Instrument Serif",p:"Is",s:"font-family:'Playfair Display',serif;",d:"Contemporary serif for new-wave dining concepts and chef-driven restaurant brands.",t:["Serif","Editorial","Open Source"],w:"nytimes.com",src:"Google Fonts"},
+    {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Bold display grotesque for street food festivals, pop-up restaurants and food brands.",t:["Display","Variable","Wide"],w:"streetfestival.com",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Clean and approachable for food delivery apps and online ordering platforms.",t:["Geometric","Open Source","Readable"],w:"doordash.com",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Geometric warmth for South Asian, fusion and global cuisine brands.",t:["Geometric","Global","Open Source"],w:"swiggy.com",src:"Google Fonts"},
+    {n:"Montserrat",p:"Mo",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Bold and clean. QSR chains, franchise restaurants and cafe menus.",t:["Geometric","Wide","Open Source"],w:"starbucks.com",src:"Google Fonts"},
+    {n:"Spectral",p:"Spc",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Screen-first serif for food journalism, recipe editorial and culinary publications.",t:["Serif","Screen","Open Source"],w:"bonappetit.com",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant geometric for upscale casual dining and modern brunch concepts.",t:["Display","Elegant","Open Source"],w:"sweetgreen.com",src:"Google Fonts"},
+    {n:"DM Serif Display",p:"Ds",s:"font-family:'Playfair Display',serif;font-weight:700;",d:"Display serif for food media, recipe apps and culinary content platforms.",t:["Serif","Display","Open Source"],w:"epicurious.com",src:"Google Fonts"},
+  ]},
+  "travel": { meta:{label:"Travel / Hospitality",desc:"Evocative, aspirational typography that transports the reader before they even book."},fonts:[
+    {n:"Canela",p:"Cn",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;letter-spacing:-2px;",d:"Editorial serif for luxury travel. Private aviation, boutique hotels and exclusive resorts.",t:["Display Serif","Luxury","Editorial"],w:"aman.com",src:"Commercial Type"},
+    {n:"Tiempos Headline",p:"Th",s:"font-family:'Playfair Display',serif;font-weight:700;",d:"Authoritative travel journalism. Conde Nast Traveller and premium travel media.",t:["Serif","Headline","Variable"],w:"cntraveller.com",src:"Klim Type"},
+    {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Display serif for hotel branding and destination landing pages. Aspirational and warm.",t:["Display Serif","Open Source","Elegant"],w:"marriott.com",src:"Google Fonts"},
+    {n:"GT Walsheim",p:"Gw",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"Friendly grotesque for booking platforms and travel apps. The Airbnb aesthetic.",t:["Grotesque","Friendly","Variable"],w:"airbnb.com",src:"Grilli Type"},
+    {n:"Cormorant Garamond",p:"Co",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Refined elegance for luxury cruise lines, heritage hotels and villa rental brands.",t:["Garamond","Elegant","Free"],w:"belmond.com",src:"Google Fonts"},
+    {n:"Fraunces",p:"Fr",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Nostalgic warmth for adventure travel, road trips and slow travel brands.",t:["Display Serif","Optical","Variable"],w:"lonelyplanet.com",src:"Google Fonts"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Universal for OTA platforms, flight search UIs and booking flow interfaces.",t:["Grotesque","Variable","Open Source"],w:"booking.com",src:"Google Fonts"},
+    {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-0.5px;",d:"Clean Swiss grotesque for airline brands and premium OTA platforms.",t:["Swiss","Trustworthy","Classic"],w:"united.com",src:"Monotype"},
+    {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Classical Garamond for heritage travel guides and old-world hospitality.",t:["Garamond","Humanist","Free"],w:"nationalgeographic.com",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant geometric for boutique travel agencies and destination marketing.",t:["Display","Elegant","Open Source"],w:"visiticeland.com",src:"Google Fonts"},
+    {n:"Hatton",p:"Ha",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1.5px;",d:"Art deco glamour for cruise lines, jazz-age hotels and retro travel branding.",t:["Display Serif","Art Deco","Variable"],w:"cunard.com",src:"Pangram Pangram"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Friendly and readable for family travel platforms and group booking tools.",t:["Rounded","Friendly","Variable"],w:"tripadvisor.com",src:"Google Fonts"},
+    {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Warm serif for travel writing, destination guides and long-form travel editorial.",t:["Text Serif","Calligraphic","Variable"],w:"travelandleisure.com",src:"Google Fonts"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Authority and warmth. Mid-range hotel chains and hospitality management platforms.",t:["Transitional Serif","Open Source","Classic"],w:"hilton.com",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Global-friendly geometric for Asia-Pacific travel apps and OTAs.",t:["Geometric","Global","Open Source"],w:"makemytrip.com",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Clean digital-first for travel tech startups and modern booking experiences.",t:["Geometric","Open Source","UI"],w:"kiwi.com",src:"Google Fonts"},
+    {n:"Montserrat",p:"Mo",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Confident geometric for destination tourism boards and city travel guides.",t:["Geometric","Wide","Open Source"],w:"visitlondon.com",src:"Google Fonts"},
+    {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Bold modern display for surf travel, adventure sports and extreme destinations.",t:["Display","Variable","Wide"],w:"surfline.com",src:"Google Fonts"},
+    {n:"Spectral",p:"Spc",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Screen-first editorial serif for travel magazines and digital publications.",t:["Serif","Screen","Open Source"],w:"condenast.com",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Modern and approachable for budget travel apps and backpacker platforms.",t:["Geometric","Open Source","Readable"],w:"hostelworld.com",src:"Google Fonts"},
+  ]},
+  "sport": { meta:{label:"Sport / Fitness",desc:"High-impact, energetic typography built for performance, intensity and motivation."},fonts:[
+    {n:"Bebas Neue",p:"Bb",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:4px;text-transform:uppercase;",d:"Sport typography gold standard. All-caps condensed impact. Nike, Red Bull, ESPN.",t:["Display","Condensed","Bold"],w:"nike.com",src:"Google Fonts"},
+    {n:"Druk",p:"Dr",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:-0.5px;",d:"Maximum black for sports marketing. NBA, sports leagues and athletic campaigns.",t:["Black","Display","Premium"],w:"nba.com",src:"Commercial Type"},
+    {n:"Barlow Condensed",p:"Bc",s:"font-family:'Inter Tight',sans-serif;font-weight:800;letter-spacing:1px;",d:"Readable condensed grotesque. Scoreboards, leaderboards and live sports graphics.",t:["Condensed","Readable","Variable"],w:"espn.com",src:"Google Fonts"},
+    {n:"Big Shoulders Display",p:"Bs",s:"font-family:'Inter Tight',sans-serif;font-weight:900;",d:"Ultra-condensed grotesque for stadium screens and sport event titles.",t:["Condensed","Display","Variable"],w:"bleacherreport.com",src:"Google Fonts"},
+    {n:"Oswald",p:"Os",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Condensed Gothic for sports scores, athlete stats and tournament brackets.",t:["Condensed","Gothic","Variable"],w:"nfl.com",src:"Google Fonts"},
+    {n:"Anton",p:"An",s:"font-family:'Inter Tight',sans-serif;font-weight:900;letter-spacing:1px;",d:"Impact-condensed display. Social media sports graphics and motivational content.",t:["Impact","Condensed","Free"],w:"youtube.com",src:"Google Fonts"},
+    {n:"Staatliches",p:"St",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:3px;",d:"Ultra-condensed Bauhaus. MMA, combat sports and extreme sports event branding.",t:["Bauhaus","Condensed","Display"],w:"ufc.com",src:"Google Fonts"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Legible UI for sports apps, fitness trackers and health dashboards.",t:["Grotesque","Variable","Open Source"],w:"strava.com",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern and clean for fitness apps, workout planners and wellness platforms.",t:["Geometric","Open Source","UI"],w:"nike.com",src:"Google Fonts"},
+    {n:"Space Grotesk",p:"Sg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-1px;",d:"Technical grotesque for sports analytics, data visualisation and performance platforms.",t:["Tech","Geometric","Open Source"],w:"statsperform.com",src:"Google Fonts"},
+    {n:"Chakra Petch",p:"Cp",s:"font-family:'Space Mono',monospace;font-weight:700;",d:"Techno display for e-sports, gaming-fitness hybrids and high-tech training platforms.",t:["Tech","Thai","Display"],w:"faceit.com",src:"Google Fonts"},
+    {n:"Exo 2",p:"Ex",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Sci-fi geometric for esports-adjacent fitness brands and gaming-fitness hybrids.",t:["Sci-Fi","Variable","Geometric"],w:"peloton.com",src:"Google Fonts"},
+    {n:"Neue Montreal",p:"Nm",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Premium grotesque for high-fashion athletic brands like Lululemon and Arc'teryx.",t:["Grotesque","Creative","Variable"],w:"lululemon.com",src:"Pangram Pangram"},
+    {n:"Rajdhani",p:"Rj",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:1px;",d:"Semi-condensed with global script support. Cricket, kabaddi and South Asian sports.",t:["Condensed","Devanagari","Bold"],w:"ipl.com",src:"Google Fonts"},
+    {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern geometric for D2C athletic brands and premium sports equipment.",t:["Geometric","Free","Variable"],w:"allbirds.com",src:"Fontshare"},
+    {n:"Aktiv Grotesk",p:"Ag",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Enterprise-grade for major sports broadcasters and official league platforms.",t:["Grotesque","Legible","Enterprise"],w:"bbc.co.uk",src:"Dalton Maag"},
+    {n:"Montserrat",p:"Mo",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:0.5px;",d:"Bold geometric for gym brands, personal training services and bootcamp companies.",t:["Geometric","Wide","Open Source"],w:"crossfit.com",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Approachable for youth sports, amateur leagues and community athletic apps.",t:["Rounded","Friendly","Variable"],w:"teamsnap.com",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Warm geometric for youth sports platforms and community league management tools.",t:["Geometric","Global","Open Source"],w:"sportsengine.com",src:"Google Fonts"},
+    {n:"Work Sans",p:"Ws",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Efficient grotesque for sports media dashboards and athlete stats platforms.",t:["Grotesque","Efficient","Open Source"],w:"fivethirtyeight.com",src:"Google Fonts"},
+  ]},
+  "ngo": { meta:{label:"NGO / Non-Profit",desc:"Empathetic, trustworthy typography that inspires action and communicates mission clearly."},fonts:[
+    {n:"Source Sans Pro",p:"Ss",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Adobe humanist. Trusted by many NGOs for clear, accessible, neutral communication.",t:["Humanist","Adobe","Open Source"],w:"wwf.org",src:"Google Fonts"},
+    {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Warm text serif. Long-form NGO reports, donor communications and impact stories.",t:["Text Serif","Calligraphic","Variable"],w:"oxfam.org",src:"Google Fonts"},
+    {n:"Nunito Sans",p:"Ns",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Friendly and approachable. Charities and community organisations need warmth.",t:["Rounded","Friendly","Variable"],w:"unicef.org",src:"Google Fonts"},
+    {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Authority for major NGO campaigns and fundraising drives.",t:["Display Serif","Open Source","Elegant"],w:"greenpeace.org",src:"Google Fonts"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Universal legibility for NGO platforms, volunteer portals and donation UIs.",t:["Grotesque","Variable","Open Source"],w:"charitywater.org",src:"Google Fonts"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Classical authority for established humanitarian organisations and UN agencies.",t:["Transitional Serif","Open Source","Classic"],w:"un.org",src:"Google Fonts"},
+    {n:"Fraunces",p:"Fr",s:"font-family:'Playfair Display',serif;font-weight:700;font-style:italic;",d:"Nostalgic warmth for artisan social enterprises and mission-driven small charities.",t:["Display Serif","Optical","Variable"],w:"kiva.org",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern and clean for digital-first NGOs and social impact startups.",t:["Geometric","Open Source","UI"],w:"givewell.org",src:"Google Fonts"},
+    {n:"Noto Sans",p:"No",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Universal script support for global development NGOs operating across many languages.",t:["Universal","Multi-Script","Open Source"],w:"unhcr.org",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Approachable for volunteer recruitment platforms and grassroots organisations.",t:["Geometric","Open Source","Readable"],w:"idealist.org",src:"Google Fonts"},
+    {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Humanist classical for religious charities, arts nonprofits and cultural organisations.",t:["Garamond","Humanist","Free"],w:"moma.org",src:"Google Fonts"},
+    {n:"Spectral",p:"Spc",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Editorial serif for NGO journalism, impact reports and advocacy publications.",t:["Serif","Screen","Open Source"],w:"theintercept.com",src:"Google Fonts"},
+    {n:"Merriweather",p:"Me",s:"font-family:'Libre Baskerville',serif;",d:"Designed for small screen reading. Donor email newsletters and digital impact reports.",t:["Serif","Screen","Open Source"],w:"savethechildren.org",src:"Google Fonts"},
+    {n:"Newsreader",p:"Nr",s:"font-family:'Libre Baskerville',serif;",d:"Screen-first serif for NGO publications, annual reports and research documents.",t:["News","Readable","Variable"],w:"amnesty.org",src:"Google Fonts"},
+    {n:"Raleway",p:"Ra",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:0.3px;",d:"Elegant for social enterprise branding, benefit corporations and B-Corps.",t:["Display","Elegant","Open Source"],w:"patagonia.com",src:"Google Fonts"},
+    {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Global humanist for international development organisations and global campaigns.",t:["Humanist","Global","Variable"],w:"globalfund.org",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Widely beloved for grassroots organisations in South Asia and Sub-Saharan Africa.",t:["Geometric","Global","Open Source"],w:"akshayapatra.org",src:"Google Fonts"},
+    {n:"Mulish",p:"Mu",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Minimal grotesque for tech-focused social impact organisations.",t:["Geometric","Minimal","Open Source"],w:"catchafire.org",src:"Google Fonts"},
+    {n:"Tiempos Text",p:"Tt",s:"font-family:'Libre Baskerville',serif;",d:"Readable text serif for long-form advocacy content and policy documents.",t:["Serif","Readable","Premium"],w:"hrw.org",src:"Klim Type"},
+    {n:"Atkinson Hyperlegible",p:"Ah",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Maximum accessibility. Disability charities and inclusive design mandates.",t:["Accessible","Legible","Free"],w:"brailleinstitute.org",src:"Google Fonts"},
+  ]},
+  "government": { meta:{label:"Government / Official",desc:"Authoritative, neutral, accessible typography that conveys institutional trust and permanence."},fonts:[
+    {n:"Source Sans Pro",p:"Ss",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Adobe humanist. Used by US government digital services and GOV.UK.",t:["Humanist","Adobe","Open Source"],w:"gov.uk",src:"Google Fonts"},
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"Universal legibility standard. Modern government digital services and citizen portals.",t:["Grotesque","Variable","Open Source"],w:"digital.gov",src:"Google Fonts"},
+    {n:"Noto Sans",p:"No",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Essential for multilingual government platforms serving diverse populations.",t:["Universal","Multi-Script","Open Source"],w:"un.org",src:"Google Fonts"},
+    {n:"Neue Haas Grotesk",p:"Hg",s:"font-family:'Inter Tight',sans-serif;font-weight:400;letter-spacing:-0.5px;",d:"Swiss authority for national governments and official institutions.",t:["Swiss","Trustworthy","Classic"],w:"canada.ca",src:"Monotype"},
+    {n:"Libre Baskerville",p:"Lb",s:"font-family:'Libre Baskerville',serif;",d:"Classical authority for legislative documents, legal codes and parliamentary websites.",t:["Transitional Serif","Open Source","Classic"],w:"congress.gov",src:"Google Fonts"},
+    {n:"Atkinson Hyperlegible",p:"Ah",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"WCAG AA/AAA compliance. Government accessibility mandates require this quality.",t:["Accessible","Legible","Free"],w:"accessibility.gov",src:"Google Fonts"},
+    {n:"Lora",p:"Lo",s:"font-family:'Libre Baskerville',serif;font-style:italic;",d:"Warm text serif for government reports, press releases and policy publications.",t:["Text Serif","Calligraphic","Variable"],w:"europa.eu",src:"Google Fonts"},
+    {n:"Merriweather",p:"Me",s:"font-family:'Libre Baskerville',serif;",d:"Screen-optimised for dense government documents and regulatory text.",t:["Serif","Screen","Open Source"],w:"irs.gov",src:"Google Fonts"},
+    {n:"Spectral",p:"Spc",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Screen-first serif for government publications, white papers and official communications.",t:["Serif","Screen","Open Source"],w:"europarl.europa.eu",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern for digital government initiatives, GovTech startups and civic tech platforms.",t:["Geometric","Open Source","UI"],w:"login.gov",src:"Google Fonts"},
+    {n:"Roboto",p:"Ro",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Android government apps and Google-stack civic platforms.",t:["Grotesque","Android","Open Source"],w:"google.org",src:"Google Fonts"},
+    {n:"EB Garamond",p:"Eg",s:"font-family:'Playfair Display',serif;font-style:italic;",d:"Old-world authority for European governments, monarchy websites and cultural institutions.",t:["Garamond","Humanist","Free"],w:"royalfamily.com",src:"Google Fonts"},
+    {n:"Playfair Display",p:"Pd",s:"font-family:'Playfair Display',serif;font-weight:700;letter-spacing:-1px;",d:"Prestige and authority for state governors, presidents and official ceremony sites.",t:["Display Serif","Open Source","Elegant"],w:"whitehouse.gov",src:"Google Fonts"},
+    {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Global humanist for developing-nation government portals and e-governance platforms.",t:["Humanist","Global","Variable"],w:"india.gov.in",src:"Google Fonts"},
+    {n:"Work Sans",p:"Ws",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Efficient grotesque for dense government dashboards and data portals.",t:["Grotesque","Efficient","Open Source"],w:"data.gov",src:"Google Fonts"},
+    {n:"Manrope",p:"Ma",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Compact for government analytics platforms, citizen dashboards and service portals.",t:["Grotesque","Variable","Compact"],w:"analytics.usa.gov",src:"Google Fonts"},
+    {n:"Newsreader",p:"Nr",s:"font-family:'Libre Baskerville',serif;",d:"Long-form reading for official government communications and legal text.",t:["News","Readable","Variable"],w:"whitehouse.gov",src:"Google Fonts"},
+    {n:"Tiempos Text",p:"Tt",s:"font-family:'Libre Baskerville',serif;",d:"Premium readable serif for official government publications and policy documents.",t:["Serif","Readable","Premium"],w:"parliament.uk",src:"Klim Type"},
+    {n:"Mulish",p:"Mu",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Clean minimal for GovTech platforms and digital-first public service tools.",t:["Geometric","Minimal","Open Source"],w:"usds.gov",src:"Google Fonts"},
+    {n:"Poppins",p:"Po",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Friendly and readable for local government citizen-facing portals in South Asia.",t:["Geometric","Global","Open Source"],w:"mygov.in",src:"Google Fonts"},
+  ]},
+  "startup": { meta:{label:"Startup / Landing Page",desc:"Bold, conversion-optimised typography that communicates speed, confidence and momentum."},fonts:[
+    {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"The startup default. Every YC company uses Inter for good reason — legible, neutral, fast.",t:["Grotesque","Variable","Open Source"],w:"ycombinator.com",src:"Google Fonts"},
+    {n:"Neue Montreal",p:"Nm",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.5px;",d:"The creative startup alternative to Inter. Artisanal precision for design-forward founders.",t:["Grotesque","PP","Variable"],w:"read.cv",src:"Pangram Pangram"},
+    {n:"Clash Display",p:"Cd",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Bold display grotesque that makes startup hero sections impossible to scroll past.",t:["Display","Bold","Free"],w:"vercel.com",src:"Fontshare"},
+    {n:"Satoshi",p:"Sa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Modern geometric widely adopted for its clean confidence in startup brand language.",t:["Geometric","Free","Variable"],w:"linear.app",src:"Fontshare"},
+    {n:"Bricolage Grotesque",p:"Bg",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Expressive variable grotesque. Makes startup landing pages feel alive and distinctive.",t:["Variable","Display","Expressive"],w:"make.com",src:"Google Fonts"},
+    {n:"Syne",p:"Sy",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Wide display grotesque for startups that want to look like design studios.",t:["Display","Variable","Wide"],w:"framer.com",src:"Google Fonts"},
+    {n:"Cabinet Grotesk",p:"Cg",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Ink-trap variable grotesque. Cal.com and developer tools trust this.",t:["Grotesque","Variable","Free"],w:"cal.com",src:"Fontshare"},
+    {n:"Epilogue",p:"Ep",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1px;",d:"Extreme weight variable font. Hero sections that feel instantly premium.",t:["Variable","Grotesque","Dynamic"],w:"resend.com",src:"Google Fonts"},
+    {n:"DM Sans",p:"Dm",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Open and modern. Widely used by Series A startups for its clean, trustworthy feel.",t:["Geometric","Open Source","UI"],w:"craft.do",src:"Google Fonts"},
+    {n:"Space Grotesk",p:"Sg",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-1px;",d:"Tech-coded with subtle quirks. Web3, AI and developer startups love the personality.",t:["Tech","Geometric","Open Source"],w:"railway.app",src:"Google Fonts"},
+    {n:"Outfit",p:"Ou",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"High x-height and approachable. Consumer startups and B2C landing pages.",t:["Geometric","Open Source","Readable"],w:"primer.io",src:"Google Fonts"},
+    {n:"General Sans",p:"Gs",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-0.5px;",d:"Swiss-inspired optical sizing. Scales from hero to fine print flawlessly.",t:["Swiss","Variable","Free"],w:"supabase.com",src:"Fontshare"},
+    {n:"Urbanist",p:"Ur",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.5px;",d:"Elegant humanist for D2C startups and marketplace businesses.",t:["Humanist","Geometric","Variable"],w:"attio.com",src:"Google Fonts"},
+    {n:"Manrope",p:"Ma",s:"font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-0.3px;",d:"Compact and efficient. Perfect for SaaS pricing pages and feature comparison tables.",t:["Grotesque","Variable","Compact"],w:"clerk.dev",src:"Google Fonts"},
+    {n:"Instrument Sans",p:"Is",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-0.3px;",d:"Clean and modern. The emerging alternative to Inter for 2024-2025 startup cohorts.",t:["Geometric","Variable","Clean"],w:"linear.app",src:"Google Fonts"},
+    {n:"Plus Jakarta Sans",p:"Pj",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Global humanist. International startup teams love the warmth and script support.",t:["Humanist","Global","Variable"],w:"loop.so",src:"Google Fonts"},
+    {n:"Chillax",p:"Ch",s:"font-family:'Inter Tight',sans-serif;font-weight:600;",d:"Rounded geometric. Consumer startups targeting Gen Z and Millennial audiences.",t:["Rounded","Geometric","Free"],w:"superlist.com",src:"Fontshare"},
+    {n:"Darker Grotesque",p:"Dk",s:"font-family:'Inter Tight',sans-serif;font-weight:700;letter-spacing:-1.5px;",d:"Condensed with bold personality. Hero sections for startups that demand attention.",t:["Condensed","Display","Bold"],w:"firefly.ai",src:"Google Fonts"},
+    {n:"Geist",p:"Ge",s:"font-family:'Inter Tight',sans-serif;font-weight:600;letter-spacing:-2px;",d:"Vercel typeface. Instant developer credibility for dev tool and infrastructure startups.",t:["Geometric","Variable","Developer"],w:"vercel.com",src:"Vercel"},
+    {n:"Work Sans",p:"Ws",s:"font-family:'Inter Tight',sans-serif;font-weight:500;",d:"Slightly condensed for maximum information density in feature-rich landing pages.",t:["Grotesque","Efficient","Open Source"],w:"webflow.com",src:"Google Fonts"},
+  ]}
+});
+
 // Fallback for uncovered categories
 const fallbackFonts = [
   {n:"Inter",p:"Aa",s:"font-family:'Inter Tight',sans-serif;font-weight:700;",d:"The foundational UI typeface. Universally excellent for digital interfaces.",t:["Grotesque","Open Source","Universal"],w:"google.com",src:"Google Fonts"},
@@ -3167,18 +3501,15 @@ const fallbackFonts = [
 ];
 
 let currFonts = [], shown = 0;
-const BATCH = 12;
 
-// showResults is defined further below with URL state support
-
+// Render ALL fonts at once — no artificial limit
 function renderBatch() {
   const grid = document.getElementById('rGrid');
-  const end = Math.min(shown + BATCH, currFonts.length);
-  for (let i = shown; i < end; i++) {
+  for (let i = shown; i < currFonts.length; i++) {
     const f = currFonts[i];
     const el = document.createElement('div');
     el.className = 'card card-in';
-    el.style.animationDelay = `${(i - shown) * 0.045}s`;
+    el.style.animationDelay = `${Math.min(i * 0.04, 0.8)}s`;
     el.style.cursor = 'pointer';
     el.innerHTML = `
       <div class="card-num">${String(i+1).padStart(2,'0')}</div>
@@ -3196,8 +3527,8 @@ function renderBatch() {
     el.addEventListener('click', () => openDetail(currFonts[i]));
     grid.appendChild(el);
   }
-  shown = end;
-  document.getElementById('loadMoreWrap').style.display = shown < currFonts.length ? 'flex' : 'none';
+  shown = currFonts.length;
+  document.getElementById('loadMoreWrap').style.display = 'none';
 }
 
 function loadMore() { renderBatch(); }
